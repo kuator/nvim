@@ -4,7 +4,8 @@ call minpac#init()
   call minpac#add('tpope/vim-repeat')
   call minpac#add('pangloss/vim-javascript')
   call minpac#add('MaxMEllon/vim-jsx-pretty')
-  call minpac#add('machakann/vim-sandwich')
+  " call minpac#add('machakann/vim-sandwich')
+  call minpac#add('tpope/vim-surround')
   call minpac#add('hail2u/vim-css3-syntax')
   call minpac#add('othree/html5.vim')
   call minpac#add('mattn/emmet-vim')
@@ -22,9 +23,18 @@ call minpac#init()
   call minpac#add('vim-scripts/FavEx')
   call minpac#add('romainl/vim-tinyMRU')
   call minpac#add('osyo-manga/vim-over')
+  call minpac#add('ludovicchabant/vim-gutentags')
+  call minpac#add('kana/vim-textobj-function')
+  " call minpac#add('haya14busa/vim-textobj-function-syntax')
+  call minpac#add('whatyouhide/vim-textobj-xmlattr')
+  call minpac#add('kana/vim-textobj-indent')
+  call minpac#add('thinca/vim-textobj-function-javascript')
+  call minpac#add('PsychoLlama/z.vim')
+  call minpac#add('AndrewRadev/dsf.vim')
+  " call minpac#add('takac/vim-hardtime')
 
   if has('nvim')
-    call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
+    call minpac#add('norcalli/nvim-colorizer.lua')
   endif
 
   " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
@@ -37,14 +47,15 @@ syntax enable
 runtime macros/matchit.vim
 set nocompatible
 set clipboard=unnamedplus
+set termguicolors
 " map s <nop>
 
 " Tabulation and spaces
-set termguicolors
 set expandtab                                                               " Show spaces instead of tabs
 set shiftwidth=2                                                            " columns per <<
 set softtabstop=-1                                                          " spaces per tab
 set autoindent
+
 set number
 set relativenumber
 set incsearch
@@ -60,9 +71,9 @@ set splitbelow
 set splitright
 set laststatus=2
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+set ttimeout ttimeoutlen=0
 
 let mapleader="\<Space>"
-set ttimeoutlen=50
 set signcolumn=yes
 set hidden
 set cmdheight=2
@@ -91,9 +102,8 @@ let $AFTER_PLUGINS_SETTINGS=expand(fnamemodify(resolve(expand('<sfile>:p')), ':p
 let $VIM_HOME=expand(fnamemodify(resolve(expand('<sfile>:p')), ':p:h'))
 
 set path-=/usr/include
-set path+=src/app/**,$PLUGINS_SETTINGS,$AFTER_PLUGINS_SETTINGS
+set path+=src/app/**,$PLUGINS_SETTINGS,$AFTER_PLUGINS_SETTINGS,Assets/Scripts/**
 
-" echo expand(&runtimepath)
 
 if has('nvim')
   "python providers for neovim
@@ -112,7 +122,13 @@ endif
 
 " let &runtimepath = $VIM_HOME.'/plugins.settings.d'.','.&runtimepath.','
 
+"echo expand(&runtimepath)
 for f in split(glob(expand($VIM_HOME).'/plugins.settings.d/*.vim'), '\n')
   exe 'source' f
 endfor
+
+"https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modeslet &t_SI = "\<Esc>[6 q"
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 
