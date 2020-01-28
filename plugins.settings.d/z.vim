@@ -1,1 +1,1 @@
-let g:zcd#path = expand('/opt/z/z.sh')
+let g:zcd#path = expand('/opt/z.lua/z.lua')

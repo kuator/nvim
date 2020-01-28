@@ -25,13 +25,11 @@ call minpac#init()
   call minpac#add('osyo-manga/vim-over')
   call minpac#add('ludovicchabant/vim-gutentags')
   call minpac#add('kana/vim-textobj-function')
-  " call minpac#add('haya14busa/vim-textobj-function-syntax')
   call minpac#add('whatyouhide/vim-textobj-xmlattr')
   call minpac#add('kana/vim-textobj-indent')
   call minpac#add('thinca/vim-textobj-function-javascript')
-  call minpac#add('PsychoLlama/z.vim')
+  call minpac#add('kuator/z.vim')
   call minpac#add('AndrewRadev/dsf.vim')
-  " call minpac#add('takac/vim-hardtime')
 
   if has('nvim')
     call minpac#add('norcalli/nvim-colorizer.lua')
@@ -127,8 +125,9 @@ for f in split(glob(expand($VIM_HOME).'/plugins.settings.d/*.vim'), '\n')
   exe 'source' f
 endfor
 
-"https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modeslet &t_SI = "\<Esc>[6 q"
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
-
+if !has('nvim')
+  "https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modeslet &t_SI = "\<Esc>[6 q"
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
+endif
