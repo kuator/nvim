@@ -273,6 +273,14 @@ $VIM_HOME	vimrc	/^let $VIM_HOME=expand(fnamemodify(resolve(expand('<sfile>:p')),
 <Plug>CommentaryLine	pack/minpac/start/vim-commentary/plugin/commentary.vim	/^nnoremap <expr>   <Plug>CommentaryLine <SID>go() . '_'$/;"	m
 <Plug>CommentaryUndo	pack/minpac/start/vim-commentary/plugin/commentary.vim	/^nmap <silent> <Plug>CommentaryUndo :echoerr "Change your <Plug>CommentaryUndo map to <Plug>Comme/;"	m
 <Plug>Csurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^nnoremap <silent> <Plug>Csurround  :<C-U>call <SID>changesurround()<CR>$/;"	m
+<Plug>DsfChange	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^nnoremap <silent> <Plug>DsfChange :call <SID>ChangeSurroundingFunctionCall()<cr>$/;"	m
+<Plug>DsfDelete	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^nnoremap <silent> <Plug>DsfDelete :call <SID>DeleteSurroundingFunctionCall()<cr>$/;"	m
+<Plug>DsfNextChange	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^nnoremap <silent> <Plug>DsfNextChange :call <SID>ChangeNextSurroundingFunctionCall()<cr>$/;"	m
+<Plug>DsfNextDelete	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^nnoremap <silent> <Plug>DsfNextDelete :call <SID>DeleteNextSurroundingFunctionCall()<cr>$/;"	m
+<Plug>DsfTextObjectA	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^onoremap <Plug>DsfTextObjectA :<c-u>call <SID>FunctionCallTextObject('a')<cr>$/;"	m
+<Plug>DsfTextObjectA	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^xnoremap <Plug>DsfTextObjectA :<c-u>call <SID>FunctionCallTextObject('a')<cr>$/;"	m
+<Plug>DsfTextObjectI	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^onoremap <Plug>DsfTextObjectI :<c-u>call <SID>FunctionCallTextObject('i')<cr>$/;"	m
+<Plug>DsfTextObjectI	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^xnoremap <Plug>DsfTextObjectI :<c-u>call <SID>FunctionCallTextObject('i')<cr>$/;"	m
 <Plug>Dsurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround(<SID>inputtarget())<CR>$/;"	m
 <Plug>ISurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^inoremap <silent> <Plug>ISurround  <C-R>=<SID>insert(1)<CR>$/;"	m
 <Plug>Isurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^inoremap <silent> <Plug>Isurround  <C-R>=<SID>insert()<CR>$/;"	m
@@ -282,6 +290,7 @@ $VIM_HOME	vimrc	/^let $VIM_HOME=expand(fnamemodify(resolve(expand('<sfile>:p')),
 <Plug>NefertitiSearchBrighten	pack/minpac/start/vim-colorschemes/colors/nefertiti.vim	/^    nnoremap <silent> <Plug>NefertitiSearchBrighten     :NefertitiSearchBrighten<CR>$/;"	m
 <Plug>NefertitiSearchDarken	pack/minpac/start/vim-colorschemes/colors/nefertiti.vim	/^    nnoremap <silent> <Plug>NefertitiSearchDarken       :NefertitiSearchDarken<CR>$/;"	m
 <Plug>SurroundRepeat	pack/minpac/start/vim-surround/plugin/surround.vim	/^nnoremap <silent> <Plug>SurroundRepeat .$/;"	m
+<Plug>TagalongReapply	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^nnoremap <silent> <Plug>TagalongReapply :call tagalong#Reapply()<cr>$/;"	m
 <Plug>VSurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^vnoremap <silent> <Plug>VSurround  :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 1 /;"	m
 <Plug>VgSurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^vnoremap <silent> <Plug>VgSurround :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 0 /;"	m
 <Plug>YSsurround	pack/minpac/start/vim-surround/plugin/surround.vim	/^nnoremap <expr>   <Plug>YSsurround <SID>opfunc2('setup').'_'$/;"	m
@@ -324,8 +333,10 @@ $VIM_HOME	vimrc	/^let $VIM_HOME=expand(fnamemodify(resolve(expand('<sfile>:p')),
 <leader>fad	after/plugin/mappings.vim	/^nnoremap <leader>fad :FDirectory<cr>$/;"	m
 <leader>faf	after/plugin/mappings.vim	/^nnoremap <leader>faf :FFile<cr>$/;"	m
 <leader>ff	after/plugin/mappings.vim	/^nnoremap <leader>ff :find *$/;"	m
-<leader>of	after/plugin/mappings.vim	/^nnoremap <leader>of :ME <C-z>$/;"	m
+<leader>fo	after/plugin/mappings.vim	/^nnoremap <leader>fo :ME <C-z>$/;"	m
+<leader>gr	after/plugin/mappings.vim	/^nnoremap <leader>gr :silent lgrep<Space>$/;"	m
 <leader>sc	pack/minpac/start/vim-colorschemes/colors/sean.vim	/^nmap <silent> <leader>sc :call ToggleSemicolonHighlighting()<cr>$/;"	m
+<leader>zd	after/plugin/mappings.vim	/^nnoremap <leader>zd :Z $/;"	m
 <space>fa	plugins.settings.d/veonim.vim	/^  nno <silent> <space>fa :Veonim grep<cr>$/;"	m
 <space>fb	plugins.settings.d/veonim.vim	/^  nno <silent> <space>fb :Veonim buffer-search<cr>$/;"	m
 <space>ff	plugins.settings.d/veonim.vim	/^  nno <silent> <space>ff :Veonim grep-resume<cr>$/;"	m
@@ -359,6 +370,7 @@ AddedSnippetsSource	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/source
 Advanced sample	pack/minpac/opt/minpac/README.md	/^#### Advanced sample$/;"	t
 AfterTheTest	pack/minpac/opt/minpac/test/runtest.vim	/^func AfterTheTest()$/;"	f
 Aliases for snippets	pack/minpac/start/ultisnips/doc/examples/snippets-aliasing/README.md	/^# Aliases for snippets$/;"	c
+Alternatives	pack/minpac/start/tagalong.vim/README.md	/^## Alternatives$/;"	s
 An Argument	pack/minpac/start/targets.vim/README.md	/^#### An Argument$/;"	t
 Anon_NoTrigger_AfterSpace	pack/minpac/start/ultisnips/test/test_AnonymousExpansion.py	/^class Anon_NoTrigger_AfterSpace(_AnonBase):$/;"	c
 Anon_NoTrigger_BeginningOfLine	pack/minpac/start/ultisnips/test/test_AnonymousExpansion.py	/^class Anon_NoTrigger_BeginningOfLine(_AnonBase):$/;"	c
@@ -584,6 +596,8 @@ Around Pair	pack/minpac/start/targets.vim/README.md	/^#### Around Pair$/;"	t
 Around Quote	pack/minpac/start/targets.vim/README.md	/^#### Around Quote$/;"	t
 Around Separator	pack/minpac/start/targets.vim/README.md	/^#### Around Separator$/;"	t
 Array	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^		Array.prototype.push.apply( this, elems );$/;"	c
+Attribution	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^## Attribution$/;"	s
+Attribution	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^## Attribution$/;"	s
 Author	pack/minpac/start/emmet-vim/docs/index.html	/^				<h2 class="maintitle">Author<\/h2>$/;"	i
 Auto indent	pack/minpac/start/vim-jsx-pretty/README.md	/^### Auto indent$/;"	S
 Autocommands	pack/minpac/start/ultisnips/test/test_Autocommands.py	/^class Autocommands(_VimTest):$/;"	c
@@ -600,7 +614,13 @@ BUILD_INVERTED_INDEX	pack/minpac/start/vim-gutentags/plat/win32/update_scopedb.c
 BUILD_INVERTED_INDEX	pack/minpac/start/vim-gutentags/plat/win32/update_scopedb.cmd	/^set BUILD_INVERTED_INDEX=0$/;"	v
 Backspace_TabStop_NotZero	pack/minpac/start/ultisnips/test/test_Editing.py	/^class Backspace_TabStop_NotZero(_VimTest):$/;"	c
 Backspace_TabStop_Zero	pack/minpac/start/ultisnips/test/test_Editing.py	/^class Backspace_TabStop_Zero(_VimTest):$/;"	c
+Bar	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^  Bar(void)$/;"	f	typeref:typename:int
+Bar	pack/minpac/start/vim-textobj-function/t/fixtures/sample.vim	/^  function Bar()$/;"	f
+Bar	pack/minpac/start/vim-textobj-function/t/fixtures/sample.vim	/^  let Bar = 0$/;"	v
+Basic Usage	pack/minpac/start/tagalong.vim/README.md	/^## Basic Usage$/;"	s
 Basic sample	pack/minpac/opt/minpac/README.md	/^#### Basic sample$/;"	t
+Baz	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^Baz(void)$/;"	f	typeref:typename:int
+Baz	pack/minpac/start/vim-textobj-function/t/fixtures/sample.vim	/^function! Baz()$/;"	f
 Before you add a feature	pack/minpac/start/ultisnips/CONTRIBUTING.md	/^## Before you add a feature$/;"	s
 Bidirectional motions	pack/minpac/start/vim-easymotion/README.md	/^### Bidirectional motions$/;"	S
 Black	pack/minpac/start/vim-colorschemes/colors/mango.vim	/^    let Black = "guifg=#444444 guibg=NONE gui=NONE ctermfg=238 ctermbg=NONE cterm=NONE"$/;"	v
@@ -688,6 +708,7 @@ Concealing Characters	pack/minpac/start/vim-javascript/README.md	/^## Concealing
 Concept	pack/minpac/opt/minpac/README.md	/^Concept$/;"	s
 Concrete	pack/minpac/start/vim-colorschemes/colors/primaries.vim	/^let Concrete  = "guifg=#888888 guibg=NONE gui=none ctermfg=246 ctermbg=none cterm=none"$/;"	v
 Configuration	pack/minpac/start/vim-jsx-pretty/README.md	/^## Configuration$/;"	s
+Configuration	pack/minpac/start/z.vim/README.md	/^## Configuration$/;"	s
 Configuration Variables	pack/minpac/start/vim-javascript/README.md	/^## Configuration Variables$/;"	s
 Configure	pack/minpac/start/html5.vim/README.md	/^## Configure$/;"	s
 Contents	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^<h2>Contents<\/h2>$/;"	i
@@ -704,13 +725,20 @@ ContextSnippets_ReportErrorOnIndexOutOfRange	pack/minpac/start/ultisnips/test/te
 ContextSnippets_SimpleSnippet	pack/minpac/start/ultisnips/test/test_ContextSnippets.py	/^class ContextSnippets_SimpleSnippet(_VimTest):$/;"	c
 ContextSnippets_SnippetPriority	pack/minpac/start/ultisnips/test/test_ContextSnippets.py	/^class ContextSnippets_SnippetPriority(_VimTest):$/;"	c
 ContextSnippets_UseContext	pack/minpac/start/ultisnips/test/test_ContextSnippets.py	/^class ContextSnippets_UseContext(_VimTest):$/;"	c
+Contributing	pack/minpac/start/dsf.vim/CONTRIBUTING.md	/^# Contributing$/;"	c
+Contributing	pack/minpac/start/dsf.vim/README.md	/^## Contributing$/;"	s
+Contributing	pack/minpac/start/tagalong.vim/CONTRIBUTING.md	/^# Contributing$/;"	c
+Contributing	pack/minpac/start/tagalong.vim/README.md	/^## Contributing$/;"	s
 Contributing	pack/minpac/start/vim-gutentags/CONTRIBUTING.md	/^# Contributing$/;"	c
 Contributing	pack/minpac/start/vim-javascript/README.md	/^## Contributing$/;"	s
 Contributing	pack/minpac/start/vim-repeat/README.markdown	/^## Contributing$/;"	s
 Contributing	pack/minpac/start/vim-rsi/README.markdown	/^## Contributing$/;"	s
 Contributing	pack/minpac/start/vim-surround/README.markdown	/^## Contributing$/;"	s
+Contributing	pack/minpac/start/vim-textobj-xmlattr/README.md	/^## Contributing$/;"	s
 Contributing	pack/minpac/start/vim-unimpaired/README.markdown	/^## Contributing$/;"	s
 Contributing to UltiSnips	pack/minpac/start/ultisnips/CONTRIBUTING.md	/^# Contributing to UltiSnips$/;"	c
+Contributor Covenant Code of Conduct	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^# Contributor Covenant Code of Conduct$/;"	c
+Contributor Covenant Code of Conduct	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^# Contributor Covenant Code of Conduct$/;"	c
 Credit	pack/minpac/opt/minpac/README.md	/^Credit$/;"	s
 CursorColor	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let CursorColor   = '#FF8939'$/;"	v
 CursorLColor	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let CursorLColor  = '#202020'$/;"	v
@@ -754,6 +782,7 @@ DeusHlsShowCursor	pack/minpac/start/vim-colorschemes/colors/deus.vim	/^function!
 DoNotCrashOnUndoAndJumpInNestedSnippet	pack/minpac/start/ultisnips/test/test_Editing.py	/^class DoNotCrashOnUndoAndJumpInNestedSnippet(_VimTest):$/;"	c
 DoNotExpandAfterSpace_ExpectCorrectResult	pack/minpac/start/ultisnips/test/test_Expand.py	/^class DoNotExpandAfterSpace_ExpectCorrectResult(_SimpleExpands):$/;"	c
 DoNotTrimSpacesAtEndOfLinesByDefault	pack/minpac/start/ultisnips/test/test_Chars.py	/^class DoNotTrimSpacesAtEndOfLinesByDefault(_VimTest):$/;"	c
+Documentation	pack/minpac/start/z.vim/README.md	/^## Documentation$/;"	s
 Documenting	pack/minpac/start/ultisnips/CONTRIBUTING.md	/^## Documenting$/;"	s
 DoneParseArgs	pack/minpac/start/vim-gutentags/plat/win32/update_scopedb.cmd	/^:DoneParseArgs$/;"	l
 DoneParseArgs	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^:DoneParseArgs$/;"	l
@@ -765,6 +794,7 @@ EA	pack/minpac/start/ultisnips/test/constant.py	/^EA = "#"  # Expand anonymous$/
 EMCommandLineMap	pack/minpac/start/vim-easymotion/plugin/EasyMotion.vim	/^\\   EMCommandLineMap$/;"	c
 EMCommandLineNoreMap	pack/minpac/start/vim-easymotion/plugin/EasyMotion.vim	/^\\   EMCommandLineNoreMap$/;"	c
 EMCommandLineUnMap	pack/minpac/start/vim-easymotion/plugin/EasyMotion.vim	/^\\   EMCommandLineUnMap$/;"	c
+ERB	pack/minpac/start/tagalong.vim/spec/plugin/filetype_support_spec.rb	/^  describe "ERB" do$/;"	d
 ESC	pack/minpac/start/ultisnips/test/constant.py	/^ESC = "\\x1b"$/;"	v
 EX	pack/minpac/start/ultisnips/test/constant.py	/^EX = "\\t"  # EXPAND$/;"	v
 EarlyExit	pack/minpac/opt/minpac/test/runtest.vim	/^func EarlyExit(test)$/;"	f
@@ -840,6 +870,8 @@ Emmet	pack/minpac/start/emmet-vim/plugin/emmet.vim	/^  command! -nargs=1 Emmet c
 EmmetInstall	pack/minpac/start/emmet-vim/plugin/emmet.vim	/^command! -nargs=0 -bar EmmetInstall call <SID>install_plugin(get(g:, 'user_emmet_mode', 'a'), 1)$/;"	c
 EmmetUnitTest	pack/minpac/start/emmet-vim/unittest.vim	/^command! -bang -nargs=* -complete=customlist,<SID>emmet_unittest_complete EmmetUnitTest call s:d/;"	c
 EndOfTextToken	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/parsing/lexer.py	/^class EndOfTextToken(Token):$/;"	c
+Enforcement	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^## Enforcement$/;"	s
+Enforcement	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^## Enforcement$/;"	s
 EscapeCharToken	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/parsing/lexer.py	/^class EscapeCharToken(Token):$/;"	c
 EscapedChar	pack/minpac/start/ultisnips/pythonx/UltiSnips/text_objects/escaped_char.py	/^class EscapedChar(NoneditableTextObject):$/;"	c
 Example configuration	pack/minpac/start/vim-easymotion/README.md	/^#### Example configuration$/;"	t
@@ -877,6 +909,7 @@ FSplit	pack/minpac/start/FavEx/plugin/favex.vim	/^  com FSplit call s:FavExplore
 Feature	pack/minpac/start/html5.vim/README.md	/^## Feature$/;"	s
 Features	pack/minpac/start/vim-jsx-pretty/README.md	/^## Features$/;"	s
 Features	pack/minpac/start/vim-rsi/README.markdown	/^## Features$/;"	s
+Features and Limitations	pack/minpac/start/tagalong.vim/README.md	/^## Features and Limitations$/;"	s
 Fields	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^    <h2 class="section-header "><a name="Fields"><\/a>Fields<\/h2>$/;"	a
 Fields	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^    <h2 class="section-header "><a name="Fields"><\/a>Fields<\/h2>$/;"	i
 Fields	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^<h2><a href="#Fields">Fields<\/a><\/h2>$/;"	i
@@ -891,6 +924,9 @@ FoldLineBG	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let FoldLine
 FoldOverwrite_Simple_ECR	pack/minpac/start/ultisnips/test/test_Folding.py	/^class FoldOverwrite_Simple_ECR(_VimTest):$/;"	c
 Fold_DeleteMiddleLine_ECR	pack/minpac/start/ultisnips/test/test_Folding.py	/^class Fold_DeleteMiddleLine_ECR(_VimTest):$/;"	c
 FoldingEnabled_SnippetWithFold_ExpectNoFolding	pack/minpac/start/ultisnips/test/test_Folding.py	/^class FoldingEnabled_SnippetWithFold_ExpectNoFolding(_VimTest):$/;"	c
+Foo	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^Foo(void)$/;"	f	typeref:typename:int
+Foo	pack/minpac/start/vim-textobj-function/t/fixtures/sample.vim	/^function Foo()$/;"	f
+Foo	pack/minpac/start/vim-textobj-function/t/fixtures/sample.vim	/^let Foo = 0$/;"	v
 For users of the forked version	pack/minpac/start/vim-easymotion/README.md	/^### For users of the forked version$/;"	S
 FormatRGB	pack/minpac/start/vim-colorschemes/colors/spectro.vim	/^fun! FormatRGB(rgb)$/;"	f
 Functions	pack/minpac/opt/minpac/README.md	/^### Functions$/;"	S
@@ -919,6 +955,7 @@ GutentagsUpdate	pack/minpac/start/vim-gutentags/autoload/gutentags.vim	/^    com
 H	pack/minpac/start/vim-colorschemes/colors/saturn.vim	/^fu! <SID>H(group, fg, bg, attr)$/;"	f
 HI	pack/minpac/start/vim-colorschemes/colors/jellyx.vim	/^command! -nargs=+ HI call s:HI(<f-args>)$/;"	c
 HL	pack/minpac/start/vim-colorschemes/colors/enigma.vim	/^fun <sid>HL(group, ctermfg, ctermbg, attr)$/;"	f
+HTML	pack/minpac/start/tagalong.vim/spec/plugin/filetype_support_spec.rb	/^  describe "HTML" do$/;"	d
 Hi	pack/minpac/start/vim-colorschemes/colors/cyberpunk.vim	/^function! Hi(name, guifg, guibg)$/;"	f
 Hi	pack/minpac/start/vim-colorschemes/colors/neuromancer.vim	/^function! Hi(name, guifg, guibg, gui)$/;"	f
 HiLink	pack/minpac/start/vim-javascript/extras/flow.vim	/^    command -nargs=+ HiLink hi def link <args>$/;"	c
@@ -988,15 +1025,19 @@ Installation	pack/minpac/start/vim-jsx-pretty/README.md	/^## Installation$/;"	s
 Installation	pack/minpac/start/vim-repeat/README.markdown	/^## Installation$/;"	s
 Installation	pack/minpac/start/vim-rsi/README.markdown	/^## Installation$/;"	s
 Installation	pack/minpac/start/vim-surround/README.markdown	/^## Installation$/;"	s
+Installation	pack/minpac/start/vim-textobj-xmlattr/README.md	/^## Installation$/;"	s
 Installation	pack/minpac/start/vim-unimpaired/README.markdown	/^## Installation$/;"	s
+Installation	pack/minpac/start/z.vim/README.md	/^## Installation$/;"	s
 Installation and Usage	pack/minpac/start/nvim-colorizer.lua/README.md	/^## Installation and Usage$/;"	s
 Integration with incsearch.vim	pack/minpac/start/vim-easymotion/README.md	/^#### Integration with incsearch.vim$/;"	t
 Internals	pack/minpac/start/targets.vim/plugins.md	/^## Internals$/;"	s
+Internals and Advanced Usage	pack/minpac/start/tagalong.vim/README.md	/^## Internals and Advanced Usage$/;"	s
 Introduction	pack/minpac/start/targets.vim/README.md	/^## Introduction$/;"	s
 Introduction	pack/minpac/start/vim-easymotion/README.md	/^Introduction$/;"	c
 Issues	pack/minpac/start/targets.vim/README.md	/^## Issues$/;"	s
 JB	pack/minpac/start/ultisnips/test/constant.py	/^JB = "+"  # Jump backwards$/;"	v
 JF	pack/minpac/start/ultisnips/test/constant.py	/^JF = "?"  # Jump forwards$/;"	v
+JSX	pack/minpac/start/tagalong.vim/spec/plugin/filetype_support_spec.rb	/^  describe "JSX" do$/;"	d
 Jump to next/previous match (even on next/previous page)	pack/minpac/start/vim-easymotion/README.md	/^#### Jump to next\/previous match (even on next\/previous page)$/;"	t
 JumpDirection	pack/minpac/start/ultisnips/pythonx/UltiSnips/position.py	/^class JumpDirection(Enum):$/;"	c
 JumpForward_DefSnippet	pack/minpac/start/ultisnips/test/test_Editing.py	/^class JumpForward_DefSnippet(_VimTest):$/;"	c
@@ -1021,6 +1062,7 @@ License	pack/minpac/start/vim-over/README.md	/^## License$/;"	s
 License	pack/minpac/start/vim-repeat/README.markdown	/^## License$/;"	s
 License	pack/minpac/start/vim-rsi/README.markdown	/^## License$/;"	s
 License	pack/minpac/start/vim-surround/README.markdown	/^## License$/;"	s
+License	pack/minpac/start/vim-textobj-xmlattr/README.md	/^## License$/;"	s
 License	pack/minpac/start/vim-unimpaired/README.markdown	/^## License$/;"	s
 LightBlue	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let LightBlue     = '#00AFDA'$/;"	v
 LightCyan	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let LightCyan     = '#F79321'$/;"	v
@@ -1205,6 +1247,12 @@ Orange	pack/minpac/start/vim-colorschemes/colors/mango.vim	/^    let Orange = "g
 Orange	pack/minpac/start/vim-colorschemes/colors/mango.vim	/^    let Orange = "guifg=#ffaf00 guibg=NONE gui=NONE ctermfg=214 ctermbg=NONE cterm=NONE"$/;"	v
 Orange	pack/minpac/start/vim-colorschemes/colors/primaries.vim	/^let Orange	  = "guifg=#ff9800 guibg=NONE gui=none ctermfg=203 ctermbg=none cterm=none"$/;"	v
 OtherFont	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let OtherFont     = '-*-neep-medium-*-*-*-10-*-*-*-*-*-*-*'$/;"	v
+Our Pledge	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^## Our Pledge$/;"	s
+Our Pledge	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^## Our Pledge$/;"	s
+Our Responsibilities	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^## Our Responsibilities$/;"	s
+Our Responsibilities	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^## Our Responsibilities$/;"	s
+Our Standards	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^## Our Standards$/;"	s
+Our Standards	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^## Our Standards$/;"	s
 OverCommandLine	pack/minpac/start/vim-over/plugin/over.vim	/^\\	OverCommandLine$/;"	c
 OverCommandLineMap	pack/minpac/start/vim-over/plugin/over.vim	/^\\	OverCommandLineMap$/;"	c
 OverCommandLineNoremap	pack/minpac/start/vim-over/plugin/over.vim	/^\\	OverCommandLineNoremap$/;"	c
@@ -1214,6 +1262,7 @@ Overview	pack/minpac/start/targets.vim/README.md	/^## Overview$/;"	s
 Overwin motions	pack/minpac/start/vim-easymotion/README.md	/^### Overwin motions$/;"	S
 PAUSE_BEFORE_EXIT	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^    set PAUSE_BEFORE_EXIT=1$/;"	v
 PAUSE_BEFORE_EXIT	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^set PAUSE_BEFORE_EXIT=0$/;"	v
+PHP	pack/minpac/start/tagalong.vim/spec/plugin/filetype_support_spec.rb	/^  describe "PHP" do$/;"	d
 POST_PROCESS_CMD	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^    set POST_PROCESS_CMD=%~2$/;"	v
 POST_PROCESS_CMD	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^set POST_PROCESS_CMD=$/;"	v
 PROJECT_ROOT	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^    set PROJECT_ROOT=%~2$/;"	v
@@ -1263,6 +1312,7 @@ ParseSnippets_PrintPythonStacktrace	pack/minpac/start/ultisnips/test/test_ParseS
 ParseSnippets_PrintPythonStacktraceMultiline	pack/minpac/start/ultisnips/test/test_ParseSnippets.py	/^class ParseSnippets_PrintPythonStacktraceMultiline(_VimTest):$/;"	c
 ParseSnippets_SimpleSnippet	pack/minpac/start/ultisnips/test/test_ParseSnippets.py	/^class ParseSnippets_SimpleSnippet(_VimTest):$/;"	c
 ParseSnippets_UnknownDirective	pack/minpac/start/ultisnips/test/test_ParseSnippets.py	/^class ParseSnippets_UnknownDirective(_VimTest):$/;"	c
+PasteSampleCode	pack/minpac/start/vim-textobj-function/t/helpers/setup.vim	/^function! PasteSampleCode(filetype)$/;"	f
 Pathogen (https://github.com/tpope/vim-pathogen)	pack/minpac/start/vim-easymotion/README.md	/^### Pathogen (https:\/\/github.com\/tpope\/vim-pathogen)$/;"	S
 Peach	pack/minpac/start/vim-colorschemes/colors/mango.vim	/^    let Peach = "guifg=#ff875f guibg=NONE gui=NONE ctermfg=209 ctermbg=NONE cterm=NONE"$/;"	v
 Peach	pack/minpac/start/vim-colorschemes/colors/mango.vim	/^    let Peach = "guifg=#ffd787 guibg=NONE gui=NONE ctermfg=222 ctermbg=NONE cterm=NONE"$/;"	v
@@ -1296,6 +1346,7 @@ ProperIndenting_SimpleCase_ECR	pack/minpac/start/ultisnips/test/test_Format.py	/
 ProperIndenting_SingleLineNoReindenting_ECR	pack/minpac/start/ultisnips/test/test_Format.py	/^class ProperIndenting_SingleLineNoReindenting_ECR(_VimTest):$/;"	c
 Prunus	pack/minpac/start/vim-colorschemes/colors/primaries.vim	/^let Prunus	  = "guifg=#af87ff guibg=NONE gui=none ctermfg=63 ctermbg=none cterm=none"$/;"	v
 Purple	pack/minpac/start/vim-colorschemes/colors/mango.vim	/^  let Purple = "guifg=#af87ff guibg=NONE gui=NONE ctermfg=141 ctermbg=NONE cterm=NONE"$/;"	v
+Purpose	pack/minpac/start/z.vim/README.md	/^## Purpose$/;"	s
 Pushing	pack/minpac/start/vim-gutentags/CONTRIBUTING.md	/^## Pushing$/;"	s
 PythonCode	pack/minpac/start/ultisnips/pythonx/UltiSnips/text_objects/python_code.py	/^class PythonCode(NoneditableTextObject):$/;"	c
 PythonCodeOld_IndentedMultiline	pack/minpac/start/ultisnips/test/test_Interpolation.py	/^class PythonCodeOld_IndentedMultiline(_VimTest):$/;"	c
@@ -1341,6 +1392,8 @@ Quick Start	pack/minpac/start/ultisnips/README.md	/^Quick Start$/;"	s
 Quote Seek	pack/minpac/start/targets.vim/README.md	/^#### Quote Seek$/;"	t
 Quote Text Objects	pack/minpac/start/targets.vim/README.md	/^### Quote Text Objects$/;"	S
 Quote mappings	pack/minpac/start/targets.vim/cheatsheet.md	/^## Quote mappings$/;"	s
+QuxMultiple	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^QuxMultiple($/;"	f	typeref:typename:int
+QuxSingle	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^QuxSingle(void) {$/;"	f	typeref:typename:int
 README_FILES	pack/minpac/start/html5.vim/Makefile	/^README_FILES=`ls -1 | grep -i readme`$/;"	m
 RECORD_FILE	pack/minpac/start/html5.vim/Makefile	/^RECORD_FILE=.record$/;"	m
 RECORD_SCRIPT	pack/minpac/start/html5.vim/Makefile	/^RECORD_SCRIPT=.mkrecord$/;"	m
@@ -1405,12 +1458,15 @@ SEQUENCES	pack/minpac/start/ultisnips/test/constant.py	/^SEQUENCES = [ARR_L, ARR
 SHELL	pack/minpac/start/html5.vim/Makefile	/^SHELL=bash$/;"	m
 SNIPMATE_SNIPPET_PRIORITY	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/definition/snipmate.py	/^    SNIPMATE_SNIPPET_PRIORITY = -1000$/;"	v	class:SnipMateSnippetDefinition
 Sample .vimrc	pack/minpac/opt/minpac/README.md	/^### Sample .vimrc$/;"	S
+Scope	pack/minpac/start/dsf.vim/CODE_OF_CONDUCT.md	/^## Scope$/;"	s
+Scope	pack/minpac/start/tagalong.vim/CODE_OF_CONDUCT.md	/^## Scope$/;"	s
 Screencapture	pack/minpac/start/vim-over/README.md	/^## Screencapture$/;"	s
 Screencasts	pack/minpac/start/ultisnips/README.md	/^Screencasts$/;"	s
 SearchBar	pack/minpac/start/vim-jsx-pretty/sample.js	/^const SearchBar = ({$/;"	C
 SeattleLightsUp	pack/minpac/start/vim-colorschemes/colors/seattle.vim	/^command!    SeattleLightsUp     so % | call s:SeattleLightsUp()$/;"	c
 SeattleNeon	pack/minpac/start/vim-colorschemes/colors/seattle.vim	/^command!    SeattleNeon         so % | call s:SeattleNeon()$/;"	c
 See also:	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^    <h3>See also:<\/h3>$/;"	j
+Select	pack/minpac/start/vim-textobj-function/t/helpers/setup.vim	/^function! Select(line_number, object)$/;"	f
 Select	pack/minpac/start/vim-textobj-user/t/scan.vim	/^function! Select(lnum, col, object)$/;"	f
 SelectA	pack/minpac/start/vim-textobj-user/t/keep-marks.vim	/^function! SelectA()$/;"	f
 SelectModeMappings_BufferLocalMappings_ECR	pack/minpac/start/ultisnips/test/test_Selection.py	/^class SelectModeMappings_BufferLocalMappings_ECR(_SelectModeMappings):$/;"	c
@@ -1431,6 +1487,7 @@ Separator mappings	pack/minpac/start/targets.vim/cheatsheet.md	/^## Separator ma
 SetColors	pack/minpac/start/vim-colorschemes/colors/py-darcula.vim	/^function SetColors()$/;"	f
 SetColors	pack/minpac/start/vim-colorschemes/colors/xcode-default.vim	/^function SetColors()$/;"	f
 SetPhoenix	pack/minpac/start/vim-colorschemes/colors/phoenix.vim	/^function! SetPhoenix(background, accent)$/;"	f
+Settings	pack/minpac/start/tagalong.vim/README.md	/^## Settings$/;"	s
 Settings	pack/minpac/start/targets.vim/README.md	/^## Settings$/;"	s
 ShellCode	pack/minpac/start/ultisnips/pythonx/UltiSnips/text_objects/shell_code.py	/^class ShellCode(NoneditableTextObject):$/;"	c
 ShellCodeToken	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/parsing/lexer.py	/^class ShellCodeToken(Token):$/;"	c
@@ -1552,12 +1609,16 @@ SolarizedMenu	pack/minpac/start/vim-colorschemes/colors/solarized.vim	/^function
 SolarizedOptions	pack/minpac/start/vim-colorschemes/colors/solarized.vim	/^    command SolarizedOptions :call s:SolarizedOptions()$/;"	c
 Something missing? Fork!	pack/minpac/start/vim-colorschemes/README.md	/^Something missing? Fork!$/;"	s
 Source	pack/minpac/start/ultisnips/rplugin/python3/deoplete/sources/ultisnips.py	/^class Source(Base):$/;"	c
+Special Thanks	pack/minpac/start/tagalong.vim/README.md	/^## Special Thanks$/;"	s
 Special Thanks	pack/minpac/start/vim-over/README.md	/^## Special Thanks$/;"	s
 SplitBG	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let SplitBG       = SplitFG$/;"	v
 SplitCDeclarations	pack/minpac/start/tabular/after/plugin/TabularMaps.vim	/^function! SplitCDeclarations(lines)$/;"	f
 SplitFG	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let SplitFG       = '#1B1B1B'$/;"	v
 StatusBG	pack/minpac/start/vim-colorschemes/colors/getfresh.vim	/^let StatusBG      = DarkGray$/;"	v
 StatusOf	pack/minpac/start/vim-textobj-user/t/plugin.vim	/^function! StatusOf(lhs)$/;"	f
+Support	pack/minpac/start/dsf.vim/spec/support/vim.rb	/^module Support$/;"	m
+Support	pack/minpac/start/tagalong.vim/spec/support/vim.rb	/^module Support$/;"	m
+Support	pack/minpac/start/z.vim/README.md	/^## Support$/;"	s
 Support for dot repeat	pack/minpac/start/vim-easymotion/README.md	/^#### Support for dot repeat$/;"	t
 Support typescript	pack/minpac/start/vim-jsx-pretty/README.md	/^### Support typescript$/;"	S
 SynStack	pack/minpac/start/vim-colorschemes/colors/detailed.vim	/^fun! <SID>SynStack()$/;"	f
@@ -1667,9 +1728,12 @@ Tabula_9	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^function! Tabula
 Tabular	pack/minpac/start/tabular/README.md	/^Tabular$/;"	c
 Tabularize	pack/minpac/start/tabular/plugin/Tabular.vim	/^   \\ Tabularize <line1>,<line2>call Tabularize(<q-args>)$/;"	c
 Tabularize	pack/minpac/start/tabular/plugin/Tabular.vim	/^function! Tabularize(command, ...) range$/;"	f
+TagalongDeinit	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^command TagalongDeinit call tagalong#Deinit()$/;"	c
+TagalongInit	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^command TagalongInit   call tagalong#Init()$/;"	c
 Target	pack/minpac/start/vim-textobj-user/t/old-property-names.vim	/^function! Target()$/;"	f
 TempFileManager	pack/minpac/start/ultisnips/test/vim_interface.py	/^class TempFileManager:$/;"	c
 Test	pack/minpac/start/vim-jsx-pretty/sample.js	/^class Test extends React.Component {$/;"	c
+Test	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^class Test {$/;"	c
 Test	pack/minpac/start/vim-textobj-user/t/scan.vim	/^function! Test(object, cases)$/;"	f
 TestAllMatch	pack/minpac/start/ultisnips/pythonx/UltiSnips/test_diff.py	/^class TestAllMatch(_Base, unittest.TestCase):$/;"	c
 TestCheapDelete	pack/minpac/start/ultisnips/pythonx/UltiSnips/test_diff.py	/^class TestCheapDelete(_Base, unittest.TestCase):$/;"	c
@@ -1695,6 +1759,8 @@ Test_minpac_clean	pack/minpac/opt/minpac/test/test_minpac.vim	/^func Test_minpac
 Test_minpac_getpackages	pack/minpac/opt/minpac/test/test_minpac.vim	/^func Test_minpac_getpackages()$/;"	f
 Test_minpac_init	pack/minpac/opt/minpac/test/test_minpac.vim	/^func Test_minpac_init()$/;"	f
 Test_minpac_update	pack/minpac/opt/minpac/test/test_minpac.vim	/^func Test_minpac_update()$/;"	f
+Testing	pack/minpac/start/dsf.vim/CONTRIBUTING.md	/^## Testing$/;"	s
+Testing	pack/minpac/start/tagalong.vim/CONTRIBUTING.md	/^## Testing$/;"	s
 Testing	pack/minpac/start/ultisnips/CONTRIBUTING.md	/^## Testing$/;"	s
 Testing	pack/minpac/start/vim-gutentags/CONTRIBUTING.md	/^## Testing$/;"	s
 Text objects for a specific filetype	pack/minpac/start/vim-textobj-user/README.md	/^### Text objects for a specific filetype$/;"	S
@@ -1817,6 +1883,7 @@ Unlock	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^:Unlock$/;"	
 UpdateModifiedSnippetWithoutCursorMove1	pack/minpac/start/ultisnips/test/test_Editing.py	/^class UpdateModifiedSnippetWithoutCursorMove1(_VimTest):$/;"	c
 UpdateModifiedSnippetWithoutCursorMove2	pack/minpac/start/ultisnips/test/test_Editing.py	/^class UpdateModifiedSnippetWithoutCursorMove2(_VimTest):$/;"	c
 Usage	pack/minpac/opt/minpac/README.md	/^Usage$/;"	s
+Usage	pack/minpac/start/dsf.vim/README.md	/^## Usage$/;"	s
 Usage	pack/minpac/start/vim-gutentags/plat/win32/update_scopedb.cmd	/^:Usage$/;"	l
 Usage	pack/minpac/start/vim-gutentags/plat/win32/update_tags.cmd	/^:Usage$/;"	l
 Usage example for the base features	pack/minpac/start/vim-easymotion/README.md	/^Usage example for the base features$/;"	c
@@ -1837,6 +1904,8 @@ Version 0.25	pack/minpac/start/html5.vim/CHANGES.markdown	/^### Version 0.25$/;"
 Version 0.26	pack/minpac/start/html5.vim/CHANGES.markdown	/^### Version 0.26$/;"	S
 Version 0.27	pack/minpac/start/html5.vim/CHANGES.markdown	/^### Version 0.27$/;"	S
 Version 0.27	pack/minpac/start/html5.vim/README.md	/^### Version 0.27$/;"	S
+Vim	pack/minpac/start/dsf.vim/spec/support/vim.rb	/^  module Vim$/;"	m	module:Support
+Vim	pack/minpac/start/tagalong.vim/spec/support/vim.rb	/^  module Vim$/;"	m	module:Support
 Vim colorschemes	pack/minpac/start/vim-colorschemes/README.md	/^Vim colorschemes$/;"	c
 Vim motion on speed!	pack/minpac/start/vim-easymotion/README.md	/^Vim motion on speed!$/;"	c
 Vim package	pack/minpac/start/vim-css3-syntax/README.md	/^### Vim package$/;"	S
@@ -1937,6 +2006,13 @@ X	pack/minpac/start/vim-colorschemes/colors/two-firewatch.vim	/^  fun <SID>X(gro
 X	pack/minpac/start/vim-colorschemes/colors/wasabi256.vim	/^fun <SID>X(group, fg, bg, attr)$/;"	f
 X	pack/minpac/start/vim-colorschemes/colors/wombat256i.vim	/^fun <SID>X(group, fg, bg, attr)$/;"	f
 X	pack/minpac/start/vim-colorschemes/colors/znake.vim	/^	fun <SID>X(group, fg, bg, attr)$/;"	f
+XML	pack/minpac/start/tagalong.vim/spec/plugin/filetype_support_spec.rb	/^  describe "XML" do$/;"	d
+Yank	pack/minpac/start/vim-textobj-xmlattr/t/basics.vim	/^function! Yank(inside_or_around, after_movement)$/;"	f
+YankAround	pack/minpac/start/vim-textobj-xmlattr/t/basics.vim	/^function! YankAround(after_movement)$/;"	f
+YankInside	pack/minpac/start/vim-textobj-xmlattr/t/basics.vim	/^function! YankInside(after_movement)$/;"	f
+Z	pack/minpac/start/z.vim/plugin/z-commands.vim	/^command! -complete=customlist,zcd#Completion -nargs=+ Z call s:RunCommand(<f-args>)$/;"	c
+[f	after/plugin/mappings.vim	/^nnoremap <silent> [f :lprevious<CR>$/;"	m
+]f	after/plugin/mappings.vim	/^nnoremap <silent> ]f :lnext<CR>$/;"	m
 _$	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	_$ = window.$;$/;"	v
 _AddFuncBase	pack/minpac/start/ultisnips/test/test_UltiSnipFunc.py	/^class _AddFuncBase(_VimTest):$/;"	c
 _AnonBase	pack/minpac/start/ultisnips/test/test_AnonymousExpansion.py	/^class _AnonBase(_VimTest):$/;"	c
@@ -2254,6 +2330,10 @@ _vim_dec	pack/minpac/start/ultisnips/pythonx/UltiSnips/compatibility.py	/^def _v
 _vim_enc	pack/minpac/start/ultisnips/pythonx/UltiSnips/compatibility.py	/^def _vim_enc(bytearray):$/;"	f
 _vim_line_with_eol	pack/minpac/start/ultisnips/pythonx/UltiSnips/vim_state.py	/^        _vim_line_with_eol = lambda ln: vim_helper.buf[ln] + "\\n"$/;"	f	member:VisualContentPreserver.conserve	file:
 _words_for_line	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/definition/base.py	/^def _words_for_line(trigger, before, num_words=None):$/;"	f
+`g:tagalong_additional_filetypes`	pack/minpac/start/tagalong.vim/README.md	/^### `g:tagalong_additional_filetypes`$/;"	S
+`g:tagalong_filetypes`	pack/minpac/start/tagalong.vim/README.md	/^### `g:tagalong_filetypes`$/;"	S
+`g:tagalong_mappings`	pack/minpac/start/tagalong.vim/README.md	/^### `g:tagalong_mappings`$/;"	S
+`g:tagalong_verbose`	pack/minpac/start/tagalong.vim/README.md	/^### `g:tagalong_verbose`$/;"	S
 a	pack/minpac/start/emmet-vim/docs/static/css/style-sites.css	/^a{$/;"	s
 a	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^    a { font-weight: bold; color: #004080; text-decoration: underline; }$/;"	s
 a	pack/minpac/start/ultisnips/pythonx/UltiSnips/test_diff.py	/^    a = "First Line\\nSecond Line"$/;"	v	class:TestWithNewline
@@ -2323,6 +2403,8 @@ add_snippet	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/source/added.p
 add_snippet	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet/source/snippet_dictionary.py	/^    def add_snippet(self, snippet):$/;"	m	class:SnippetDictionary
 add_snippet	pack/minpac/start/ultisnips/pythonx/UltiSnips/snippet_manager.py	/^    def add_snippet($/;"	m	class:SnippetManager
 address	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^address,caption,cite,code,dfn,em,strong,th,var,optgroup {$/;"	s
+af	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  omap af <Plug>DsfTextObjectA$/;"	m
+af	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  xmap af <Plug>DsfTextObjectA$/;"	m
 akey	pack/minpac/start/ultisnips/test/test_UltiSnipFunc.py	/^    akey = "'te{}stâ'".format('"')$/;"	v	class:VerifyVimDict2
 akey	pack/minpac/start/ultisnips/test/test_UltiSnipFunc.py	/^    akey = '"te{}stâ"'.format("'")$/;"	v	class:VerifyVimDict3
 alduin_Hour	pack/minpac/start/vim-colorschemes/colors/alduin.vim	/^    let alduin_Hour = strftime("%H") $/;"	v
@@ -2369,6 +2451,8 @@ aria_attributes_value	pack/minpac/start/html5.vim/autoload/xml/aria.vim	/^let ar
 article	pack/minpac/start/emmet-vim/docs/static/css/style-sites.css	/^article {$/;"	s
 asbestos	pack/minpac/start/vim-colorschemes/colors/rakr-light.vim	/^  let asbestos    = "7f8c8d"$/;"	v
 asciicast-4568	pack/minpac/start/emmet-vim/docs/index.html	/^				<script type="text\/javascript" src="https:\/\/asciinema.org\/a\/4568.js" id="asciicast-4568/;"	I
+assert_file_contents	pack/minpac/start/dsf.vim/spec/support/vim.rb	/^    def assert_file_contents(string)$/;"	f	module:Support.Vim
+assert_file_contents	pack/minpac/start/tagalong.vim/spec/support/vim.rb	/^    def assert_file_contents(string)$/;"	f	module:Support.Vim
 asset_time	pack/minpac/opt/minpac/tools/dl-kaoriya-vim.py	/^    asset_time = time.strptime(asset['updated_at'], '%Y-%m-%dT%H:%M:%SZ')$/;"	v
 attach_to_buffer	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^    <a name = "attach_to_buffer"><\/a>$/;"	a
 attach_to_buffer	pack/minpac/start/nvim-colorizer.lua/lua/colorizer.lua	/^local function attach_to_buffer(buf, options)$/;"	f
@@ -2428,16 +2512,37 @@ b:match_words	pack/minpac/start/vim-jsx-pretty/after/ftplugin/tsx.vim	/^  let b:
 b:match_words	pack/minpac/start/vim-jsx-pretty/after/ftplugin/tsx.vim	/^  let b:match_words = '<\\@<=\\([^\/][^ \\t>]*\\)\\g{hlend}[^>]*\\%(\/\\@<!>\\|$\\):<\\@<=\/\\1>/;"	v
 b:original_commentstring	pack/minpac/start/vim-jsx-pretty/after/ftplugin/javascript.vim	/^let b:original_commentstring = &l:commentstring$/;"	v
 b:original_commentstring	pack/minpac/start/vim-jsx-pretty/after/ftplugin/tsx.vim	/^let b:original_commentstring = &l:commentstring$/;"	v
+b:textobj_function_select	pack/minpac/start/vim-textobj-function-javascript/after/ftplugin/javascript/textobj-function.vim	/^let b:textobj_function_select = function('textobj#function#javascript#select')$/;"	v
+b:textobj_function_select	pack/minpac/start/vim-textobj-function/after/ftplugin/c/textobj-function.vim	/^let b:textobj_function_select = function('textobj#function#c#select')$/;"	v
+b:textobj_function_select	pack/minpac/start/vim-textobj-function/after/ftplugin/java/textobj-function.vim	/^let b:textobj_function_select = function('textobj#function#java#select')$/;"	v
+b:textobj_function_select	pack/minpac/start/vim-textobj-function/after/ftplugin/vim/textobj-function.vim	/^let b:textobj_function_select = function('textobj#function#vim#select')$/;"	v
 b:ultisnips_override_snipmate	pack/minpac/start/ultisnips/syntax/snippets_snipmate.vim	/^let b:ultisnips_override_snipmate = 1$/;"	v
 b:undo_ftplugin	pack/minpac/start/ultisnips/ftplugin/snippets.vim	/^let b:undo_ftplugin = "$/;"	v
 b:undo_ftplugin	pack/minpac/start/vim-javascript/after/ftplugin/javascript.vim	/^  let b:undo_ftplugin .= ' | setlocal iskeyword< suffixesadd<'$/;"	v
 b:undo_ftplugin	pack/minpac/start/vim-javascript/after/ftplugin/javascript.vim	/^  let b:undo_ftplugin = 'setlocal iskeyword< suffixesadd<'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function-javascript/after/ftplugin/javascript/textobj-function.vim	/^  let b:undo_ftplugin .= ' | '$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function-javascript/after/ftplugin/javascript/textobj-function.vim	/^  let b:undo_ftplugin = ''$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function-javascript/after/ftplugin/javascript/textobj-function.vim	/^let b:undo_ftplugin .= 'unlet! b:textobj_function_select'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/c/textobj-function.vim	/^  let b:undo_ftplugin .= '|'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/c/textobj-function.vim	/^  let b:undo_ftplugin = ''$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/c/textobj-function.vim	/^let b:undo_ftplugin .= 'unlet b:textobj_function_select'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/java/textobj-function.vim	/^  let b:undo_ftplugin .= '|'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/java/textobj-function.vim	/^  let b:undo_ftplugin = ''$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/java/textobj-function.vim	/^let b:undo_ftplugin .= 'unlet b:textobj_function_select'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/vim/textobj-function.vim	/^  let b:undo_ftplugin .= '|'$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/vim/textobj-function.vim	/^  let b:undo_ftplugin = ''$/;"	v
+b:undo_ftplugin	pack/minpac/start/vim-textobj-function/after/ftplugin/vim/textobj-function.vim	/^let b:undo_ftplugin .= 'unlet b:textobj_function_select'$/;"	v
 b:undo_indent	pack/minpac/start/html5.vim/indent/html.vim	/^let b:undo_indent = "setlocal inde< indk<"$/;"	v
 b:undo_indent	pack/minpac/start/vim-javascript/indent/javascript.vim	/^let b:undo_indent = 'setlocal indentexpr< smartindent< autoindent< indentkeys<'$/;"	v
 badwolf_tex	pack/minpac/start/vim-colorschemes/colors/badwolf.vim	/^augroup badwolf_tex$/;"	a
 badwolf_tex	pack/minpac/start/vim-colorschemes/colors/goodwolf.vim	/^augroup badwolf_tex$/;"	a
+bar	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^  static const bar = 21;$/;"	v	typeref:typename:const	file:
+bar	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  String bar(Foo bar) {$/;"	m	class:Test
+bar	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  String bar(Foo bar)$/;"	m	class:Test
 basename	pack/minpac/start/ultisnips/pythonx/UltiSnips/text_objects/python_code.py	/^    def basename(self):  # pylint:disable=no-self-use$/;"	m	class:SnippetUtil
 bases	pack/minpac/start/vim-colorschemes/colors/neodark.vim	/^  let bases = s:generate_base_colors(g:neodark#background)$/;"	v
+baz	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^static const baz = 31;$/;"	v	typeref:typename:const	file:
+baz	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  private List<String> baz(Foo bar,$/;"	m	class:Test	file:
 belizeHole	pack/minpac/start/vim-colorschemes/colors/rakr-light.vim	/^  let belizeHole  = "2980b9"$/;"	v
 bg	pack/minpac/start/vim-colorschemes/colors/calmar256-dark.vim	/^            let bg = s:checkargs(s:col[3])$/;"	v
 bg	pack/minpac/start/vim-colorschemes/colors/calmar256-dark.vim	/^        let bg = s:checkargs(s:col[3])$/;"	v
@@ -2452,6 +2557,7 @@ bindReady	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^function
 bindeval	pack/minpac/start/ultisnips/pythonx/UltiSnips/vim_helper.py	/^def bindeval(text):$/;"	f
 black	pack/minpac/start/vim-colorschemes/colors/goldenrod.vim	/^let black = '16'$/;"	v
 black	pack/minpac/start/vim-colorschemes/colors/spectro.vim	/^let black  = "#000000"$/;"	v
+blah	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int blah(Foo bar,$/;"	m	class:Test
 blockquote	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^blockquote { margin-left: 3em; }$/;"	s
 blockquote	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea/;"	s
 blue1	pack/minpac/start/vim-colorschemes/colors/thermopylae.vim	/^let blue1   = '#3286BA' " #3286BA$/;"	v
@@ -2501,8 +2607,7 @@ cabin_colorscheme	pack/minpac/start/vim-colorschemes/colors/cabin.vim	/^augroup 
 caption	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^address,caption,cite,code,dfn,em,strong,th,var,optgroup {$/;"	s
 caption	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^caption,th {$/;"	s
 carrot	pack/minpac/start/vim-colorschemes/colors/rakr-light.vim	/^  let carrot      = "e67e22"$/;"	v
-cdc	after/plugin/mappings.vim	/^nnoremap cdc :lcd %:p:h<bar>pwd :pwd<cr>$/;"	m
-cdu	after/plugin/mappings.vim	/^nnoremap cdu :lcd ..<bar>pwd :pwd<cr>$/;"	m
+cd	after/plugin/mappings.vim	/^nnoremap cd :lcd %:p:h<bar>pwd<cr>$/;"	m
 cgc	pack/minpac/start/vim-commentary/plugin/commentary.vim	/^    nmap cgc <Plug>ChangeCommentary$/;"	m
 chars	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^}var chars = jQuery.browser.safari && parseInt(jQuery.browser.version) < 417 ?$/;"	v
 charset	pack/minpac/start/html5.vim/autoload/xml/html5.vim	/^let charset = [$/;"	v
@@ -2943,6 +3048,8 @@ create_directory	pack/minpac/start/ultisnips/test/vim_interface.py	/^def create_
 create_highlight	pack/minpac/start/nvim-colorizer.lua/lua/colorizer.lua	/^local function create_highlight(rgb_hex, options)$/;"	f
 crossorigin	pack/minpac/start/html5.vim/autoload/xml/html5.vim	/^let crossorigin = ['anonymous', 'use-credentials']$/;"	v
 cs	pack/minpac/start/vim-surround/plugin/surround.vim	/^  nmap cs  <Plug>Csurround$/;"	m
+csf	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  nmap csf <Plug>DsfChange$/;"	m
+csnf	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  nmap csnf <Plug>DsfNextChange$/;"	m
 css	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^		    css          = jQuery.curCSS,$/;"	v
 css_fn	pack/minpac/start/nvim-colorizer.lua/lua/colorizer.lua	/^	css_fn   = false;        -- Enable all CSS *functions*: rgb_fn, hsl_fn$/;"	f
 css_fn.hsl	pack/minpac/start/nvim-colorizer.lua/lua/colorizer.lua	/^	function css_fn.hsl(line, i)$/;"	f
@@ -2957,6 +3064,7 @@ ctermbg	pack/minpac/start/vim-colorschemes/colors/lucid.vim	/^    let ctermbg = 
 ctermfg	pack/minpac/start/vim-colorschemes/colors/lucid.vim	/^      let ctermfg='Blue'$/;"	v
 ctermfg	pack/minpac/start/vim-colorschemes/colors/lucid.vim	/^      let ctermfg=guifg$/;"	v
 ctermfg	pack/minpac/start/vim-colorschemes/colors/lucid.vim	/^    let ctermfg = s:colors['CTERMFG']$/;"	v
+cu	after/plugin/mappings.vim	/^nnoremap cu :lcd ..<bar>pwd<cr>$/;"	m
 cur	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	cur: function(force){$/;"	m	class:jQuery.fx
 current_compiler	pack/minpac/start/vim-javascript/compiler/eslint.vim	/^let current_compiler = "eslint"$/;"	v
 current_text	pack/minpac/start/ultisnips/pythonx/UltiSnips/text_objects/base.py	/^    def current_text(self):$/;"	m	class:TextObject
@@ -3035,9 +3143,14 @@ dpub_role	pack/minpac/start/html5.vim/autoload/xml/aria.vim	/^let dpub_role = [$
 dpub_role	pack/minpac/start/html5.vim/autoload/xml/html5.vim	/^    let dpub_role = ['dpub-abstract', 'dpub-afterword', 'dpub-appendix', 'dpub-biblioentry', 'dp/;"	v
 drag_and_drop_attributes	pack/minpac/start/html5.vim/autoload/xml/aria.vim	/^let drag_and_drop_attributes = {$/;"	v
 ds	pack/minpac/start/vim-surround/plugin/surround.vim	/^  nmap ds  <Plug>Dsurround$/;"	m
+dsf	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  nmap dsf <Plug>DsfDelete$/;"	m
+dsf#SearchFunctionStart	pack/minpac/start/dsf.vim/autoload/dsf.vim	/^function! dsf#SearchFunctionStart(direction)$/;"	f
+dsf#Setting	pack/minpac/start/dsf.vim/autoload/dsf.vim	/^function! dsf#Setting(key)$/;"	f
+dsnf	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  nmap dsnf <Plug>DsfNextDelete$/;"	m
 dt	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea/;"	s
 dt	pack/minpac/start/vim-css3-syntax/test/test.css	/^.selectors-4:current(p, li, dt, dd),$/;"	s
 echo_to_hierarchy	pack/minpac/start/ultisnips/pythonx/UltiSnips/debug.py	/^def echo_to_hierarchy(text_object):$/;"	f
+edit	pack/minpac/start/tagalong.vim/spec/support/vim.rb	/^    def edit(keys)$/;"	f	module:Support.Vim
 elem	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^					var elem = document.getElementById( match[3] );$/;"	v
 elems	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^		var clone = this.length > 1, elems;$/;"	v
 elems	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^		var elems = jQuery.map(this, function(elem){$/;"	v
@@ -3432,8 +3545,13 @@ fn	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	jQuery.fn[ nam
 fn	pack/minpac/start/ultisnips/pythonx/UltiSnips/text_objects/python_code.py	/^    def fn(self):  # pylint:disable=no-self-use,invalid-name$/;"	m	class:SnippetUtil
 focus	pack/minpac/start/ultisnips/test/vim_interface.py	/^    def focus(self, title=None):$/;"	m	class:VimInterfaceWindows
 foo	pack/minpac/start/vim-colorschemes/colors/crt.vim	/^  let foo=T_CO$/;"	v
+foo	pack/minpac/start/vim-textobj-function/t/fixtures/sample.c	/^static const foo = 10;$/;"	v	typeref:typename:const	file:
+foo	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int foo() {$/;"	m	class:Test
+foo	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int foo()$/;"	m	class:Test
 foo2	pack/minpac/start/vim-colorschemes/colors/crt.vim	/^      let foo2=1$/;"	v
 foo2	pack/minpac/start/vim-colorschemes/colors/crt.vim	/^  let foo2=0$/;"	v
+foo2	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int foo2(Foo bar)$/;"	m	class:Test
+foo3	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int foo3(Foo bar)$/;"	m	class:Test
 foreignObject	pack/minpac/start/vim-css3-syntax/test/test.css	/^foreignObject,$/;"	s
 form	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea/;"	s
 fragment	pack/minpac/start/vim-jsx-pretty/sample.js	/^const fragment = ($/;"	C
@@ -4426,6 +4544,10 @@ g:did_nefertiti_code_setup	pack/minpac/start/vim-colorschemes/colors/nefertiti.v
 g:dirty_blue	pack/minpac/start/vim-colorschemes/colors/cobalt2.vim	/^let g:dirty_blue = "668799"                                            " #668799$/;"	v
 g:dirty_green	pack/minpac/start/vim-colorschemes/colors/cobalt2.vim	/^let g:dirty_green = "70b950"                                           " #70b950$/;"	v
 g:dirty_pink	pack/minpac/start/vim-colorschemes/colors/cobalt2.vim	/^let g:dirty_pink = "EB939A"                                            " #EB939A$/;"	v
+g:dsf_brackets	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  let g:dsf_brackets = '([{'$/;"	v
+g:dsf_function_pattern	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  let g:dsf_function_pattern = '\\k\\+'$/;"	v
+g:dsf_namespace_pattern	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  let g:dsf_namespace_pattern = '\\k\\+\\%(\\.\\|::\\)'$/;"	v
+g:dsf_no_mappings	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  let g:dsf_no_mappings = 0$/;"	v
 g:elrond#cursorline	pack/minpac/start/vim-colorschemes/colors/elrond.vim	/^let g:elrond#cursorline   = get(g:, 'elrond#cursorline',         1)$/;"	v
 g:elrond#cursorline16	pack/minpac/start/vim-colorschemes/colors/elrond.vim	/^let g:elrond#cursorline16 = get(g:, 'elrond#cursorline16' , 'bold')$/;"	v
 g:emmet_curl_command	pack/minpac/start/emmet-vim/plugin/emmet.vim	/^  let g:emmet_curl_command = 'curl -s -L -A Mozilla\/5.0'$/;"	v
@@ -4537,8 +4659,6 @@ g:gutentags_trace	pack/minpac/start/vim-gutentags/autoload/gutentags.vim	/^     
 g:gutentags_trace	pack/minpac/start/vim-gutentags/autoload/gutentags.vim	/^    let g:gutentags_trace = !g:gutentags_trace$/;"	v
 g:gutentags_trace	pack/minpac/start/vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_trace = get(g:, 'gutentags_trace', 0)$/;"	v
 g:gutentags_use_jobs	pack/minpac/start/vim-gutentags/plugin/gutentags.vim	/^let g:gutentags_use_jobs = get(g:, 'gutentags_use_jobs', has('job'))$/;"	v
-g:hardtime_default_on	plugins.settings.d/hardtime.vim	/^let g:hardtime_default_on = 1$/;"	v
-g:hardtime_ignore_quickfix	plugins.settings.d/hardtime.vim	/^let g:hardtime_ignore_quickfix = 1$/;"	v
 g:hotpot_black_background	pack/minpac/start/vim-colorschemes/colors/hotpot.vim	/^    let g:hotpot_black_background = 0$/;"	v
 g:html5_aria_attributes_complete	pack/minpac/start/html5.vim/autoload/xml/html5.vim	/^    let g:html5_aria_attributes_complete = 1$/;"	v
 g:html5_event_handler_attributes_complete	pack/minpac/start/html5.vim/autoload/xml/html5.vim	/^    let g:html5_event_handler_attributes_complete = 1$/;"	v
@@ -4607,6 +4727,7 @@ g:lightest_pink	pack/minpac/start/vim-colorschemes/colors/cobalt2.vim	/^let g:li
 g:loaded_astronaut	pack/minpac/start/vim-colorschemes/colors/astronaut.vim	/^let g:loaded_astronaut = "v7"$/;"	v
 g:loaded_colorizer	pack/minpac/start/nvim-colorizer.lua/plugin/colorizer.vim	/^let g:loaded_colorizer = 1$/;"	v
 g:loaded_commentary	pack/minpac/start/vim-commentary/plugin/commentary.vim	/^let g:loaded_commentary = 1$/;"	v
+g:loaded_dsf	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^let g:loaded_dsf = '0.1.0' " version number$/;"	v
 g:loaded_emmet_vim	pack/minpac/start/emmet-vim/plugin/emmet.vim	/^let g:loaded_emmet_vim = 1$/;"	v
 g:loaded_gutentags	pack/minpac/start/vim-gutentags/plugin/gutentags.vim	/^let g:loaded_gutentags = 1$/;"	v
 g:loaded_minpac	pack/minpac/opt/minpac/plugin/minpac.vim	/^let g:loaded_minpac = 1$/;"	v
@@ -4616,9 +4737,13 @@ g:loaded_repeat	pack/minpac/start/vim-repeat/autoload/repeat.vim	/^let g:loaded_
 g:loaded_rsi	pack/minpac/start/vim-rsi/plugin/rsi.vim	/^let g:loaded_rsi = 1$/;"	v
 g:loaded_solarized_menu	pack/minpac/start/vim-colorschemes/colors/solarized.vim	/^    let g:loaded_solarized_menu = 1$/;"	v
 g:loaded_surround	pack/minpac/start/vim-surround/plugin/surround.vim	/^let g:loaded_surround = 1$/;"	v
+g:loaded_tagalong	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^let g:loaded_tagalong = '0.2.0' " version number$/;"	v
 g:loaded_targets	pack/minpac/start/targets.vim/plugin/targets.vim	/^let g:loaded_targets = '0.5.0' " version number$/;"	v
 g:loaded_textobj_entire	pack/minpac/start/vim-textobj-entire/plugin/textobj/entire.vim	/^let g:loaded_textobj_entire = 1$/;"	v
+g:loaded_textobj_function	pack/minpac/start/vim-textobj-function/plugin/textobj/function.vim	/^let g:loaded_textobj_function = 1$/;"	v
+g:loaded_textobj_indent	pack/minpac/start/vim-textobj-indent/plugin/textobj/indent.vim	/^let g:loaded_textobj_indent = 1$/;"	v
 g:loaded_textobj_line	pack/minpac/start/vim-textobj-line/plugin/textobj/line.vim	/^let g:loaded_textobj_line = 1$/;"	v
+g:loaded_textobj_xmlattr	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let g:loaded_textobj_xmlattr = 1$/;"	v
 g:loaded_tinymru	pack/minpac/start/vim-tinyMRU/plugin/tinymru.vim	/^let g:loaded_tinymru = 1$/;"	v
 g:loaded_unimpaired	pack/minpac/start/vim-unimpaired/plugin/unimpaired.vim	/^let g:loaded_unimpaired = 1$/;"	v
 g:marklar_bold_opt	pack/minpac/start/vim-colorschemes/colors/marklar.vim	/^            let g:marklar_bold_opt      = s:opts['bold']$/;"	v
@@ -4904,6 +5029,11 @@ g:synthwave_termcolors	pack/minpac/start/vim-colorschemes/colors/synthwave.vim	/
 g:synthwave_terminal_italics	pack/minpac/start/vim-colorschemes/colors/synthwave.vim	/^  let g:synthwave_terminal_italics = 0$/;"	v
 g:tabular_default_format	pack/minpac/start/tabular/autoload/tabular.vim	/^  let g:tabular_default_format = "l1"$/;"	v
 g:tabular_loaded	pack/minpac/start/tabular/plugin/Tabular.vim	/^let g:tabular_loaded = 1$/;"	v
+g:tagalong_additional_filetypes	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^  let g:tagalong_additional_filetypes = []$/;"	v
+g:tagalong_filetypes	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^  let g:tagalong_filetypes = ['html', 'xml', 'jsx', 'eruby', 'ejs', 'eco', 'php', 'htmldjango', /;"	v
+g:tagalong_mappings	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^  let g:tagalong_mappings = ['c', 'C', 'v', 'i', 'a']$/;"	v
+g:tagalong_timeout	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^  let g:tagalong_timeout = 500$/;"	v
+g:tagalong_verbose	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^  let g:tagalong_verbose = 0$/;"	v
 g:tagbar_type_snippets	pack/minpac/start/ultisnips/ftplugin/snippets.vim	/^let g:tagbar_type_snippets = {$/;"	v
 g:targets_aiAI	pack/minpac/start/targets.vim/README.md	/^### g:targets_aiAI$/;"	S
 g:targets_aiAI	pack/minpac/start/targets.vim/plugin/targets.vim	/^    let g:targets_aiAI = s:getKeysAsList(get(g:, 'targets_aiAI', 'aiAI'))$/;"	v
@@ -5595,6 +5725,7 @@ g:xterm16_skyblue	pack/minpac/start/vim-colorschemes/colors/xterm16.vim	/^	    l
 g:xterm16bg_Cursor	pack/minpac/start/vim-colorschemes/colors/xterm16.vim	/^	    let g:xterm16bg_Cursor		= '#00ff00'$/;"	v
 g:xterm16fg_Cursor	pack/minpac/start/vim-colorschemes/colors/xterm16.vim	/^	    let g:xterm16fg_Cursor		= '#ffffff'$/;"	v
 g:yellow	pack/minpac/start/vim-colorschemes/colors/cobalt2.vim	/^let g:yellow = "FFC600"                                                " #FFC600$/;"	v
+g:zcd#path	plugins.settings.d/z.vim	/^let g:zcd#path = expand('\/opt\/z.lua\/z.lua')$/;"	v
 g:zenburn_alternate_Error	pack/minpac/start/vim-colorschemes/colors/zenburn.vim	/^    let g:zenburn_alternate_Error = 0$/;"	v
 g:zenburn_alternate_Include	pack/minpac/start/vim-colorschemes/colors/zenburn.vim	/^    let g:zenburn_alternate_Include = 0$/;"	v
 g:zenburn_alternate_Visual	pack/minpac/start/vim-colorschemes/colors/zenburn.vim	/^    let g:zenburn_alternate_Visual = 0$/;"	v
@@ -5914,6 +6045,8 @@ hue_to_rgb	pack/minpac/start/nvim-colorizer.lua/lua/colorizer.lua	/^local functi
 i	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	var target = arguments[0] || {}, i = 1, length = arguments.length, deep = false, options;$/;"	v
 iS	pack/minpac/start/ultisnips/ftplugin/snippets.vim	/^onoremap <silent><buffer> iS :<C-U>call <SID>UltiSnippetTextObj(1)<CR>$/;"	m
 iS	pack/minpac/start/ultisnips/ftplugin/snippets.vim	/^xnoremap <silent><buffer> iS :<C-U>call <SID>UltiSnippetTextObj(1)<CR>$/;"	m
+if	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  omap if <Plug>DsfTextObjectI$/;"	m
+if	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^  xmap if <Plug>DsfTextObjectI$/;"	m
 ignore_missing_imports	pack/minpac/start/ultisnips/mypy.ini	/^ignore_missing_imports = True$/;"	k	section:mypy-unidecode
 ignore_missing_imports	pack/minpac/start/ultisnips/mypy.ini	/^ignore_missing_imports = True$/;"	k	section:mypy-vim
 ignores	pack/minpac/start/ultisnips/test/test_Selection.py	/^    ignores = ["H"]$/;"	v	class:SelectModeMappings_IgnoreMappings1_ECR
@@ -6715,6 +6848,7 @@ orange	pack/minpac/start/vim-colorschemes/colors/rakr-light.vim	/^  let orange  
 origin	pack/minpac/start/vim-easymotion/t/easymotion_spec.vim	/^        let origin = CursorPos()$/;"	v
 originalEvent	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^		event = { originalEvent: originalEvent };$/;"	p	class:event
 originalEvent	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^		var originalEvent = event;$/;"	v
+other	pack/minpac/start/tagalong.vim/spec/plugin/filetype_support_spec.rb	/^  describe "other" do$/;"	d
 output	pack/minpac/start/ultisnips/test/vim_test_case.py	/^    output = ""$/;"	v	class:VimTestCase
 over	pack/minpac/start/vim-over/autoload/over.vim	/^	augroup over-cmdwindow$/;"	a
 over	pack/minpac/start/vim-over/autoload/over/command_line/command_history.vim	/^augroup over-cmdline-command_history$/;"	a
@@ -6868,6 +7002,7 @@ q:before	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^q:before,q:after {$
 queue	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^var queue = function( elem, type, array ) {$/;"	f
 quickClass	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	quickClass = new RegExp("^([#.]?)(" + chars + "*)");$/;"	v
 quickExpr	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^var quickExpr = \/^[^<]*(<(.|\\s)+>)[^>]*$|^#(\\w+)$\/,$/;"	v
+qux	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int qux($/;"	m	class:Test
 radialGradient	pack/minpac/start/vim-css3-syntax/test/test.css	/^radialGradient,$/;"	s
 rb	pack/minpac/start/vim-css3-syntax/test/test.css	/^rb,$/;"	s
 rdfa_attributes	pack/minpac/start/html5.vim/autoload/xml/html5.vim	/^    let rdfa_attributes = {'about': [], 'content': [], 'datatype': [], 'prefix': [], 'profile': /;"	v
@@ -7188,6 +7323,8 @@ s:CSSIndent	pack/minpac/start/html5.vim/indent/html.vim	/^func! s:CSSIndent()$/;
 s:Cancell	pack/minpac/start/vim-easymotion/autoload/EasyMotion/command_line.vim	/^function! s:Cancell() " {{{$/;"	f
 s:Center	pack/minpac/start/tabular/autoload/tabular.vim	/^function! s:Center(string, fieldwidth)$/;"	f
 s:Chameleon	pack/minpac/start/vim-colorschemes/colors/two2tango.vim	/^let s:Chameleon		= ['#8ae234', '#73d216', '#4e9a06']$/;"	v
+s:ChangeNextSurroundingFunctionCall	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^function! s:ChangeNextSurroundingFunctionCall()$/;"	f
+s:ChangeSurroundingFunctionCall	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^function! s:ChangeSurroundingFunctionCall()$/;"	f
 s:CharacterBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:CharacterBg = s:NormalBg $/;"	v
 s:CharacterFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:CharacterFg = '#8D523D'$/;"	v
 s:CheckBlockTag	pack/minpac/start/html5.vim/indent/html.vim	/^func! s:CheckBlockTag(blocktag, ind)$/;"	f
@@ -7301,21 +7438,29 @@ s:DarkBlue	pack/minpac/start/vim-colorschemes/colors/3dglasses.vim	/^let s:DarkB
 s:DarkError	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^  let s:DarkError = g:Tabula_DarkError$/;"	v
 s:DarkError	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^let s:DarkError = 0$/;"	v
 s:Defn	pack/minpac/start/vim-colorschemes/colors/noclown.vim	/^function! s:Defn(group, ...)$/;"	f
+s:Delete	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^function! s:Delete(opening_bracket)$/;"	f
+s:DeleteNextSurroundingFunctionCall	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^function! s:DeleteNextSurroundingFunctionCall()$/;"	f
+s:DeleteSurroundingFunctionCall	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^function! s:DeleteSurroundingFunctionCall()$/;"	f
 s:Directory	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:Directory = 'italic'$/;"	v
 s:DirectoryBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:DirectoryBg = s:NormalBg$/;"	v
 s:DirectoryFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:DirectoryFg = s:NormalFg $/;"	v
 s:DoWhile	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:DoWhile()$/;"	f
 s:DotPromptUser	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:DotPromptUser(groups) "{{{$/;"	f
+s:EMPTY_LINE	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^let s:EMPTY_LINE = -1$/;"	v
 s:EasyMotion	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:EasyMotion(regexp, direction, visualmode, is_inclusive, ...) " {{{$/;"	f
 s:Error	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:Error = 'bold'$/;"	v
 s:ErrorBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:ErrorBg = s:OperatorFg$/;"	v
 s:ErrorFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:ErrorFg = s:StringFg$/;"	v
+s:ErrorInvalidPathConfig	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:ErrorInvalidPathConfig() abort$/;"	f
+s:ErrorUnresolvablePath	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:ErrorUnresolvablePath() abort$/;"	f
 s:ExecMove	pack/minpac/start/vim-unimpaired/plugin/unimpaired.vim	/^function! s:ExecMove(cmd) abort$/;"	f
+s:ExpandSymbols	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:ExpandSymbols(input) abort$/;"	f
 s:ExprCol	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:ExprCol()$/;"	f
 s:FALSE	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^let s:FALSE = 0$/;"	v
 s:FALSE	pack/minpac/start/vim-easymotion/autoload/vital/_easymotion/Data/Set.vim	/^let s:FALSE = 0$/;"	v
 s:FALSE	pack/minpac/start/vim-easymotion/autoload/vital/_easymotion/HitAHint/Motion.vim	/^let s:FALSE = 0$/;"	v
 s:FUNCTION_IMPL_TABLE	pack/minpac/start/vim-textobj-user/autoload/textobj/user.vim	/^let s:FUNCTION_IMPL_TABLE = {$/;"	v
+s:FUNCTION_PATTERNS	pack/minpac/start/vim-textobj-function/autoload/textobj/function/vim.vim	/^let s:FUNCTION_PATTERNS = {$/;"	v
 s:FavAdd	pack/minpac/start/FavEx/plugin/favex.vim	/^fun! s:FavAdd(action)$/;"	f
 s:FavExplore	pack/minpac/start/FavEx/plugin/favex.vim	/^fun! s:FavExplore(newwin)$/;"	f
 s:FavHelp	pack/minpac/start/FavEx/plugin/favex.vim	/^fun! s:FavHelp()$/;"	f
@@ -7324,6 +7469,7 @@ s:FavList	pack/minpac/start/FavEx/plugin/favex.vim	/^fun! s:FavList()$/;"	f
 s:FavOpen	pack/minpac/start/FavEx/plugin/favex.vim	/^fun! s:FavOpen(newwin)$/;"	f
 s:FavRemove	pack/minpac/start/FavEx/plugin/favex.vim	/^fun! s:FavRemove()$/;"	f
 s:FileByOffset	pack/minpac/start/vim-unimpaired/plugin/unimpaired.vim	/^function! s:FileByOffset(num) abort$/;"	f
+s:FillChangeContents	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! s:FillChangeContents(change)$/;"	f
 s:FilterString	pack/minpac/start/tabular/autoload/tabular.vim	/^function! s:FilterString(lines, commandstring)$/;"	f
 s:FlatConstants	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^  let s:FlatConstants = g:Tabula_FlatConstants$/;"	v
 s:FlatConstants	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^let s:FlatConstants = 1$/;"	v
@@ -7338,6 +7484,7 @@ s:FoldedFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:FoldedFg 
 s:FreshState	pack/minpac/start/html5.vim/indent/html.vim	/^func! s:FreshState(lnum)$/;"	f
 s:Function	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:Function = 'bold'$/;"	v
 s:FunctionBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:FunctionBg = s:NormalBg $/;"	v
+s:FunctionCallTextObject	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^function! s:FunctionCallTextObject(mode)$/;"	f
 s:FunctionFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:FunctionFg = '#6947a1'$/;"	v
 s:GREEN	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^    let s:GREEN  = '28'$/;"	v
 s:GREEN	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^    let s:GREEN  = 'green'$/;"	v
@@ -7378,13 +7525,18 @@ s:Gbase3	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^    let s:Gba
 s:Gbase3	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^    let s:Gbase3  = s:GSbase3$/;"	v
 s:Gblue	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^let s:Gblue    = "0094d4"$/;"	v
 s:Gcyan	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^let s:Gcyan    = "00a39a"$/;"	v
+s:GetChangePositions	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! s:GetChangePositions()$/;"	f
 s:GetChar	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:GetChar(...) abort "{{{$/;"	f
+s:GetObviousDestination	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:GetObviousDestination(input, expanded) abort$/;"	f
 s:GetPair	pack/minpac/start/vim-javascript/indent/javascript.vim	/^  function s:GetPair(start,end,flags,skip)$/;"	f
+s:GetPathToZ	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:GetPathToZ() abort$/;"	f
 s:GetScriptType	pack/minpac/start/html5.vim/indent/html.vim	/^func! s:GetScriptType(str)$/;"	f
+s:GetSearchOutput	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:GetSearchOutput(search) abort$/;"	f
 s:GetVars	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:GetVars()$/;"	f
 s:GetVisualStartPosition	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:GetVisualStartPosition(c_pos, v_start, v_end, search_direction) "{{{$/;"	f
 s:Ggreen	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^let s:Ggreen   = "009e3c"$/;"	v
 s:Gmagenta	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^let s:Gmagenta = "d74bb9"$/;"	v
+s:GoToDirectory	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:GoToDirectory(directory) abort$/;"	f
 s:Gorange	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^let s:Gorange  = "b67800"$/;"	v
 s:Gred	pack/minpac/start/vim-colorschemes/colors/bluedrake.vim	/^let s:Gred     = "d75a69"$/;"	v
 s:GroupingAlgorithmOriginal	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:GroupingAlgorithmOriginal(targets, keys)$/;"	f
@@ -7460,6 +7612,7 @@ s:I	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^  let s:I = 'none'$/
 s:I	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^  let s:I = s:disable_italic ? 'none' : 'italic'$/;"	v
 s:IdentifierBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:IdentifierBg = s:NormalBg$/;"	v
 s:IdentifierFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:IdentifierFg = '#9d5abf'$/;"	v
+s:InitIfSupportedFiletype	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^function s:InitIfSupportedFiletype(filetype_string)$/;"	f
 s:InsideTag	pack/minpac/start/html5.vim/indent/html.vim	/^func! s:InsideTag(foundHtmlString)$/;"	f
 s:InvisibleIgnore	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^  let s:InvisibleIgnore = g:Tabula_InvisibleIgnore$/;"	v
 s:InvisibleIgnore	pack/minpac/start/vim-colorschemes/colors/tabula.vim	/^let s:InvisibleIgnore = 1$/;"	v
@@ -7467,6 +7620,7 @@ s:IsBlock	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:Is
 s:IsContOne	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:IsContOne(cont)$/;"	f
 s:IsReadable	pack/minpac/start/vim-tinyMRU/plugin/tinymru.vim	/^function! s:IsReadable(idx, val)$/;"	f
 s:IsSwitch	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:IsSwitch()$/;"	f
+s:JumpPair	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! s:JumpPair(direction)$/;"	f
 s:LGREY	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^    let s:LGREY  = '255'$/;"	v
 s:LGREY	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^    let s:LGREY  = 'grey'$/;"	v
 s:LGREY	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^  let s:LGREY  = '#EEEEEE'$/;"	v
@@ -7522,6 +7676,7 @@ s:OverridePHPSyntax	pack/minpac/start/vim-colorschemes/colors/triplejelly.vim	/^
 s:PATTERN_FLAGS_TABLE	pack/minpac/start/vim-textobj-user/autoload/textobj/user.vim	/^let s:PATTERN_FLAGS_TABLE = {$/;"	v
 s:PATTERN_IMPL_TABLE	pack/minpac/start/vim-textobj-user/autoload/textobj/user.vim	/^let s:PATTERN_IMPL_TABLE = {$/;"	v
 s:ParseCino	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:ParseCino(f)$/;"	f
+s:ParseOutput	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! s:ParseOutput(output) abort$/;"	f
 s:ParsePattern	pack/minpac/start/tabular/plugin/Tabular.vim	/^function! s:ParsePattern(string)$/;"	f
 s:Plum	pack/minpac/start/vim-colorschemes/colors/two2tango.vim	/^let s:Plum			= ['#ad7fa8', '#75507b', '#5c3566']$/;"	v
 s:PreProcBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:PreProcBg = s:NormalBg $/;"	v
@@ -7533,6 +7688,13 @@ s:Pure	pack/minpac/start/vim-javascript/indent/javascript.vim	/^function s:Pure(
 s:RED	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^    let s:RED    = '124'$/;"	v
 s:RED	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^    let s:RED    = 'red'$/;"	v
 s:RED	pack/minpac/start/vim-colorschemes/colors/primary.vim	/^  let s:RED    = '#DB4437'$/;"	v
+s:RE_ATTR_A	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_ATTR_A = '\\s\\+' . s:RE_ATTR_I$/;"	v
+s:RE_ATTR_I	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_ATTR_I = '\\(' . s:RE_ATTR_NAME . s:RE_ATTR_RHS . '\\)'$/;"	v
+s:RE_ATTR_NAME	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_ATTR_NAME = '\\([a-zA-Z0-9\\-_:@.]\\+\\)'$/;"	v
+s:RE_ATTR_RHS	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_ATTR_RHS = '\\(=' . s:RE_ATTR_VALUE . '\\)\\='$/;"	v
+s:RE_ATTR_VALUE	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_ATTR_VALUE = '\\(' . s:RE_QUOTED_STR . '\\|' . s:RE_WORD . '\\)'$/;"	v
+s:RE_QUOTED_STR	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_QUOTED_STR = '\\(".\\{-}"\\)'$/;"	v
+s:RE_WORD	pack/minpac/start/vim-textobj-xmlattr/plugin/textobj/xmlattr.vim	/^let s:RE_WORD = '\\(\\w\\+\\)'$/;"	v
 s:RGB2HSL	pack/minpac/start/vim-colorschemes/colors/neodark.vim	/^function! s:RGB2HSL(RGB)$/;"	f
 s:RGB2hex	pack/minpac/start/vim-colorschemes/colors/neodark.vim	/^function! s:RGB2hex(RGB)$/;"	f
 s:Red	pack/minpac/start/vim-colorschemes/colors/3dglasses.vim	/^let s:Red			=	['#2b0000', '#800000', '#AA0000', '#FF0000', '#FF2A2A', '#FF5555']$/;"	v
@@ -7543,6 +7705,7 @@ s:RepeatFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:RepeatFg 
 s:RestoreValue	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:RestoreValue() "{{{$/;"	f
 s:Right	pack/minpac/start/tabular/autoload/tabular.vim	/^function! s:Right(string, fieldwidth)$/;"	f
 s:Rocker	pack/minpac/start/vim-over/autoload/over/command_line/substitute.vim	/^let s:Rocker = s:V.import("Unlocker.Rocker")$/;"	v
+s:RunCommand	pack/minpac/start/z.vim/plugin/z-commands.vim	/^func! s:RunCommand(...) abort$/;"	f
 s:SNR	pack/minpac/start/vim-easymotion/autoload/vital/easymotion.vim	/^let s:SNR = join(map(range(len("\\<SNR>")), '"[\\\\x" . printf("%0x", char2nr("\\<SNR>"[v:val]))/;"	v
 s:SNR	pack/minpac/start/vim-over/autoload/vital/over.vim	/^let s:SNR = join(map(range(len("\\<SNR>")), '"[\\\\x" . printf("%0x", char2nr("\\<SNR>"[v:val]))/;"	v
 s:SaveValue	pack/minpac/start/vim-easymotion/autoload/EasyMotion.vim	/^function! s:SaveValue() "{{{$/;"	f
@@ -7675,6 +7838,7 @@ s:V	pack/minpac/start/vim-easymotion/autoload/EasyMotion/command_line.vim	/^let 
 s:V	pack/minpac/start/vim-easymotion/autoload/EasyMotion/overwin.vim	/^let s:V = vital#easymotion#new()$/;"	v
 s:V	pack/minpac/start/vim-over/autoload/over/command_line.vim	/^let s:V = over#vital()$/;"	v
 s:V	pack/minpac/start/vim-over/autoload/over/command_line/substitute.vim	/^let s:V = over#vital()$/;"	v
+s:VSPEC_BLOCK_PATTERNS	pack/minpac/start/vim-textobj-function/autoload/textobj/function/vim.vim	/^let s:VSPEC_BLOCK_PATTERNS = {$/;"	v
 s:VertSplit	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:VertSplit = 'reverse,underline' $/;"	v
 s:VertSplitBg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:VertSplitBg = s:NormalBg$/;"	v
 s:VertSplitFg	pack/minpac/start/vim-colorschemes/colors/otaku.vim	/^let s:VertSplitFg = s:FunctionFg $/;"	v
@@ -8971,6 +9135,7 @@ s:black1	pack/minpac/start/vim-colorschemes/colors/happy_hacking.vim	/^let s:bla
 s:black2	pack/minpac/start/vim-colorschemes/colors/happy_hacking.vim	/^let s:black2   = "#202020"$/;"	v
 s:black_green	pack/minpac/start/vim-colorschemes/colors/cherryblossom.vim	/^let s:black_green           = { "gui": "#053703", "cterm": "235" }$/;"	v
 s:black_green_bright	pack/minpac/start/vim-colorschemes/colors/cherryblossom.vim	/^let s:black_green_bright    = { "gui": "#074005", "cterm": "239" }$/;"	v
+s:block_border_p	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! s:block_border_p(indent,base_indent,include_empty_lines_p,type) "{{{2$/;"	f
 s:blue	pack/minpac/start/vim-colorschemes/colors/Tomorrow-Night-Blue.vim	/^let s:blue = "bbdaff"$/;"	v
 s:blue	pack/minpac/start/vim-colorschemes/colors/Tomorrow-Night-Bright.vim	/^let s:blue = "7aa6da"$/;"	v
 s:blue	pack/minpac/start/vim-colorschemes/colors/Tomorrow-Night-Eighties.vim	/^let s:blue = "6699cc"$/;"	v
@@ -9354,6 +9519,7 @@ s:close_gray_scale	pack/minpac/start/vim-colorschemes/colors/seattle.vim	/^funct
 s:close_window	pack/minpac/start/vim-over/autoload/vital/_over/Gift.vim	/^function! s:close_window(expr, ...)$/;"	f
 s:close_window_by	pack/minpac/start/vim-over/autoload/vital/_over/Gift.vim	/^function! s:close_window_by(expr, ...)$/;"	f
 s:closematch	pack/minpac/start/vim-surround/plugin/surround.vim	/^function! s:closematch(str) " {{{1$/;"	f
+s:closing_regex	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^let s:closing_regex     = '<\\\/\\zs\\k[^>[:space:]]*\\ze>'$/;"	v
 s:clouds	pack/minpac/start/vim-colorschemes/colors/flatcolor.vim	/^let s:clouds = { "gui": "#cbe3e7", "cterm": "253", "cterm16": "7"}$/;"	v
 s:clouds	pack/minpac/start/vim-colorschemes/colors/flatui.vim	/^let s:clouds=         { "gui": "#ecf0f1", "cterm": "255" }$/;"	v
 s:cmap	pack/minpac/start/vim-colorschemes/colors/calmar256-dark.vim	/^    let s:cmap =   [ $/;"	v
@@ -10673,9 +10839,11 @@ s:current_syntax	pack/minpac/start/vim-jsx-pretty/after/syntax/javascript.vim	/^
 s:current_syntax	pack/minpac/start/vim-jsx-pretty/after/syntax/tsx.vim	/^  let s:current_syntax = b:current_syntax$/;"	v
 s:cursor_bg	pack/minpac/start/vim-colorschemes/colors/antares.vim	/^let s:cursor_bg        = "555555"$/;"	v
 s:cursor_bg	pack/minpac/start/vim-colorschemes/colors/evening.vim	/^let s:cursor_bg       = "555555"$/;"	v
+s:cursor_char	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:cursor_char()$/;"	f
 s:cursor_grey	pack/minpac/start/vim-colorschemes/colors/onedark.vim	/^let s:cursor_grey = s:colors.cursor_grey$/;"	v
 s:cursor_grey	pack/minpac/start/vim-colorschemes/colors/synthwave.vim	/^let s:cursor_grey =  { "gui": "#393642", "cterm": "60" }$/;"	v
 s:cursor_options	pack/minpac/start/vim-unimpaired/plugin/unimpaired.vim	/^function! s:cursor_options() abort$/;"	f
+s:cursor_syn	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:cursor_syn()$/;"	f
 s:cursorline	pack/minpac/start/vim-colorschemes/colors/kkruby.vim	/^let s:cursorline   = "2F393C"$/;"	v
 s:custom_bg	pack/minpac/start/vim-colorschemes/colors/seoul256-light.vim	/^let s:custom_bg = get(g:, 'seoul256_light_background', get(g:, 'seoul256_background', 253))$/;"	v
 s:cyan	pack/minpac/start/vim-colorschemes/colors/abyss.vim	/^let s:cyan     = '#00AFFF' " 39$/;"	v
@@ -11230,6 +11398,7 @@ s:frozenset	pack/minpac/start/vim-easymotion/autoload/vital/_easymotion/Data/Set
 s:func	pack/minpac/start/vim-colorschemes/colors/elda.vim	/^let s:func = 33$/;"	v
 s:func	pack/minpac/start/vim-colorschemes/colors/phd.vim	/^let s:func = '#96b2cc'$/;"	v
 s:funcs	pack/minpac/start/vim-over/autoload/vital/_over/Coaster/Highlight.vim	/^let s:funcs =  keys(filter(copy(s:global), "type(v:val) == type(function('tr'))"))$/;"	v
+s:function_range	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:function_range()$/;"	f
 s:g_cyan	pack/minpac/start/vim-colorschemes/colors/mdark.vim	/^let s:g_cyan = "#B6E3FF"$/;"	v
 s:g_green	pack/minpac/start/vim-colorschemes/colors/mdark.vim	/^let s:g_green = "#406A5C"$/;"	v
 s:g_lavender	pack/minpac/start/vim-colorschemes/colors/mdark.vim	/^let s:g_lavender = "#363243"$/;"	v
@@ -12950,6 +13119,7 @@ s:import	pack/minpac/start/vim-over/autoload/vital/over.vim	/^function! s:import
 s:in_comm	pack/minpac/start/vim-javascript/indent/javascript.vim	/^let s:in_comm = s:skip_expr[:-14] . "'comment\\\\|doc'"$/;"	v
 s:inc_highlight	pack/minpac/start/vim-easymotion/autoload/EasyMotion/command_line.vim	/^function! s:inc_highlight(re) "{{{$/;"	f
 s:increment	pack/minpac/start/vim-textobj-user/t/script-local.vim	/^function! s:increment()$/;"	f
+s:indent_level_of	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! s:indent_level_of(linenr)  "{{{2$/;"	f
 s:indent_tags	pack/minpac/start/html5.vim/indent/html.vim	/^let s:indent_tags = {}$/;"	v
 s:index	pack/minpac/start/vim-easymotion/autoload/vital/_easymotion/Over/String.vim	/^function! s:index(haystack, needle, ...)$/;"	f
 s:index	pack/minpac/start/vim-over/autoload/vital/_over/Over/String.vim	/^function! s:index(haystack, needle, ...)$/;"	f
@@ -13257,7 +13427,10 @@ s:jsx_indent_comment	pack/minpac/start/vim-jsx-pretty/autoload/jsx_pretty/indent
 s:jsx_indent_element	pack/minpac/start/vim-jsx-pretty/autoload/jsx_pretty/indent.vim	/^function s:jsx_indent_element(lnum)$/;"	f
 s:jsx_indent_trail_punct	pack/minpac/start/vim-jsx-pretty/autoload/jsx_pretty/indent.vim	/^function s:jsx_indent_trail_punct(lnum)$/;"	f
 s:jump	pack/minpac/start/vim-over/autoload/vital/_over/Gift/Window.vim	/^function! s:jump(nr)$/;"	f
+s:jump_to_pair	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:jump_to_pair()$/;"	f
 s:jump_window	pack/minpac/start/vim-over/autoload/vital/_over/Gift.vim	/^function! s:jump_window(expr)$/;"	f
+s:keepcpo	pack/minpac/start/dsf.vim/plugin/dsf.vim	/^let s:keepcpo = &cpo$/;"	v
+s:keepcpo	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^let s:keepcpo = &cpo$/;"	v
 s:keepcpo	pack/minpac/start/vim-jsx-pretty/after/indent/javascript.vim	/^let s:keepcpo = &cpo$/;"	v
 s:keepcpo	pack/minpac/start/vim-jsx-pretty/after/indent/tsx.vim	/^let s:keepcpo = &cpo$/;"	v
 s:key1	pack/minpac/start/vim-colorschemes/colors/vimbrains.vim	/^let s:key1     = ['#ce7828', 172]$/;"	v
@@ -13314,6 +13487,7 @@ s:lavender	pack/minpac/start/vim-colorschemes/colors/abbott.vim	/^let s:lavender
 s:lavender	pack/minpac/start/vim-colorschemes/colors/mdark.vim	/^let s:lavender = "#9B8BD4"$/;"	v
 s:lavender	pack/minpac/start/vim-colorschemes/colors/vice.vim	/^let s:lavender      = [183, "#d7afff"]$/;"	v
 s:lazycat_list	pack/minpac/start/vim-colorschemes/colors/solarized.vim	/^let s:lazycat_list=[$/;"	v
+s:left	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:left()$/;"	f
 s:legacy_option_map	pack/minpac/start/vim-unimpaired/plugin/unimpaired.vim	/^function! s:legacy_option_map(letter) abort$/;"	f
 s:length	pack/minpac/start/vim-easymotion/autoload/vital/_easymotion/Over/String.vim	/^function! s:length(str)$/;"	f
 s:length	pack/minpac/start/vim-over/autoload/vital/_over/Over/String.vim	/^function! s:length(str)$/;"	f
@@ -14130,6 +14304,8 @@ s:open	pack/minpac/start/vim-over/autoload/vital/_over/Coaster/Buffer.vim	/^func
 s:open	pack/minpac/start/vim-over/autoload/vital/_over/Vim/Buffer.vim	/^function! s:open(buffer, ...) abort$/;"	f
 s:openSha	pack/minpac/opt/minpac/autoload/minpac/status.vim	/^function! s:openSha() abort$/;"	f
 s:openable_bufnr_list	pack/minpac/start/vim-over/autoload/vital/_over/Gift.vim	/^function! s:openable_bufnr_list()$/;"	f
+s:opening_end_regex	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^let s:opening_end_regex = '\\%(\\_[^>]\\{-}\\_[^\\\/]\\)\\=>'$/;"	v
+s:opening_regex	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^let s:opening_regex     = '<\\zs\\k[^>\/[:space:]]*'$/;"	v
 s:opfirst	pack/minpac/start/vim-javascript/indent/javascript.vim	/^let s:opfirst = '^' . get(g:,'javascript_opfirst',$/;"	v
 s:opfunc	pack/minpac/start/vim-surround/plugin/surround.vim	/^function! s:opfunc(type, ...) abort " {{{1$/;"	f
 s:opfunc2	pack/minpac/start/vim-surround/plugin/surround.vim	/^function! s:opfunc2(...) abort$/;"	f
@@ -14941,6 +15117,8 @@ s:save_cpo	pack/minpac/start/vim-over/autoload/vital/_over/Vim/Buffer.vim	/^let 
 s:save_cpo	pack/minpac/start/vim-over/autoload/vital/_over/Vim/Guard.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/minpac/start/vim-over/autoload/vital/_over/Vim/Message.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/minpac/start/vim-over/plugin/over.vim	/^let s:save_cpo = &cpo$/;"	v
+s:save_cpo	pack/minpac/start/vim-textobj-function-javascript/after/ftplugin/javascript/textobj-function.vim	/^let s:save_cpo = &cpo$/;"	v
+s:save_cpo	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpo	pack/minpac/start/vim-tinyMRU/plugin/tinymru.vim	/^let s:save_cpo = &cpo$/;"	v
 s:save_cpoptions	pack/minpac/start/targets.vim/autoload/targets.vim	/^let s:save_cpoptions = &cpoptions$/;"	v
 s:save_cpoptions	pack/minpac/start/targets.vim/plugin/targets.vim	/^let s:save_cpoptions = &cpoptions$/;"	v
@@ -14971,9 +15149,20 @@ s:seashell_style	pack/minpac/start/vim-colorschemes/colors/seashell.vim	/^let s:
 s:seed	pack/minpac/start/emmet-vim/autoload/emmet/util.vim	/^let s:seed = localtime()$/;"	v
 s:select	pack/minpac/start/targets.vim/autoload/targets/sources/argument.vim	/^function! s:select(args, direction)$/;"	f
 s:select	pack/minpac/start/targets.vim/autoload/targets/sources/pair.vim	/^function! s:select(count, trigger)$/;"	f
+s:select	pack/minpac/start/vim-textobj-function/autoload/textobj/function.vim	/^function! s:select(object_type)$/;"	f
+s:select	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! s:select(include_empty_lines_p, block_border_type)  "{{{2$/;"	f
 s:selectRegion	pack/minpac/start/targets.vim/autoload/targets.vim	/^function! s:selectRegion(target)$/;"	f
 s:selectTarget	pack/minpac/start/targets.vim/autoload/targets.vim	/^function! s:selectTarget(context, target, rawTarget)$/;"	f
+s:select_a	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:select_a()$/;"	f
+s:select_a	pack/minpac/start/vim-textobj-function/autoload/textobj/function/c.vim	/^function! s:select_a()$/;"	f
+s:select_a	pack/minpac/start/vim-textobj-function/autoload/textobj/function/java.vim	/^function! s:select_a()$/;"	f
+s:select_a	pack/minpac/start/vim-textobj-function/autoload/textobj/function/vim.vim	/^function! s:select_a()$/;"	f
+s:select_a_of	pack/minpac/start/vim-textobj-function/autoload/textobj/function/vim.vim	/^function! s:select_a_of(patterns)$/;"	f
 s:select_function_wrapper	pack/minpac/start/vim-textobj-user/autoload/textobj/user.vim	/^function! s:select_function_wrapper(function_name, spec_name, previous_mode)$/;"	f
+s:select_i	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! s:select_i()$/;"	f
+s:select_i	pack/minpac/start/vim-textobj-function/autoload/textobj/function/c.vim	/^function! s:select_i()$/;"	f
+s:select_i	pack/minpac/start/vim-textobj-function/autoload/textobj/function/java.vim	/^function! s:select_i()$/;"	f
+s:select_i	pack/minpac/start/vim-textobj-function/autoload/textobj/function/vim.vim	/^function! s:select_i()$/;"	f
 s:select_pair_wrapper	pack/minpac/start/vim-textobj-user/autoload/textobj/user.vim	/^function! s:select_pair_wrapper(patterns, flags, previous_mode)$/;"	f
 s:selected_theme	pack/minpac/start/vim-colorschemes/colors/PaperColor.vim	/^let s:selected_theme = s:themes[s:theme_name]$/;"	v
 s:selected_variant	pack/minpac/start/vim-colorschemes/colors/PaperColor.vim	/^    let s:selected_variant = 'dark'$/;"	v
@@ -16006,6 +16195,8 @@ set	pack/minpac/start/vim-css3-syntax/test/test.css	/^set,$/;"	s
 setUp	pack/minpac/start/ultisnips/test/vim_test_case.py	/^    def setUp(self):$/;"	m	class:VimTestCase
 set_color	pack/minpac/start/vim-colorschemes/colors/goldenrod.vim	/^function <SID>set_color(name, fg, bg, ct)$/;"	f
 set_cursor_from_pos	pack/minpac/start/ultisnips/pythonx/UltiSnips/vim_helper.py	/^def set_cursor_from_pos(pos):$/;"	f
+set_file_contents	pack/minpac/start/dsf.vim/spec/support/vim.rb	/^    def set_file_contents(string)$/;"	f	module:Support.Vim
+set_file_contents	pack/minpac/start/tagalong.vim/spec/support/vim.rb	/^    def set_file_contents(string)$/;"	f	module:Support.Vim
 set_hi	pack/minpac/start/vim-colorschemes/colors/1989.vim	/^function! <SID>set_hi(name, fg, bg, style)$/;"	f
 set_mark_from_pos	pack/minpac/start/ultisnips/pythonx/UltiSnips/vim_helper.py	/^def set_mark_from_pos(name, pos):$/;"	f
 setup	pack/minpac/start/nvim-colorizer.lua/doc/modules/colorizer.html	/^    <a name = "setup"><\/a>$/;"	a
@@ -16539,6 +16730,22 @@ tabular#PipeRangeWithOptions	pack/minpac/start/tabular/autoload/tabular.vim	/^fu
 tabular#SplitDelimUnitTest	pack/minpac/start/tabular/autoload/tabular.vim	/^function! tabular#SplitDelimUnitTest()$/;"	f
 tabular#TabularizeStrings	pack/minpac/start/tabular/autoload/tabular.vim	/^function! tabular#TabularizeStrings(strings, delim, ...)$/;"	f
 tagFollowsPlainText	pack/minpac/start/vim-jsx-pretty/sample.js	/^function tagFollowsPlainText() {$/;"	f
+tagalong	pack/minpac/start/tagalong.vim/plugin/tagalong.vim	/^augroup tagalong$/;"	a
+tagalong#Apply	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! tagalong#Apply()$/;"	f
+tagalong#Deinit	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! tagalong#Deinit()$/;"	f
+tagalong#Init	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! tagalong#Init()$/;"	f
+tagalong#Reapply	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! tagalong#Reapply()$/;"	f
+tagalong#Trigger	pack/minpac/start/tagalong.vim/autoload/tagalong.vim	/^function! tagalong#Trigger()$/;"	f
+tagalong#util#DropCursor	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#DropCursor()$/;"	f
+tagalong#util#GetByPosition	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#GetByPosition(start, end)$/;"	f
+tagalong#util#GetMotion	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#GetMotion(motion)$/;"	f
+tagalong#util#PopCursor	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#PopCursor()$/;"	f
+tagalong#util#PosBetween	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#PosBetween(pos, start, end)$/;"	f
+tagalong#util#PushCursor	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#PushCursor()$/;"	f
+tagalong#util#ReplaceMotion	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#ReplaceMotion(motion, text)$/;"	f
+tagalong#util#SearchSkip	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#SearchSkip(pattern, skip, ...)$/;"	f
+tagalong#util#SearchUnderCursor	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#SearchUnderCursor(pattern, ...)$/;"	f
+tagalong#util#SearchposUnderCursor	pack/minpac/start/tagalong.vim/autoload/tagalong/util.vim	/^function! tagalong#util#SearchposUnderCursor(pattern, ...)$/;"	f
 target	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	var target = arguments[0] || {}, i = 1, length = arguments.length, deep = false, options;$/;"	v
 targets	pack/minpac/start/targets.vim/autoload/targets/mappings.vim	/^    augroup targets#mappings#silent$/;"	a
 targets	pack/minpac/start/targets.vim/autoload/targets/sources.vim	/^    augroup targets#sources#silent$/;"	a
@@ -16649,6 +16856,18 @@ textarea	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^input,button,textar
 textarea	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^input,button,textarea,select,optgroup,option {$/;"	s
 textobj#entire#select_a	pack/minpac/start/vim-textobj-entire/autoload/textobj/entire.vim	/^function! textobj#entire#select_a()  "{{{2$/;"	f
 textobj#entire#select_i	pack/minpac/start/vim-textobj-entire/autoload/textobj/entire.vim	/^function! textobj#entire#select_i()  "{{{2$/;"	f
+textobj#function#c#select	pack/minpac/start/vim-textobj-function/autoload/textobj/function/c.vim	/^function! textobj#function#c#select(object_type)$/;"	f
+textobj#function#java#select	pack/minpac/start/vim-textobj-function/autoload/textobj/function/java.vim	/^function! textobj#function#java#select(object_type)$/;"	f
+textobj#function#javascript#select	pack/minpac/start/vim-textobj-function-javascript/autoload/textobj/function/javascript.vim	/^function! textobj#function#javascript#select(object_type)$/;"	f
+textobj#function#select_A	pack/minpac/start/vim-textobj-function/autoload/textobj/function.vim	/^function! textobj#function#select_A()$/;"	f
+textobj#function#select_I	pack/minpac/start/vim-textobj-function/autoload/textobj/function.vim	/^function! textobj#function#select_I()$/;"	f
+textobj#function#select_a	pack/minpac/start/vim-textobj-function/autoload/textobj/function.vim	/^function! textobj#function#select_a()$/;"	f
+textobj#function#select_i	pack/minpac/start/vim-textobj-function/autoload/textobj/function.vim	/^function! textobj#function#select_i()$/;"	f
+textobj#function#vim#select	pack/minpac/start/vim-textobj-function/autoload/textobj/function/vim.vim	/^function! textobj#function#vim#select(object_type)$/;"	f
+textobj#indent#select_a	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! textobj#indent#select_a()  "{{{2$/;"	f
+textobj#indent#select_i	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! textobj#indent#select_i()  "{{{2$/;"	f
+textobj#indent#select_same_a	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! textobj#indent#select_same_a()  "{{{2$/;"	f
+textobj#indent#select_same_i	pack/minpac/start/vim-textobj-indent/autoload/textobj/indent.vim	/^function! textobj#indent#select_same_i()  "{{{2$/;"	f
 textobj#line#select_a	pack/minpac/start/vim-textobj-line/autoload/textobj/line.vim	/^function! textobj#line#select_a()  "{{{2$/;"	f
 textobj#line#select_i	pack/minpac/start/vim-textobj-line/autoload/textobj/line.vim	/^function! textobj#line#select_i()  "{{{2$/;"	f
 textobj#user#_sid	pack/minpac/start/vim-textobj-user/autoload/textobj/user.vim	/^function! textobj#user#_sid()$/;"	f
@@ -16725,6 +16944,7 @@ valid_cterm_colors	pack/minpac/start/vim-colorschemes/colors/lucid.vim	/^let val
 validate_buffer	pack/minpac/start/ultisnips/pythonx/UltiSnips/buffer_proxy.py	/^    def validate_buffer(self):$/;"	m	class:VimBufferProxy
 values	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^						values = [],$/;"	v
 var	pack/minpac/start/nvim-colorizer.lua/doc/ldoc.css	/^address,caption,cite,code,dfn,em,strong,th,var,optgroup {$/;"	s
+var	pack/minpac/start/vim-textobj-function/t/fixtures/sample.java	/^  int var = 0;$/;"	f	class:Test
 version	pack/minpac/start/emmet-vim/docs/static/js/jquery-latest.js	/^	version: (userAgent.match( \/.+(?:rv|it|ra|ie)[\\\/: ]([\\d.]+)\/ ) || [])[1],$/;"	p	class:jQuery.browser
 version	pack/minpac/start/html5.vim/Makefile	/^version:$/;"	t
 version	pack/minpac/start/ultisnips/test/vim_test_case.py	/^    version = None  # Will be set to vim --version output$/;"	v	class:VimTestCase
@@ -16735,7 +16955,9 @@ vim-javascript	pack/minpac/start/vim-javascript/README.md	/^# vim-javascript$/;"
 vim-jsx-pretty	pack/minpac/start/vim-jsx-pretty/README.md	/^# vim-jsx-pretty$/;"	c
 vim-plug [https://github.com/junegunn/vim-plug](https://github.com/junegunn/vim-plug)	pack/minpac/start/vim-jsx-pretty/README.md	/^### vim-plug [https:\/\/github.com\/junegunn\/vim-plug](https:\/\/github.com\/junegunn\/vim-plug/;"	S
 vim-textobj-entire - Text objects for entire buffers	pack/minpac/start/vim-textobj-entire/README.md	/^# vim-textobj-entire - Text objects for entire buffers$/;"	c
+vim-textobj-function	pack/minpac/start/vim-textobj-function/README.md	/^# vim-textobj-function$/;"	c
 vim-textobj-user - Create your own text objects	pack/minpac/start/vim-textobj-user/README.md	/^# vim-textobj-user - Create your own text objects$/;"	c
+vim-textobj-xmlattr	pack/minpac/start/vim-textobj-xmlattr/README.md	/^# vim-textobj-xmlattr$/;"	c
 vim-tinyMRU	pack/minpac/start/vim-tinyMRU/README.md	/^# vim-tinyMRU$/;"	c
 vim_executable	pack/minpac/start/ultisnips/test/vim_interface.py	/^    def vim_executable(self):$/;"	m	class:VimInterface
 vim_flavor	pack/minpac/start/ultisnips/test/vim_test_case.py	/^    vim_flavor = None  # will be 'vim' or 'neovim'.$/;"	v	class:VimTestCase
@@ -17376,5 +17598,10 @@ ySs	pack/minpac/start/vim-surround/plugin/surround.vim	/^  nmap ySs <Plug>YSsurr
 yellow1	pack/minpac/start/vim-colorschemes/colors/thermopylae.vim	/^let yellow1 = '#D79921' " #D79921$/;"	v
 ys	pack/minpac/start/vim-surround/plugin/surround.vim	/^  nmap ys  <Plug>Ysurround$/;"	m
 yss	pack/minpac/start/vim-surround/plugin/surround.vim	/^  nmap yss <Plug>Yssurround$/;"	m
+z.vim	pack/minpac/start/z.vim/README.md	/^# z.vim$/;"	c
+zcd#	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! zcd#(...) abort$/;"	f
+zcd#Completion	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! zcd#Completion(args, command, cursor) abort$/;"	f
+zcd#FindMatches	pack/minpac/start/z.vim/autoload/zcd.vim	/^func! zcd#FindMatches(search) abort$/;"	f
+zcd#FindMatches	pack/minpac/start/z.vim/tests/autoload/zcd.vim	/^  func! zcd#FindMatches(search)$/;"	f
 zz	plugins.settings.d/easymotion.vim	/^omap zz <Plug>(easymotion-bd-f2)$/;"	m
 ⚠️ Work with `vim-polyglot`	pack/minpac/start/vim-jsx-pretty/README.md	/^## ⚠️ Work with `vim-polyglot`$/;"	s
