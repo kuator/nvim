@@ -37,5 +37,17 @@ nnoremap <leader>zd :Z
 
 "grep
 nnoremap <leader>gr :silent lgrep<Space>
-nnoremap <silent> [f :lprevious<cr>
-nnoremap <silent> ]f :lnext<cr>
+
+" https://superuser.com/questions/604122/vim-file-name-completion-relative-to-current-file
+autocmd InsertEnter * let save_cwd = getcwd() | execute 'lcd' expand('%:p:h')
+autocmd InsertLeave * execute 'lcd' fnameescape(save_cwd)
+
+"https://vi.stackexchange.com/questions/11232/vimscript-how-do-you-get-file-directory-vim-was-called-on-from-the-command-lin
+" Returns the directory of the first file in `argv` or `cwd` if it's empty
+" function FindSessionDirectory() abort
+"   if len(argv()) > 0
+"     return fnamemodify(argv()[0], ':p:h')
+"   endif
+"   return getcwd()
+" endfunction!
+" let g:session_default_name = FindSessionDirectory()

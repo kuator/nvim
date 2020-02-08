@@ -1,7 +1,7 @@
 "colorscheme stuff
 syntax on
 set termguicolors
-colorscheme gruvbox
+colorscheme gruvbox9
 set background=dark
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -15,6 +15,6 @@ hi! Pmenu ctermbg=gray guibg=#282828 guifg=#EBDBB2 ctermfg=green
 hi! Comment guifg=#abaaaa
 hi! Comment cterm=italic gui=italic
 
-set foldcolumn=2
+" set foldcolumn=2
 hi! FoldColumn ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 hi! VertSplit ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
