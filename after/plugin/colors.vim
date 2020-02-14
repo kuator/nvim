@@ -1,7 +1,7 @@
 "colorscheme stuff
 syntax on
 set termguicolors
-colorscheme gruvbox9
+colorscheme gruvbox
 set background=dark
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
