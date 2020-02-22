@@ -1,6 +1,6 @@
 "https://github.com/romainl/the-patient-vimmer/blob/gh-pages/3.adoc#introduction
  
-nnoremap <leader>er  :edit **/*
+nnoremap <leader>er  :edit */*
 nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 nnoremap <leader>vc  :vs <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 
@@ -15,7 +15,7 @@ nnoremap <leader>fo :ME <C-z>
 inoreabbr lam =>
 inoreabbr far =>
 inoreabbr tar ->
-inoreabbr ex ! 
+inoreabbr ex !
 inoreabbr pl +
 tnoremap <esc> <C-\><C-n>
 nnoremap <silent><c-l> <c-l>:nohl<cr>
@@ -34,9 +34,8 @@ nnoremap <leader>fad :FDirectory<cr>
 nnoremap <leader>ff :find *
 "z.vim
 nnoremap <leader>zd :Z 
-
 "grep
-nnoremap <leader>gr :silent lgrep<Space>
+nnoremap <leader>lg :silent lgrep<Space>
 
 " https://superuser.com/questions/604122/vim-file-name-completion-relative-to-current-file
 autocmd InsertEnter * let save_cwd = getcwd() | execute 'lcd' expand('%:p:h')
@@ -60,3 +59,7 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 autocmd QuickFixCmdPost [^l]* cwindow
+
+"vim-clap
+nnoremap <leader><leader>f :Clap files<cr>
+nnoremap <leader><leader>; :

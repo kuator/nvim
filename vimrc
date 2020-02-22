@@ -18,6 +18,7 @@ call minpac#add('kana/vim-textobj-function')
 call minpac#add('kana/vim-textobj-indent')
 call minpac#add('liuchengxu/vim-clap',  { 'type':'opt', 'do': ':Clap install-binary'})
 call minpac#add('liuchengxu/space-vim-theme')
+call minpac#add('liuchengxu/vista.vim')
 call minpac#add('AndrewRadev/dsf.vim')
 call minpac#add('AndrewRadev/tagalong.vim')
 call minpac#add('thinca/vim-textobj-function-javascript')
@@ -32,16 +33,24 @@ call minpac#add('ludovicchabant/vim-gutentags')
 call minpac#add('osyo-manga/vim-over')
 call minpac#add('Yggdroot/indentLine')
 call minpac#add('ajh17/VimCompletesMe')
-call minpac#add('airblade/vim-gitgutter')
 call minpac#add('flazz/vim-colorschemes')
+call minpac#add('mhinz/vim-signify')
 call minpac#add('arzg/vim-colors-xcode')
 call minpac#add('lifepillar/vim-gruvbox8')
 call minpac#add('PsychoLlama/z.vim')
 call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('davidhalter/jedi-vim')
+call minpac#add('neomake/neomake')
+call minpac#add('AndrewRadev/sideways.vim')
+
+
+call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
+call minpac#add('numirias/semshi', {'type': 'opt'})
 
 if has('nvim')
-  call minpac#add('norcalli/nvim-colorizer.lua')
-  call minpac#add('neovim/nvim-lsp')
+  packadd nvim-colorizer.lua
+  packadd vim-clap
+  packadd semshi
 endif
 
 " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
@@ -123,10 +132,7 @@ set path+=$PLUGIN,$AFTER_PLUGIN,$VIM_HOME,src/app/**,Assets/Scripts/**
 
 if has('nvim')
   "python providers for neovim
-  let g:loaded_python_provider = 1
-  let g:python_host_skip_check=1
   let g:python_host_prog = '/opt/.venvs/neovim2/bin/python'
-  let g:python3_host_skip_check=1
   let g:python3_host_prog = '/opt/.venvs/neovim3/bin/python'
 
   set wildoptions+=pum
@@ -136,6 +142,7 @@ if has('nvim')
 
   "interactive substitute
   set inccommand=split
+  set pumblend=5
 
 endif
 
@@ -154,3 +161,4 @@ endif
 " set iskeyword+=-
 
 set completeopt-=preview
+
