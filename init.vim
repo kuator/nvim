@@ -42,6 +42,7 @@ call minpac#add('HerringtonDarkholme/yats.vim')
 call minpac#add('davidhalter/jedi-vim')
 call minpac#add('neomake/neomake')
 call minpac#add('AndrewRadev/sideways.vim')
+call minpac#add('OmniSharp/omnisharp-vim', {'type': 'opt'})
 
 
 call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
