@@ -1,5 +1,4 @@
 "https://github.com/romainl/the-patient-vimmer/blob/gh-pages/3.adoc#introduction
- 
 nnoremap <leader>er  :edit */*
 nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 nnoremap <leader>vc  :vs <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
@@ -8,34 +7,28 @@ nnoremap <leader>vc  :vs <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 nnoremap cd :lcd %:p:h<bar>pwd<cr>
 nnoremap cu :lcd ..<bar>pwd<cr>
 
-"https://github.com/romainl/vim-tinyMRU/blob/master/doc/tinymru.txt
-set wildcharm=<C-z>
-nnoremap <leader>fo :ME <C-z>
-
 inoreabbr lam =>
 inoreabbr far =>
 inoreabbr tar ->
 inoreabbr ex !
 inoreabbr pl +
+cnoreabbr lam =>
+cnoreabbr far =>
+cnoreabbr tar ->
 tnoremap <esc> <C-\><C-n>
 nnoremap <silent><c-l> <c-l>:nohl<cr>
 
+noremap s <Nop>
 inoremap kj <esc>
 vnoremap y ygv<Esc>
 nnoremap ' `
 omap ' `
 
-"FavEx.vim
-unmap <leader>ff
-unmap <leader>fd
-nnoremap <leader>faf :FFile<cr>
-nnoremap <leader>fad :FDirectory<cr>
 "shitty fuzzy finder :\
 nnoremap <leader>ff :find *
-"z.vim
-nnoremap <leader>zd :Z 
 "grep
 nnoremap <leader>lg :silent lgrep<Space>
+autocmd QuickFixCmdPost [^l]* cwindow
 
 " https://superuser.com/questions/604122/vim-file-name-completion-relative-to-current-file
 autocmd InsertEnter * let save_cwd = getcwd() | execute 'lcd' expand('%:p:h')
@@ -58,8 +51,8 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-autocmd QuickFixCmdPost [^l]* cwindow
-
-"vim-clap
-nnoremap <leader><leader>f :Clap files<cr>
-nnoremap <leader><leader>; :
+" default folding mappings in vim suck, my pinkie hurts
+nnoremap sf z
+nnoremap sf z
+nnoremap sft za
+nnoremap sfT zA

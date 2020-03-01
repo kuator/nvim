@@ -5,3 +5,7 @@ let g:EasyMotion_smartcase = 1
 nmap ss <Plug>(easymotion-overwin-f2)
 omap zz <Plug>(easymotion-bd-f2)
 vmap ss <Plug>(easymotion-bd-f2)
+
+" " Gif config
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)

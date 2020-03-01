@@ -6,11 +6,11 @@ set termguicolors
 set background=dark
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
-hi! LineNr guifg=white guibg=NONE
+hi! LineNr guifg=white guibg=NONE ctermfg=white ctermbg=NONE
 hi! SignColumn guibg=NONE ctermbg=NONE
 hi! EndOfBuffer ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 hi! CursorLineNr ctermbg=NONE guibg=NONE
-hi! Comment guifg=#abaaaa
+hi! Comment guifg=#abaaaa ctermfg=gray
 hi! Comment cterm=italic gui=italic
 
 hi! FoldColumn ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE

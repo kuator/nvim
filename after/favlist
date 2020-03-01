@@ -1,0 +1,12 @@
+"! h : toggle help
+"! <Enter> : open file(dir) in this window
+"! o : open file(dir) in new window
+"! O : open file(dir) in previous window
+"! d : delete entry
+"! q : close favex window
+"! :he favex for detailed help
+" Files (do not delete this line)
+~/.config/i3/config
+~/.config/nvim/pack/minpac/opt/custom_plugin/plugin/custom.vim
+~/.config/nvim/init.vim
+" Directories (do not delete this line)

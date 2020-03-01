@@ -63,9 +63,13 @@ endsnippet
 ################
 #  properties  #
 ################
+snippet \dc "Document Class" b
+\documentclass${1:[${2:options}]}{${3:class}}
+$0
+endsnippet
 
 snippet field "Simple property declaration" b
-public ${1:int} ${2:MyProperty}; 
+${1:public} ${2:int} ${3:MyProperty}; 
 endsnippet
 
 snippet prop "Simple property declaration" b
@@ -360,3 +364,4 @@ endsnippet
 snippet <c "XML code comment" w
 <code>$0</code>
 endsnippet
+

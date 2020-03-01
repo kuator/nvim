@@ -1,7 +1,8 @@
 packadd minpac
-
+"{{{
 call minpac#init()
 call minpac#add('pangloss/vim-javascript')
+call minpac#add('vim-jp/vital.vim')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('hail2u/vim-css3-syntax')
 call minpac#add('othree/html5.vim')
@@ -21,8 +22,11 @@ call minpac#add('liuchengxu/space-vim-theme')
 call minpac#add('liuchengxu/vista.vim')
 call minpac#add('AndrewRadev/dsf.vim')
 call minpac#add('AndrewRadev/tagalong.vim')
+call minpac#add('AndrewRadev/sideways.vim')
 call minpac#add('thinca/vim-textobj-function-javascript')
+call minpac#add('Julian/vim-textobj-variable-segment')
 call minpac#add('wellle/targets.vim')
+call minpac#add('saaguero/vim-textobj-pastedtext')
 call minpac#add('whatyouhide/vim-textobj-xmlattr')
 call minpac#add('sirver/ultisnips', {'type': 'opt'})
 call minpac#add('easymotion/vim-easymotion')
@@ -30,7 +34,7 @@ call minpac#add('vim-scripts/FavEx')
 call minpac#add('godlygeek/tabular')
 call minpac#add('romainl/vim-tinyMRU')
 call minpac#add('ludovicchabant/vim-gutentags')
-call minpac#add('osyo-manga/vim-over')
+" call minpac#add('osyo-manga/vim-over')
 call minpac#add('Yggdroot/indentLine')
 call minpac#add('ajh17/VimCompletesMe')
 call minpac#add('flazz/vim-colorschemes')
@@ -39,23 +43,36 @@ call minpac#add('arzg/vim-colors-xcode')
 call minpac#add('lifepillar/vim-gruvbox8')
 call minpac#add('PsychoLlama/z.vim')
 call minpac#add('HerringtonDarkholme/yats.vim')
-call minpac#add('davidhalter/jedi-vim')
+call minpac#add('davidhalter/jedi-vim', {'type': 'opt'})
 call minpac#add('neomake/neomake')
-call minpac#add('AndrewRadev/sideways.vim')
-call minpac#add('OmniSharp/omnisharp-vim', {'type': 'opt'})
+call minpac#add('psliwka/vim-smoothie')
+call minpac#add('Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins', 'type': 'opt' })
 
 
 call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
-call minpac#add('numirias/semshi', {'type': 'opt'})
+call minpac#add('numirias/semshi', {'type': 'opt', 'do': ':UpdateRemotePlugins'})
+call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
+call minpac#add('haorenW1025/diagnostic-nvim', {'type': 'opt'})
+call minpac#add('pechorin/any-jump.nvim', {'type': 'opt'})
+call minpac#add('jeetsukumaran/vim-pythonsense', {'type': 'opt'})
+call minpac#add('bps/vim-textobj-python', {'type': 'opt'})
+call minpac#add('kkoomen/vim-doge', {'type': 'opt'})
+call minpac#add('heavenshell/vim-pydocstring', {'type': 'opt'})
+call minpac#add('Vimjas/vim-python-pep8-indent', {'type': 'opt'})
+call minpac#add('rbtnn/vim-jumptoline', {'type': 'opt'})
+call minpac#add('sbdchd/neoformat', {'type': 'opt'})
+call minpac#add('omnisharp/omnisharp-vim', {'type': 'opt'})
 
 if has('nvim')
   packadd nvim-colorizer.lua
   packadd vim-clap
   packadd semshi
+  packadd nvim-lsp
 endif
 
 " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+"}}}
 
 let mapleader = "\<Space>"
 
@@ -68,8 +85,9 @@ set termguicolors
 
 " Tabulation and spaces
 set expandtab                                                               " Show spaces instead of tabs
-set shiftwidth=2                                                            " columns per <<
+set shiftwidth=0                                                    " columns per <<
 set softtabstop=-1                                                          " spaces per tab
+set tabstop=4                                                         " spaces per tab
 set autoindent
 
 set number
@@ -89,7 +107,6 @@ set laststatus=2
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set ttimeout ttimeoutlen=0
 
-let mapleader="\<Space>"
 set signcolumn=yes
 set hidden
 set cmdheight=2
@@ -102,6 +119,7 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico,*.spec.ts
 set wildignore+=*.pdf,*.psd
 set wildignore+=*node_modules/*,*bower_components/*,plugged/*
 set wildignore+=tags,gwt-unitCache/*,*/__pycache__/*,build/*,build.?/*
+set wildignore+=**/pack/** 
 set wildignorecase
 set wildcharm=<C-z>
 set suffixes+=.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -112,24 +130,10 @@ set suffixes+=.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
 set scrolloff=3      
 set sidescrolloff=3
 
-
-" let $PLUGINS_SETTINGS=expand(fnamemodify(resolve(expand('<sfile>:p')), ':p:h'))."/plugins.settings.d"
-" let $AFTER_PLUGINS_SETTINGS=expand(fnamemodify(resolve(expand('<sfile>:p')), ':p:h'))."/after/plugin"
-" set path-=/usr/include
-" set path+=src/app/**,$PLUGINS_SETTINGS,$AFTER_PLUGINS_SETTINGS,$VIM_HOME,Assets/Scripts/**
-
-" let &runtimepath = $VIM_HOME.'/plugins.settings.d'.','.&runtimepath
-
-"echo expand(&runtimepath)
-" for f in split(glob(expand($VIM_HOME).'/plugins.settings.d/*.vim'), '\n')
-"   exe 'source' f
-" endfor
-
+" path settings 
 let $VIM_HOME=expand(fnamemodify(resolve(expand('<sfile>:p')), ':p:h'))
-let $AFTER_PLUGIN=$VIM_HOME."/after/plugin"
-let $PLUGIN=$VIM_HOME."/plugin"
 set path-=/usr/include
-set path+=$PLUGIN,$AFTER_PLUGIN,$VIM_HOME,src/app/**,Assets/Scripts/**
+exec 'set path+=' .. $VIM_HOME .. '/**' .. ',src/app/**,Assets/Scripts/**'
 
 if has('nvim')
   "python providers for neovim
@@ -144,7 +148,6 @@ if has('nvim')
   "interactive substitute
   set inccommand=split
   set pumblend=5
-
 endif
 
 if !has('nvim')
@@ -162,4 +165,3 @@ endif
 " set iskeyword+=-
 
 set completeopt-=preview
-
