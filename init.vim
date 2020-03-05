@@ -2,7 +2,7 @@ packadd minpac
 "{{{
 call minpac#init()
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('vim-jp/vital.vim')
+call minpac#add('HerringtonDarkholme/yats.vim')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('hail2u/vim-css3-syntax')
 call minpac#add('othree/html5.vim')
@@ -23,6 +23,7 @@ call minpac#add('liuchengxu/vista.vim')
 call minpac#add('AndrewRadev/dsf.vim')
 call minpac#add('AndrewRadev/tagalong.vim')
 call minpac#add('AndrewRadev/sideways.vim')
+call minpac#add('AndrewRadev/splitjoin.vim')
 call minpac#add('thinca/vim-textobj-function-javascript')
 call minpac#add('Julian/vim-textobj-variable-segment')
 call minpac#add('wellle/targets.vim')
@@ -42,7 +43,6 @@ call minpac#add('mhinz/vim-signify')
 call minpac#add('arzg/vim-colors-xcode')
 call minpac#add('lifepillar/vim-gruvbox8')
 call minpac#add('PsychoLlama/z.vim')
-call minpac#add('HerringtonDarkholme/yats.vim')
 call minpac#add('davidhalter/jedi-vim', {'type': 'opt'})
 call minpac#add('neomake/neomake')
 call minpac#add('psliwka/vim-smoothie')
@@ -62,6 +62,7 @@ call minpac#add('Vimjas/vim-python-pep8-indent', {'type': 'opt'})
 call minpac#add('rbtnn/vim-jumptoline', {'type': 'opt'})
 call minpac#add('sbdchd/neoformat', {'type': 'opt'})
 call minpac#add('omnisharp/omnisharp-vim', {'type': 'opt'})
+call minpac#add('cloudhead/neovim-fuzzy', {'type': 'opt'})
 
 if has('nvim')
   packadd nvim-colorizer.lua
@@ -75,6 +76,7 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 "}}}
 
 let mapleader = "\<Space>"
+let maplocalleader = "s"
 
 filetype plugin indent on
 runtime macros/matchit.vim
@@ -87,7 +89,7 @@ set termguicolors
 set expandtab                                                               " Show spaces instead of tabs
 set shiftwidth=0                                                    " columns per <<
 set softtabstop=-1                                                          " spaces per tab
-set tabstop=4                                                         " spaces per tab
+set tabstop=2                                                        " spaces per tab
 set autoindent
 
 set number
@@ -141,9 +143,6 @@ if has('nvim')
   let g:python3_host_prog = '/opt/.venvs/neovim3/bin/python'
 
   set wildoptions+=pum
-
-  "https://github.com/norcalli/nvim-colorizer.lua
-  " lua require'colorizer'.setup()
 
   "interactive substitute
   set inccommand=split
