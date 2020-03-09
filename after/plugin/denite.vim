@@ -11,6 +11,8 @@ if has('nvim')
         \ 'highlight_matched_char': 'Underlined',
         \ 'highlight_window_background': 'PMenu',
         \ })
-  call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+  " call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+  " call denite#custom#var('file/rec', 'command', ['rg', '--files'])
+  call denite#custom#var('file/rec', 'command', ['fd', '--full-path','--no-ignore-vcs' ,'--type', 'f', '--ignore-file', expand('~') .. '/.config/.ignore'])
 endif
 

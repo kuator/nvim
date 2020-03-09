@@ -56,3 +56,6 @@ nnoremap sf z
 nnoremap sf z
 nnoremap sft za
 nnoremap sfT zA
+
+iabbrev shrug ¯\_(ツ)_/¯
+iabbrev tableflip (╯°□°）╯彡┻━┻
