@@ -66,7 +66,13 @@ call minpac#add('omnisharp/omnisharp-vim', {'type': 'opt'})
 call minpac#add('cloudhead/neovim-fuzzy', {'type': 'opt'})
 call minpac#add('matze/vim-move', {'type': 'opt'})
 call minpac#add('rhysd/vim-textobj-anyblock', {'type': 'opt'})
+call minpac#add('chrisbra/improvedft', {'type': 'opt'})
+call minpac#add('gpanders/vim-oldfiles', {'type': 'opt'})
+call minpac#add('haorenW1025/completion-nvim', {'type': 'opt'})
+call minpac#add('LinArcX/mpi', {'type': 'opt'})
 call minpac#add('Shougo/neosnippet.vim')
+call minpac#add('dhruvasagar/vim-zoom')
+" call minpac#add('rhysd/clever-f.vim')
 
 if has('nvim')
   packadd nvim-colorizer.lua
@@ -167,4 +173,10 @@ endif
 
 " set iskeyword+=-
 
+
+" Auto close popup menu when finish completion
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Set completeopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
 set completeopt-=preview
