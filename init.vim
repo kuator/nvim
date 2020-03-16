@@ -2,6 +2,7 @@ packadd minpac
 "{{{
 call minpac#init()
 call minpac#add('pangloss/vim-javascript')
+call minpac#add('lifepillar/pgsql.vim')
 call minpac#add('HerringtonDarkholme/yats.vim')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('hail2u/vim-css3-syntax')
@@ -24,6 +25,7 @@ call minpac#add('AndrewRadev/dsf.vim')
 call minpac#add('AndrewRadev/tagalong.vim')
 call minpac#add('AndrewRadev/sideways.vim')
 call minpac#add('AndrewRadev/splitjoin.vim')
+call minpac#add('godlygeek/tabular')
 call minpac#add('thinca/vim-textobj-function-javascript')
 call minpac#add('Julian/vim-textobj-variable-segment')
 call minpac#add('wellle/targets.vim')
@@ -70,8 +72,13 @@ call minpac#add('chrisbra/improvedft', {'type': 'opt'})
 call minpac#add('gpanders/vim-oldfiles', {'type': 'opt'})
 call minpac#add('haorenW1025/completion-nvim', {'type': 'opt'})
 call minpac#add('LinArcX/mpi', {'type': 'opt'})
+call minpac#add('chaoren/vim-wordmotion', {'type': 'opt'})
+call minpac#add('mg979/vim-visual-multi', {'type': 'opt'})
+call minpac#add('machakann/vim-swap', {'type': 'opt'})
 call minpac#add('Shougo/neosnippet.vim')
 call minpac#add('dhruvasagar/vim-zoom')
+call minpac#add('henricattoire/aergia', {'type': 'opt'})
+call minpac#add('rbtnn/vim-mrw', {'type': 'opt'})
 " call minpac#add('rhysd/clever-f.vim')
 
 if has('nvim')
@@ -79,6 +86,7 @@ if has('nvim')
   packadd vim-clap
   packadd semshi
   packadd nvim-lsp
+  " packadd vim-wordmotion
 endif
 
 " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
@@ -175,7 +183,7 @@ endif
 
 
 " Auto close popup menu when finish completion
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
