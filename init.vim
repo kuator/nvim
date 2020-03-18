@@ -1,4 +1,5 @@
 packadd minpac
+
 "{{{
 call minpac#init()
 call minpac#add('pangloss/vim-javascript')
@@ -75,9 +76,10 @@ call minpac#add('LinArcX/mpi', {'type': 'opt'})
 call minpac#add('chaoren/vim-wordmotion', {'type': 'opt'})
 call minpac#add('mg979/vim-visual-multi', {'type': 'opt'})
 call minpac#add('machakann/vim-swap', {'type': 'opt'})
-call minpac#add('Shougo/neosnippet.vim')
+call minpac#add('relastle/vim-nayvy', {'type': 'opt'})
 call minpac#add('dhruvasagar/vim-zoom')
 call minpac#add('henricattoire/aergia', {'type': 'opt'})
+call minpac#add('aaronbieber/vim-quicktask', {'type': 'opt'})
 call minpac#add('rbtnn/vim-mrw', {'type': 'opt'})
 " call minpac#add('rhysd/clever-f.vim')
 
@@ -86,6 +88,8 @@ if has('nvim')
   packadd vim-clap
   packadd semshi
   packadd nvim-lsp
+  packadd ultisnips
+  packadd vim-visual-multi
   " packadd vim-wordmotion
 endif
 
