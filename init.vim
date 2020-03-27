@@ -45,6 +45,7 @@ call minpac#add('flazz/vim-colorschemes')
 call minpac#add('mhinz/vim-signify')
 call minpac#add('arzg/vim-colors-xcode')
 call minpac#add('lifepillar/vim-gruvbox8')
+call minpac#add('romainl/Apprentice')
 call minpac#add('PsychoLlama/z.vim')
 call minpac#add('davidhalter/jedi-vim', {'type': 'opt'})
 call minpac#add('neomake/neomake')
@@ -81,6 +82,8 @@ call minpac#add('dhruvasagar/vim-zoom')
 call minpac#add('henricattoire/aergia', {'type': 'opt'})
 call minpac#add('aaronbieber/vim-quicktask', {'type': 'opt'})
 call minpac#add('rbtnn/vim-mrw', {'type': 'opt'})
+call minpac#add('voldikss/vim-floaterm', {'type': 'opt'})
+call minpac#add('tpope/vim-projectionist', {'type': 'opt'})
 " call minpac#add('rhysd/clever-f.vim')
 
 if has('nvim')
@@ -88,7 +91,7 @@ if has('nvim')
   packadd vim-clap
   packadd semshi
   packadd nvim-lsp
-  packadd ultisnips
+  packadd vim-quicktask
   packadd vim-visual-multi
   " packadd vim-wordmotion
 endif
@@ -179,7 +182,7 @@ if !has('nvim')
 endif
 
 if executable("rg")
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --no-ignore-vcs\ --ignore-file\ ~/.config/.ignore
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 

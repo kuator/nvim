@@ -6,6 +6,8 @@ if has('nvim')
 
 lua << EOF
   require'nvim_lsp'.sumneko_lua.setup{}
+  require'nvim_lsp'.html.setup{}
+  require'nvim_lsp'.cssls.setup{}
 
   require'nvim_lsp'.pyls.setup {
     settings = {
