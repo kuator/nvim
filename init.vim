@@ -1,7 +1,10 @@
 packadd minpac
 
+
 "{{{
 call minpac#init()
+
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('lifepillar/pgsql.vim')
 call minpac#add('HerringtonDarkholme/yats.vim')
@@ -34,7 +37,6 @@ call minpac#add('saaguero/vim-textobj-pastedtext')
 call minpac#add('whatyouhide/vim-textobj-xmlattr')
 call minpac#add('sirver/ultisnips', {'type': 'opt'})
 call minpac#add('easymotion/vim-easymotion')
-call minpac#add('vim-scripts/FavEx')
 call minpac#add('godlygeek/tabular')
 call minpac#add('romainl/vim-tinyMRU')
 call minpac#add('ludovicchabant/vim-gutentags')
@@ -44,16 +46,16 @@ call minpac#add('ajh17/VimCompletesMe')
 call minpac#add('flazz/vim-colorschemes')
 call minpac#add('mhinz/vim-signify')
 call minpac#add('arzg/vim-colors-xcode')
-call minpac#add('lifepillar/vim-gruvbox8')
-call minpac#add('romainl/Apprentice')
-call minpac#add('PsychoLlama/z.vim')
+" call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('davidhalter/jedi-vim', {'type': 'opt'})
 call minpac#add('neomake/neomake')
+call minpac#add('dhruvasagar/vim-zoom')
 call minpac#add('psliwka/vim-smoothie')
+call minpac#add('haya14busa/vim-asterisk')
 " call minpac#add('nathanaelkane/vim-indent-guides')
+
+
 call minpac#add('Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins', 'type': 'opt' })
-
-
 call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
 call minpac#add('numirias/semshi', {'type': 'opt', 'do': ':UpdateRemotePlugins'})
 call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
@@ -78,7 +80,6 @@ call minpac#add('chaoren/vim-wordmotion', {'type': 'opt'})
 call minpac#add('mg979/vim-visual-multi', {'type': 'opt'})
 call minpac#add('machakann/vim-swap', {'type': 'opt'})
 call minpac#add('relastle/vim-nayvy', {'type': 'opt'})
-call minpac#add('dhruvasagar/vim-zoom')
 call minpac#add('henricattoire/aergia', {'type': 'opt'})
 call minpac#add('aaronbieber/vim-quicktask', {'type': 'opt'})
 call minpac#add('rbtnn/vim-mrw', {'type': 'opt'})
@@ -87,17 +88,18 @@ call minpac#add('tpope/vim-projectionist', {'type': 'opt'})
 " call minpac#add('rhysd/clever-f.vim')
 
 if has('nvim')
-  packadd nvim-colorizer.lua
-  packadd vim-clap
-  packadd semshi
-  packadd nvim-lsp
-  packadd vim-quicktask
-  packadd vim-visual-multi
+  if !exists('g:vscode')
+    packadd vim-clap
+    packadd nvim-colorizer.lua
+    packadd semshi
+    packadd nvim-lsp
+    packadd vim-quicktask
+    packadd vim-visual-multi
+  end
   " packadd vim-wordmotion
 endif
 
 " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
-call minpac#add('k-takata/minpac', {'type': 'opt'})
 "}}}
 
 let mapleader = "\<Space>"
@@ -107,14 +109,11 @@ filetype plugin indent on
 runtime macros/matchit.vim
 set nocompatible
 set clipboard=unnamedplus
-set termguicolors
-" map s <nop>
 
 " Tabulation and spaces
-set expandtab                                                               " Show spaces instead of tabs
-set shiftwidth=0                                                    " columns per <<
-set softtabstop=-1                                                          " spaces per tab
-set tabstop=2                                                        " spaces per tab
+set expandtab     
+set shiftwidth=2
+set softtabstop=-1
 set autoindent
 
 set number
@@ -139,9 +138,8 @@ set hidden
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
-set signcolumn=yes
-set wildmode=longest:full,full
 set wildmenu
+set wildmode=longest:full,full
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico,*.spec.ts
 set wildignore+=*.pdf,*.psd
 set wildignore+=*node_modules/*,*bower_components/*,plugged/*
@@ -160,7 +158,8 @@ set sidescrolloff=3
 " path settings 
 let $VIM_HOME=expand(fnamemodify(resolve(expand('<sfile>:p')), ':p:h'))
 set path-=/usr/include
-exec 'set path+=' .. $VIM_HOME .. '/**' .. ',src/app/**,Assets/Scripts/**'
+" exec 'set path+=' .. $VIM_HOME .. '/**' .. ',src/app/**,Assets/Scripts/**'
+exec 'set path+=' .. stdpath('config') .. '/**' .. ',src/app/**,Assets/Scripts/**'
 
 if has('nvim')
   "python providers for neovim
@@ -185,12 +184,6 @@ if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --no-ignore-vcs\ --ignore-file\ ~/.config/.ignore
     set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
-
-" set iskeyword+=-
-
-
-" Auto close popup menu when finish completion
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Set completeopt to have a better completion experience
 set completeopt=menuone,noinsert,noselect
