@@ -20,7 +20,7 @@ nnoremap <silent><c-l> <c-l>:nohl<cr>
 
 noremap s <Nop>
 inoremap kj <esc>
-vnoremap y ygv<Esc>
+" vnoremap y ygv<Esc>
 nnoremap ' `
 omap ' `
 
@@ -59,10 +59,3 @@ nnoremap sfT zA
 
 iabbrev shrug ¯\_(ツ)_/¯
 iabbrev tableflip (╯°□°）╯彡┻━┻
-
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"

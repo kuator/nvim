@@ -1,114 +1,113 @@
-if has('vim_starting')
-  if !isdirectory(expand('~/.config/nvim/autoload'))
-    echo 'install vim-plug...'
-    call system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+packadd minpac
+
+
+"{{{
+call minpac#init()
+
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('lifepillar/pgsql.vim')
+call minpac#add('HerringtonDarkholme/yats.vim')
+call minpac#add('MaxMEllon/vim-jsx-pretty')
+call minpac#add('hail2u/vim-css3-syntax')
+call minpac#add('othree/html5.vim')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-rsi')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('kana/vim-textobj-user')
+call minpac#add('kana/vim-textobj-entire')
+call minpac#add('kana/vim-textobj-line')
+call minpac#add('kana/vim-textobj-function')
+call minpac#add('kana/vim-textobj-indent')
+call minpac#add('thalesmello/vim-textobj-methodcall')
+call minpac#add('liuchengxu/vim-clap',  { 'type':'opt', 'do': ':Clap install-binary'})
+call minpac#add('liuchengxu/space-vim-theme')
+call minpac#add('liuchengxu/vista.vim')
+call minpac#add('AndrewRadev/dsf.vim')
+call minpac#add('AndrewRadev/tagalong.vim')
+call minpac#add('AndrewRadev/sideways.vim')
+call minpac#add('AndrewRadev/splitjoin.vim')
+call minpac#add('godlygeek/tabular')
+call minpac#add('thinca/vim-textobj-function-javascript')
+call minpac#add('Julian/vim-textobj-variable-segment')
+call minpac#add('wellle/targets.vim')
+call minpac#add('saaguero/vim-textobj-pastedtext')
+call minpac#add('whatyouhide/vim-textobj-xmlattr')
+call minpac#add('sirver/ultisnips', {'type': 'opt'})
+call minpac#add('easymotion/vim-easymotion')
+call minpac#add('godlygeek/tabular')
+call minpac#add('romainl/vim-tinyMRU')
+call minpac#add('ludovicchabant/vim-gutentags')
+" call minpac#add('osyo-manga/vim-over')
+" call minpac#add('Yggdroot/indentLine')
+
+call minpac#add('ajh17/VimCompletesMe')
+call minpac#add('flazz/vim-colorschemes')
+call minpac#add('mhinz/vim-signify')
+call minpac#add('arzg/vim-colors-xcode')
+" call minpac#add('machakann/vim-highlightedyank')
+call minpac#add('neomake/neomake')
+call minpac#add('dhruvasagar/vim-zoom')
+call minpac#add('psliwka/vim-smoothie')
+call minpac#add('haya14busa/vim-asterisk')
+call minpac#add('inkarkat/vim-ReplaceWithRegister')
+" call minpac#add('nathanaelkane/vim-indent-guides')
+
+
+call minpac#add('Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins', 'type': 'opt' })
+call minpac#add('rafi/vim-venom', {'type': 'opt'})
+call minpac#add('davidhalter/jedi-vim', {'type': 'opt'})
+call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
+call minpac#add('numirias/semshi', {'type': 'opt', 'do': ':UpdateRemotePlugins'})
+call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
+call minpac#add('haorenW1025/diagnostic-nvim', {'type': 'opt'})
+call minpac#add('pechorin/any-jump.nvim', {'type': 'opt'})
+call minpac#add('jeetsukumaran/vim-pythonsense', {'type': 'opt'})
+call minpac#add('bps/vim-textobj-python', {'type': 'opt'})
+call minpac#add('kkoomen/vim-doge', {'type': 'opt'})
+call minpac#add('heavenshell/vim-pydocstring', {'type': 'opt'})
+call minpac#add('Vimjas/vim-python-pep8-indent', {'type': 'opt'})
+call minpac#add('rbtnn/vim-jumptoline', {'type': 'opt'})
+call minpac#add('sbdchd/neoformat', {'type': 'opt'})
+call minpac#add('omnisharp/omnisharp-vim', {'type': 'opt'})
+call minpac#add('cloudhead/neovim-fuzzy', {'type': 'opt'})
+call minpac#add('matze/vim-move', {'type': 'opt'})
+call minpac#add('rhysd/vim-textobj-anyblock', {'type': 'opt'})
+call minpac#add('chrisbra/improvedft', {'type': 'opt'})
+call minpac#add('gpanders/vim-oldfiles', {'type': 'opt'})
+call minpac#add('haorenW1025/completion-nvim', {'type': 'opt'})
+call minpac#add('nvim-treesitter/completion-treesitter', {'type': 'opt'})
+call minpac#add('LinArcX/mpi', {'type': 'opt'})
+call minpac#add('chaoren/vim-wordmotion', {'type': 'opt'})
+call minpac#add('mg979/vim-visual-multi', {'type': 'opt'})
+call minpac#add('machakann/vim-swap', {'type': 'opt'})
+call minpac#add('relastle/vim-nayvy', {'type': 'opt'})
+call minpac#add('henricattoire/aergia', {'type': 'opt'})
+call minpac#add('aaronbieber/vim-quicktask', {'type': 'opt'})
+call minpac#add('rbtnn/vim-mrw', {'type': 'opt'})
+call minpac#add('voldikss/vim-floaterm', {'type': 'opt'})
+call minpac#add('tpope/vim-projectionist', {'type': 'opt'})
+call minpac#add('brooth/far.vim', {'type': 'opt'})
+call minpac#add('ripxorip/aerojump.nvim', {'type': 'opt'})
+" call minpac#add('rhysd/clever-f.vim')
+
+if has('nvim')
+  if !exists('g:vscode')
+    packadd vim-clap
+    packadd nvim-colorizer.lua
+    packadd semshi
+    packadd nvim-lsp
+    packadd vim-quicktask
+    packadd vim-visual-multi
   end
+  " packadd vim-wordmotion
 endif
 
-
-"{{{ Plugins
-call plug#begin('$XDG_CACHE_HOME/nvim/plugged')
-
-"{{{ Syntax files
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'lifepillar/pgsql.vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/html5.vim'
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
 "}}}
-"{{{ tpope
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-commentary'
-"}}}
-"{{{ kana
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-indent'"}}}
-"{{{ liuchengxu
-Plug 'liuchengxu/vim-clap',  {'do': ':Clap install-binary'}
-Plug 'liuchengxu/space-vim-theme'
-Plug 'liuchengxu/vista.vim'
-"}}}
-"{{{ andrewradev
-Plug 'AndrewRadev/dsf.vim'
-Plug 'AndrewRadev/tagalong.vim'
-Plug 'AndrewRadev/sideways.vim'
-Plug 'AndrewRadev/splitjoin.vim'
-"}}}
-
-
-"{{{ text objects
-Plug 'thinca/vim-textobj-function-javascript'
-Plug 'Julian/vim-textobj-variable-segment'
-Plug 'wellle/targets.vim'
-Plug 'saaguero/vim-textobj-pastedtext'
-Plug 'whatyouhide/vim-textobj-xmlattr'
-"}}}
-
-"{{{ miscleannious
-Plug 'neomake/neomake'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mhinz/vim-signify'
-Plug 'easymotion/vim-easymotion'
-Plug 'haya14busa/vim-asterisk'
-Plug 'godlygeek/tabular'
-Plug 'mg979/vim-visual-multi'
-Plug 'kuator/favi'
-Plug 'romainl/vim-tinyMRU'
-Plug 'godlygeek/tabular'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'dhruvasagar/vim-zoom'
-Plug 'flazz/vim-colorschemes'
-Plug 'arzg/vim-colors-xcode'
-Plug 'psliwka/vim-smoothie'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-"}}}
-
-
-Plug 'nathanaelkane/vim-indent-guides', {'on': []}
-Plug 'sirver/ultisnips', {'on': []} 
-Plug 'machakann/vim-highlightedyank', {'on': []}
-Plug 'davidhalter/jedi-vim', {'on': []} 
-Plug 'osyo-manga/vim-over', {'on': []}
-Plug 'Yggdroot/indentLine', {'on': []}
-Plug 'ajh17/VimCompletesMe', {'on': []}
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins', 'on': [] }
-Plug 'neovim/nvim-lsp', {'on': []} 
-Plug 'haorenW1025/diagnostic-nvim', {'on': []} 
-Plug 'pechorin/any-jump.nvim', {'on': []} 
-Plug 'jeetsukumaran/vim-pythonsense', {'on': []} 
-Plug 'bps/vim-textobj-python', {'on': []} 
-Plug 'kkoomen/vim-doge', {'on': []} 
-Plug 'heavenshell/vim-pydocstring', {'on': []} 
-Plug 'Vimjas/vim-python-pep8-indent', {'on': []} 
-Plug 'rbtnn/vim-jumptoline', {'on': []} 
-Plug 'sbdchd/neoformat', {'on': []} 
-Plug 'omnisharp/omnisharp-vim', {'on': []} 
-Plug 'cloudhead/neovim-fuzzy', {'on': []} 
-Plug 'matze/vim-move', {'on': []} 
-Plug 'rhysd/vim-textobj-anyblock', {'on': []} 
-Plug 'chrisbra/improvedft', {'on': []} 
-Plug 'gpanders/vim-oldfiles', {'on': []} 
-Plug 'haorenW1025/completion-nvim', {'on': []} 
-Plug 'LinArcX/mpi', {'on': []} 
-Plug 'chaoren/vim-wordmotion', {'on': []} 
-Plug 'machakann/vim-swap', {'on': []} 
-Plug 'relastle/vim-nayvy', {'on': []} 
-Plug 'henricattoire/aergia', {'on': []} 
-Plug 'aaronbieber/vim-quicktask', {'on': []} 
-Plug 'rbtnn/vim-mrw', {'on': []} 
-Plug 'voldikss/vim-floaterm', {'on': []} 
-Plug 'tpope/vim-projectionist', {'on': []} 
-Plug 'rhysd/clever-f.vim', {'on': []}
-call plug#end()"}}}
-
 
 let mapleader = "\<Space>"
 let maplocalleader = "s"
@@ -169,15 +168,24 @@ set path-=/usr/include
 " exec 'set path+=' .. $VIM_HOME .. '/**' .. ',src/app/**,Assets/Scripts/**'
 exec 'set path+=' .. stdpath('config') .. '/**' .. ',src/app/**,Assets/Scripts/**'
 
-"python providers for neovim
-let g:python_host_prog = '/opt/.venvs/neovim2/bin/python'
-let g:python3_host_prog = '/opt/.venvs/neovim3/bin/python'
+if has('nvim')
+  "python providers for neovim
+  let g:python_host_prog = '/opt/.venvs/neovim2/bin/python'
+  let g:python3_host_prog = '/opt/.venvs/neovim3/bin/python'
 
-set wildoptions+=pum
+  set wildoptions+=pum
 
-"interactive substitute
-set inccommand=split
-set pumblend=5
+  "interactive substitute
+  set inccommand=split
+  set pumblend=5
+endif
+
+if !has('nvim')
+  "https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+  let &t_SI = "\<Esc>[6 q"
+  let &t_SR = "\<Esc>[4 q"
+  let &t_EI = "\<Esc>[2 q"
+endif
 
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --no-ignore-vcs\ --ignore-file\ ~/.config/.ignore
@@ -185,8 +193,9 @@ if executable("rg")
 endif
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert 
+set completeopt=menuone,noinsert,noselect
 set completeopt-=preview
+
 
 "https://vim.fandom.com/wiki/Search_only_in_unfolded_text
 set fdo-=search

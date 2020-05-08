@@ -1,0 +1,30 @@
+" https://vi.stackexchange.com/questions/20605/find-project-root-relative-to-the-active-buffer
+let dir = finddir('.git/..', expand('%:p:h').';')
+
+"regex to swap captured groups
+
+"following regex turns 
+'<,'>s/\v(\w+)(\s\=.+)(positive\=True)/\1\2CheckConstraint\('\1 > 0'\)/g
+
+"this 
+finish_number_times = Column(Integer, positive=True)
+finish_result_percent = Column(Integer, positive=True)
+win_times = Column(Integer, positive=True)
+win_times_in_row = Column(Integer, positive=True)
+result_top_days = Column(Integer, positive=True)
+finish_before_percent_users = Column(Integer, positive=True)
+finish_number_top_in_period = Column(Integer, positive=True)
+finish_with_less_mistakes = Column(Integer, positive=True)
+reward_amount = Column(Integer, positive=True)
+
+
+"into this
+finish_number_times = Column(Integer, CheckConstraint('finish_number_times' > 0))
+finish_result_percent = Column(Integer, CheckConstraint('finish_result_percent' > 0))
+win_times = Column(Integer, CheckConstraint('win_times' > 0))
+win_times_in_row = Column(Integer, CheckConstraint('win_times_in_row' > 0))
+result_top_days = Column(Integer, CheckConstraint('result_top_days' > 0))
+finish_before_percent_users = Column(Integer, CheckConstraint('finish_before_percent_users' > 0))
+finish_number_top_in_period = Column(Integer, CheckConstraint('finish_number_top_in_period' > 0))
+finish_with_less_mistakes = Column(Integer, CheckConstraint('finish_with_less_mistakes' > 0))
+reward_amount = Column(Integer, CheckConstraint('reward_amount' > 0))
