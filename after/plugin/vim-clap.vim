@@ -1,5 +1,5 @@
 "vim-clap
-nnoremap <silent><leader>df :Clap files ++finder=fd --type f --type l  --no-ignore-vcs --hidden --ignore-file ~/.config/.ignore <cr>
+nnoremap <silent><leader>df :Clap files ++finder=fd --type f --type l  --no-ignore-vcs --hidden --ignore-file ~/.config/.ignore<cr>
 nnoremap <silent><leader>dg :Clap grep<cr>
 nnoremap <silent><leader>dl :Clap lines<cr>
 nnoremap <silent><leader>do :Clap history<cr>

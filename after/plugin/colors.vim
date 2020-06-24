@@ -1,7 +1,6 @@
 syntax on
 colorscheme space-vim-dark
 
-set termguicolors
 set background=dark
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -14,12 +13,6 @@ hi! Comment cterm=italic gui=italic
 
 hi! FoldColumn ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 hi! VertSplit ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
-
-
-
-
-
-
 
 
 

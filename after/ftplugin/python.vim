@@ -10,7 +10,7 @@ if match(&runtimepath, 'nvim-lsp') != -1
   set omnifunc=v:lua.vim.lsp.omnifunc
 endif
 
-let b:vcm_tab_complete = "omni"
+" let b:vcm_tab_complete = "omni"
 
 setlocal foldmethod=indent
 setlocal foldlevel=0
@@ -21,3 +21,8 @@ setlocal shiftwidth=4
 setlocal autoindent    
 setlocal nosmarttab    
 let g:pyindent_open_paren = 'shiftwidth()'
+
+let b:vcm_tab_complete = "omni"
+
+" call plug#load('semshi')
+" Semshi enable

@@ -1,7 +1,3 @@
-if has('nvim')
-  packadd nvim-lsp
-
-
 lua << EOF
   require'nvim_lsp'.sumneko_lua.setup{}
   require'nvim_lsp'.html.setup{}
@@ -37,4 +33,3 @@ lua << EOF
     }
   }
 EOF
-endif
