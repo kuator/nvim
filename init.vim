@@ -1,7 +1,7 @@
 if has('vim_starting')
-  if !isdirectory(expand('~/.config/nvim/autoload'))
+  if !isdirectory(expand('$XDG_DATA_HOME/nvim/site/autoload'))
     echo 'install vim-plug...'
-    call system('curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
+    call system('curl -fLo "${XDG_DATA_HOME}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim')
   end
 endif
 
@@ -23,12 +23,6 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 "}}}
-"{{{ kana
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-function'
-Plug 'kana/vim-textobj-indent'"}}}
 "{{{ liuchengxu
 Plug 'liuchengxu/vim-clap',  {'do': ':Clap install-binary!'}
 Plug 'liuchengxu/space-vim-theme'
@@ -40,82 +34,52 @@ Plug 'AndrewRadev/tagalong.vim'
 Plug 'AndrewRadev/sideways.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 "}}}
-
-
+"{{{ kana
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-function'
+Plug 'kana/vim-textobj-indent'
+"}}}
 "{{{ text objects
-Plug 'thinca/vim-textobj-function-javascript'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'wellle/targets.vim'
-Plug 'saaguero/vim-textobj-pastedtext'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+Plug 'inkarkat/vim-ReplaceWithRegister'
 "}}}
 
 "{{{ miscleannious
+Plug 'ajh17/VimCompletesMe', {'on': []}
+Plug 'neovim/nvim-lsp', {'on': []}
+Plug 'sirver/ultisnips', {'on': []} 
+Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 Plug 'neomake/neomake'
 Plug 'mhinz/vim-signify'
-"Plug 'easymotion/vim-easymotion'
-"Plug 'haya14busa/vim-asterisk'
 Plug 'godlygeek/tabular'
 Plug 'mg979/vim-visual-multi'
 Plug 'kuator/favi'
 Plug 'romainl/vim-tinyMRU'
 Plug 'godlygeek/tabular'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'dhruvasagar/vim-zoom'
 Plug 'flazz/vim-colorschemes'
 Plug 'arzg/vim-colors-xcode'
+Plug 'sainnhe/gruvbox-material'
 Plug 'psliwka/vim-smoothie'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins', 'for' :['python', 'vim-plug'] }
 "}}}
 
-
-Plug 'nathanaelkane/vim-indent-guides', {'on': []}
-Plug 'sirver/ultisnips', {'on': []} 
-Plug 'machakann/vim-highlightedyank', {'on': []}
-Plug 'davidhalter/jedi-vim', {'on': []} 
-Plug 'osyo-manga/vim-over', {'on': []}
-Plug 'Yggdroot/indentLine', {'on': []}
-Plug 'ajh17/VimCompletesMe', {'on': []}
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins', 'on': [] }
-Plug 'neovim/nvim-lsp', {'on': []} 
-Plug 'haorenW1025/diagnostic-nvim', {'on': []} 
-Plug 'pechorin/any-jump.nvim', {'on': []} 
-Plug 'jeetsukumaran/vim-pythonsense', {'on': []} 
-Plug 'bps/vim-textobj-python', {'on': []} 
-Plug 'kkoomen/vim-doge', {'on': []} 
-Plug 'heavenshell/vim-pydocstring', {'on': []} 
-Plug 'Vimjas/vim-python-pep8-indent', {'on': []} 
-Plug 'rbtnn/vim-jumptoline', {'on': []} 
-Plug 'sbdchd/neoformat', {'on': []} 
-Plug 'omnisharp/omnisharp-vim', {'on': []} 
-Plug 'cloudhead/neovim-fuzzy', {'on': []} 
-Plug 'matze/vim-move', {'on': []} 
-Plug 'rhysd/vim-textobj-anyblock', {'on': []} 
-Plug 'chrisbra/improvedft', {'on': []} 
-Plug 'gpanders/vim-oldfiles', {'on': []} 
-Plug 'haorenW1025/completion-nvim', {'on': []} 
-Plug 'LinArcX/mpi', {'on': []} 
-Plug 'chaoren/vim-wordmotion', {'on': []} 
-Plug 'machakann/vim-swap', {'on': []} 
-Plug 'relastle/vim-nayvy', {'on': []} 
-Plug 'henricattoire/aergia', {'on': []} 
-Plug 'aaronbieber/vim-quicktask', {'on': []} 
-Plug 'rbtnn/vim-mrw', {'on': []} 
-Plug 'voldikss/vim-floaterm', {'on': []} 
-Plug 'tpope/vim-projectionist', {'on': []} 
-Plug 'rhysd/clever-f.vim', {'on': []}
 call plug#end()"}}}
 
 call plug#load('nvim-lsp')
 call plug#load('VimCompletesMe')
+" call plug#load('completion-nvim')
 
-let mapleader = "\<Space>"
-let maplocalleader = "s"
+" let maplocalleader = "s"
+runtime macros/matchit.vim
 
 filetype plugin indent on
-runtime macros/matchit.vim
-set nocompatible
+let mapleader = "\<Space>"
+
 set clipboard=unnamedplus
 
 " Tabulation and spaces
@@ -140,19 +104,18 @@ set splitright
 set laststatus=2
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 set ttimeout ttimeoutlen=0
-
 set signcolumn=yes
 set hidden
 set cmdheight=2
 set updatetime=300
+" https://stackoverflow.com/a/25102964
 set shortmess+=c
 set wildmenu
 set wildmode=longest:full,full
 set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico,*.spec.ts
 set wildignore+=*.pdf,*.psd
-set wildignore+=*node_modules/*,*bower_components/*,plugged/*
+set wildignore+=*node_modules/*,*bower_components/*,plugged/*,*env/*
 set wildignore+=tags,gwt-unitCache/*,*/__pycache__/*,build/*,build.?/*
-set wildignore+=**/pack/** 
 set wildignorecase
 set wildcharm=<C-z>
 set suffixes+=.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
@@ -176,7 +139,10 @@ set wildoptions+=pum
 
 "interactive substitute
 set inccommand=split
-set pumblend=5
+
+if &termguicolors 
+  set pumblend=5
+endif
 
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --no-ignore-vcs\ --ignore-file\ ~/.config/.ignore
@@ -184,11 +150,11 @@ if executable("rg")
 endif
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert 
-set completeopt-=preview
+" set completeopt=menuone,noinsert 
+" set completeopt-=preview
+set completeopt=menuone,noinsert,noselect
 
 "https://vim.fandom.com/wiki/Search_only_in_unfolded_text
 set fdo-=search
 
 syntax on
-" set termguicolors

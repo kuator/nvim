@@ -1,5 +1,6 @@
 syntax on
 colorscheme space-vim-dark
+" colorscheme gruvbox-material
 
 set background=dark
 hi! Normal ctermbg=NONE guibg=NONE
