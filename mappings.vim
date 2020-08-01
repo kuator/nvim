@@ -7,6 +7,7 @@ nnoremap <leader>vc  :vs <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 nnoremap cd :lcd %:p:h<bar>pwd<cr>
 nnoremap cu :lcd ..<bar>pwd<cr>
 
+"abbreviations for easier typing
 inoreabbr lam =>
 inoreabbr far =>
 inoreabbr tar ->
@@ -15,8 +16,14 @@ inoreabbr pl +
 cnoreabbr lam =>
 cnoreabbr far =>
 cnoreabbr tar ->
+
 tnoremap <esc> <C-\><C-n>
 nnoremap <silent><c-l> <c-l>:nohl<cr>
+" stolen from emacs
+cnoremap <c-g> <c-c>
+nnoremap <a-x> :
+nnoremap <a-p> <c-p>
+nnoremap <a-n> <c-n>
 
 noremap s <Nop>
 inoremap kj <esc>
@@ -34,16 +41,6 @@ autocmd QuickFixCmdPost [^l]* cwindow
 autocmd InsertEnter * let save_cwd = getcwd() | execute 'lcd' expand('%:p:h')
 autocmd InsertLeave * execute 'lcd' fnameescape(save_cwd)
 
-"https://vi.stackexchange.com/questions/11232/vimscript-how-do-you-get-file-directory-vim-was-called-on-from-the-command-lin
-" Returns the directory of the first file in `argv` or `cwd` if it's empty
-" function FindSessionDirectory() abort
-"   if len(argv()) > 0
-"     return fnamemodify(argv()[0], ':p:h')
-"   endif
-"   return getcwd()
-" endfunction!
-" let g:session_default_name = FindSessionDirectory()
-
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
@@ -51,15 +48,11 @@ inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
-" default folding mappings in vim suck, my pinkie hurts
+" default fold mapping sucks, my pinkie is hurting
 nnoremap sf z
-nnoremap sf z
-nnoremap sft za
-nnoremap sfT zA
 
 iabbrev shrug ¯\_(ツ)_/¯
 iabbrev tableflip (╯°□°）╯彡┻━┻
-
 
 " modify selected text using combining diacritics
 command! -range -nargs=0 Overline        call s:CombineSelection(<line1>, <line2>, '0305')
@@ -71,3 +64,6 @@ function! s:CombineSelection(line1, line2, cp)
   execute 'let char = "\u'.a:cp.'"'
   execute a:line1.','.a:line2.'s/\%V[^[:cntrl:]]/&'.char.'/ge'
 endfunction
+
+" TODO
+" rewrite favi using :find and :path
