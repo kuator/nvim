@@ -74,7 +74,6 @@ call plug#load('nvim-lsp')
 call plug#load('VimCompletesMe')
 " call plug#load('completion-nvim')
 
-" let maplocalleader = "s"
 runtime macros/matchit.vim
 
 filetype plugin indent on

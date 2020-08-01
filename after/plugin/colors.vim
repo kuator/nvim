@@ -15,9 +15,6 @@ hi! Comment cterm=italic gui=italic
 hi! FoldColumn ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 hi! VertSplit ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
-
-
-
 "gruvbox
 " hi! Pmenusel guifg=#FBF1C7 guibg=#504945
 " hi! Pmenu ctermbg=gray guibg=#282828 guifg=#EBDBB2 ctermfg=green
