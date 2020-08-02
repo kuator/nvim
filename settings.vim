@@ -93,9 +93,6 @@ augroup MyBufferEnter
     autocmd VimEnter * call s:set_path()
 augroup END
 
-nnoremap <leader>ff :find *
-
-
 " https://vi.stackexchange.com/a/1985
 au FileType * set fo-=c fo-=r fo-=o
 

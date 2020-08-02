@@ -1,7 +1,21 @@
 "https://github.com/romainl/the-patient-vimmer/blob/gh-pages/3.adoc#introduction
-nnoremap <leader>er  :edit */*
 nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
+nnoremap <leader>er  :edit **/*
+" nnoremap <leader>er :edit <C-R>=fnameescape(expand('%:p:h')).'/**/*'<CR>
 nnoremap <leader>vc  :vs <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
+
+
+"shitty fuzzy finder :\
+nnoremap <leader>ff :find *
+nnoremap <leader>fr :find **/*
+
+
+
+nnoremap gb :ls<CR>:b<Space>
+
+"grep
+nnoremap <leader>lg :silent lgrep<Space>
+autocmd QuickFixCmdPost [^l]* cwindow
 
 " set working directory to the current buffer's directory
 nnoremap cd :lcd %:p:h<bar>pwd<cr>
@@ -31,11 +45,6 @@ inoremap kj <esc>
 nnoremap ' `
 omap ' `
 
-"shitty fuzzy finder :\
-nnoremap <leader>ff :find *
-"grep
-nnoremap <leader>lg :silent lgrep<Space>
-autocmd QuickFixCmdPost [^l]* cwindow
 
 " https://superuser.com/questions/604122/vim-file-name-completion-relative-to-current-file
 autocmd InsertEnter * let save_cwd = getcwd() | execute 'lcd' expand('%:p:h')

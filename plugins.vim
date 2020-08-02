@@ -39,7 +39,7 @@ call minpac#add('tpope/vim-commentary')
 "}}}
 "
 "{{{ andrewradev
-call minpac#add('andrewradev/dsf.vim')
+" call minpac#add('andrewradev/dsf.vim')
 call minpac#add('andrewradev/tagalong.vim')
 call minpac#add('andrewradev/sideways.vim')
 call minpac#add('andrewradev/splitjoin.vim')
@@ -60,31 +60,48 @@ call minpac#add('whatyouhide/vim-textobj-xmlattr')
 call minpac#add('inkarkat/vim-replacewithregister')
 "}}}
 
+"{{{ colorschemes
 call minpac#add('dracula/vim', {'type': 'opt'})
 call minpac#add('liuchengxu/space-vim-dark')
+call minpac#add('flazz/vim-colorschemes')
+"}}}
 
 "{{{ miscleannious
 "call minpac#add('ajh17/VimCompletesMe', {'on': []})
 call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
-call minpac#add('nvim-treesitter/nvim-treesitter', {'type': 'opt'})
+" call minpac#add('nvim-treesitter/nvim-treesitter')
 call minpac#add('nvim-lua/completion-nvim', {'type': 'opt'})
+call minpac#add('nvim-lua/diagnostic-nvim', {'type': 'opt'})
+call minpac#add('steelsojka/completion-buffers', {'type': 'opt'})
 call minpac#add('hrsh7th/vim-vsnip', {'type': 'opt'})
 call minpac#add('hrsh7th/vim-vsnip-integ', {'type': 'opt'})
 call minpac#add('neomake/neomake', {'type': 'opt'})
 call minpac#add('godlygeek/tabular')
 call minpac#add('numirias/semshi', { 'do': ':UpdateRemotePlugins', 'type': 'opt' })
-"call minpac#add('sirver/ultisnips', {'on': []})
-"call minpac#add('mhinz/vim-signify')
-"call minpac#add('godlygeek/tabular')
-"call minpac#add('mg979/vim-visual-multi')
+call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('sirver/ultisnips', {'type': 'opt'})
+call minpac#add('mhinz/vim-signify', {'type': 'opt'})
+call minpac#add('mg979/vim-visual-multi', {'type': 'opt'})
+call minpac#add('romainl/vim-tinymru', {'type': 'opt'})
+call minpac#add('psliwka/vim-smoothie', {'type': 'opt'})
+call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
 "call minpac#add('kuator/favi')
-"call minpac#add('romainl/vim-tinyMRU')
-"call minpac#add('ludovicchabant/vim-gutentags')
-"call minpac#add('flazz/vim-colorschemes')
-"call minpac#add('arzg/vim-colors-xcode')
-"call minpac#add('sainnhe/gruvbox-material')
-"call minpac#add('psliwka/vim-smoothie')
-"call minpac#add('norcalli/nvim-colorizer.lua')
 "}}}
 
 "}}}
+"
+"
+"
+
+packadd nvim-lsp
+packadd completion-nvim
+" packadd diagnostic-nvim
+packadd completion-buffers
+packadd vim-gutentags
+packadd vim-signify
+packadd neomake
+" packadd nvim-colorizer.lua
+packadd vim-tinymru
+packadd vim-visual-multi
+packadd vim-vsnip
+packadd vim-vsnip-integ
