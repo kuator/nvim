@@ -16,6 +16,7 @@ let g:completion_matching_ignore_case = 1
 let g:completion_items_priority = {
     \ 'Field': 5,
     \ 'Function': 7,
+    \ 'Module': 7,
     \ 'Variables': 7,
     \ 'Method': 10,
     \ 'Interfaces': 5,
@@ -23,8 +24,18 @@ let g:completion_items_priority = {
     \ 'Class': 5,
     \ 'Keyword': 4,
     \ 'UltiSnips' : 1,
-    \ 'vim-vsnip' : 0,
+    \ 'vim-vsnip' : 5,
     \ 'Buffers' : 1,
     \ 'TabNine' : 0,
     \ 'File' : 0,
     \}
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ completion#trigger_completion()

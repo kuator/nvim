@@ -1,3 +1,4 @@
+filetype plugin indent on
 set nocompatible
 set clipboard+=unnamedplus
 let mapleader=" "
@@ -45,7 +46,7 @@ set inccommand=split
 
 " wildmenu
 set wildignore+=tags,*/__pycache__/*,build/*,build.?/*,*/node_modules/*,*/env/*
-      \,*.png,*.jpg,*.jpeg,*/migrations/*
+      \,*.png,*.jpg,*.jpeg,*/migrations/*,*/.git/*
 " https://github.com/justinmk/config/blob/master/.config/nvim/init.vim#L1238
 set suffixes+=.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
       \,.o,.obj,.dll,.class,.pyc,.ipynb,.so,.swp,.zip,.exe,.jar,.gz
@@ -96,6 +97,13 @@ augroup END
 " https://vi.stackexchange.com/a/1985
 au FileType * set fo-=c fo-=r fo-=o
 
-
 " TODO
 " rewrite favi using :find and :path
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank{"IncSearch", 200}
+augroup END
+
+" TODO
+" https://code.woboq.org/llvm/clang-tools-extra/clangd/Protocol.h.html#409

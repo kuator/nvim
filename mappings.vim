@@ -33,13 +33,14 @@ cnoreabbr tar ->
 
 tnoremap <esc> <C-\><C-n>
 nnoremap <silent><c-l> <c-l>:nohl<cr>
+
 " stolen from emacs
-cnoremap <c-g> <c-c>
+" cnoremap <c-g> <c-c>
 nnoremap <a-x> :
 nnoremap <a-p> <c-p>
 nnoremap <a-n> <c-n>
 
-noremap s <Nop>
+nnoremap s <Nop>
 inoremap kj <esc>
 " vnoremap y ygv<Esc>
 nnoremap ' `
