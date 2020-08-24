@@ -10,12 +10,13 @@ nnoremap <leader>ff :find *
 nnoremap <leader>fr :find **/*
 
 
-
 nnoremap gb :ls<CR>:b<Space>
 
 "grep
 nnoremap <leader>lg :silent lgrep<Space>
 autocmd QuickFixCmdPost [^l]* cwindow
+nnoremap <leader>lt :silent ltag<Space>/
+nnoremap <leader>cc :silent cclose<bar>lclose<cr>
 
 " set working directory to the current buffer's directory
 nnoremap cd :lcd %:p:h<bar>pwd<cr>
@@ -36,7 +37,7 @@ nnoremap <silent><c-l> <c-l>:nohl<cr>
 
 " stolen from emacs
 " cnoremap <c-g> <c-c>
-nnoremap <a-x> :
+nnoremap <a-c> :
 nnoremap <a-p> <c-p>
 nnoremap <a-n> <c-n>
 

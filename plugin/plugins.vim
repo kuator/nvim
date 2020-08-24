@@ -88,6 +88,7 @@ call minpac#add('psliwka/vim-smoothie', {'type': 'opt'})
 call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
 call minpac#add('Guergeiro/clean-path.vim', {'type': 'opt'})
 call minpac#add('habamax/vim-godot', {'type': 'opt'})
+call minpac#add('brookhong/cscope.vim', {'type': 'opt'})
 call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
 "call minpac#add('kuator/favi')
 "}}}
@@ -120,6 +121,7 @@ else
   packadd vim-visual-multi
   " packadd semshi
   packadd vista.vim
+  packadd cscope.vim
   packadd vim-godot
   packadd nvim-lsp
   packadd completion-buffers

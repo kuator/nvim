@@ -85,7 +85,7 @@ function! s:set_path()
   let s:root = finddir('.git/..', expand('%:p:h').';')
 
   if !empty(glob(s:root..'/manage.py'))
-    echo 'django project'
+    " echo 'django project'
     exec 'set path+=' .. s:root .. '/**'
   endif
 endfunction
