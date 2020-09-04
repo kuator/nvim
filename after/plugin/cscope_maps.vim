@@ -31,7 +31,7 @@ if has("cscope")
     """"""""""""" Standard cscope/vim boilerplate
 
     " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-    set cscopetag
+    set nocscopetag
 
     " check cscope for definition of a symbol before checking ctags: set to 1
     " if you want the reverse search order.
@@ -88,14 +88,34 @@ if has("cscope")
     " go back to where you were before the search.  
     "
 
-    " nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
-    " nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
-    " nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
-    " nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
-    " nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
-    " nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
-    " nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    " nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
+    " nnoremap ss :cs find s 
+    " nnoremap sg :cs find g 
+    " nnoremap sc :cs find c 
+    " nnoremap st :cs find t 
+    " nnoremap se :cs find e 
+    " nnoremap sf :cs find f 
+    " nnoremap si :cs find i ^$<left>
+    " nnoremap sd :cs find d  
+
+
+    function! LoadCscopeToQuickFix(currword, oper)
+      execute "normal mZ"
+      execute "set csqf=" . a:oper . "-"
+      execute "lcs find " a:oper . " " . a:currword
+      execute "lopen"
+      execute "wincmd p"
+      execute "normal `Z"
+      execute "set csqf="
+    endfunction
+
+    nnoremap <leader>css         <esc>:call LoadCscopeToQuickFix(expand(""),"s")<left><left><left><left><left><left><left>
+    nnoremap <leader>csg         <esc>:call LoadCscopeToQuickFix("","g")<left><left><left><left><left><left>
+    nnoremap <leader>csc         <esc>:call LoadCscopeToQuickFix(expand(""),"c")<left><left><left><left><left><left><left>
+    nnoremap <leader>cst         <esc>:call LoadCscopeToQuickFix(expand(""),"t")<left><left><left><left><left><left><left>
+    nnoremap <leader>cse         <esc>:call LoadCscopeToQuickFix(expand(""),"e")<left><left><left><left><left><left><left>
+    nnoremap <leader>csf         <esc>:call LoadCscopeToQuickFix(expand(""),"f")<left><left><left><left><left><left><left>
+    nnoremap <leader>csi         <esc>:call LoadCscopeToQuickFix(expand(""),"i")<left><left><left><left><left><left><left>
+    nnoremap <leader>csd         <esc>:call LoadCscopeToQuickFix(expand(""),"d")<left><left><left><left><left><left><left>
 
 
     " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type

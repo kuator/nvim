@@ -10,6 +10,7 @@ let g:completion_chain_complete_list = [
     \{'mode': '<c-n>'}
 \]
 
+" let g:completion_enable_snippet = 'snippets.nvim'
 let g:completion_enable_snippet = 'vim-vsnip'
 let g:completion_matching_ignore_case = 1
 

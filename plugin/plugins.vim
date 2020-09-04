@@ -35,7 +35,7 @@ call minpac#add('tpope/vim-commentary')
 
 "{{{ liuchengxu
 "call minpac#add('liuchengxu/vim-clap', {'do': ':Clap install-binary!'})
-"call minpac#add('liuchengxu/space-vim-theme')
+" call minpac#add('liuchengxu/space-vim-theme')
 call minpac#add('liuchengxu/vista.vim', {'type':'opt' })
 "}}}
 "
@@ -63,19 +63,21 @@ call minpac#add('inkarkat/vim-replacewithregister')
 
 "{{{ colorschemes
 call minpac#add('dracula/vim', {'type': 'opt'})
+" call minpac#add('flazz/vim-colorschemes')
 call minpac#add('liuchengxu/space-vim-dark')
-call minpac#add('flazz/vim-colorschemes')
 "}}}
 
 "{{{ miscleannious
 "call minpac#add('ajh17/VimCompletesMe', {'on': []})
 call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
 call minpac#add('nvim-treesitter/nvim-treesitter', {'type': 'opt'})
+call minpac#add('vigoux/architext.nvim', {'type': 'opt'})
 call minpac#add('nvim-lua/completion-nvim', {'type': 'opt'})
 call minpac#add('nvim-lua/diagnostic-nvim', {'type': 'opt'})
 call minpac#add('steelsojka/completion-buffers', {'type': 'opt'})
 call minpac#add('hrsh7th/vim-vsnip', {'type': 'opt'})
 call minpac#add('hrsh7th/vim-vsnip-integ', {'type': 'opt'})
+call minpac#add('norcalli/snippets.nvim', {'type': 'opt'})
 call minpac#add('neomake/neomake', {'type': 'opt'})
 call minpac#add('godlygeek/tabular')
 call minpac#add('numirias/semshi', { 'do': ':UpdateRemotePlugins', 'type': 'opt' })
@@ -89,6 +91,7 @@ call minpac#add('norcalli/nvim-colorizer.lua', {'type': 'opt'})
 call minpac#add('Guergeiro/clean-path.vim', {'type': 'opt'})
 call minpac#add('habamax/vim-godot', {'type': 'opt'})
 call minpac#add('brookhong/cscope.vim', {'type': 'opt'})
+call minpac#add('kristijanhusak/vim-js-file-import', {'type': 'opt'})
 call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
 "call minpac#add('kuator/favi')
 "}}}
@@ -113,7 +116,6 @@ else
     set laststatus=0 nonumber noruler noshowcmd
   endif
   " packadd diagnostic-nvim
-  packadd vim-gutentags
   packadd vim-signify
   " packadd neomake
   " packadd nvim-colorizer.lua
@@ -121,7 +123,7 @@ else
   packadd vim-visual-multi
   " packadd semshi
   packadd vista.vim
-  packadd cscope.vim
+  " packadd cscope.vim
   packadd vim-godot
   packadd nvim-lsp
   packadd completion-buffers
@@ -129,8 +131,11 @@ else
   lua require("lsp")
   packadd vim-vsnip
   packadd vim-vsnip-integ
+  " packadd snippets.nvim
   packadd nvim-treesitter
   lua require('tree-sitter')
+  packadd vim-gutentags
+  packadd architext.nvim
   " packadd clean-path.vim
 endif
 
