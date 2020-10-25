@@ -33,6 +33,12 @@ call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-commentary')
 "}}}
 
+
+"{{{ mattn
+call minpac#add('mattn/vim-sonictemplate', {'type':'opt' } )
+call minpac#add('mattn/emmet-vim', {'type':'opt' })
+"}}}
+
 "{{{ liuchengxu
 "call minpac#add('liuchengxu/vim-clap', {'do': ':Clap install-binary!'})
 " call minpac#add('liuchengxu/space-vim-theme')
@@ -70,7 +76,10 @@ call minpac#add('liuchengxu/space-vim-dark')
 "{{{ miscleannious
 "call minpac#add('ajh17/VimCompletesMe', {'on': []})
 call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
+" call minpac#add('kuator/aca-pylance', {'type': 'opt', 'do': {-> system('./install.sh')}})
 call minpac#add('nvim-treesitter/nvim-treesitter', {'type': 'opt'})
+call minpac#add('nvim-treesitter/nvim-treesitter-textobjects', {'type': 'opt'})
+call minpac#add('nvim-treesitter/nvim-treesitter-refactor', {'type': 'opt'})
 call minpac#add('vigoux/architext.nvim', {'type': 'opt'})
 call minpac#add('nvim-lua/completion-nvim', {'type': 'opt'})
 call minpac#add('nvim-lua/diagnostic-nvim', {'type': 'opt'})
@@ -93,6 +102,13 @@ call minpac#add('habamax/vim-godot', {'type': 'opt'})
 call minpac#add('brookhong/cscope.vim', {'type': 'opt'})
 call minpac#add('kristijanhusak/vim-js-file-import', {'type': 'opt'})
 call minpac#add('glacambre/firenvim', { 'type': 'opt', 'do': 'packadd firenvim | call firenvim#install(0)'})
+call minpac#add('nvim-lua/plenary.nvim', { 'type': 'opt' })
+call minpac#add('nvim-lua/popup.nvim', { 'type': 'opt' })
+call minpac#add('nvim-lua/telescope.nvim', { 'type': 'opt' })
+call minpac#add('tikhomirov/vim-glsl', { 'type': 'opt' })
+call minpac#add('weilbith/nvim-lsp-bacomp', { 'type': 'opt' })
+call minpac#add('weilbith/nvim-lsp-smag', { 'type': 'opt' })
+call minpac#add('tommcdo/vim-exchange', { 'type': 'opt' })
 "call minpac#add('kuator/favi')
 "}}}
 
@@ -133,9 +149,18 @@ else
   packadd vim-vsnip-integ
   " packadd snippets.nvim
   packadd nvim-treesitter
+  packadd nvim-treesitter-textobjects
+  packadd nvim-treesitter-refactor
   lua require('tree-sitter')
   packadd vim-gutentags
   packadd architext.nvim
+  packadd vim-glsl
+  " packadd nvim-lsp-bacomp
+  " packadd nvim-lsp-smag
+  packadd plenary.nvim
+  packadd popup.nvim
+  packadd telescope.nvim
+  packadd vim-exchange
   " packadd clean-path.vim
 endif
 

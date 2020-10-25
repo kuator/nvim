@@ -2,8 +2,6 @@
 -- local diagnostic = require('diagnostic')
 local completion = require('completion')
 local nvim_lsp = require('nvim_lsp')
-local configs = require('nvim_lsp/configs')
-local util = require('nvim_lsp/util')
 
 local on_attach = function(client, bufnr)
   -- lsp_status.on_attach(client, bufnr)
@@ -22,6 +20,7 @@ local on_attach = function(client, bufnr)
   vim.fn.nvim_set_keymap("n", "<leader>gt", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
   vim.fn.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
+  vim.fn.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
   vim.api.nvim_command('setlocal omnifunc=lua.vim.lsp.omnifunc')
 end
 -- lsp_status.register_progress()
@@ -70,6 +69,23 @@ nvim_lsp.ccls.setup{
 }
 --]]
 
+-- require 'pylance'
+-- nvim_lsp.pylance.setup{
+--   on_attach = on_attach,
+--   settings = {
+--     python = {
+--       analysis = {
+--         completeFunctionParens = true,
+--         typeCheckingMode = "basic"
+--       }
+--     }
+--   }
+-- }
+
+
+-- require'nvim_lsp'.jedi_language_server.setup{
+--   on_attach = on_attach,
+-- }
 nvim_lsp.pyls.setup{
   on_attach = on_attach,
   -- capabilities = lsp_status.capabilities
@@ -100,6 +116,10 @@ nvim_lsp.pyls.setup{
         },
         yapf = {
           enabled = false
+        },
+        pyls_mypy = {
+          enabled= true,
+          live_mode= false
         }
       }
     }
@@ -161,4 +181,5 @@ nvim_lsp.gdscript.setup{
   -- on_attach = on_attach,
   -- capabilities = lsp_status.capabilities
 -- }
+
 

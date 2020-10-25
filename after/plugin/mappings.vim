@@ -14,9 +14,11 @@ nnoremap gb :ls<CR>:b<Space>
 
 "grep
 nnoremap <leader>lg :silent lgrep<Space>
+nnoremap <leader>lf :silent lexpr system('fdfind -g "*"')<left><left><left><left>
 autocmd QuickFixCmdPost [^l]* cwindow
 nnoremap <leader>lt :silent ltag<Space>/
 nnoremap <leader>cc :silent cclose<bar>lclose<cr>
+nnoremap <c-c><c-c> :q!
 
 " set working directory to the current buffer's directory
 nnoremap cd :lcd %:p:h<bar>pwd<cr>
@@ -78,3 +80,4 @@ endfunction
 
 " TODO
 " rewrite favi using :find and :path
+

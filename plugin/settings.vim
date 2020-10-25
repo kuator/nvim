@@ -107,3 +107,7 @@ augroup END
 
 " TODO
 " https://code.woboq.org/llvm/clang-tools-extra/clangd/Protocol.h.html#409
+
+
+
+set errorformat+=%f
