@@ -64,20 +64,20 @@ require'nvim-treesitter.configs'.setup {
     move = {
       enable = true,
       goto_next_start = {
-        ["<leader>nfs"] = "@function.outer",
-        ["<leader>ncs"] = "@class.outer",
+        ["]m"] = "@function.outer",
+        ["]]"] = "@class.outer",
       },
       goto_next_end = {
-        ["<leader>nfe"] = "@function.outer",
-        ["<leader>nce"] = "@class.outer",
+        ["]M"] = "@function.outer",
+        ["]["] = "@class.outer",
       },
       goto_previous_start = {
-        ["<leader>lfs"] = "@function.outer",
-        ["<leader>lcs"] = "@class.outer",
+        ["[m"] = "@function.outer",
+        ["[["] = "@class.outer",
       },
       goto_previous_end = {
-        ["<leader>lfe"] = "@function.outer",
-        ["<leader>lce"] = "@class.outer",
+        ["[M"] = "@function.outer",
+        ["[]"] = "@class.outer",
       },
     },
   },

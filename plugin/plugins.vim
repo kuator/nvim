@@ -29,7 +29,7 @@ call minpac#add('bfrg/vim-cpp-modern')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-rsi')
-call minpac#add('tpope/vim-unimpaired')
+" call minpac#add('tpope/vim-unimpaired')
 call minpac#add('tpope/vim-commentary')
 "}}}
 
@@ -69,6 +69,7 @@ call minpac#add('inkarkat/vim-replacewithregister')
 
 "{{{ colorschemes
 call minpac#add('dracula/vim', {'type': 'opt'})
+call minpac#add('doums/darcula', {'type': 'opt'})
 " call minpac#add('flazz/vim-colorschemes')
 call minpac#add('liuchengxu/space-vim-dark')
 "}}}
@@ -76,13 +77,12 @@ call minpac#add('liuchengxu/space-vim-dark')
 "{{{ miscleannious
 "call minpac#add('ajh17/VimCompletesMe', {'on': []})
 call minpac#add('neovim/nvim-lsp', {'type': 'opt'})
-" call minpac#add('kuator/aca-pylance', {'type': 'opt', 'do': {-> system('./install.sh')}})
 call minpac#add('nvim-treesitter/nvim-treesitter', {'type': 'opt'})
 call minpac#add('nvim-treesitter/nvim-treesitter-textobjects', {'type': 'opt'})
 call minpac#add('nvim-treesitter/nvim-treesitter-refactor', {'type': 'opt'})
 call minpac#add('vigoux/architext.nvim', {'type': 'opt'})
 call minpac#add('nvim-lua/completion-nvim', {'type': 'opt'})
-call minpac#add('nvim-lua/diagnostic-nvim', {'type': 'opt'})
+" call minpac#add('nvim-lua/diagnostic-nvim', {'type': 'opt'})
 call minpac#add('steelsojka/completion-buffers', {'type': 'opt'})
 call minpac#add('hrsh7th/vim-vsnip', {'type': 'opt'})
 call minpac#add('hrsh7th/vim-vsnip-integ', {'type': 'opt'})
@@ -90,7 +90,7 @@ call minpac#add('norcalli/snippets.nvim', {'type': 'opt'})
 call minpac#add('neomake/neomake', {'type': 'opt'})
 call minpac#add('godlygeek/tabular')
 call minpac#add('numirias/semshi', { 'do': ':UpdateRemotePlugins', 'type': 'opt' })
-call minpac#add('ludovicchabant/vim-gutentags')
+call minpac#add('ludovicchabant/vim-gutentags', {'type': 'opt'})
 call minpac#add('sirver/ultisnips', {'type': 'opt'})
 call minpac#add('mhinz/vim-signify', {'type': 'opt'})
 call minpac#add('mg979/vim-visual-multi', {'type': 'opt'})
@@ -163,6 +163,5 @@ else
   packadd vim-exchange
   " packadd clean-path.vim
 endif
-
 
 "}}}

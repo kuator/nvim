@@ -1,7 +1,7 @@
 -- local lsp_status = require('lsp-status')
 -- local diagnostic = require('diagnostic')
 local completion = require('completion')
-local nvim_lsp = require('nvim_lsp')
+local nvim_lsp = require('lspconfig')
 
 local on_attach = function(client, bufnr)
   -- lsp_status.on_attach(client, bufnr)
@@ -36,26 +36,43 @@ end
 
 
 ---[[
-nvim_lsp.clangd.setup{
-    -- callbacks = lsp_status.extensions.clangd.setup(),
-    on_attach = on_attach,
-    capabilities = {
-       textDocument = {
-         completion = {
-          completionItem = {
-            snippetSupport=true
+-- nvim_lsp.ccls.setup{
+--   on_attach = on_attach,
+--   capabilities = {
+--      textDocument = {
+--        completion = {
+--         completionItem = {
+--           snippetSupport=true
+--         }
+--        }
+--      }
+--   },
+--   init_options = {
+--     cache = {
+--       directory = '/tmp/ccls/cache'
+--     }
+--   }
+--   }
+
+ nvim_lsp.clangd.setup{
+     -- callbacks = lsp_status.extensions.clangd.setup(),
+     on_attach = on_attach,
+     capabilities = {
+        textDocument = {
+          completion = {
+           completionItem = {
+             snippetSupport=true
+           }
           }
-         }
-       }
-    },
-    init_options = {
-        usePlaceholders = true,
-        completeUnimported = true,
-        clangdFileStatus = true
-    }
-    -- capabilities = lsp_status.capabilities
-  }
---]]
+        }
+     },
+     init_options = {
+         usePlaceholders = true,
+         completeUnimported = true,
+         clangdFileStatus = true
+     }
+     -- capabilities = lsp_status.capabilities
+   }
 
 
 --[[
@@ -69,80 +86,115 @@ nvim_lsp.ccls.setup{
 }
 --]]
 
--- require 'pylance'
--- nvim_lsp.pylance.setup{
+nvim_lsp.jedi_language_server.setup{
+  on_attach=on_attach,
+  init_options = {
+    disableSnippets = false,
+  },
+  capabilities = {
+     textDocument = {
+       completion = {
+        completionItem = {
+          snippetSupport=true
+        }
+       }
+     }
+  },
+}
+
+-- nvim_lsp.pyls.setup{
 --   on_attach = on_attach,
+--   capabilities = {
+--      textDocument = {
+--        completion = {
+--         completionItem = {
+--           snippetSupport=true
+--         }
+--        }
+--      }
+--   },
+--   -- capabilities = lsp_status.capabilities
 --   settings = {
---     python = {
---       analysis = {
---         completeFunctionParens = true,
---         typeCheckingMode = "basic"
+--     pyls = {
+--       plugins = {
+--         jedi_completion = {
+--           fuzzy = true,
+--           include_params = true
+--         },
+--         mccabe = {
+--           enabled = false
+--         },
+--         pycodestyle = {
+--           enabled = false
+--         },
+--         flake8 = {
+--           enabled = true
+--         },
+--         pydocstyle = {
+--           enabled = false
+--         },
+--         pyflakes = {
+--           enabled = false
+--         },
+--         pylint = {
+--           enabled = false
+--         },
+--         yapf = {
+--           enabled = false
+--         },
 --       }
 --     }
 --   }
 -- }
 
 
--- require'nvim_lsp'.jedi_language_server.setup{
---   on_attach = on_attach,
--- }
-nvim_lsp.pyls.setup{
-  on_attach = on_attach,
-  -- capabilities = lsp_status.capabilities
-  settings = {
-    pyls = {
-      plugins = {
-        jedi_completion = {
-          fuzzy = true,
-          include_params = true
-        },
-        mccabe = {
-          enabled = false
-        },
-        pycodestyle = {
-          enabled = false
-        },
-        flake8 = {
-          enabled = true
-        },
-        pydocstyle = {
-          enabled = false
-        },
-        pyflakes = {
-          enabled = false
-        },
-        pylint = {
-          enabled = false
-        },
-        yapf = {
-          enabled = false
-        },
-        pyls_mypy = {
-          enabled= true,
-          live_mode= false
+nvim_lsp.sumneko_lua.setup{
+      cmd = { "/home/evakuator/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/bin/Linux/lua-language-server", "-E", "/home/evakuator/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/ma in.lua" },
+      on_attach = on_attach,
+      capabilities = {
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport=true
+            }
+          }
         }
-      }
+      },
+      settings = {
+        Lua = {
+          completion= {
+            -- keywordSnippet= "Enable",
+            callSnippet="Both"
+        }
     }
   }
 }
 
-
-nvim_lsp.sumneko_lua.setup{
-  on_attach = on_attach,
-}
 nvim_lsp.vimls.setup{
   on_attach = on_attach,
   -- capabilities = lsp_status.capabilities
 }
 nvim_lsp.tsserver.setup{
   on_attach = on_attach,
-  -- capabilities = lsp_status.capabilities
 }
+
 nvim_lsp.html.setup{
+  cmd = {"vscode-html-language-server", "--stdio"},
   on_attach = on_attach,
-  -- capabilities = lsp_status.capabilities
+  capabilities = {
+       textDocument = {
+           completion = {
+               completionItem = {
+                   snippetSupport = true
+               }
+           }
+       }
+  }
 }
+
 nvim_lsp.cssls.setup{
+  -- cmd = {"css-languageserver", "--stdio"},
+  cmd = {"vscode-css-language-server", "--stdio"},
   on_attach = on_attach,
   -- capabilities = lsp_status.capabilities,
   settings = {
@@ -155,6 +207,15 @@ nvim_lsp.cssls.setup{
     scss = {
       validate = true
     }
+  },
+  capabilities = {
+       textDocument = {
+           completion = {
+               completionItem = {
+                   snippetSupport = true
+               }
+           }
+       }
   }
 }
 
@@ -183,3 +244,97 @@ nvim_lsp.gdscript.setup{
 -- }
 
 
+local get_python_tool = function(bin_name)
+  local result = bin_name
+  if os.getenv('VIRTUAL_ENV') then
+    local venv_bin_name = os.getenv('VIRTUAL_ENV') .. '/bin/' .. bin_name
+    if vim.fn.executable(venv_bin_name) == 1 then
+      result = venv_bin_name
+    end
+  end
+  return result
+end
+
+nvim_lsp.diagnosticls.setup{
+  filetypes={'javascript', 'python', 'markdown'},
+  init_options = {
+    linters = {
+      flake8 = {
+        command = get_python_tool('flake8');
+        args = {'--stdin-display-name'; '%filepath'; '-'};
+        sourceName = 'flake8';
+        debounce = 250;
+        formatLines = 1;
+        formatPattern = {'^[^:]+:(\\d+):((\\d+):)?\\s+(.+)$';
+        {line = 1; column = 3; message = 4}};
+        rootPatterns = {''};
+      },
+      eslint = {
+        command = './node_modules/.bin/eslint',
+        rootPatterns = {'.git'},
+        debounce = 100,
+        args = {
+          '--stdin',
+          '--stdin-filename',
+          '%filepath',
+          '--format',
+          'json'
+        },
+        sourceName = 'eslint',
+        parseJson = {
+          errorsRoot = '[0].messages',
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '${message} [${ruleId}]',
+          security = 'severity'
+        },
+        securities = {
+          [2] = 'error',
+          [1] = 'warning',
+        },
+      },
+      markdownlint = {
+        command = 'markdownlint',
+        rootPatterns = { '.git' },
+        isStderr = true,
+        debounce = 100,
+        args = { '--stdin' },
+        offsetLine = 0,
+        offsetColumn = 0,
+        sourceName = 'markdownlint',
+        securities = {
+          undefined = 'hint'
+        },
+        formatLines = 1,
+        formatPattern = {
+          '^.*:(\\d+)\\s+(.*)$',
+          {
+            line = 1,
+            column = -1,
+            message = 2,
+          }
+        }
+      },
+    },
+    filetypes = {
+      javascript = 'eslint',
+      python = 'flake8',
+      markdown = 'markdownlint',
+    },
+    formatters = {
+      prettier = {
+        command = "./node_modules/.bin/prettier",
+        args = {"--stdin-filepath" ,"%filepath", '--single-quote', '--print-width 120'}
+      }
+    },
+    formatFiletypes = {
+      javascript = "prettier"
+    },
+  }
+}
+
+nvim_lsp.angularls.setup{
+  on_attach = on_attach
+}
