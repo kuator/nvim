@@ -1,1 +1,0 @@
-set updatetime=100
