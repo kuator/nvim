@@ -9,27 +9,38 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 vim.cmd('packadd packer.nvim')
+
+vim.cmd [[ autocmd BufWritePost packed.lua PackerCompile ]]
 -- vim.cmd('packadd nvim-treesitter')
 -- vim.cmd('packadd nvim-lspconfig')
 
 return require('packer').startup(
   function()
     use {'wbthomason/packer.nvim', opt = true}
+    use {'inkarkat/vim-UnconditionalPaste', opt = true}
+
+    -- https://github.com/wbthomason/packer.nvim/issues/87
+    use {'kana/vim-textobj-user'}
+    -- use {
+    --         {'nvim-lua/popup.nvim';},
+    --         {'nvim-lua/plenary.nvim';}
+    -- }
+
     use {'mhinz/vim-signify'}
     use {'godlygeek/tabular'; opt = true; cmd = {'Tabularize'}};
-    use {'neovim/nvim-lspconfig'; opt = true};
+    use {'neovim/nvim-lspconfig', config = require('plugins.lsp')};
 
     -- syntax files
-    use { 'pangloss/vim-javascript'}
-    use { 'maxmellon/vim-jsx-pretty'}
-    use { 'lifepillar/pgsql.vim'}
-    use { 'herringtondarkholme/yats.vim'}
-    use { 'hail2u/vim-css3-syntax'}
-    use { 'othree/html5.vim'}
-    use { 'bfrg/vim-cpp-modern'}
-    use { 'vim-python/python-syntax'}
-    use { 'habamax/vim-godot'}
-    use { 'tikhomirov/vim-glsl'}
+    use { 'pangloss/vim-javascript', ft={'javascript'}}
+    use { 'maxmellon/vim-jsx-pretty', ft={'javascript', 'javascriptreact', 'javascript.jsx', 'typescript.tsx', 'typescriptreact'}}
+    -- use { 'lifepillar/pgsql.vim'}
+    use { 'herringtondarkholme/yats.vim', ft={'typescript.tsx', 'typescriptreact', 'typescript'}}
+    use { 'hail2u/vim-css3-syntax', ft={'css'}}
+    use { 'othree/html5.vim', ft={'html'}}
+    use { 'bfrg/vim-cpp-modern', ft={'cpp'}}
+    use { 'vim-python/python-syntax', ft={'python'}}
+    use { 'habamax/vim-godot', ft={'gdscript'}}
+    use { 'tikhomirov/vim-glsl', ft={'glsl'}}
 
     -- tpope
     use {
@@ -37,10 +48,11 @@ return require('packer').startup(
       opt = true;
       keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}};
     };
+
     use {
       'tpope/vim-surround';
-      opt = true;
-      keys = {{'n'; 'ys'}; {'x'; 'S'}};
+      -- opt = true;
+      -- keys = {{'n'; 'yss'}; {'x'; 'S'}; {'o'; 'ys'};{'n'; 'ys'}};
     };
     use { 
        'tpope/vim-rsi',
@@ -59,9 +71,8 @@ return require('packer').startup(
       'nvim-telescope/telescope.nvim',
       opt=true,
       requires = {{'nvim-lua/popup.nvim', opt=true}, {'nvim-lua/plenary.nvim'; opt=true}};
-      event = 'InsertEnter *'
+      cmd = 'Telescope'
     }
-
 
     -- mattn
     use {
@@ -96,15 +107,16 @@ return require('packer').startup(
     use {
       'kana/vim-textobj-entire',
       opt=true,
-      requires = {{'kana/vim-textobj-user', opt=true}},
+      -- requires={{'kana/vim-textobj-user', opt=true}},
       keys = {{'o'; 'ae'}, {'o'; 'ie'}, {'v'; 'ae'}, {'v'; 'ie'}}
     }
 
     use {
       'kana/vim-textobj-line',
       opt=true,
-      requires = {{'kana/vim-textobj-user', opt=true}},
-      keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'v'; 'ar'}, {'v'; 'ir'}}
+      -- requires={{'kana/vim-textobj-user', opt=true}},
+      keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'x'; 'ar'}, {'x'; 'ir'}},
+      config = require'plugins.vim-textobj-line'
     }
 
     -- text objects
@@ -114,8 +126,7 @@ return require('packer').startup(
       keys = {{'o'; 'av'}, {'o'; 'iv'}, {'v'; 'av'}, {'v'; 'iv'}}
     }
 
-    use {'wellle/targets.vim'}
-    use {'whatyouhide/vim-textobj-xmlattr', opt=true}
+    -- use {'wellle/targets.vim'}
     use {
       'whatyouhide/vim-textobj-xmlattr',
       opt=true,
@@ -140,12 +151,12 @@ return require('packer').startup(
 
     use {
       'nvim-lua/completion-nvim',
-      opt = true,
+      -- opt = true,
       requires = {
         {'hrsh7th/vim-vsnip', opt = true},
         {'hrsh7th/vim-vsnip-integ', opt = true},
         {'steelsojka/completion-buffers', opt = true}},
-      Event = 'InsertEnter *'
+      -- event = 'InsertEnter *'
     }
 
 
