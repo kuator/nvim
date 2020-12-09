@@ -10,5 +10,5 @@ return function ()
   vim.api.nvim_set_keymap('x', '<expr><C-j>', [[vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)"      : "<C-j>"]], {})
   vim.api.nvim_set_keymap('s', '<expr><C-j>', [[vsnip#jumpable(-1) ? "<Plug>(vsnip-jump-prev)"      : "<C-j>"]], {})
 
-  vim.api.nvim_set_keymap('s', '<expr><C-h>', '<Plug>(vsnip-cut-text)', {})
+  vim.api.nvim_set_keymap('s', '<C-h>', '<Plug>(vsnip-cut-text)', {})
 end

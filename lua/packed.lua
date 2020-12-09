@@ -149,15 +149,11 @@ return require('packer').startup(
     use {'weilbith/nvim-lsp-bacomp'; opt=true }
     use {'weilbith/nvim-lsp-smag'; opt=true }
 
+    use { 'nvim-lua/completion-nvim', config=require('plugins.completion-nvim')}
+
     use {'hrsh7th/vim-vsnip', config=require'plugins.vim-vsnip'}
     use {'hrsh7th/vim-vsnip-integ'}
 
-    use {
-      'nvim-lua/completion-nvim',
-      config = require'plugins.completion-nvim'
-      -- opt = true,
-      -- event = 'InsertEnter *',
-    }
 
     use {'steelsojka/completion-buffers'}
 

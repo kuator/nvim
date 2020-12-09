@@ -1,3 +1,4 @@
+return function ()
 vim.g.completion_chain_complete_list = {
     {
         complete_items = {"lsp", "snippet", "buffers"}
@@ -10,12 +11,8 @@ vim.g.completion_chain_complete_list = {
     }
 }
 
--- inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
--- inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
--- vim.api.nvim_set_keymap('i', '<expr><tab>', '<Plug>(textobj-line-i)',{})
-
 vim.g.completion_enable_snippet = "vim-vsnip"
-vim.g.completion_matching_ignore_case = 1
+vim.g.completion_matching_ignore_case = true
 vim.cmd([[let g:completion_confirm_key = "\<C-y>"]])
 
 vim.g.completion_items_priority = {
@@ -34,3 +31,4 @@ vim.g.completion_items_priority = {
     TabNine = 0,
     File = 0
 }
+end
