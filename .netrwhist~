@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/evakuator/.config/nvim'
+let g:netrw_dirhist_9='/home/evakuator/.config/nvim/lua'
+let g:netrw_dirhist_8='/home/evakuator/.config/nvim'
+let g:netrw_dirhist_7='/home/evakuator/.config/nvim/lua'
+let g:netrw_dirhist_6='/home/evakuator/.config/nvim'
+let g:netrw_dirhist_5='/home/evakuator/.config/nvim/lua'
+let g:netrw_dirhist_4='/home/evakuator/.config/nvim'
+let g:netrw_dirhist_3='/home/evakuator/.config/nvim/lua'
+let g:netrw_dirhist_2='/home/evakuator/.config/nvim/lua/plugins'
+let g:netrw_dirhist_1='/home/evakuator/.config/nvim/lua'
