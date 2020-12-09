@@ -140,7 +140,7 @@ return require('packer').startup(
 
     use {'romainl/vim-tinymru'; opt = true; cmd = {'ME'}};
     use {'liuchengxu/space-vim-dark'}
-    use {'nvim-treesitter/nvim-treesitter'}
+    use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {'nvim-treesitter/nvim-treesitter-refactor'}
     use {'ludovicchabant/vim-gutentags'}
@@ -149,13 +149,12 @@ return require('packer').startup(
     use {'weilbith/nvim-lsp-bacomp'; opt=true }
     use {'weilbith/nvim-lsp-smag'; opt=true }
 
+    use {'steelsojka/completion-buffers'}
+    use {'hrsh7th/vim-vsnip', config=require'plugins.vim-vsnip'}
+    use {'hrsh7th/vim-vsnip-integ'}
     use {
       'nvim-lua/completion-nvim',
       -- opt = true,
-      requires = {
-        {'hrsh7th/vim-vsnip', opt = true},
-        {'hrsh7th/vim-vsnip-integ', opt = true},
-        {'steelsojka/completion-buffers', opt = true}},
       -- event = 'InsertEnter *'
     }
 
