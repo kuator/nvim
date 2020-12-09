@@ -16,7 +16,7 @@ vim.g.completion_chain_complete_list = {
 
 vim.g.completion_enable_snippet = "vim-vsnip"
 vim.g.completion_matching_ignore_case = 1
-vim.g.completion_confirm_key = [[\<C-y>]]
+vim.cmd([[let g:completion_confirm_key = "\<C-y>"]])
 
 vim.g.completion_items_priority = {
     Field = 5,
