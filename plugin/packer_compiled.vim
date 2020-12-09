@@ -15,12 +15,6 @@ local plugins = {
     only_setup = false,
     path = "/home/evakuator/.local/share/nvim/site/pack/packer/opt/clean-path.vim"
   },
-  ["completion-buffers"] = {
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/home/evakuator/.local/share/nvim/site/pack/packer/opt/completion-buffers"
-  },
   ["emmet-vim"] = {
     commands = { "Emmet", "EmmetInstall" },
     keys = { { "i", "<c-x>m" }, { "i", "<c-x>A" }, { "i", "<c-x>a" }, { "i", "<c-x>k" }, { "i", "<c-x>j" }, { "i", "<c-x>/" }, { "i", "<c-x>I" }, { "i", "<c-x>i" }, { "i", "<c-x>N" }, { "i", "<c-x>n" }, { "i", "<c-x>D" }, { "i", "<c-x>d" }, { "i", "<c-x>u" }, { "i", "<c-x>;" }, { "i", "<c-x>," } },
@@ -251,18 +245,6 @@ local plugins = {
     only_setup = false,
     path = "/home/evakuator/.local/share/nvim/site/pack/packer/opt/vim-visual-multi"
   },
-  ["vim-vsnip"] = {
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/home/evakuator/.local/share/nvim/site/pack/packer/opt/vim-vsnip"
-  },
-  ["vim-vsnip-integ"] = {
-    loaded = false,
-    only_sequence = false,
-    only_setup = false,
-    path = "/home/evakuator/.local/share/nvim/site/pack/packer/opt/vim-vsnip-integ"
-  },
   ["vista.vim"] = {
     loaded = false,
     only_sequence = false,
@@ -398,6 +380,8 @@ end
 
 -- Pre-load configuration
 -- Post-load configuration
+-- Config for: nvim-treesitter
+loadstring("\27LJ\2\2Ó\t\0\0\6\0-\00036\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0005\3\a\0=\3\b\2=\2\t\0015\2\v\0005\3\n\0=\3\f\0025\3\r\0=\3\14\0025\3\15\0005\4\16\0=\4\b\3=\3\17\0025\3\18\0005\4\19\0=\4\b\3=\3\20\2=\2\21\0015\2\22\0005\3\23\0005\4\24\0005\5\25\0=\5\26\4=\4\b\3=\3\27\0025\3\28\0005\4\29\0=\4\30\0035\4\31\0=\4 \3=\3!\0025\3\"\0005\4#\0=\4$\0035\4%\0=\4&\0035\4'\0=\4(\0035\4)\0=\4*\3=\3+\2=\2,\1B\0\2\1K\0\1\0\16textobjects\tmove\22goto_previous_end\1\0\2\a[M\20@function.outer\a[]\17@class.outer\24goto_previous_start\1\0\2\a[m\20@function.outer\a[[\17@class.outer\18goto_next_end\1\0\2\a]M\20@function.outer\a][\17@class.outer\20goto_next_start\1\0\2\a]m\20@function.outer\a]]\17@class.outer\1\0\1\venable\2\tswap\18swap_previous\1\0\1\15<leader>ah\21@parameter.inner\14swap_next\1\0\1\15<leader>al\21@parameter.inner\1\0\1\venable\2\vselect\aiF\1\0\4\bcpp$(function_definition) @function\vpython$(function_definition) @function\tjava#(method_declaration) @function\6c$(function_definition) @function\1\0\4\aac\17@class.outer\aaf\20@function.outer\aif\20@function.inner\aic\17@class.inner\1\0\1\venable\2\1\0\1\venable\2\rrefactor\15navigation\1\0\2\21list_definitions\15<leader>tl\20goto_definition\15<leader>td\1\0\1\venable\2\17smart_rename\1\0\1\17smart_rename\15<leader>tr\1\0\1\venable\2\28highlight_current_scope\1\0\1\venable\2\26highlight_definitions\1\0\0\1\0\1\venable\2\26incremental_selection\fkeymaps\1\0\4\19init_selection\bgnn\22scope_incremental\bgrc\21node_incremental\bgrn\21node_decremental\bgrm\1\0\1\venable\1\14highlight\1\0\1\21ensure_installed\ball\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0")()
 -- Config for: nvim-lspconfig
 loadstring("\27LJ\2\2Ó\n\0\2\a\1,\0k-\2\0\0009\2\0\2\18\3\0\0\18\4\1\0B\2\3\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\5\0'\5\6\0005\6\a\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\b\0'\5\t\0005\6\n\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\v\0'\5\f\0005\6\r\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\14\0'\5\15\0005\6\16\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\17\0'\5\18\0005\6\19\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\20\0'\5\21\0005\6\22\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\23\0'\5\24\0005\6\25\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\26\0'\5\27\0005\6\28\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4\29\0'\5\30\0005\6\31\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4 \0'\5!\0005\6\"\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4#\0'\5$\0005\6%\0B\2\5\0016\2\1\0009\2\2\0029\2\3\2'\3\4\0'\4&\0'\5'\0005\6(\0B\2\5\0016\2\1\0009\2)\0029\2*\2'\3+\0B\2\2\1K\0\1\0\0À+setlocal omnifunc=lua.vim.lsp.omnifunc\17nvim_command\bapi\1\0\2\vsilent\2\fnoremap\2+<cmd>lua vim.lsp.buf.code_action()<CR>\n<a-.>\1\0\2\vsilent\2\fnoremap\2&<cmd>lua vim.lsp.buf.rename()<CR>\15<leader>rn\1\0\2\vsilent\2\fnoremap\0020<cmd>lua vim.lsp.buf.workspace_symbol()<CR>\15<leader>gw\1\0\2\vsilent\2\fnoremap\2/<cmd>lua vim.lsp.buf.document_symbol()<CR>\15<leader>gt\1\0\2\vsilent\2\fnoremap\2*<cmd>lua vim.lsp.buf.references()<CR>\15<leader>gr\1\0\2\vsilent\2\fnoremap\2/<cmd>lua vim.lsp.buf.type_definition()<CR>\15<leader>gy\1\0\2\vsilent\2\fnoremap\2.<cmd>lua vim.lsp.buf.signature_help()<CR>\n<c-k>\1\0\2\vsilent\2\fnoremap\2.<cmd>lua vim.lsp.buf.implementation()<CR>\15<leader>gi\1\0\2\vsilent\2\fnoremap\2*<cmd>lua vim.lsp.buf.formatting()<CR>\15<leader>gf\1\0\2\vsilent\2\fnoremap\2%<cmd>lua vim.lsp.buf.hover()<CR>\15<leader>gh\1\0\2\vsilent\2\fnoremap\2+<cmd>lua vim.lsp.buf.declaration()<CR>\15<leader>ge\1\0\2\vsilent\2\fnoremap\2*<cmd>lua vim.lsp.buf.definition()<CR>\15<leader>gd\6n\20nvim_set_keymap\afn\bvim\14on_attach’\1\0\1\5\0\a\1\23\18\1\0\0006\2\0\0009\2\1\2'\3\2\0B\2\2\2\15\0\2\0X\3\15€6\2\0\0009\2\1\2'\3\2\0B\2\2\2'\3\3\0\18\4\0\0&\2\4\0026\3\4\0009\3\5\0039\3\6\3\18\4\2\0B\3\2\2\t\3\0\0X\3\1€\18\1\2\0L\1\2\0\15executable\afn\bvim\n/bin/\16VIRTUAL_ENV\vgetenv\aos\2¬\20\1\0\v\0n\0³\0016\0\0\0'\1\1\0B\0\2\0026\1\0\0'\2\2\0B\1\2\0023\2\3\0009\3\4\0019\3\5\0035\4\6\0=\2\a\0045\5\f\0005\6\v\0005\a\t\0005\b\b\0=\b\n\a=\a\1\6=\6\r\5=\5\14\0045\5\15\0=\5\16\4B\3\2\0019\3\17\0019\3\5\0035\4\18\0=\2\a\0045\5\19\0=\5\16\0045\5\23\0005\6\22\0005\a\21\0005\b\20\0=\b\n\a=\a\1\6=\6\r\5=\5\14\4B\3\2\0019\3\24\0019\3\5\0035\4\26\0005\5\25\0=\5\27\4=\2\a\0045\5\31\0005\6\30\0005\a\29\0005\b\28\0=\b\n\a=\a\1\6=\6\r\5=\5\14\0045\5\"\0005\6!\0005\a \0=\a\1\6=\6#\5=\5$\4B\3\2\0019\3%\0019\3\5\0035\4&\0=\2\a\4B\3\2\0019\3'\0019\3\5\0035\4(\0=\2\a\4B\3\2\0019\3)\0019\3\5\0035\4+\0005\5*\0=\5\27\4=\2\a\0045\5/\0005\6.\0005\a-\0005\b,\0=\b\n\a=\a\1\6=\6\r\5=\5\14\4B\3\2\0019\0030\0019\3\5\0035\0042\0005\0051\0=\5\27\4=\2\a\0045\0054\0005\0063\0=\0065\0055\0066\0=\0067\0055\0068\0=\0069\5=\5$\0045\5=\0005\6<\0005\a;\0005\b:\0=\b\n\a=\a\1\6=\6\r\5=\5\14\4B\3\2\0019\3>\0019\3\5\0035\4?\0=\2\a\0045\5@\0005\6A\0=\6B\5=\5C\4B\3\2\0013\3D\0009\4E\0019\4\5\0045\5G\0005\6F\0=\6B\0055\6b\0005\aR\0005\bI\0\18\t\3\0'\nH\0B\t\2\2=\tJ\b5\tK\0=\tL\b5\tM\0005\nN\0>\n\2\t=\tO\b5\tP\0=\tQ\b=\bH\a5\bS\0005\tT\0=\tQ\b5\tU\0=\tL\b5\tV\0=\tW\b5\tX\0=\tY\b=\bZ\a5\b[\0005\t\\\0=\tQ\b5\t]\0=\tL\b5\t^\0=\tY\b5\t_\0005\n`\0>\n\2\t=\tO\b=\ba\a=\ac\0065\ad\0=\aB\0065\ag\0005\be\0005\tf\0=\tL\b=\bh\a=\ai\0065\aj\0=\ak\6=\6\16\5B\4\2\0019\4l\0019\4\5\0045\5m\0=\2\a\5B\4\2\0012\0\0€K\0\1\0\1\0\0\14angularls\20formatFiletypes\1\0\1\15javascript\rprettier\15formatters\rprettier\1\0\0\1\5\0\0\21--stdin-filepath\14%filepath\19--single-quote\22--print-width 120\1\0\1\fcommand!./node_modules/.bin/prettier\1\0\3\rmarkdown\17markdownlint\vpython\vflake8\15javascript\veslint\flinters\1\0\0\17markdownlint\1\0\3\fmessage\3\2\vcolumn\3ÿÿÿÿ\15\tline\3\1\1\2\0\0\22^.*:(\\d+)\\s+(.*)$\1\0\1\14undefined\thint\1\2\0\0\f--stdin\1\2\0\0\t.git\1\0\a\15offsetLine\3\0\rdebounce\3d\17offsetColumn\3\0\fcommand\17markdownlint\15sourceName\17markdownlint\risStderr\2\16formatLines\3\1\veslint\15securities\1\0\2\4\0€€€€\4\nerror\4\0€€Àÿ\3\fwarning\14parseJson\1\0\a\rsecurity\rseverity\fmessage\27${message} [${ruleId}]\fendLine\fendLine\14endColumn\14endColumn\15errorsRoot\17[0].messages\vcolumn\vcolumn\tline\tline\1\6\0\0\f--stdin\21--stdin-filename\14%filepath\r--format\tjson\1\2\0\0\t.git\1\0\3\15sourceName\veslint\rdebounce\3d\fcommand\31./node_modules/.bin/eslint\1\0\0\17rootPatterns\1\2\0\0\5\18formatPattern\1\0\3\fmessage\3\4\vcolumn\3\3\tline\3\1\1\2\0\0#^[^:]+:(\\d+):((\\d+):)?\\s+(.+)$\targs\1\4\0\0\25--stdin-display-name\14%filepath\6-\fcommand\1\0\3\15sourceName\vflake8\rdebounce\3ú\1\16formatLines\3\1\vflake8\1\0\0\1\4\0\0\15javascript\vpython\rmarkdown\17diagnosticls\0\ngodot\14filetypes\1\3\0\0\agd\rgdscript\1\0\2\tport\3ø.\thost\014127.0.0.1\1\0\0\rgdscript\1\0\0\1\0\0\1\0\0\1\0\1\19snippetSupport\2\tscss\1\0\1\rvalidate\2\tless\1\0\1\rvalidate\2\bcss\1\0\0\1\0\1\rvalidate\1\1\0\0\1\3\0\0\31vscode-css-language-server\f--stdio\ncssls\1\0\0\1\0\0\1\0\0\1\0\1\19snippetSupport\2\1\0\0\1\3\0\0 vscode-html-language-server\f--stdio\thtml\1\0\0\rtsserver\1\0\0\nvimls\rsettings\bLua\1\0\0\1\0\0\1\0\1\16callSnippet\tBoth\1\0\0\1\0\0\1\0\0\1\0\1\19snippetSupport\2\bcmd\1\0\0\1\4\0\0h/home/evakuator/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/bin/Linux/lua-language-server\a-ET/home/evakuator/.cache/nvim/lspconfig/sumneko_lua/lua-language-server/ma in.lua\16sumneko_lua\1\0\0\1\0\0\1\0\0\1\0\1\19snippetSupport\2\1\0\1\20disableSnippets\1\1\0\0\25jedi_language_server\17init_options\1\0\3\23completeUnimported\2\21clangdFileStatus\2\20usePlaceholders\2\17capabilities\17textDocument\1\0\0\1\0\0\19completionItem\1\0\0\1\0\1\19snippetSupport\2\14on_attach\1\0\0\nsetup\vclangd\0\14lspconfig\15completion\frequire\0")()
 -- Conditional loads
@@ -417,45 +401,45 @@ command! -nargs=* -range -bang -complete=file EmmetInstall call s:load(['emmet-v
 command! -nargs=* -range -bang -complete=file Emmet call s:load(['emmet-vim'], { "cmd": "Emmet", "l1": <line1>, "l2": <line2>, "bang": <q-bang>, "args": <q-args> })
 
 " Keymap lazy-loads
-xnoremap <silent> ir <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ir", "prefix": "" })<cr>
-nnoremap <silent> gc <cmd>call <SID>load(['vim-commentary'], { "keys": "gc", "prefix": "" })<cr>
-nnoremap <silent> . <cmd>call <SID>load(['vim-repeat'], { "keys": ".", "prefix": "" })<cr>
-nnoremap <silent> gr <cmd>call <SID>load(['vim-replacewithregister'], { "keys": "gr", "prefix": "" })<cr>
-onoremap <silent> grr <cmd>call <SID>load(['vim-replacewithregister'], { "keys": "grr", "prefix": "" })<cr>
-xnoremap <silent> gr <cmd>call <SID>load(['vim-replacewithregister'], { "keys": "gr", "prefix": "" })<cr>
-inoremap <silent> <c-x>m <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>m" })<cr>
-inoremap <silent> <c-x>A <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>A" })<cr>
-inoremap <silent> <c-x>a <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>a" })<cr>
-inoremap <silent> <c-x>k <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>k" })<cr>
-onoremap <silent> av <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "av", "prefix": "" })<cr>
-inoremap <silent> <c-x>j <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>j" })<cr>
-onoremap <silent> iv <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "iv", "prefix": "" })<cr>
-inoremap <silent> <c-x>/ <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>/" })<cr>
-vnoremap <silent> av <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "av", "prefix": "" })<cr>
-inoremap <silent> <c-x>I <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>I" })<cr>
-vnoremap <silent> iv <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "iv", "prefix": "" })<cr>
-inoremap <silent> <c-x>i <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>i" })<cr>
-inoremap <silent> <c-x>N <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>N" })<cr>
-inoremap <silent> <c-x>n <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>n" })<cr>
-vnoremap <silent> ix <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ix", "prefix": "" })<cr>
-inoremap <silent> <c-x>D <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>D" })<cr>
-vnoremap <silent> ax <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ax", "prefix": "" })<cr>
-inoremap <silent> <c-x>d <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>d" })<cr>
-onoremap <silent> ix <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ix", "prefix": "" })<cr>
 inoremap <silent> <c-x>u <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>u" })<cr>
-onoremap <silent> ax <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ax", "prefix": "" })<cr>
 inoremap <silent> <c-x>; <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>;" })<cr>
-vnoremap <silent> ie <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ie", "prefix": "" })<cr>
 inoremap <silent> <c-x>, <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>," })<cr>
-vnoremap <silent> ae <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ae", "prefix": "" })<cr>
-onoremap <silent> ie <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ie", "prefix": "" })<cr>
-onoremap <silent> ae <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ae", "prefix": "" })<cr>
-onoremap <silent> ar <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ar", "prefix": "" })<cr>
+onoremap <silent> av <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "av", "prefix": "" })<cr>
+onoremap <silent> ax <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ax", "prefix": "" })<cr>
+onoremap <silent> iv <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "iv", "prefix": "" })<cr>
+onoremap <silent> ix <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ix", "prefix": "" })<cr>
+vnoremap <silent> av <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "av", "prefix": "" })<cr>
+vnoremap <silent> ax <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ax", "prefix": "" })<cr>
+vnoremap <silent> iv <cmd>call <SID>load(['vim-textobj-variable-segment'], { "keys": "iv", "prefix": "" })<cr>
+vnoremap <silent> ix <cmd>call <SID>load(['vim-textobj-xmlattr'], { "keys": "ix", "prefix": "" })<cr>
+nnoremap <silent> gr <cmd>call <SID>load(['vim-replacewithregister'], { "keys": "gr", "prefix": "" })<cr>
+xnoremap <silent> gr <cmd>call <SID>load(['vim-replacewithregister'], { "keys": "gr", "prefix": "" })<cr>
 nnoremap <silent> gcc <cmd>call <SID>load(['vim-commentary'], { "keys": "gcc", "prefix": "" })<cr>
-onoremap <silent> ir <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ir", "prefix": "" })<cr>
+onoremap <silent> ae <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ae", "prefix": "" })<cr>
+inoremap <silent> <c-x>m <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>m" })<cr>
+onoremap <silent> ie <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ie", "prefix": "" })<cr>
+inoremap <silent> <c-x>A <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>A" })<cr>
+vnoremap <silent> ae <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ae", "prefix": "" })<cr>
 xnoremap <silent> gc <cmd>call <SID>load(['vim-commentary'], { "keys": "gc", "prefix": "" })<cr>
-xnoremap <silent> ar <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ar", "prefix": "" })<cr>
+vnoremap <silent> ie <cmd>call <SID>load(['vim-textobj-entire'], { "keys": "ie", "prefix": "" })<cr>
 onoremap <silent> gc <cmd>call <SID>load(['vim-commentary'], { "keys": "gc", "prefix": "" })<cr>
+nnoremap <silent> . <cmd>call <SID>load(['vim-repeat'], { "keys": ".", "prefix": "" })<cr>
+nnoremap <silent> gc <cmd>call <SID>load(['vim-commentary'], { "keys": "gc", "prefix": "" })<cr>
+xnoremap <silent> ar <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ar", "prefix": "" })<cr>
+inoremap <silent> <c-x>/ <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>/" })<cr>
+onoremap <silent> grr <cmd>call <SID>load(['vim-replacewithregister'], { "keys": "grr", "prefix": "" })<cr>
+inoremap <silent> <c-x>I <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>I" })<cr>
+onoremap <silent> ir <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ir", "prefix": "" })<cr>
+inoremap <silent> <c-x>i <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>i" })<cr>
+xnoremap <silent> ir <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ir", "prefix": "" })<cr>
+inoremap <silent> <c-x>N <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>N" })<cr>
+onoremap <silent> ar <cmd>call <SID>load(['vim-textobj-line'], { "keys": "ar", "prefix": "" })<cr>
+inoremap <silent> <c-x>n <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>n" })<cr>
+inoremap <silent> <c-x>a <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>a" })<cr>
+inoremap <silent> <c-x>D <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>D" })<cr>
+inoremap <silent> <c-x>j <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>j" })<cr>
+inoremap <silent> <c-x>d <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>d" })<cr>
+inoremap <silent> <c-x>k <cmd>call <SID>load(['emmet-vim'], { "keys": "<c-x>k" })<cr>
 
 augroup packer_load_aucmds
   au!
