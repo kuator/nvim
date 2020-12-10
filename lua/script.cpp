@@ -1,4 +1,0 @@
-void sadasdf(){
-	sadasdf();
-	asdfdasdfasdf;
-}
