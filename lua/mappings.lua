@@ -5,7 +5,8 @@ vim.api.nvim_set_keymap('n', '<c-l>', '<c-l>:nohls<cr>', {noremap=true, silent=t
 vim.api.nvim_set_keymap('n', 'gb', ':ls<cr>:b<space>', {noremap=true})
 vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**'<cr>]])
--- nnoremap <leader>ef :find *
+-- vim.cmd([[nnoremap <leader>fn :find *]])
+vim.api.nvim_set_keymap('n', '<leader>fn', ':find *', {noremap=true})
 
 -- grep
 vim.api.nvim_set_keymap('n', '<leader>lg', ':silent lgrep<space>', {noremap=true})
