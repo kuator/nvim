@@ -21,26 +21,22 @@ return require('packer').startup(
 
     -- https://github.com/wbthomason/packer.nvim/issues/87
     use {'kana/vim-textobj-user'}
-    -- use {
-    --         {'nvim-lua/popup.nvim';},
-    --         {'nvim-lua/plenary.nvim';}
-    -- }
 
     use {'mhinz/vim-signify'}
     use {'godlygeek/tabular'; opt = true; cmd = {'Tabularize'}};
     use {'neovim/nvim-lspconfig', config = require('plugins.lsp')};
 
     -- syntax files
-    use { 'pangloss/vim-javascript', ft={'javascript'}}
-    use { 'maxmellon/vim-jsx-pretty', ft={'javascript', 'javascriptreact', 'javascript.jsx', 'typescript.tsx', 'typescriptreact'}}
-    -- use { 'lifepillar/pgsql.vim'}
-    use { 'herringtondarkholme/yats.vim', ft={'typescript.tsx', 'typescriptreact', 'typescript'}}
-    use { 'hail2u/vim-css3-syntax', ft={'css'}}
-    use { 'othree/html5.vim', ft={'html'}}
-    use { 'bfrg/vim-cpp-modern', ft={'cpp'}}
-    use { 'vim-python/python-syntax', ft={'python'}}
-    use { 'habamax/vim-godot', ft={'gdscript'}}
-    use { 'tikhomirov/vim-glsl', ft={'glsl'}}
+    use { 'pangloss/vim-javascript'}
+    use { 'maxmellon/vim-jsx-pretty'}
+    use { 'lifepillar/pgsql.vim'}
+    use { 'herringtondarkholme/yats.vim'}
+    use { 'hail2u/vim-css3-syntax'}
+    use { 'othree/html5.vim'}
+    use { 'bfrg/vim-cpp-modern'}
+    use { 'vim-python/python-syntax'}
+    use { 'habamax/vim-godot'}
+    use { 'tikhomirov/vim-glsl'}
 
     -- tpope
     use {
@@ -50,34 +46,40 @@ return require('packer').startup(
     };
 
     use {
+      'tpope/vim-unimpaired';
+    };
+
+    use {
       'tpope/vim-surround';
       -- opt = true;
       -- keys = {{'n'; 'yss'}; {'x'; 'S'}; {'o'; 'ys'};{'n'; 'ys'}};
     };
-    use { 
+    use {
        'tpope/vim-rsi',
        opt=true ,
-       event = 'InsertEnter *' 
+       -- event = 'InsertEnter *'
     };
     use {
       'tpope/vim-repeat';
-      opt = true;
-      keys = {{'n'; '.'}};
+      -- opt = true;
+      -- keys = {{'n'; '.'}};
     };
     --
 
     -- fuzzy finder
-    use {
-      'nvim-telescope/telescope.nvim',
-      opt=true,
-      requires = {{'nvim-lua/popup.nvim', opt=true}, {'nvim-lua/plenary.nvim'; opt=true}};
-      cmd = 'Telescope'
-    }
+    -- use {
+    --   'nvim-telescope/telescope.nvim',
+    --   requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+    -- }
 
     -- mattn
     use {
       'mattn/emmet-vim';
       opt = true;
+      setup=[[
+        vim.g.user_emmet_mode = 'i'
+        vim.g.user_emmet_leader_key = "<C-x>"
+      ]],
       keys = {
         {'i'; '<c-x>m'};
         {'i'; '<c-x>A'};
@@ -115,6 +117,7 @@ return require('packer').startup(
       'kana/vim-textobj-line',
       opt=true,
       -- requires={{'kana/vim-textobj-user', opt=true}},
+      setup='vim.g.textobj_line_no_default_key_mappings= true',
       keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'x'; 'ar'}, {'x'; 'ir'}},
       config = require'plugins.vim-textobj-line'
     }
@@ -122,34 +125,35 @@ return require('packer').startup(
     -- text objects
     use {
       'julian/vim-textobj-variable-segment',
-      opt=true,
-      keys = {{'o'; 'av'}, {'o'; 'iv'}, {'v'; 'av'}, {'v'; 'iv'}}
+      -- opt=true,
+      -- keys = {{'o'; 'av'}, {'o'; 'iv'}, {'v'; 'av'}, {'v'; 'iv'}}
     }
 
-    -- use {'wellle/targets.vim'}
+    use {'wellle/targets.vim'}
+
     use {
       'whatyouhide/vim-textobj-xmlattr',
-      opt=true,
-      keys = {{'o'; 'ax'}, {'o'; 'ix'}, {'v'; 'ax'}, {'v'; 'ix'}}
+      -- opt=true,
+      -- keys = {{'o'; 'ax'}, {'o'; 'ix'}, {'v'; 'ax'}, {'v'; 'ix'}}
     }
     use {
       'inkarkat/vim-replacewithregister',
-      opt=true,
-      keys = {{'n'; 'gr'}; {'o'; 'grr'}; {'x'; 'gr'};}
+      -- opt=true,
+      -- keys = {{'n'; 'gr'}; {'o'; 'grr'}; {'x'; 'gr'};}
     }
 
-    use {'romainl/vim-tinymru'; opt = true; cmd = {'ME'}};
-    use {'liuchengxu/space-vim-dark'}
+    use {'romainl/vim-tinymru'; config=require'plugins.vim-tinymru'};
+    use {'liuchengxu/space-vim-dark', config=require'plugins.space-vim-dark'}
     use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {'nvim-treesitter/nvim-treesitter-refactor'}
-    use {'ludovicchabant/vim-gutentags'}
+    use {'ludovicchabant/vim-gutentags', config=require'plugins.vim-gutentags'}
     use {'brookhong/cscope.vim'}
     use {'tommcdo/vim-exchange'; opt=true }
     use {'weilbith/nvim-lsp-bacomp'; opt=true }
     use {'weilbith/nvim-lsp-smag'; opt=true }
 
-    use { 'nvim-lua/completion-nvim', config=require('plugins.completion-nvim')}
+    use {'nvim-lua/completion-nvim', config=require('plugins.completion-nvim')}
 
     use {'hrsh7th/vim-vsnip', config=require'plugins.vim-vsnip'}
     use {'hrsh7th/vim-vsnip-integ'}

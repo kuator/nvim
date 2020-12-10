@@ -1,9 +1,10 @@
-vim.g.textobj_line_no_default_key_mappings= true
+-- vim.g.textobj_line_no_default_key_mappings= true
 
 require('settings')
 require('packed')
 require('colors')
 require('mappings')
+-- require('cscope')
 
 
 -- vim.api.nvim_set_keymap('o', 'ir', '<Plug>(textobj-line-i)',{})

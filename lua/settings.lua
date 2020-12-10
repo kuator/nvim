@@ -11,6 +11,8 @@ cmd('filetype plugin indent on')
 
 g.mapleader = ' '
 
+g.syntax_on = true
+
 o.hidden = true
 
 wo.number = true
@@ -128,7 +130,7 @@ o.wildmode='longest:full,full'
 
 -- scroll margins
 -- pretty comfortable when using zz and zt
-o.scrolloff=3      
+o.scrolloff=3
 o.sidescrolloff=3
 
 if fn.executable("rg") then
@@ -185,6 +187,33 @@ local autocmds = {
         file_completion = {
           {'InsertEnter', '*', "let save_cwd = getcwd() | execute 'lcd' expand('%:p:h')"},
           {'InsertLeave', '*', "execute 'lcd' fnameescape(save_cwd)"}
+        },
+        filetype_autocmds = {
+          {
+            'FileType',
+            'python', [[
+              let g:pyindent_open_paren = 'shiftwidth()'
+              setlocal foldmethod=indent
+              setlocal foldlevel=0
+              " set foldmethod=expr
+              " set foldexpr=nvim_treesitter#foldexpr()
+
+              setlocal makeprg=flake8\ %
+              setlocal errorformat=%f:%l:%c:\ %t%n\ %m
+            ]]
+          },
+          { 'FileType', 'vim', "set foldmethod=marker" } ,
+          { 'FileType', 'netrw', "set bufhidden=delete" } ,
+          {
+            'FileType',
+            'gdscript', [[
+              setlocal foldmethod=expr
+              setlocal tabstop=4
+              setlocal noexpandtab
+              setlocal softtabstop=0
+              setlocal shiftwidth=0
+            ]]
+          },
         }
 }
 
@@ -192,6 +221,3 @@ nvim_create_augroups(autocmds)
 
 -- for searching files with location list
 o.errorformat = o.errorformat .. ',%f'
-
-
-

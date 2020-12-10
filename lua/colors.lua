@@ -1,5 +1,5 @@
 -- vim.api.nvim_command('syntax on')
-vim.api.nvim_command('colorscheme space-vim-dark')
+-- vim.api.nvim_command('colorscheme space-vim-dark')
 -- set termguicolors
 -- hi Normal     ctermbg=NONE guibg=NONE
 -- hi LineNr     ctermbg=NONE guibg=NONE

@@ -3,12 +3,12 @@ vim.api.nvim_set_keymap('n', '<a-c>', ':', {noremap=true})
 vim.api.nvim_set_keymap('i', 'kj', '<esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-l>', '<c-l>:nohls<cr>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', 'gb', ':ls<cr>:b<space>', {noremap=true})
-vim.cmd([[nnoremap <leader>ec  :vs <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
+vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**'<cr>]])
 -- nnoremap <leader>ef :find *
 
 -- grep
-vim.api.nvim_set_keymap('n', '<leader>lg', ':lgrep<space>', {noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>lg', ':silent lgrep<space>', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>lf', [[:silent lexpr system('fdfind -g "*"')<left><left><left><left>]], {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>lt', ':silent ltag <space>/', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>cc', ':silent cclose<bar>lclose<cr>', {noremap=true})
