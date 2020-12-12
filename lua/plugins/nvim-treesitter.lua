@@ -6,10 +6,10 @@ return function ()
     incremental_selection = {
       enable = false,
       keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
+        init_selection = "<c-n>c-i>",
+        node_incremental = "<c-i>n",
+        scope_incremental = "<c-i>c",
+        node_decremental = "<c-i>m",
       },
     },
     refactor = {

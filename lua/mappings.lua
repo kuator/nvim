@@ -13,7 +13,7 @@ vim.api.nvim_set_keymap('n', '<leader>lg', ':silent lgrep<space>', {noremap=true
 vim.api.nvim_set_keymap('n', '<leader>lf', [[:silent lexpr system('fdfind -g "*"')<left><left><left><left>]], {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>lt', ':silent ltag <space>/', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>cc', ':silent cclose<bar>lclose<cr>', {noremap=true})
-vim.api.nvim_set_keymap('n', '<c-c><c-c>', ':q!', {noremap=true})
+-- vim.api.nvim_set_keymap('n', '<c-c><c-c>', ':q!', {noremap=true})
 
 -- set working directory to the current buffer's directory
 vim.api.nvim_set_keymap('n', 'cd', ':lcd %:p:h<bar>pwd<cr>', {noremap=true, silent=true})
@@ -42,6 +42,7 @@ vim.cmd('inoreabbr lam =>')
 vim.cmd('inoreabbr far =>')
 vim.cmd('inoreabbr tar ->')
 vim.cmd('inoreabbr ex !')
+vim.cmd('inoreabbr st *')
 vim.cmd('inoreabbr pl +')
 vim.cmd('cnoreabbr lam =>')
 vim.cmd('cnoreabbr far =>')

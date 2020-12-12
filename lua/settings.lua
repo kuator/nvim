@@ -27,10 +27,14 @@ wo.wrap = false
 o.wrap = false
 
 o.expandtab = true
+bo.expandtab = true
 o.shiftwidth = 2
+bo.shiftwidth = 2
 -- when 'sts' is negative, the value of 'shiftwidth' is used.
 o.softtabstop = -1
+bo.softtabstop = -1
 o.autoindent = true
+bo.autoindent = true
 
 --searching
 o.incsearch = true

@@ -64,7 +64,11 @@ return require('packer').startup(
       -- opt = true;
       -- keys = {{'n'; '.'}};
     };
-    --
+
+    -- use {
+    --   'tpope/vim-ragtag/';
+    -- };
+
 
     -- fuzzy finder
     -- use {
@@ -78,24 +82,25 @@ return require('packer').startup(
       opt = true;
       setup=[[
         vim.g.user_emmet_mode = 'i'
-        vim.g.user_emmet_leader_key = "<C-x>"
+        vim.g.user_emmet_leader_key = "<c-c>"
+        vim.g.user_emmet_expandabbr_key = '<c-c><c-c>'
       ]],
       keys = {
-        {'i'; '<c-x>m'};
-        {'i'; '<c-x>A'};
-        {'i'; '<c-x>a'};
-        {'i'; '<c-x>k'};
-        {'i'; '<c-x>j'};
-        {'i'; '<c-x>/'};
-        {'i'; '<c-x>I'};
-        {'i'; '<c-x>i'};
-        {'i'; '<c-x>N'};
-        {'i'; '<c-x>n'};
-        {'i'; '<c-x>D'};
-        {'i'; '<c-x>d'};
-        {'i'; '<c-x>u'};
-        {'i'; '<c-x>;'};
-        {'i'; '<c-x>,'};
+        {'i'; '<c-c>m'};
+        {'i'; '<c-c>A'};
+        {'i'; '<c-c>a'};
+        {'i'; '<c-c>k'};
+        {'i'; '<c-c>j'};
+        {'i'; '<c-c>/'};
+        {'i'; '<c-c>I'};
+        {'i'; '<c-c>i'};
+        {'i'; '<c-c>N'};
+        {'i'; '<c-c>n'};
+        {'i'; '<c-c>D'};
+        {'i'; '<c-c>d'};
+        {'i'; '<c-c>u'};
+        {'i'; '<c-c>;'};
+        {'i'; '<c-c><c-c>'};
       };
       cmd = {'Emmet'; 'EmmetInstall'};
     };
