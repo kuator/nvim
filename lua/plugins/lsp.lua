@@ -18,7 +18,7 @@ return function()
     vim.fn.nvim_set_keymap("n", "<leader>gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
     vim.fn.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
     vim.fn.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
-    vim.api.nvim_command('setlocal omnifunc=lua.vim.lsp.omnifunc')
+    vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
   end
 
    nvim_lsp.clangd.setup{

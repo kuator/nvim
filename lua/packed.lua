@@ -136,6 +136,8 @@ return require('packer').startup(
 
     use {'wellle/targets.vim'}
 
+    use {'jasonlong/vim-textobj-css'}
+
     use {
       'whatyouhide/vim-textobj-xmlattr',
       -- opt=true,
@@ -149,9 +151,9 @@ return require('packer').startup(
 
     use {'romainl/vim-tinymru'; config=require'plugins.vim-tinymru'};
     use {'liuchengxu/space-vim-dark', config=require'plugins.space-vim-dark'}
-    use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {'nvim-treesitter/nvim-treesitter-refactor'}
+    use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter'}
     use {'ludovicchabant/vim-gutentags', config=require'plugins.vim-gutentags'}
     use {'brookhong/cscope.vim'}
     use {'tommcdo/vim-exchange'; opt=true }
