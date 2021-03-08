@@ -171,5 +171,534 @@
         "prefix": "mark/markdown",
         "body": "# %% [markdown]",
         "description": "Code snippet to add a new markdown cell"
+    },
+    "Django Model Class Setup" : {
+      "prefix" : "modclass",
+      "body" : [
+        "class ${1:ClassName}(models.Model):",
+        "    ${0:Fields}"
+      ],
+      "description" : "Model Class Setup"
+    },
+    "Django Model CharField" : {
+      "prefix" : "charfield",
+      "body" : [
+        "${1:fieldName} = models.CharField(max_length = ${2:150})",
+        "${0}" 
+      ],
+      "description" : "CharField Model"
+    },
+    "Django Model IntField" : {
+      "prefix" : "intfield",
+      "body" : [
+        "${1:fieldName} = models.IntegerField()",
+        "${0}" 
+      ],
+      "description" : "IntegerField Model"
+    },
+    "Django Model BoolField" : {
+      "prefix" : "boolfield",
+      "body" : [
+        "${1:fieldName} = models.BooleanField()",
+        "${0}" 
+      ],
+      "description" : "BooleanField Model"
+    },
+    "Django Date Field" : {
+      "prefix" : "datefield",
+      "body" : [
+        "${1:fieldName} = models.DateField(auto_now=${2:False}, auto_now_add=${3:False})",
+        "${0}"
+      ],
+      "description" : "DateField Model"
+    },
+    "Django DateTime Field" : {
+      "prefix" : ["dtfield", "datetimefield"],
+      "body" : [
+        "${1:fieldName} = models.DateTimeField(auto_now=${2:False}, auto_now_add=${3:False})",
+        "${0}"
+      ],
+      "description" : "DateTimeField Model"
+    },
+    "Django Decimal Field" : {
+      "prefix" : "decimalfield",
+      "body" : [
+        "${1:fieldName} = models.DecimalField(max_digits=${2:None}, decimal_places=${3:None})",
+        "${0}"
+      ],
+      "description" : "DecimalField Model"
+    },
+    "Django Email Field" : {
+      "prefix" : "emailfield",
+      "body" : [
+        "${1:fieldName} = models.EmailField(max_length=%{2:254})",
+        "${0}"
+      ],
+      "description" : "EmailField Model"
+    },
+    "Django File Field" : {
+      "prefix" : "filefield",
+      "body" : [
+        "${1:fieldName} = models.FileField(upload_to=${2:None}, max_length = ${3:100})",
+        "${0}"
+      ],
+      "description" : "FileField Model"
+    },
+    "Django Image Field" : {
+      "prefix" : "imagefield",
+      "body" : [
+        "${1:fieldName} = models.ImageField(upload_to=${2:None}, height_field=${3:None}, width_field=${4:None}, max_length=${5:100})",
+        "${0}"
+      ],
+      "description" : "ImageField Model"
+    },
+    "Django Float Field" : {
+      "prefix" : "floatfield",
+      "body" : [
+        "${1:fieldName} = models.FloatField()",
+        "${0}"
+      ],
+      "description" : "FloatField Model"
+    },
+    "Django Slug Field" : {
+      "prefix" : "slugfield",
+      "body" : [
+        "${1:fieldName} = models.SlugField(max_length = ${2:50})",
+        "${0}"
+      ],
+      "description" : "SlugField Model"
+    },
+    "Django Text Field" : {
+      "prefix" : "textfield",
+      "body" : [
+        "${1:fieldName} = models.TextField()",
+        "${0}"
+      ],
+      "description" : "TextField Model"
+    },
+    "Django Time Field" : {
+      "prefix" : "timefield",
+      "body" : [
+        "${1:fieldName} = models.TimeField(auto_now=${2:False}, auto_now_add=${3:False})",
+        "${0}"
+      ],
+      "description" : "TimeField Model"
+    },
+    "Django URL Field" : {
+      "prefix" : "urlfield",
+      "body" : [
+        "${1:fieldName} = models.URLField(max_length = ${2:200})",
+        "${0}"
+      ],
+      "description" : "URLField Model"
+    },
+    "Django ForeignKey Field" : {
+      "prefix" : ["foreignkeyfield", "fkfield"],
+      "body" : [
+        "${1:fieldName} = models.ForeignKey(${2:RelatedModel}, on_delete=${3:models.CASCADE})",
+        "${0}"
+      ],
+      "description" : "ForeignKeyField Model"
+    },
+    "Django ManyToMany Field" : {
+      "prefix" : ["manytomanyfield", "m2mfield", "mtmfield"],
+      "body" : [
+        "${1:fieldName} = models.ManyToManyField(${2:RelatedModel})",
+        "${0}"
+      ],
+      "description" : "ManyToManyField Model"
+    },
+    "Django OneToOneField" : {
+      "prefix" : ["onetoonefield", "otofield"],
+      "body" : [
+        "${1:fieldName} = models.OneToOneField(${2:RelatedModel}, on_delete=${3:models.CASCADE})",
+        "${0}"
+      ],
+      "description" : "OneToOneField Model"
+    },
+    "Admin Site Register" : {
+      "prefix" : "admreg",
+      "body" : [
+        "admin.site.register(${1:ModelName})",
+        "${0}"
+      ],
+      "description" : "Admin Site Regitser"
+    },
+    "URL Pattern" : {
+      "prefix" : ["paturl", "urlpattern", "upt"],
+      "body" : [
+        "from django.urls import path, re_path",
+        "from .views import ${1:ViewsToBeImported}",
+        "",
+        "app_name = ${2:AppName}",
+        "",
+        "urlpatterns = [",
+          "    ${0}",
+          "]"
+      ],
+      "description" : "urls.py file setup"
+    },
+    "Django Manager Class" : {
+      "prefix" : ["dmanagerclass", "dmnc", "managerclass"],
+      "body" : [
+        "from django.db.models import Manager",
+        "",
+        "class ${1:ManagerName}(Manager):",
+        "    ${0}"
+      ],
+      "description" : "Custom Manager Class Setup"
+    },
+    "Django Custom Manager Model" : {
+      "prefix" : ["cmmodel", "custommanagermodel"],
+      "body" : [
+        "${1:objects} = ${2:CustomManagerName}()",
+        "${0}"
+      ],
+      "description" : "Custom Manager In Model"
+    },
+    "Form File Setup" : {
+      "prefix" : ["setform", "formpy"],
+      "body" : [
+        "from django import forms",
+        "${0}"
+      ],
+      "description" : "Form.py setup"
+    },
+    "Form class Setup" : {
+      "prefix" : ["formclass", "fclass"],
+      "body" : [
+        "class ${1:FormName}(forms.Form):",
+        "    ${0:Fields}"
+      ],
+      "description" : "Form Class Setup"
+    },
+    "Override is_valid()" : {
+      "prefix" : ["is_valid()", "validcustom"],
+      "body" : [
+        "def is_valid(self):",
+        "    valid = super().is_valid()",
+        "    if not valid:",
+        "        return False",
+        "    ${1:# Custom Logic}",
+        "    return True",
+        "${0}"
+      ],
+      "description" : "Override is_valid() method"
+    },
+    "Setup ModelForm" : {
+      "prefix" : ["modform", "modelform"],
+      "body" : [
+        "class ${1:FormName}(forms.ModelForm):",
+        "    class Meta:",
+        "        model = ${2:ModelName}",
+        "        fields = [${0:Model Fields}]"
+      ],
+      "description" : "ModelForm Setup"
+    },
+    "Django Form BoolField" : {
+      "prefix" : "fboolfield",
+      "body" : [
+        "${1:fieldName} = forms.BooleanField(${2})",
+        "${0}"
+      ],
+      "description" : "BoolField Form"
+    },
+    "Django Form CharField" : {
+      "prefix" : "fcharfield",
+      "body" : [
+        "${1:fieldName} = forms.CharField(${2})",
+        "${0}"
+      ],
+      "description" : "CharField Form"
+    },
+    "Django Form ChoiceField" : {
+      "prefix" : "fchoicefield",
+      "body" : [
+        "${1:fieldName} = forms.ChoiceField(${2})",
+        "${0}"
+      ],
+      "description" : "ChoiceField Form"
+    },
+    "Django Form DateField" : {
+      "prefix" : "fdatefield",
+      "body" : [
+        "${1:fieldName} = forms.DateField(${2})",
+        "${0}"
+      ],
+      "description" : "DateField Form"
+    },
+    "Django Form DateTimeField" : {
+      "prefix" : ["fdatetimefield", "fdtfield"],
+      "body" : [
+        "${1:fieldName} = forms.DateTimeField(${2})",
+        "${0}"
+      ],
+      "description" : "DateTimeField Form"
+    },
+    "Django Form DecimalField" : {
+      "prefix" : "fdecimalfield",
+      "body" : [
+        "${1:fieldName} = forms.DecimalField(${2})",
+        "${0}"
+      ],
+      "description" : "DecimalField Form"
+    },
+    "Django Form EmailField" : {
+      "prefix" : "femailfield",
+      "body" : [
+        "${1:fieldName} = forms.EmailField(${2})",
+        "${0}"
+      ],
+      "description" : "EmailField Form"
+    },
+    "Django Form FileField" : {
+      "prefix" : "ffilefield",
+      "body" : [
+        "${1:fieldName} = forms.FileField(${2})",
+        "${0}"
+      ],
+      "description" : "FileField Form"
+    },
+    "Django Form FloatField" : {
+      "prefix" : "ffloatfield",
+      "body" : [
+        "${1:fieldName} = forms.FloatField(${2})",
+        "${0}"
+      ],
+      "description" : "FloatField Form"
+    },
+    "Django Form ImageField" : {
+      "prefix" : "fimagefield",
+      "body" : [
+        "${1:fieldName} = forms.ImageField(${2})",
+        "${0}"
+      ],
+      "description" : "ImageField Form"
+    },
+    "Django Form IntegerField" : {
+      "prefix" : ["fintegerfield", "fintfield"],
+      "body" : [
+        "${1:fieldName} = forms.IntegerField(${2})",
+        "${0}"
+      ],
+      "description" : "IntegerField Form"
+    },
+    "Django Form MultipleChoiceField" : {
+      "prefix" : ["fmultiplechoicefiled", "fmcfield"],
+      "body" : [
+        "${1:fieldName} = forms.MultipleChoiceField(${2})",
+        "${0}"
+      ],
+      "description" : "MultipleChoiceField Form"
+    },
+    "Django Form SlugField" : {
+      "prefix" : "fslugfield",
+      "body" : [
+        "${1:fieldName} = forms.SlugField(${2})",
+        "${0}"
+      ],
+      "description" : "SlugField Form"
+    },
+    "Django Form Timefield" : {
+      "prefix" : "ftimefield",
+      "body" : [
+        "${1:fieldName} = forms.TimeField(${2})",
+        "${0}"
+      ],
+      "description" : "TimeField Form"
+    },
+    "Django Form URLField" : {
+      "prefix" : "furlfield",
+      "body" : [
+        "${1:fieldName} = forms.URLField(${2})",
+        "${0}"
+      ],
+      "description" : "URLField Form"
+    },
+    "Django Base View" : {
+      "prefix" : ["gencbv","basecbv"],
+      "body" : [
+        "class ${1:ViewName}(View):",
+        "",
+        "    def post(self, request):",
+        "        ${2:pass}",
+        "",
+        "    def get(self,request):",
+        "        ${0:pass}"
+      ],
+      "description" : "Django Base View"
+    },
+    "Render Shortcut" : {
+      "prefix" : ["render","rshort"],
+      "body" : [
+        "return render(request, ${1:template_name}, {${2}})",
+        "${0}"
+      ],
+      "description" : "Render shortcut"
+    },
+    "Redirect Shortcut" : {
+      "prefix" : ["httpresponseredirect", "httpred", "htrd"],
+      "body" : [
+        "return HttpResponseRedirect(reverse('${1:App_Name}:${2:Name}', ${3}))",
+        "${0}"
+      ],
+      "description" : "HttpResponseRedirect Shortcut"
+    },
+    "Cleaned Data Access" : {
+      "prefix" : ["cleaneddata", "formdata", "cltd"],
+      "body" : [
+        "${1:VariableName} = ${2:formName}.cleaned_data.get('${3:${1}}')",
+        "${0}"
+      ],
+      "description" : "Form data access"
+    },
+    "Custom Filter" : {
+      "prefix" : ["customfilter", "custfilt"],
+      "body" : [
+        "from django import template",
+        "",
+        "register = template.Library()",
+        "",
+        "@register.filter(name=${1:FilterName})",
+        "def ${2:${1}}(value, arg=None):",
+        "    ${0}"
+      ],
+      "description" : "Custom Filter"
+    },
+    "Create API" : {
+      "prefix" : "create",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.create(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Create API"
+    },
+    "All API" : {
+      "prefix" : "all",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.all()",
+        "${0}"
+      ],
+      "description" : "All API"
+    },
+    "Filter API" : {
+      "prefix" : "filter",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.filter(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Filter API"
+    },
+    "Get API" : {
+      "prefix" : "get",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.get(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Get API"
+    },
+    "Exclude API" : {
+      "prefix" : "exclude",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.exclude(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Exclude API"
+    },
+    "Get_Or_Create API" : {
+      "prefix" : ["get_or_create","goc"],
+      "body" : [
+        "${1:Variable}, ${2:Created} = ${3:ModelName}.objects.get_or_create(${4:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Get Or Create API"
+    },
+    "Update_Or_Create API" : {
+      "prefix" : ["update_or_create","uoc"],
+      "body" : [
+        "${1:Variable}, ${2:Created} = ${3:ModelName}.objects.update_or_create(${4:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Update Or Create API"
+    },
+    "Count API" : {
+      "prefix" : "count",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.count(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Count API"
+    },
+    "Latest API" : {
+      "prefix" : "latest",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.latest(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Latest API"
+    },
+    "Earliest API" : {
+      "prefix" : "earliest",
+      "body" : [
+        "${1:Variable} = ${2:ModelName}.objects.earliest(${3:PassArguments})",
+        "${0}"
+      ],
+      "description" : "Earliest API"
+    },
+    "Function View Generic" : {
+      "prefix" : ["fbvbase", "genfunc"],
+      "body" : [
+        "def ${1:FunctionName}(request):",
+        "",
+        "    if request.method == 'POST':",
+        "        ${2:pass}",
+        "",
+        "    if request.method == 'GET':",
+        "        ${3:pass}",
+        "",
+        "${0}"
+      ],
+      "desription" : "Function Based Generic View"
+    },
+    "Create User" : {
+      "prefix" : ["usercreate", "createuser"],
+      "body" : [
+        "user = Users.objects.create_user(username=${1:username}, password=${2:password}${3})",
+        "${0}"
+      ],
+      "description" : ["Create new user instance"]
+    },
+    "Validate Password" : {
+      "prefix" : "validatepassword",
+      "body" : [
+        "validate_password(${1:password}, user=${2:None})",
+        "${0}"
+      ],
+      "description" : "Validate Password"
+    },
+    "Set Password" : {
+      "prefix" : "setpassword",
+      "body" : [
+        "${1:user}.set_password(${2:password})",
+        "${0}"
+      ],
+      "description" : "Set Password"
+    },
+    "Authenticate User" : {
+      "prefix" : ["authuser", "authenticateuser"],
+      "body" : [
+        "${1:user} = authenticate(username=${2:username}, password=${3:password})",
+        "if ${1}:",
+        "    ${0:# User is authenticated}"
+      ],
+      "description" : "Authenticate User"
+    },
+    "Check Authentication" : {
+      "prefix" : "checkauth",
+      "body" : [
+        "if ${1:user}.is_authenticated():",
+        "    ${0:# User is authenticated}"
+      ],
+      "description" : "Check Authentication"
     }
 }

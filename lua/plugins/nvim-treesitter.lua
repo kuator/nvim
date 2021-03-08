@@ -6,7 +6,7 @@ return function ()
     incremental_selection = {
       enable = false,
       keymaps = {
-        init_selection = "<c-n>c-i>",
+        init_selection = "<c-m>",
         node_incremental = "<c-i>n",
         scope_incremental = "<c-i>c",
         node_decremental = "<c-i>m",
@@ -33,6 +33,10 @@ return function ()
         }
       }
     },
+    rainbow = {
+      enable = false,
+      disable = {'bash'} -- please disable bash until I figure #1 out
+    },
     textobjects = {
       enable=true,
       select = {
@@ -41,8 +45,20 @@ return function ()
           -- You can use the capture groups defined in textobjects.scm
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
+          ["aC"] = "@class.outer",
+          ["iC"] = "@class.inner",
+          ["ac"] = "@conditional.outer",
+          ["ic"] = "@conditional.inner",
+          ["is"] = "@statement.inner",
+          ["as"] = "@statement.outer",
+          ["ad"] = "@lhs.inner",
+          ["id"] = "@rhs.inner",
+          ["am"] = "@call.outer",
+          ["im"] = "@call.inner",
+          ["al"] = "@loop.outer",
+          ["il"] = "@loop.inner",
+          ["at"] = "@block.outer",
+          ["it"] = "@block.inner",
 
           -- -- Or you can define your own textobjects like this
           ["iF"] = {

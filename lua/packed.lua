@@ -25,6 +25,7 @@ return require('packer').startup(
     use {'mhinz/vim-signify'}
     use {'godlygeek/tabular'; opt = true; cmd = {'Tabularize'}};
     use {'neovim/nvim-lspconfig', config = require('plugins.lsp')};
+    use {'mfussenegger/nvim-jdtls', config = require('plugins.lsp')};
 
     -- syntax files
     use { 'pangloss/vim-javascript'}
@@ -57,7 +58,7 @@ return require('packer').startup(
     use {
        'tpope/vim-rsi',
        opt=true ,
-       -- event = 'InsertEnter *'
+       event = 'InsertEnter *'
     };
     use {
       'tpope/vim-repeat';
@@ -65,16 +66,21 @@ return require('packer').startup(
       -- keys = {{'n'; '.'}};
     };
 
-    -- use {
-    --   'tpope/vim-ragtag/';
-    -- };
+    use {
+      'tpope/vim-ragtag/';
+    };
 
 
     -- fuzzy finder
-    -- use {
-    --   'nvim-telescope/telescope.nvim',
-    --   requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-    -- }
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+      config=require'plugins.nvim-telescope'
+    }
+    use {
+      'tjdevries/complextras.nvim',
+      config=require'plugins.complextras'
+    }
 
     -- mattn
     use {
@@ -82,25 +88,25 @@ return require('packer').startup(
       opt = true;
       setup=[[
         vim.g.user_emmet_mode = 'i'
-        vim.g.user_emmet_leader_key = "<c-c>"
-        vim.g.user_emmet_expandabbr_key = '<c-c><c-c>'
+        vim.g.user_emmet_leader_key = "<c-q>"
+        vim.g.user_emmet_expandabbr_key = '<c-q><c-q>'
       ]],
       keys = {
-        {'i'; '<c-c>m'};
-        {'i'; '<c-c>A'};
-        {'i'; '<c-c>a'};
-        {'i'; '<c-c>k'};
-        {'i'; '<c-c>j'};
-        {'i'; '<c-c>/'};
-        {'i'; '<c-c>I'};
-        {'i'; '<c-c>i'};
-        {'i'; '<c-c>N'};
-        {'i'; '<c-c>n'};
-        {'i'; '<c-c>D'};
-        {'i'; '<c-c>d'};
-        {'i'; '<c-c>u'};
-        {'i'; '<c-c>;'};
-        {'i'; '<c-c><c-c>'};
+        {'i'; '<c-q>m'};
+        {'i'; '<c-q>A'};
+        {'i'; '<c-q>a'};
+        {'i'; '<c-q>k'};
+        {'i'; '<c-q>j'};
+        {'i'; '<c-q>/'};
+        {'i'; '<c-q>I'};
+        {'i'; '<c-q>i'};
+        {'i'; '<c-q>N'};
+        {'i'; '<c-q>n'};
+        {'i'; '<c-q>D'};
+        {'i'; '<c-q>d'};
+        {'i'; '<c-q>u'};
+        {'i'; '<c-q>;'};
+        {'i'; '<c-q><c-q>'};
       };
       cmd = {'Emmet'; 'EmmetInstall'};
     };
@@ -114,15 +120,17 @@ return require('packer').startup(
     use {
       'kana/vim-textobj-entire',
       opt=true,
+      setup='vim.g.textobj_entire_no_default_key_mappings=true',
       -- requires={{'kana/vim-textobj-user', opt=true}},
-      keys = {{'o'; 'ae'}, {'o'; 'ie'}, {'v'; 'ae'}, {'v'; 'ie'}}
+      keys = {{'o'; 'ae'}, {'o'; 'ie'}, {'x'; 'ae'}, {'x'; 'ie'}},
+      config = require'plugins.vim-textobj-entire'
     }
 
     use {
       'kana/vim-textobj-line',
       opt=true,
       -- requires={{'kana/vim-textobj-user', opt=true}},
-      setup='vim.g.textobj_line_no_default_key_mappings= true',
+      setup='vim.g.textobj_line_no_default_key_mappings=true',
       keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'x'; 'ar'}, {'x'; 'ir'}},
       config = require'plugins.vim-textobj-line'
     }
@@ -151,8 +159,10 @@ return require('packer').startup(
 
     use {'romainl/vim-tinymru'; config=require'plugins.vim-tinymru'};
     use {'liuchengxu/space-vim-dark', config=require'plugins.space-vim-dark'}
+    -- use {'vigoux/oak', config=require'plugins.oak'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {'nvim-treesitter/nvim-treesitter-refactor'}
+    -- use {'p00f/nvim-ts-rainbow'}
     use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter'}
     use {'ludovicchabant/vim-gutentags', config=require'plugins.vim-gutentags'}
     use {'brookhong/cscope.vim'}
@@ -160,13 +170,15 @@ return require('packer').startup(
     use {'weilbith/nvim-lsp-bacomp'; opt=true }
     use {'weilbith/nvim-lsp-smag'; opt=true }
 
-    use {'nvim-lua/completion-nvim', config=require('plugins.completion-nvim')}
+    -- use {'nvim-lua/completion-nvim', config=require('plugins.completion-nvim')}
 
     use {'hrsh7th/vim-vsnip', config=require'plugins.vim-vsnip'}
     use {'hrsh7th/vim-vsnip-integ'}
+    use {'onsails/lspkind-nvim'}
+    use {'hrsh7th/nvim-compe', config=require('plugins.nvim-compe')}
 
 
-    use {'steelsojka/completion-buffers'}
+    -- use {'steelsojka/completion-buffers'}
 
 
     --miscelanneous and unused
@@ -177,6 +189,14 @@ return require('packer').startup(
     use {'psliwka/vim-smoothie',  opt=true}
     use {'norcalli/nvim-colorizer.lua', opt=true}
     use {'Guergeiro/clean-path.vim', opt=true}
+
+
+
+
+
+
+
+    use {'aca/pylance.nvim'}
 
   end
 )

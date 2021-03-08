@@ -23,6 +23,12 @@
     "description": "Code snippet for struct",
     "scope": "source.c, source.objc, source.c++, source.objc++"
   },
+  "std": {
+    "prefix": "std",
+    "body": "std::${0}",
+    "description": "Code snippet for std",
+    "scope": "source.c, source.objc, source.c++, source.objc++"
+  },
   "union": {
     "prefix": "union",
     "body": "union ${1:${TM_FILENAME_BASE}}\n{\n\t${0:/* data */}\n};",
@@ -69,6 +75,18 @@
     "prefix": "main",
     "body": "int main(int argc, char const *argv[])\n{\n\t${1:/* code */}\n\treturn 0;\n}",
     "description": "Code snippet for main()",
+    "scope": "source.c, source.objc, source.c++, source.objc++"
+  },
+  "cout": {
+    "prefix": "cout",
+    "body": "std::cout << ${1} << \"n\";",
+    "description": "Code snippet for main()",
+    "scope": "source.c, source.objc, source.c++, source.objc++"
+  },
+  "fun": {
+    "prefix": "fun",
+    "body": "${1:void} ${2:function_name}(${3:args})\n{\n\t${4:/* code */}\n}",
+    "description": "Code snippet for function",
     "scope": "source.c, source.objc, source.c++, source.objc++"
   },
   "do": {

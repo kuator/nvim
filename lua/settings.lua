@@ -158,7 +158,8 @@ g.python3_host_prog='/opt/.venvs/neovim3/bin/python'
 
 
 o.path = o.path:gsub([[/usr/include]], '')
-o.path = o.path .. fn.stdpath('config') .. '/**'
+-- o.path = o.path .. fn.stdpath('config') .. '/**'
+-- o.path = o.path .. fn.stdpath('config') .. '/**'
 
 
 function nvim_create_augroups(definitions)
@@ -199,15 +200,18 @@ local autocmds = {
               let g:pyindent_open_paren = 'shiftwidth()'
               setlocal foldmethod=indent
               setlocal foldlevel=0
-              " set foldmethod=expr
-              " set foldexpr=nvim_treesitter#foldexpr()
-
+              " setlocal foldmethod=expr
+              " setlocal foldexpr=nvim_treesitter#foldexpr()
               setlocal makeprg=flake8\ %
               setlocal errorformat=%f:%l:%c:\ %t%n\ %m
             ]]
           },
           { 'FileType', 'vim', "set foldmethod=marker" } ,
+          -- { 'FileType', 'TelescopePrompt', vim.api.nvim_set_keymap('n', 'l', (col(".") == col("$")-1)? "l" : "lua require('telescope.actions').goto_file_selection_edit()"", { noremap = true, silent = true, expr=true })" } ,
           { 'FileType', 'netrw', "set bufhidden=delete" } ,
+          { 'FileType', 'java', [[
+              lua local capabilities = vim.lsp.protocol.make_client_capabilities(); capabilities.textDocument.completion.completionItem.snippetSupport = true; config = {on_attach = require('custom_attach').custom_attach, cmd = {'java-lsp.sh'}, capabilities=capabilities}; jdtls = require('jdtls'); jdtls.start_or_attach(config);
+          ]]} ,
           {
             'FileType',
             'gdscript', [[
