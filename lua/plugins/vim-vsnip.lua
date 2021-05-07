@@ -1,4 +1,3 @@
--- NOTE: You can use other key to expand snippet.
 return function ()
   vim.g.vsnip_snippet_dir=vim.fn.stdpath('config')..'/snippets'
 

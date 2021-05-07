@@ -4,15 +4,13 @@ local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-        execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
     execute 'packadd packer.nvim'
 end
 
 vim.cmd('packadd packer.nvim')
 
 vim.cmd [[ autocmd BufWritePost packed.lua PackerCompile ]]
--- vim.cmd('packadd nvim-treesitter')
--- vim.cmd('packadd nvim-lspconfig')
 
 return require('packer').startup(
   function()
@@ -22,10 +20,19 @@ return require('packer').startup(
     -- https://github.com/wbthomason/packer.nvim/issues/87
     use {'kana/vim-textobj-user'}
 
-    use {'mhinz/vim-signify'}
+    -- use {'mhinz/vim-signify'}
+    use {
+      'lewis6991/gitsigns.nvim',
+      requires = {
+        'nvim-lua/plenary.nvim'
+      },
+      config = function()
+        require('gitsigns').setup()
+      end
+    }
     use {'godlygeek/tabular'; opt = true; cmd = {'Tabularize'}};
     use {'neovim/nvim-lspconfig', config = require('plugins.lsp')};
-    use {'mfussenegger/nvim-jdtls', config = require('plugins.lsp')};
+    use {'mfussenegger/nvim-jdtls'};
 
     -- syntax files
     use { 'pangloss/vim-javascript'}
@@ -38,6 +45,11 @@ return require('packer').startup(
     use { 'vim-python/python-syntax'}
     use { 'habamax/vim-godot'}
     use { 'tikhomirov/vim-glsl'}
+    -- use { 'glepnir/smartinput.nvim', config = [[
+    --   require('smartinput').setup {
+    --     ['lua'] = { ';',':=',';'}
+    --   }
+    -- ]]}
 
     -- tpope
     use {
@@ -76,6 +88,9 @@ return require('packer').startup(
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
       config=require'plugins.nvim-telescope'
+    }
+    use {
+      'nvim-telescope/telescope-fzy-native.nvim'
     }
     use {
       'tjdevries/complextras.nvim',
@@ -177,6 +192,7 @@ return require('packer').startup(
     use {'onsails/lspkind-nvim'}
     use {'hrsh7th/nvim-compe', config=require('plugins.nvim-compe')}
 
+    use { 'lukas-reineke/indent-blankline.nvim', branch="lua", config=require('plugins.indent-guides')}
 
     -- use {'steelsojka/completion-buffers'}
 
@@ -194,9 +210,9 @@ return require('packer').startup(
 
 
 
-
-
-    use {'aca/pylance.nvim'}
+    use {'kuator/pylance.nvim'}
+    use {'akinsho/nvim-toggleterm.lua'}
+    -- use {'junegunn/vim-after-object'}
 
   end
 )

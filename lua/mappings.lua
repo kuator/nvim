@@ -48,3 +48,8 @@ vim.cmd('inoreabbr pl +')
 vim.cmd('cnoreabbr lam =>')
 vim.cmd('cnoreabbr far =>')
 vim.cmd('cnoreabbr tar ->')
+
+vim.cmd([[tnoremap <A-h> <C-\><C-N><C-w>h]])
+vim.cmd([[tnoremap <A-j> <C-\><C-N><C-w>j]])
+vim.cmd([[tnoremap <A-k> <C-\><C-N><C-w>k]])
+vim.cmd([[tnoremap <A-l> <C-\><C-N><C-w>l]])

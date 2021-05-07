@@ -2,8 +2,9 @@ return function()
   -- local completion = require('completion')
   -- require('lspkind').init()
   local uv = vim.loop
-  local nvim_lsp = require('lspconfig')
   local capabilities = vim.lsp.protocol.make_client_capabilities()
+  local lspconfig = require('lspconfig')
+  local configs = require'lspconfig/configs'
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
   local on_attach = function(client, bufnr)
@@ -25,7 +26,23 @@ return function()
     -- vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
   end
 
-   nvim_lsp.clangd.setup{
+  -- configs.emmet_ls = {
+  --   default_config = {
+  --     cmd = {'emmet-ls', '--stdio'},
+  --     filetypes = {'html', 'css'};
+  --     root_dir = function()
+  --       return vim.loop.cwd()
+  --     end;
+  --     settings = {};
+  --   };
+  -- }
+
+  -- lspconfig.emmet_ls.setup { on_attach = on_attach }
+
+  lspconfig.bashls.setup { on_attach = on_attach }
+
+
+   lspconfig.clangd.setup{
        on_attach = on_attach,
        capabilities = {
           textDocument = {
@@ -43,7 +60,7 @@ return function()
        }
      }
 
-  nvim_lsp.rust_analyzer.setup({ 
+  lspconfig.rust_analyzer.setup({ 
     on_attach=on_attach,
     capabilities = {
        textDocument = {
@@ -57,7 +74,7 @@ return function()
   })
 
 
-  -- nvim_lsp.jedi_language_server.setup{
+  -- lspconfig.jedi_language_server.setup{
   --   on_attach=on_attach,
   --   init_options = {
   --     disableSnippets = false,
@@ -74,63 +91,68 @@ return function()
   -- }
 
   require 'pylance'
-  nvim_lsp.pylance.setup{
+  lspconfig.pylance.setup{
     on_attach = on_attach,
-    cmd = {'node', '/home/evakuator/.vscode/extensions/ms-python.vscode-pylance-2020.12.2/dist/server.bundle.js', '--stdio'},
+    -- cmd = {'node', '/home/evakuator/.vscode/extensions/ms-python.vscode-pylance-2021.3.2/dist/server.bundle.js', '--stdio'},
     settings = {
       python = {
         analysis = {
-          typeCheckingMode = "strict",
-          completeFunctionParens = true
+          typeCheckingMode = "basic",
+          completeFunctionParens = true,
+          extraPaths={'env'}
         }
       }
     }
   }
 
-  nvim_lsp.sumneko_lua.setup{
-        cmd = { '/opt/lua-language-server/bin/Linux/lua-language-server', '-E', '/opt/lua-language-server/main.lua' }, 
-        on_attach = on_attach,
-        capabilities = {
-          textDocument = {
-            completion = {
-              completionItem = {
-                snippetSupport=true
-              }
-            }
-          }
-        },
-        settings = {
-          Lua = {
-            completion= {
-              keywordSnippet="Replace",
-              callSnippet="Replace"
-            },
-            runtime = {
-              -- Tell the language server which version of Lua you're using (LuaJIT in the case of Neovim)
-              version = 'LuaJIT',
-              -- Setup your lua path
-              -- path = vim.split(package.path, ';'),
-            },
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = {'vim', 'use', 'love'},
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = {
-                [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-              },
-            },
-          }
-    }
-  }
+  -- lspconfig.sumneko_lua.setup{
+  --       cmd = { '/opt/lua-language-server/bin/Linux/lua-language-server', '-E', '/opt/lua-language-server/main.lua' }, 
+  --       on_attach = on_attach,
+  --       capabilities = {
+  --         textDocument = {
+  --           completion = {
+  --             completionItem = {
+  --               snippetSupport=true
+  --             }
+  --           }
+  --         }
+  --       },
+  --       settings = {
+  --         Lua = {
+  --           completion= {
+  --             keywordSnippet="Replace",
+  --             callSnippet="Replace"
+  --           },
+  --           runtime = {
+  --             -- Tell the language server which version of Lua you're using (LuaJIT in the case of Neovim)
+  --             version = 'LuaJIT',
+  --             -- Setup your lua path
+  --             -- path = vim.split(package.path, ';'),
+  --           },
+  --           diagnostics = {
+  --             -- Get the language server to recognize the `vim` global
+  --             globals = {'vim', 'use', 'love'},
+  --           },
+  --           workspace = {
+  --             -- Make the server aware of Neovim runtime files
+  --             library = {
+  --               [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+  --               [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+  --             },
+  --           },
+  --         }
+  --   }
+  -- }
 
-  nvim_lsp.vimls.setup{
+  lspconfig.vimls.setup{
     on_attach = on_attach,
   }
 
-  nvim_lsp.tsserver.setup{
+  lspconfig.texlab.setup{
+    on_attach = on_attach,
+  }
+
+  lspconfig.tsserver.setup{
     on_attach = on_attach,
   }
   -- nvim_lsp.denols.setup{
@@ -142,7 +164,7 @@ return function()
   -- }
 
 
-  nvim_lsp.html.setup{
+  lspconfig.html.setup{
     cmd = {"vscode-html-language-server", "--stdio"},
     filetypes = { "html", "htmldjango" },
     on_attach = on_attach,
@@ -157,7 +179,7 @@ return function()
     }
   }
 
-  nvim_lsp.cssls.setup{
+  lspconfig.cssls.setup{
     cmd = {"vscode-css-language-server", "--stdio"},
     on_attach = on_attach,
     settings = {
@@ -182,7 +204,7 @@ return function()
     }
   }
 
-  nvim_lsp.gdscript.setup{
+  lspconfig.gdscript.setup{
     on_attach=on_attach,
     godot = {
       host = "127.0.0.1",
@@ -204,85 +226,6 @@ return function()
   end
 
   -- maybe switch to efm-language-server in the future
-  nvim_lsp.diagnosticls.setup{
-    filetypes={'javascript', 'python', 'markdown'},
-    init_options = {
-      linters = {
-        flake8 = {
-          command = get_python_tool('flake8');
-          args = {'--stdin-display-name'; '%filepath'; '-'};
-          sourceName = 'flake8';
-          debounce = 250;
-          formatLines = 1;
-          formatPattern = {'^[^:]+:(\\d+):((\\d+):)?\\s+(.+)$';
-          {line = 1; column = 3; message = 4}};
-          rootPatterns = {''};
-        },
-        eslint = {
-          command = './node_modules/.bin/eslint',
-          rootPatterns = {'.git'},
-          debounce = 100,
-          args = {
-            '--stdin',
-            '--stdin-filename',
-            '%filepath',
-            '--format',
-            'json'
-          },
-          sourceName = 'eslint',
-          parseJson = {
-            errorsRoot = '[0].messages',
-            line = 'line',
-            column = 'column',
-            endLine = 'endLine',
-            endColumn = 'endColumn',
-            message = '${message} [${ruleId}]',
-            security = 'severity'
-          },
-          securities = {
-            [2] = 'error',
-            [1] = 'warning',
-          },
-        },
-        markdownlint = {
-          command = 'markdownlint',
-          rootPatterns = { '.git' },
-          isStderr = true,
-          debounce = 100,
-          args = { '--stdin' },
-          offsetLine = 0,
-          offsetColumn = 0,
-          sourceName = 'markdownlint',
-          securities = {
-            undefined = 'hint'
-          },
-          formatLines = 1,
-          formatPattern = {
-            '^.*:(\\d+)\\s+(.*)$',
-            {
-              line = 1,
-              column = -1,
-              message = 2,
-            }
-          }
-        },
-      },
-      filetypes = {
-        javascript = 'eslint',
-        python = 'flake8',
-        markdown = 'markdownlint',
-      },
-      formatters = {
-        prettier = {
-          command = "./node_modules/.bin/prettier",
-          args = {"--stdin-filepath" ,"%filepath", '--single-quote', '--print-width 120'}
-        }
-      },
-      formatFiletypes = {
-        javascript = "prettier"
-      },
-    }
-  }
 
   -- doesn't work, somehow
   --nvim_lsp.angularls.setup{
@@ -311,7 +254,7 @@ return function()
     default_node_modules
   }
 
-  nvim_lsp.angularls.setup {
+  lspconfig.angularls.setup {
     cmd = ngls_cmd,
     on_attach = on_attach,
     capabilities = capabilities,
@@ -320,7 +263,16 @@ return function()
       new_config.cmd = ngls_cmd
     end
   }
+
+  lspconfig.vuels.setup{
+    on_attach = on_attach
+  }
+
+
+
   -- I think you don't have to. You could do require('compe.helper').convert_lsp = function(request_position, response) ... end
   -- where ... is your modified version of the function
   -- but it would break if the author decides to change the interfaces
+
+
 end

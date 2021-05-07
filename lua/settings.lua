@@ -17,6 +17,7 @@ o.hidden = true
 
 wo.number = true
 o.number = true
+
 wo.relativenumber = true
 o.relativenumber = true
 
@@ -207,6 +208,7 @@ local autocmds = {
             ]]
           },
           { 'FileType', 'vim', "set foldmethod=marker" } ,
+          { 'FileType', 'javascript', "set filetype=javascriptreact" } ,
           -- { 'FileType', 'TelescopePrompt', vim.api.nvim_set_keymap('n', 'l', (col(".") == col("$")-1)? "l" : "lua require('telescope.actions').goto_file_selection_edit()"", { noremap = true, silent = true, expr=true })" } ,
           { 'FileType', 'netrw', "set bufhidden=delete" } ,
           { 'FileType', 'java', [[

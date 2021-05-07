@@ -57,8 +57,8 @@ return function ()
           ["im"] = "@call.inner",
           ["al"] = "@loop.outer",
           ["il"] = "@loop.inner",
-          ["at"] = "@block.outer",
-          ["it"] = "@block.inner",
+          ["ay"] = "@block.outer",
+          ["iy"] = "@block.inner",
 
           -- -- Or you can define your own textobjects like this
           ["iF"] = {
