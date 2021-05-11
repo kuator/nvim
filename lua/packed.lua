@@ -58,9 +58,14 @@ return require('packer').startup(
       keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}};
     };
 
-    use {
-      'tpope/vim-unimpaired';
-    };
+    -- use {
+    --   'tpope/vim-unimpaired';
+    -- };
+
+    -- use { 'sickill/vim-pasta', config = function() 
+    --   vim.g.pasta_paste_before_mapping = '[P'
+    --   vim.g.pasta_paste_after_mapping = '[p'
+    -- end }
 
     use {
       'tpope/vim-surround';
@@ -193,6 +198,7 @@ return require('packer').startup(
     use {'hrsh7th/nvim-compe', config=require('plugins.nvim-compe')}
 
     use { 'lukas-reineke/indent-blankline.nvim', branch="lua", config=require('plugins.indent-guides')}
+    use { 'windwp/nvim-ts-autotag' }
 
     -- use {'steelsojka/completion-buffers'}
 

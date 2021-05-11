@@ -1,5 +1,6 @@
 return function()
   -- vim.g.colors_name ='space-vim-dark'
+  vim.cmd('set notermguicolors')
   vim.cmd('colorscheme space-vim-dark')
   vim.cmd('hi Normal     ctermbg=NONE guibg=NONE')
   vim.cmd('hi LineNr     ctermbg=NONE guibg=NONE')

@@ -24,6 +24,7 @@ vim.api.nvim_set_keymap('c', '<a-p>', '<up>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('c', '<a-n>', '<down>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', 's', '<nop>', {})
 vim.api.nvim_set_keymap('n', 'sf', 'z', {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', 'Y', 'y$', {noremap=true, silent=true})
 
 -- vim.api.nvim_set_keymap('n', '<A-j>' [[:m .+1<CR>==]], {noremap=true, silent=true})
 -- vim.api.nvim_set_keymap('n', '<A-k>' ":m .-2<CR>==", {noremap=true, silent=true})

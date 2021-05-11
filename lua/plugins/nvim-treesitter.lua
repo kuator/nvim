@@ -37,6 +37,9 @@ return function ()
       enable = false,
       disable = {'bash'} -- please disable bash until I figure #1 out
     },
+    autotag = {
+      enable = true,
+    },
     textobjects = {
       enable=true,
       select = {
