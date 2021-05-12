@@ -139,7 +139,7 @@ o.scrolloff=3
 o.sidescrolloff=3
 
 if fn.executable("rg") then
-    o.grepprg="rg --vimgrep --no-heading --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
+    o.grepprg="rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
     o.grepformat='%f:%l:%c:%m,%f:%l:%m'
 end
 
