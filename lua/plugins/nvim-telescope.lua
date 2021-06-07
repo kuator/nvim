@@ -12,6 +12,7 @@ return function()
         i = {
           ["<c-d>"] = false,
           ["<c-u>"] = false,
+          ["<c-h>"] = false,
         },
       }
     }

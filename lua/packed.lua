@@ -58,9 +58,9 @@ return require('packer').startup(
       keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}};
     };
 
-    -- use {
-    --   'tpope/vim-unimpaired';
-    -- };
+    use {
+      'tpope/vim-unimpaired';
+    };
 
     -- use { 'sickill/vim-pasta', config = function() 
     --   vim.g.pasta_paste_before_mapping = '[P'
@@ -84,7 +84,7 @@ return require('packer').startup(
     };
 
     use {
-      'tpope/vim-ragtag/';
+      'tpope/vim-ragtag';
     };
 
 
@@ -148,10 +148,10 @@ return require('packer').startup(
 
     use {
       'kana/vim-textobj-line',
-      opt=true,
+      -- opt=true,
       -- requires={{'kana/vim-textobj-user', opt=true}},
       setup='vim.g.textobj_line_no_default_key_mappings=true',
-      keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'x'; 'ar'}, {'x'; 'ir'}},
+      -- keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'x'; 'ar'}, {'x'; 'ir'}},
       config = require'plugins.vim-textobj-line'
     }
 
@@ -184,6 +184,7 @@ return require('packer').startup(
     use {'nvim-treesitter/nvim-treesitter-refactor'}
     -- use {'p00f/nvim-ts-rainbow'}
     use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter'}
+
     use {'ludovicchabant/vim-gutentags', config=require'plugins.vim-gutentags'}
     use {'brookhong/cscope.vim'}
     use {'tommcdo/vim-exchange'; opt=true }

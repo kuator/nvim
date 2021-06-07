@@ -1,11 +1,13 @@
 -- https://github.com/romainl/the-patient-vimmer/blob/gh-pages/3.adoc#introduction
 vim.api.nvim_set_keymap('n', '<a-c>', ':', {noremap=true})
+vim.api.nvim_set_keymap('v', '<a-c>', ':', {noremap=true})
 vim.api.nvim_set_keymap('i', 'kj', '<esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<c-l>', '<c-l>:nohls<cr>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', 'gb', ':ls<cr>:b<space>', {noremap=true})
 vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**/*'<cr>]])
 -- vim.cmd([[nnoremap <leader>fn :find *]])
+vim.api.nvim_set_keymap('n', '<leader>fp', ':find *', {noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>fp', ':find *', {noremap=true})
 
 -- grep
@@ -19,6 +21,7 @@ vim.api.nvim_set_keymap('n', '<leader>cc', ':silent cclose<bar>lclose<cr>', {nor
 -- set working directory to the current buffer's directory
 vim.api.nvim_set_keymap('n', 'cd', ':lcd %:p:h<bar>pwd<cr>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('n', 'cu', ':lcd ..<bar>pwd<cr>', {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '-', ':Explore<cr>', {noremap=true, silent=true})
 
 vim.api.nvim_set_keymap('c', '<a-p>', '<up>', {noremap=true, silent=true})
 vim.api.nvim_set_keymap('c', '<a-n>', '<down>', {noremap=true, silent=true})

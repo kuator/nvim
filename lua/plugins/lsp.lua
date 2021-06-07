@@ -90,6 +90,10 @@ return function()
   --   },
   -- }
 
+  -- require'lspconfig'.pyls.setup{
+  --   on_attach = on_attach,
+  -- }
+
   require 'pylance'
   lspconfig.pylance.setup{
     on_attach = on_attach,
@@ -99,11 +103,14 @@ return function()
         analysis = {
           typeCheckingMode = "basic",
           completeFunctionParens = true,
-          extraPaths={'env'}
+          extraPaths={'env'},
         }
       }
     }
   }
+
+
+
 
   -- lspconfig.sumneko_lua.setup{
   --       cmd = { '/opt/lua-language-server/bin/Linux/lua-language-server', '-E', '/opt/lua-language-server/main.lua' }, 
@@ -273,6 +280,32 @@ return function()
   -- I think you don't have to. You could do require('compe.helper').convert_lsp = function(request_position, response) ... end
   -- where ... is your modified version of the function
   -- but it would break if the author decides to change the interfaces
+  lspconfig.efm.setup {
+    init_options = {documentFormatting = true},
+    filetypes = {
+      'css',
+      'html',
+    },
+    settings = {
+        rootMarkers = {".git/", "package.json"},
+        languages = {
+            css = {
+                -- {formatCommand = "prettierd ${INPUT}", formatStdin = true}
+                {
+                 formatCommand = 'prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}',
+                 formatStdin = true,
+                }
+            },
+            html = {
+                -- {formatCommand = "prettierd ${INPUT}", formatStdin = true}
+                {
+                 formatCommand = 'prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}',
+                 formatStdin = true,
+                }
+            }
+        }
+    }
+}
 
 
 end
