@@ -280,32 +280,34 @@ return function()
   -- I think you don't have to. You could do require('compe.helper').convert_lsp = function(request_position, response) ... end
   -- where ... is your modified version of the function
   -- but it would break if the author decides to change the interfaces
-  lspconfig.efm.setup {
-    init_options = {documentFormatting = true},
-    filetypes = {
-      'css',
-      'html',
-    },
-    settings = {
-        rootMarkers = {".git/", "package.json"},
-        languages = {
-            css = {
-                -- {formatCommand = "prettierd ${INPUT}", formatStdin = true}
-                {
-                 formatCommand = 'prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}',
-                 formatStdin = true,
-                }
-            },
-            html = {
-                -- {formatCommand = "prettierd ${INPUT}", formatStdin = true}
-                {
-                 formatCommand = 'prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}',
-                 formatStdin = true,
-                }
-            }
-        }
-    }
-}
+
+
+  -- lspconfig.efm.setup {
+  --   init_options = {documentFormatting = true},
+  --   filetypes = {
+  --     'css',
+  --     'html',
+  --   },
+  --   settings = {
+  --       rootMarkers = {".git/", "package.json"},
+  --       languages = {
+  --           css = {
+  --               -- {formatCommand = "prettierd ${INPUT}", formatStdin = true}
+  --               {
+  --                formatCommand = 'prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}',
+  --                formatStdin = true,
+  --               }
+  --           },
+  --           html = {
+  --               -- {formatCommand = "prettierd ${INPUT}", formatStdin = true}
+  --               {
+  --                formatCommand = 'prettier_d_slim --config-precedence prefer-file --stdin --stdin-filepath ${INPUT}',
+  --                formatStdin = true,
+  --               }
+  --           }
+  --       }
+  --   }
+-- }
 
 
 end
