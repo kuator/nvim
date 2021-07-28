@@ -7,6 +7,29 @@ local exec = vim.api.nvim_exec
 local fn = vim.fn
 local api = vim.api
 
+local disable_distribution_plugins = function()
+  vim.g.loaded_gzip              = 1
+  vim.g.loaded_tar               = 1
+  vim.g.loaded_tarPlugin         = 1
+  vim.g.loaded_zip               = 1
+  vim.g.loaded_zipPlugin         = 1
+  vim.g.loaded_getscript         = 1
+  vim.g.loaded_getscriptPlugin   = 1
+  vim.g.loaded_vimball           = 1
+  vim.g.loaded_vimballPlugin     = 1
+  vim.g.loaded_matchit           = 1
+  vim.g.loaded_matchparen        = 1
+  vim.g.loaded_2html_plugin      = 1
+  vim.g.loaded_logiPat           = 1
+  vim.g.loaded_rrhelper          = 1
+  vim.g.loaded_netrw             = 1
+  vim.g.loaded_netrwPlugin       = 1
+  vim.g.loaded_netrwSettings     = 1
+  vim.g.loaded_netrwFileHandlers = 1
+end
+
+disable_distribution_plugins()
+
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -28,13 +51,73 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
-  use 'tpope/vim-commentary' -- "gc" to comment visual regions/lines
+  
   use 'wellle/targets.vim' 
-  use 'inkarkat/vim-ReplaceWithRegister' 
-  use 'tpope/vim-surround' 
-  use 'kana/vim-textobj-user' 
-  use 'kana/vim-textobj-line'
-  use 'Julian/vim-textobj-variable-segment' 
+
+  use {
+    'tpope/vim-commentary';
+    opt = true;
+    keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'n'; 'gc'}};
+  };
+  use {
+    'tpope/vim-surround';
+    opt = true;
+    keys = {{'n'; 'ys'}; {'x'; 'S'}; };
+  };
+  use {
+    'inkarkat/vim-ReplaceWithRegister';
+    opt = true;
+    keys = {{'n'; 'gr'}; {'x'; 'gr'}; };
+  };
+  use {
+    'tpope/vim-unimpaired';
+    opt = true;
+    keys = {{'n'; '[p'}; {'n'; ']p'}; };
+  };
+
+  use { 'kana/vim-textobj-line'; opt=true; config=function() 
+   	vim.api.nvim_set_keymap('o', 'ir', '<Plug>(textobj-line-i)',{})
+	vim.api.nvim_set_keymap('x', 'ir', '<Plug>(textobj-line-i)',{})
+	vim.api.nvim_set_keymap('o', 'ar', '<Plug>(textobj-line-a)',{})
+	vim.api.nvim_set_keymap('x', 'ar', '<Plug>(textobj-line-a)',{})
+  	end;
+        keys = {{'o'; 'ir'}; {'o'; 'ar'}; {'x'; 'ir'}; {'x'; 'ar'}; };
+        requires = 'kana/vim-textobj-user';
+      }
+
+  use {
+    'Julian/vim-textobj-variable-segment';
+    opt = true;
+    keys = {{'o'; 'iv'}; {'o'; 'av'}; {'x'; 'iv'}; {'x'; 'av'}; };
+  };
+
+  use {
+      'mattn/emmet-vim';
+      opt = true;
+      setup=[[
+        vim.g.user_emmet_mode = 'i'
+        vim.g.user_emmet_leader_key = "<c-q>"
+        vim.g.user_emmet_expandabbr_key = '<c-q><c-q>'
+      ]],
+      keys = {
+        {'i'; '<c-q>m'};
+        {'i'; '<c-q>A'};
+        {'i'; '<c-q>a'};
+        {'i'; '<c-q>k'};
+        {'i'; '<c-q>j'};
+        {'i'; '<c-q>/'};
+        {'i'; '<c-q>I'};
+        {'i'; '<c-q>i'};
+        {'i'; '<c-q>N'};
+        {'i'; '<c-q>n'};
+        {'i'; '<c-q>D'};
+        {'i'; '<c-q>d'};
+        {'i'; '<c-q>u'};
+        {'i'; '<c-q>;'};
+        {'i'; '<c-q><c-q>'};
+      };
+      cmd = {'Emmet'; 'EmmetInstall'};
+    };
 end)
 
 --rg
@@ -110,3 +193,21 @@ o.termguicolors = true
 o.number = true
 o.relativenumber = true
 o.wrap = false
+
+
+
+o.expandtab = true
+bo.expandtab = true
+o.shiftwidth = 2
+bo.shiftwidth = 2
+-- when 'sts' is negative, the value of 'shiftwidth' is used.
+o.softtabstop = -1
+bo.softtabstop = -1
+o.autoindent = true
+bo.autoindent = true
+
+o.splitbelow = true
+o.splitright = true
+o.signcolumn = 'yes'
+
+
