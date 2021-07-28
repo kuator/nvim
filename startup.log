@@ -1,0 +1,441 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.016  000.016: --- NVIM STARTING ---
+023.139  023.123: locale set
+038.742  015.604: inits 1
+040.430  001.688: window checked
+069.054  028.624: parsing arguments
+069.630  000.576: expanding arguments
+069.716  000.086: inits 2
+071.360  001.644: init highlight
+071.371  000.010: waiting for UI
+073.337  001.966: done waiting for UI
+073.405  000.068: initialized screen early for UI
+082.625  008.790  008.790: sourcing /home/evakuator/.config/nvim/init.lua
+082.647  000.452: sourcing vimrc file(s)
+085.981  001.371  001.371: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/syntax/syncolor.vim
+106.011  018.532  018.532: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/filetype.vim
+108.424  001.499  001.499: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/ftplugin.vim
+110.757  000.695  000.695: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/indent.vim
+112.760  000.284  000.284: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/syntax/synload.vim
+112.974  001.314  001.030: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/syntax/syntax.vim
+115.294  000.493  000.493: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/gzip.vim
+115.387  000.045  000.045: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/health.vim
+115.697  000.265  000.265: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/man.vim
+115.820  000.063  000.063: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/matchit.vim
+115.910  000.046  000.046: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/matchparen.vim
+116.005  000.056  000.056: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+116.283  000.015  000.015: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+116.294  000.250  000.235: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/rplugin.vim
+116.500  000.161  000.161: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/shada.vim
+116.610  000.059  000.059: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/spellfile.vim
+116.738  000.061  000.061: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/tarPlugin.vim
+116.851  000.053  000.053: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/tohtml.vim
+116.968  000.058  000.058: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/tutor.vim
+117.083  000.057  000.057: sourcing /tmp/.mount_nvimdNDA2m/usr/share/nvim/runtime/plugin/zipPlugin.vim
+118.446  001.198  001.198: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+119.213  010.289: loading plugins
+119.826  000.292  000.292: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+120.633  001.129: loading packages
+121.098  000.465: loading after plugins
+121.119  000.022: inits 3
+123.062  001.943: reading ShaDa
+123.406  000.344: opening buffers
+123.420  000.014: BufEnter autocommands
+123.425  000.006: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.013  000.013: --- NVIM STARTING ---
+022.350  022.337: locale set
+036.492  014.142: inits 1
+037.553  001.061: window checked
+055.971  018.418: parsing arguments
+056.225  000.253: expanding arguments
+056.262  000.038: inits 2
+056.840  000.577: init highlight
+056.847  000.007: waiting for UI
+058.669  001.822: done waiting for UI
+058.740  000.071: initialized screen early for UI
+067.377  008.267  008.267: sourcing /home/evakuator/.config/nvim/init.lua
+067.400  000.392: sourcing vimrc file(s)
+069.381  000.956  000.956: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/syntax/syncolor.vim
+087.326  017.156  017.156: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/filetype.vim
+089.964  001.002  001.002: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/ftplugin.vim
+092.191  000.838  000.838: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/indent.vim
+095.844  000.209  000.209: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/syntax/synload.vim
+096.006  002.912  002.702: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/syntax/syntax.vim
+099.953  001.019  001.019: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/gzip.vim
+100.065  000.047  000.047: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/health.vim
+100.240  000.131  000.131: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/man.vim
+102.399  001.150  001.150: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+102.753  002.467  001.317: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/matchit.vim
+103.065  000.264  000.264: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/matchparen.vim
+103.838  000.725  000.725: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+104.293  000.018  000.018: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+104.308  000.336  000.318: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/rplugin.vim
+104.599  000.222  000.222: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/shada.vim
+104.757  000.076  000.076: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/spellfile.vim
+105.090  000.261  000.261: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/tarPlugin.vim
+105.334  000.164  000.164: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/tohtml.vim
+105.472  000.063  000.063: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/tutor.vim
+105.866  000.318  000.318: sourcing /tmp/.mount_nvimC7Y35j/usr/share/nvim/runtime/plugin/zipPlugin.vim
+107.166  001.088  001.088: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+107.709  010.264: loading plugins
+108.416  000.378  000.378: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+108.902  000.248  000.248: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+109.270  000.190  000.190: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+109.957  000.490  000.490: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+110.796  000.528  000.528: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+112.687  002.508  001.980: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+114.981  001.998  001.998: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+115.556  002.035: loading packages
+116.063  000.507: loading after plugins
+116.086  000.023: inits 3
+117.877  001.791: reading ShaDa
+118.133  000.255: opening buffers
+118.189  000.056: BufEnter autocommands
+118.193  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.019  000.019: --- NVIM STARTING ---
+022.973  022.954: locale set
+038.688  015.715: inits 1
+039.911  001.223: window checked
+061.659  021.748: parsing arguments
+062.175  000.516: expanding arguments
+062.252  000.077: inits 2
+063.745  001.492: init highlight
+063.754  000.009: waiting for UI
+065.466  001.712: done waiting for UI
+065.603  000.137: initialized screen early for UI
+077.803  011.560  011.560: sourcing /home/evakuator/.config/nvim/init.lua
+077.838  000.674: sourcing vimrc file(s)
+080.894  001.423  001.423: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/syntax/syncolor.vim
+096.846  014.637  014.637: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/filetype.vim
+098.979  001.286  001.286: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/ftplugin.vim
+101.648  001.106  001.106: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/indent.vim
+106.115  000.494  000.494: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/syntax/synload.vim
+106.471  002.101  001.607: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/syntax/syntax.vim
+112.011  001.564  001.564: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/gzip.vim
+112.282  000.126  000.126: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/health.vim
+112.717  000.322  000.322: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/man.vim
+116.802  001.805  001.805: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+117.482  004.620  002.815: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/matchit.vim
+117.831  000.287  000.287: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/matchparen.vim
+118.622  000.727  000.727: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+119.105  000.018  000.018: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+119.120  000.322  000.304: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/rplugin.vim
+119.420  000.232  000.232: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/shada.vim
+119.575  000.076  000.076: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/spellfile.vim
+119.921  000.272  000.272: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/tarPlugin.vim
+120.186  000.179  000.179: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/tohtml.vim
+120.327  000.065  000.065: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/tutor.vim
+120.800  000.393  000.393: sourcing /tmp/.mount_nvim6eN85J/usr/share/nvim/runtime/plugin/zipPlugin.vim
+122.184  001.131  001.131: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+122.818  014.111: loading plugins
+123.570  000.403  000.403: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+124.109  000.320  000.320: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+124.550  000.228  000.228: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+125.347  000.587  000.587: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+126.362  000.632  000.632: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+128.611  002.991  002.359: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+131.225  002.244  002.244: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+131.784  002.194: loading packages
+132.266  000.481: loading after plugins
+132.287  000.021: inits 3
+134.106  001.819: reading ShaDa
+134.365  000.259: opening buffers
+134.423  000.058: BufEnter autocommands
+134.428  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.017  000.017: --- NVIM STARTING ---
+021.700  021.683: locale set
+039.653  017.953: inits 1
+040.888  001.236: window checked
+062.251  021.363: parsing arguments
+062.733  000.481: expanding arguments
+062.805  000.072: inits 2
+064.269  001.464: init highlight
+064.278  000.009: waiting for UI
+065.887  001.609: done waiting for UI
+066.056  000.169: initialized screen early for UI
+077.452  010.779  010.779: sourcing /home/evakuator/.config/nvim/init.lua
+077.488  000.653: sourcing vimrc file(s)
+080.343  001.450  001.450: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/syntax/syncolor.vim
+096.789  015.288  015.288: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/filetype.vim
+098.376  000.714  000.714: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/ftplugin.vim
+100.042  000.593  000.593: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/indent.vim
+101.714  000.284  000.284: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/syntax/synload.vim
+101.943  001.214  000.930: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/syntax/syntax.vim
+105.594  000.895  000.895: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/gzip.vim
+105.698  000.047  000.047: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/health.vim
+105.867  000.120  000.120: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/man.vim
+108.297  001.213  001.213: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+108.755  002.837  001.624: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/matchit.vim
+109.131  000.310  000.310: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/matchparen.vim
+110.003  000.803  000.803: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+110.542  000.018  000.018: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+110.558  000.438  000.420: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/rplugin.vim
+110.844  000.219  000.219: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/shada.vim
+110.995  000.073  000.073: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/spellfile.vim
+111.331  000.266  000.266: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/tarPlugin.vim
+111.573  000.164  000.164: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/tohtml.vim
+111.712  000.064  000.064: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/tutor.vim
+112.176  000.389  000.389: sourcing /tmp/.mount_nvimWsprAb/usr/share/nvim/runtime/plugin/zipPlugin.vim
+113.454  001.052  001.052: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+113.999  009.575: loading plugins
+114.737  000.384  000.384: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+115.236  000.289  000.289: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+115.655  000.216  000.216: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+116.418  000.562  000.562: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+117.369  000.592  000.592: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+119.534  002.861  002.270: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+122.074  002.193  002.193: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+122.661  002.156: loading packages
+123.134  000.474: loading after plugins
+123.156  000.022: inits 3
+124.877  001.721: reading ShaDa
+125.128  000.251: opening buffers
+125.183  000.055: BufEnter autocommands
+125.189  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.017  000.017: --- NVIM STARTING ---
+037.079  037.062: locale set
+052.113  015.034: inits 1
+053.104  000.991: window checked
+072.599  019.495: parsing arguments
+072.878  000.279: expanding arguments
+072.921  000.043: inits 2
+073.820  000.899: init highlight
+073.826  000.006: waiting for UI
+075.523  001.697: done waiting for UI
+075.594  000.071: initialized screen early for UI
+087.063  010.675  010.675: sourcing /home/evakuator/.config/nvim/init.lua
+087.101  000.832: sourcing vimrc file(s)
+089.691  001.224  001.224: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/syntax/syncolor.vim
+105.344  014.749  014.749: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/filetype.vim
+107.120  001.029  001.029: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/ftplugin.vim
+109.409  001.034  001.034: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/indent.vim
+111.529  000.338  000.338: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/syntax/synload.vim
+111.661  001.586  001.248: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/syntax/syntax.vim
+114.802  001.231  001.231: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/gzip.vim
+114.902  000.048  000.048: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/health.vim
+115.077  000.130  000.130: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/man.vim
+117.782  001.576  001.576: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+118.217  003.093  001.517: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/matchit.vim
+118.571  000.297  000.297: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/matchparen.vim
+119.395  000.769  000.769: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+119.787  000.020  000.020: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+119.803  000.330  000.310: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/rplugin.vim
+120.039  000.180  000.180: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/shada.vim
+120.171  000.066  000.066: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/spellfile.vim
+120.521  000.292  000.292: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/tarPlugin.vim
+120.764  000.171  000.171: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/tohtml.vim
+120.886  000.055  000.055: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/tutor.vim
+121.292  000.340  000.340: sourcing /tmp/.mount_nvimjHSTIz/usr/share/nvim/runtime/plugin/zipPlugin.vim
+122.619  001.111  001.111: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+123.234  008.398: loading plugins
+124.018  000.413  000.413: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+124.581  000.324  000.324: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+125.050  000.239  000.239: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+126.066  000.788  000.788: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+126.963  000.525  000.525: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+128.807  002.463  001.938: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+131.098  001.955  001.955: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+131.815  002.397: loading packages
+132.322  000.508: loading after plugins
+132.347  000.025: inits 3
+134.437  002.090: reading ShaDa
+134.785  000.347: opening buffers
+134.857  000.073: BufEnter autocommands
+134.863  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.013  000.013: --- NVIM STARTING ---
+022.683  022.670: locale set
+043.092  020.409: inits 1
+044.242  001.150: window checked
+065.535  021.293: parsing arguments
+065.960  000.425: expanding arguments
+066.047  000.088: inits 2
+067.208  001.161: init highlight
+067.220  000.011: waiting for UI
+069.120  001.900: done waiting for UI
+069.259  000.139: initialized screen early for UI
+082.116  012.162  012.162: sourcing /home/evakuator/.config/nvim/init.lua
+082.149  000.728: sourcing vimrc file(s)
+085.456  001.447  001.447: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/syntax/syncolor.vim
+100.156  013.773  013.773: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/filetype.vim
+102.826  001.291  001.291: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/ftplugin.vim
+105.870  001.048  001.048: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/indent.vim
+108.872  000.317  000.317: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/syntax/synload.vim
+109.043  001.803  001.486: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/syntax/syntax.vim
+112.778  001.379  001.379: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/gzip.vim
+112.908  000.055  000.055: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/health.vim
+113.114  000.153  000.153: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/man.vim
+115.718  001.386  001.386: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+116.163  002.995  001.609: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/matchit.vim
+116.556  000.333  000.333: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/matchparen.vim
+117.797  001.182  001.182: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+118.252  000.022  000.022: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+118.269  000.373  000.352: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/rplugin.vim
+118.629  000.296  000.296: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/shada.vim
+118.912  000.191  000.191: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/spellfile.vim
+119.442  000.431  000.431: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/tarPlugin.vim
+119.842  000.285  000.285: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/tohtml.vim
+120.029  000.074  000.074: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/tutor.vim
+120.509  000.401  000.401: sourcing /tmp/.mount_nvim3Z4BpW/usr/share/nvim/runtime/plugin/zipPlugin.vim
+121.955  001.196  001.196: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+123.029  012.174: loading plugins
+124.326  000.739  000.739: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+124.968  000.371  000.371: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+125.531  000.307  000.307: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+126.383  000.594  000.594: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+127.238  000.537  000.537: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+129.118  002.509  001.972: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+131.377  001.961  001.961: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+132.009  002.500: loading packages
+132.522  000.513: loading after plugins
+132.545  000.023: inits 3
+134.543  001.998: reading ShaDa
+134.805  000.261: opening buffers
+134.865  000.061: BufEnter autocommands
+134.871  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.023  000.023: --- NVIM STARTING ---
+021.937  021.914: locale set
+035.564  013.627: inits 1
+036.550  000.986: window checked
+057.430  020.880: parsing arguments
+057.877  000.448: expanding arguments
+057.996  000.119: inits 2
+059.305  001.309: init highlight
+059.311  000.007: waiting for UI
+061.106  001.794: done waiting for UI
+061.168  000.062: initialized screen early for UI
+070.441  008.912  008.912: sourcing /home/evakuator/.config/nvim/init.lua
+070.471  000.391: sourcing vimrc file(s)
+073.685  001.410  001.410: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/syntax/syncolor.vim
+088.934  013.993  013.993: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/filetype.vim
+091.497  001.763  001.763: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/ftplugin.vim
+094.945  001.491  001.491: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/indent.vim
+097.374  000.199  000.199: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/syntax/synload.vim
+097.518  001.527  001.327: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/syntax/syntax.vim
+101.240  001.150  001.150: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/gzip.vim
+101.357  000.048  000.048: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/health.vim
+101.518  000.120  000.120: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/man.vim
+103.656  001.147  001.147: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+103.962  002.401  001.254: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/matchit.vim
+104.245  000.241  000.241: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/matchparen.vim
+104.916  000.629  000.629: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+105.218  000.016  000.016: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+105.230  000.251  000.235: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/rplugin.vim
+105.421  000.147  000.147: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/shada.vim
+105.530  000.055  000.055: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/spellfile.vim
+105.813  000.232  000.232: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/tarPlugin.vim
+106.075  000.202  000.202: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/tohtml.vim
+106.179  000.047  000.047: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/tutor.vim
+106.535  000.301  000.301: sourcing /tmp/.mount_nvim59xkxk/usr/share/nvim/runtime/plugin/zipPlugin.vim
+107.674  000.965  000.965: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+108.157  010.713: loading plugins
+108.825  000.353  000.353: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+109.339  000.280  000.280: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+109.744  000.210  000.210: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+110.490  000.536  000.536: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+111.423  000.585  000.585: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+113.568  002.830  002.244: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+116.046  002.121  002.121: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+116.863  002.376: loading packages
+117.744  000.882: loading after plugins
+117.784  000.040: inits 3
+119.584  001.800: reading ShaDa
+119.840  000.256: opening buffers
+119.901  000.061: BufEnter autocommands
+119.906  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.014  000.014: --- NVIM STARTING ---
+022.322  022.308: locale set
+037.489  015.167: inits 1
+039.381  001.892: window checked
+065.455  026.074: parsing arguments
+065.863  000.407: expanding arguments
+065.930  000.067: inits 2
+067.218  001.289: init highlight
+067.228  000.009: waiting for UI
+068.970  001.742: done waiting for UI
+069.090  000.120: initialized screen early for UI
+079.142  009.349  009.349: sourcing /home/evakuator/.config/nvim/init.lua
+079.179  000.740: sourcing vimrc file(s)
+082.397  001.378  001.378: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/syntax/syncolor.vim
+097.814  014.084  014.084: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/filetype.vim
+099.821  001.271  001.271: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/ftplugin.vim
+102.553  001.148  001.148: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/indent.vim
+105.049  000.363  000.363: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/syntax/synload.vim
+105.262  001.998  001.635: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/syntax/syntax.vim
+109.837  001.455  001.455: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/gzip.vim
+110.060  000.108  000.108: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/health.vim
+110.381  000.231  000.231: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/man.vim
+114.126  001.870  001.870: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+114.873  004.399  002.529: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/matchit.vim
+115.429  000.464  000.464: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/matchparen.vim
+116.781  001.250  001.250: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/netrwPlugin.vim
+117.359  000.027  000.027: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+117.380  000.462  000.435: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/rplugin.vim
+117.777  000.295  000.295: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/shada.vim
+117.983  000.090  000.090: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/spellfile.vim
+118.310  000.258  000.258: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/tarPlugin.vim
+118.581  000.190  000.190: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/tohtml.vim
+118.714  000.061  000.061: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/tutor.vim
+119.127  000.330  000.330: sourcing /tmp/.mount_nvim8YCHkF/usr/share/nvim/runtime/plugin/zipPlugin.vim
+120.359  001.022  001.022: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+121.065  011.392: loading plugins
+121.797  000.386  000.386: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+122.301  000.296  000.296: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-ReplaceWithRegister/plugin/ReplaceWithRegister.vim
+122.740  000.220  000.220: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim
+123.524  000.585  000.585: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-surround/plugin/surround.vim
+124.492  000.597  000.597: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-user/autoload/textobj/user.vim
+126.646  002.858  002.261: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-line/plugin/textobj/line.vim
+129.939  002.879  002.879: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/vim-textobj-variable-segment/plugin/textobj/variable-segment.vim
+130.546  002.258: loading packages
+131.065  000.520: loading after plugins
+131.088  000.023: inits 3
+132.826  001.738: reading ShaDa
+133.079  000.252: opening buffers
+133.134  000.056: BufEnter autocommands
+133.139  000.005: editing files in windows
