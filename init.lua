@@ -52,38 +52,48 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
   
-  use 'wellle/targets.vim' 
 
   use {
     'tpope/vim-commentary';
     opt = true;
-    keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'n'; 'gc'}};
+    keys = {{'x'; 'gc'}; {'n'; 'gc'}};
   };
+
   use {
     'tpope/vim-surround';
     opt = true;
     keys = {{'n'; 'ys'}; {'x'; 'S'}; };
   };
+
   use {
     'inkarkat/vim-ReplaceWithRegister';
     opt = true;
     keys = {{'n'; 'gr'}; {'x'; 'gr'}; };
   };
+
   use {
     'tpope/vim-unimpaired';
     opt = true;
-    keys = {{'n'; '[p'}; {'n'; ']p'}; };
+    keys = {{'n'; '[p'}; {'n'; ']p'}; }
   };
 
-  use { 'kana/vim-textobj-line'; opt=true; config=function() 
-   	vim.api.nvim_set_keymap('o', 'ir', '<Plug>(textobj-line-i)',{})
-	vim.api.nvim_set_keymap('x', 'ir', '<Plug>(textobj-line-i)',{})
-	vim.api.nvim_set_keymap('o', 'ar', '<Plug>(textobj-line-a)',{})
-	vim.api.nvim_set_keymap('x', 'ar', '<Plug>(textobj-line-a)',{})
-  	end;
-        keys = {{'o'; 'ir'}; {'o'; 'ar'}; {'x'; 'ir'}; {'x'; 'ar'}; };
-        requires = 'kana/vim-textobj-user';
-      }
+  use {'wellle/targets.vim'};
+
+  use {'kana/vim-textobj-user', opt=true};
+
+  use {
+    'kana/vim-textobj-line';
+    opt=true;
+    wants='vim-textobj-user';
+    setup='vim.g.textobj_line_no_default_key_mappings=true';
+    keys = {{'o'; 'ar'}, {'o'; 'ir'}, {'x'; 'ar'}, {'x'; 'ir'}};
+    config=function() 
+      vim.api.nvim_set_keymap('o', 'ir', '<Plug>(textobj-line-i)',{})
+      vim.api.nvim_set_keymap('x', 'ir', '<Plug>(textobj-line-i)',{})
+      vim.api.nvim_set_keymap('o', 'ar', '<Plug>(textobj-line-a)',{})
+      vim.api.nvim_set_keymap('x', 'ar', '<Plug>(textobj-line-a)',{})
+    end;
+  }
 
   use {
     'Julian/vim-textobj-variable-segment';
@@ -210,4 +220,4 @@ o.splitbelow = true
 o.splitright = true
 o.signcolumn = 'yes'
 
-
+vim.api.nvim_set_keymap('n', 'csfs', ':cs f s ', {noremap=true})
