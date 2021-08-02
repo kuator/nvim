@@ -51,7 +51,6 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
-  
 
   use {
     'tpope/vim-commentary';
@@ -59,10 +58,26 @@ require('packer').startup(function()
     keys = {{'x'; 'gc'}; {'n'; 'gc'}};
   };
 
+  -- use {
+  --   'liuchengxu/space-vim-dark';
+  --   opt = true;
+  --   events = 'BufReadPre';
+  --   config = function()
+  --     vim.cmd[[colorscheme space-vim-dark]]
+  --     vim.cmd[[set space-vim-dark]]
+  --     vim.cmd('hi Normal     ctermbg=NONE guibg=NONE')
+  --     vim.cmd('hi LineNr     ctermbg=NONE guibg=NONE')
+  --     vim.cmd('hi SignColumn ctermbg=NONE guibg=NONE')
+  --     vim.cmd('hi CursorLineNr ctermbg=NONE guibg=NONE')
+  --     vim.cmd('hi LineNr guifg=white guibg=NONE ctermfg=white ctermbg=NONE')
+  --     vim.cmd('hi Comment cterm=italic gui=italic')
+  --   end;
+  -- };
+
   use {
     'tpope/vim-surround';
     opt = true;
-    keys = {{'n'; 'ys'}; {'x'; 'S'}; };
+    keys = {{'n'; 'ys'}; {'x'; 'S'}; {'n'; 'cs'}; };
   };
 
   use {
@@ -74,10 +89,12 @@ require('packer').startup(function()
   use {
     'tpope/vim-unimpaired';
     opt = true;
-    keys = {{'n'; '[p'}; {'n'; ']p'}; }
+    keys = {{'n'; '[p'}; {'n'; ']p'}; {'n'; '[l'}; {'n'; ']l'};  }
   };
 
   use {'wellle/targets.vim'};
+
+  use {'folke/tokyonight.nvim'};
 
   use {'kana/vim-textobj-user', opt=true};
 
@@ -96,8 +113,16 @@ require('packer').startup(function()
   }
 
   use {
+    'kana/vim-textobj-entire';
+    opt=true;
+    wants='vim-textobj-user';
+    keys = {{'o'; 'ae'}, {'o'; 'ie'}, {'x'; 'ae'}, {'x'; 'ie'}};
+  }
+
+  use {
     'Julian/vim-textobj-variable-segment';
     opt = true;
+    wants='vim-textobj-user';
     keys = {{'o'; 'iv'}; {'o'; 'av'}; {'x'; 'iv'}; {'x'; 'av'}; };
   };
 
@@ -198,6 +223,8 @@ cmd 'autocmd QuickFixCmdPost [^l]* cwindow'
 cmd 'autocmd QuickFixCmdPost l* lwindow'
 
 o.termguicolors = true
+-- vim.g.material_style = "deep ocean"
+
 
 --vim.cmd'colorscheme default'
 o.number = true
