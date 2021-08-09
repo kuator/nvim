@@ -58,22 +58,6 @@ require('packer').startup(function()
     keys = {{'x'; 'gc'}; {'n'; 'gc'}};
   };
 
-  -- use {
-  --   'liuchengxu/space-vim-dark';
-  --   opt = true;
-  --   events = 'BufReadPre';
-  --   config = function()
-  --     vim.cmd[[colorscheme space-vim-dark]]
-  --     vim.cmd[[set space-vim-dark]]
-  --     vim.cmd('hi Normal     ctermbg=NONE guibg=NONE')
-  --     vim.cmd('hi LineNr     ctermbg=NONE guibg=NONE')
-  --     vim.cmd('hi SignColumn ctermbg=NONE guibg=NONE')
-  --     vim.cmd('hi CursorLineNr ctermbg=NONE guibg=NONE')
-  --     vim.cmd('hi LineNr guifg=white guibg=NONE ctermfg=white ctermbg=NONE')
-  --     vim.cmd('hi Comment cterm=italic gui=italic')
-  --   end;
-  -- };
-
   use {
     'tpope/vim-surround';
     opt = true;
@@ -120,6 +104,18 @@ require('packer').startup(function()
   }
 
   use {
+    'tpope/vim-repeat';
+    opt = true;
+    keys = {{'n'; '.'}};
+  };
+
+  use { 
+     'tpope/vim-rsi',
+     opt=true ,
+     event = 'InsertEnter *' 
+  };
+
+  use {
     'Julian/vim-textobj-variable-segment';
     opt = true;
     wants='vim-textobj-user';
@@ -135,21 +131,7 @@ require('packer').startup(function()
         vim.g.user_emmet_expandabbr_key = '<c-q><c-q>'
       ]],
       keys = {
-        {'i'; '<c-q>m'};
-        {'i'; '<c-q>A'};
-        {'i'; '<c-q>a'};
-        {'i'; '<c-q>k'};
-        {'i'; '<c-q>j'};
-        {'i'; '<c-q>/'};
-        {'i'; '<c-q>I'};
-        {'i'; '<c-q>i'};
-        {'i'; '<c-q>N'};
-        {'i'; '<c-q>n'};
-        {'i'; '<c-q>D'};
-        {'i'; '<c-q>d'};
-        {'i'; '<c-q>u'};
-        {'i'; '<c-q>;'};
-        {'i'; '<c-q><c-q>'};
+        {'i'; '<c-q>'};
       };
       cmd = {'Emmet'; 'EmmetInstall'};
     };
@@ -223,14 +205,10 @@ cmd 'autocmd QuickFixCmdPost [^l]* cwindow'
 cmd 'autocmd QuickFixCmdPost l* lwindow'
 
 o.termguicolors = true
--- vim.g.material_style = "deep ocean"
 
-
---vim.cmd'colorscheme default'
 o.number = true
 o.relativenumber = true
 o.wrap = false
-
 
 
 o.expandtab = true
@@ -248,3 +226,5 @@ o.splitright = true
 o.signcolumn = 'yes'
 
 vim.api.nvim_set_keymap('n', 'csfs', ':cs f s ', {noremap=true})
+
+-- vim.cmd[[autocmd BufReadPost *  let nmb = 69]]
