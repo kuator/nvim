@@ -70,6 +70,18 @@ require('packer').startup(function()
     keys = {{'n'; 'gr'}; {'x'; 'gr'}; };
   };
 
+  use {'nvim-lua/plenary.nvim', opt=true};
+
+  use {
+    'tjdevries/complextras.nvim',
+    opt = true;
+    wants = 'plenary.nvim';
+    keys = {{'i'; '<c-x><c-w>'}};
+    config=function() 
+      vim.cmd[[inoremap <c-x><c-w> <c-r>=luaeval("require('complextras').complete_line_from_cwd()")<CR>]]
+    end
+  };
+
   use {
     'tpope/vim-unimpaired';
     opt = true;
@@ -81,6 +93,7 @@ require('packer').startup(function()
   use {'folke/tokyonight.nvim'};
 
   use {'kana/vim-textobj-user', opt=true};
+
 
   use {
     'kana/vim-textobj-line';
@@ -115,6 +128,10 @@ require('packer').startup(function()
      event = 'InsertEnter *' 
   };
 
+  use { 
+     'romainl/Apprentice',
+  };
+
   use {
     'Julian/vim-textobj-variable-segment';
     opt = true;
@@ -127,15 +144,34 @@ require('packer').startup(function()
       opt = true;
       setup=[[
         vim.g.user_emmet_mode = 'i'
-        vim.g.user_emmet_leader_key = "<c-q>"
-        vim.g.user_emmet_expandabbr_key = '<c-q><c-q>'
+        vim.g.user_emmet_leader_key = "<c-s>"
+        vim.g.user_emmet_expandabbr_key = '<c-s><c-s>'
       ]],
       keys = {
-        {'i'; '<c-q>'};
+        {'i'; '<c-s>'};
       };
       cmd = {'Emmet'; 'EmmetInstall'};
     };
+
+    use {
+      'nvim-telescope/telescope.nvim',
+      wants = 'plenary.nvim',
+      opt=true,
+      keys = {
+        {'n'; '<leader>tf'};
+      };
+      config=function() 
+        vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
+        vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
+        vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
+        vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
+      end;
+    }
+    use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
+    use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+
 end)
+
 
 --rg
 if fn.executable("rg") then
@@ -226,5 +262,8 @@ o.splitright = true
 o.signcolumn = 'yes'
 
 vim.api.nvim_set_keymap('n', 'csfs', ':cs f s ', {noremap=true})
+vim.cmd [[set cscopequickfix=s-,c-,d-,i-,t-,e-]]
 
 -- vim.cmd[[autocmd BufReadPost *  let nmb = 69]]
+
+-- vim.cmd[[colorscheme apprentice]]
