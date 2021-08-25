@@ -122,6 +122,7 @@ require('packer').startup(function()
     keys = {{'n'; '.'}};
   };
 
+
   use { 
      'tpope/vim-rsi',
      opt=true ,
@@ -153,23 +154,55 @@ require('packer').startup(function()
       cmd = {'Emmet'; 'EmmetInstall'};
     };
 
-    use {
-      'nvim-telescope/telescope.nvim',
-      wants = 'plenary.nvim',
-      opt=true,
-      keys = {
-        {'n'; '<leader>tf'};
-      };
-      config=function() 
-        vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
-        vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
-        vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
-        vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
-      end;
-    }
-    use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
-    use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+   use {
+     'nvim-telescope/telescope.nvim',
+     wants = 'plenary.nvim',
+     opt=true,
+     keys = {
+       {'n'; '<leader>tf'};
+     };
+     config=function() 
+       vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
+       vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
+       vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
+       vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
+     end;
+   }
 
+   use {
+     'lewis6991/gitsigns.nvim', wants = {'plenary.nvim'} ,
+     event = 'BufRead',
+     opt=true,
+     config = function() require('gitsigns').setup() end
+   }
+
+   use {
+     'nvim-treesitter/nvim-treesitter',
+     opt = true,
+     config = function()
+       require'nvim-treesitter.configs'.setup {
+         ensure_installed = { "python", "lua"}, 
+         highlight = { enable = false },
+     }
+     end
+   }
+
+   -- broken
+   -- use {
+   --   'David-Kunz/treesitter-unit', wants = {'nvim-treesitter'} ,
+   --   keys = {
+   --     {'o'; 'iu'};
+   --     {'o'; 'au'};
+   --   };
+   --   opt=true,
+   --   config = function() 
+   --     vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {noremap=true})
+   --     vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', {noremap=true})
+   --     vim.api.nvim_set_keymap('o', 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>', {noremap=true})
+   --     vim.api.nvim_set_keymap('o', 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', {noremap=true})
+   --     -- require"treesitter-unit".enable_highlighting('CursorLine')
+   --   end
+   -- }
 end)
 
 
