@@ -51,6 +51,13 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
+  
+  use {'lewis6991/impatient.nvim',
+    rocks = 'mpack',
+    config = function()
+      require('impatient')
+    end
+  }
 
   use {
     'tpope/vim-commentary';
@@ -69,6 +76,15 @@ require('packer').startup(function()
     opt = true;
     keys = {{'n'; 'gr'}; {'x'; 'gr'}; };
   };
+
+  -- use {
+  --   "hrsh7th/nvim-cmp",
+  --   opt=true,
+  --   event = 'InsertEnter',
+  --   requires = {
+  --     "hrsh7th/cmp-buffer",
+  --   }
+  -- }
 
   use {'nvim-lua/plenary.nvim', opt=true};
 
@@ -349,5 +365,3 @@ vim.cmd [[set cscopequickfix=s-,c-,d-,i-,t-,e-]]
 -- vim.cmd[[autocmd BufReadPost *  let nmb = 69]]
 
 -- vim.cmd[[colorscheme apprentice]]
-
-
