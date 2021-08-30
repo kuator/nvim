@@ -106,7 +106,21 @@ require('packer').startup(function()
 
   use {'wellle/targets.vim'};
 
-  -- use {'folke/tokyonight.nvim'};
+  -- use {'Th3Whit3Wolf/space-nvim',
+  --   config = function()
+  --     vim.g.space_nvim_transparent_bg = true
+  --     
+  --     vim.cmd[[colorscheme space-nvim]] 
+  --   end
+  -- };
+  
+  use {'folke/tokyonight.nvim',
+    config = function()
+      vim.g.tokyonight_transparent = true
+      vim.cmd[[colorscheme tokyonight]]
+    end
+  };
+   
 
   use {'kana/vim-textobj-user', opt=true};
 
@@ -169,18 +183,22 @@ require('packer').startup(function()
       };
       cmd = {'Emmet'; 'EmmetInstall'};
     };
+
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt=true }
   use {'tami5/sql.nvim', opt=true}
   use {
     "nvim-telescope/telescope-frecency.nvim",
     opt = true,
     wants = {"sql.nvim"}
-    -- requires = {"tami5/sql.nvim"}
   }
 
   use {
     'nvim-telescope/telescope.nvim',
-    wants = {'plenary.nvim', 'telescope-fzf-native.nvim', 'telescope-frecency.nvim'},
+    wants = {
+      'plenary.nvim',
+      'telescope-fzf-native.nvim',
+      'telescope-frecency.nvim',
+    },
     opt=true,
     keys = {
       {'n'; '<leader>tf'};
@@ -201,8 +219,23 @@ require('packer').startup(function()
           }
         }
       }
-      -- To get fzf loaded and working with telescope, you need to call
-      -- load_extension, somewhere after setup function:
+
+      local finders = require('telescope.finders')
+      local pickers = require('telescope.pickers')
+
+      local bookmarks = function(opts)
+        pickers.new(opts, {
+          prompt_title = "Bookmarks",
+          finder = finders.new_table {
+            results = {
+              "~/.config/nvim",
+              "~/.config/emacs"
+            },
+          },
+        }):find()
+      end
+
+      require('telescope.builtin').bookmarks = bookmarks
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('frecency')
     end;
