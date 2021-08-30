@@ -106,7 +106,7 @@ require('packer').startup(function()
 
   use {'wellle/targets.vim'};
 
-  use {'folke/tokyonight.nvim'};
+  -- use {'folke/tokyonight.nvim'};
 
   use {'kana/vim-textobj-user', opt=true};
 
@@ -169,21 +169,44 @@ require('packer').startup(function()
       };
       cmd = {'Emmet'; 'EmmetInstall'};
     };
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt=true }
+  use {'tami5/sql.nvim', opt=true}
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    opt = true,
+    wants = {"sql.nvim"}
+    -- requires = {"tami5/sql.nvim"}
+  }
 
-   use {
-     'nvim-telescope/telescope.nvim',
-     wants = 'plenary.nvim',
-     opt=true,
-     keys = {
-       {'n'; '<leader>tf'};
-     };
-     config=function() 
-       vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
-       vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
-       vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
-       vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
-     end;
-   }
+  use {
+    'nvim-telescope/telescope.nvim',
+    wants = {'plenary.nvim', 'telescope-fzf-native.nvim', 'telescope-frecency.nvim'},
+    opt=true,
+    keys = {
+      {'n'; '<leader>tf'};
+    };
+    config=function() 
+      vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
+      vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
+      vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
+      vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
+      require('telescope').setup {
+        extensions = {
+          fzf = {
+            fuzzy = true,                    -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true,     -- override the file sorter
+            case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+          }
+        }
+      }
+      -- To get fzf loaded and working with telescope, you need to call
+      -- load_extension, somewhere after setup function:
+      require('telescope').load_extension('fzf')
+      require('telescope').load_extension('frecency')
+    end;
+  }
 
    use {
      'lewis6991/gitsigns.nvim', wants = {'plenary.nvim'} ,
