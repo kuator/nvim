@@ -229,7 +229,8 @@ require('packer').startup(function()
           finder = finders.new_table {
             results = {
               "~/.config/nvim",
-              "~/.config/emacs"
+              "~/.config/emacs",
+              "~/Documents/programming/treesitter-unit/lua/treesitter-unit",
             },
           },
         }):find()
