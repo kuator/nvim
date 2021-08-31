@@ -39,11 +39,11 @@ end
 
 vim.api.nvim_exec(
   [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]],
+    augroup Packer
+      autocmd!
+      autocmd BufWritePost init.lua PackerCompile
+    augroup end
+  ]],
   false
 )
 
@@ -154,9 +154,9 @@ require('packer').startup(function()
 
 
   use { 
-     'tpope/vim-rsi',
-     opt=true ,
-     event = 'InsertEnter *' 
+    'tpope/vim-rsi',
+    opt=true ,
+    event = 'InsertEnter *' 
   };
 
   use { 
@@ -171,17 +171,17 @@ require('packer').startup(function()
   };
 
   use {
-      'mattn/emmet-vim';
-      opt = true;
-      setup=[[
-        vim.g.user_emmet_mode = 'i'
-        vim.g.user_emmet_leader_key = "<c-s>"
-        vim.g.user_emmet_expandabbr_key = '<c-s><c-s>'
-      ]],
-      keys = {
-        {'i'; '<c-s>'};
-      };
-      cmd = {'Emmet'; 'EmmetInstall'};
+    'mattn/emmet-vim';
+    opt = true;
+    setup=[[
+      vim.g.user_emmet_mode = 'i'
+      vim.g.user_emmet_leader_key = "<c-s>"
+      vim.g.user_emmet_expandabbr_key = '<c-s><c-s>'
+    ]],
+    keys = {
+      {'i'; '<c-s>'};
+    };
+    cmd = {'Emmet'; 'EmmetInstall'};
     };
 
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt=true }
@@ -202,12 +202,14 @@ require('packer').startup(function()
     opt=true,
     keys = {
       {'n'; '<leader>tf'};
+      {'n'; '<leader>tb'};
+      {'n'; '<leader>tg'};
+      {'n'; '<leader>tr'};
+    };
+    cmd = {
+      'Telescope'
     };
     config=function() 
-      vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
-      vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
-      vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
-      vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
       require('telescope').setup {
         extensions = {
           fzf = {
@@ -231,83 +233,110 @@ require('packer').startup(function()
               "~/.config/nvim",
               "~/.config/emacs",
               "~/Documents/programming/treesitter-unit/lua/treesitter-unit",
+              "~/Documents/payda/paydabackend/",
             },
           },
         }):find()
       end
 
+
       require('telescope.builtin').bookmarks = bookmarks
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('frecency')
+
+      vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
+      vim.cmd [[nnoremap <leader>tb <cmd>Telescope bookmarks<cr>]]
+      vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
+      -- vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
+      vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
     end;
   }
 
-   use {
-     'lewis6991/gitsigns.nvim', wants = {'plenary.nvim'} ,
-     event = 'BufRead',
-     opt=true,
-     config = function() require('gitsigns').setup() end
-   }
+  use {
+    'lewis6991/gitsigns.nvim', wants = {'plenary.nvim'} ,
+    event = 'BufRead',
+    opt=true,
+    config = function() require('gitsigns').setup() end
+  }
 
-   use {
-     'nvim-treesitter/nvim-treesitter',
-     opt = true,
-     config = function()
-       require'nvim-treesitter.configs'.setup {
-         ensure_installed = { "python", "lua"}, 
-         highlight = { enable = false },
-     }
-     end
-   }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    opt = true,
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+      ensure_installed = { "python", "lua"}, 
+      highlight = { enable = false },
+    }
+    end
+  }
 
-   use {
+  use {
       'kuator/some-python-plugin.nvim',
-   }
+  }
 
-   use {
-     'neovim/nvim-lspconfig',
-     requires = 'some-python-plugin.nvim',
-     config = function ()
-        local uv = vim.loop
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        local lspconfig = require('lspconfig')
-        local configs = require'lspconfig/configs'
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
+  use { "lukas-reineke/indent-blankline.nvim" ,
+    config = function() 
+      vim.opt.listchars = {
+        space = "⋅",
+        eol = "↴",
+      }
 
-        local on_attach = function(client, bufnr)
-          -- completion.on_attach(client, bufnr)
+      require("indent_blankline").setup {
+        space_char_blankline = " ",
+        show_current_context = true,
+        -- char = "|",
+        buftype_exclude = {"terminal"}
+      }
+    end,
+    opt=true,
+    event='BufReadPost',
+    wants = 'nvim-treesitter'
+  }
 
-          -- Keybindings for LSPs
-          vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
-          vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
-        end
+  use {
+    'neovim/nvim-lspconfig',
+    requires = 'some-python-plugin.nvim',
+    config = function ()
+      local uv = vim.loop
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      local lspconfig = require('lspconfig')
+      local configs = require'lspconfig/configs'
+      capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-        require 'pylance'
-        lspconfig.pylance.setup{
-          on_attach = on_attach,
-          settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = "basic",
-                completeFunctionParens = true,
-                extraPaths={'env'},
-              }
+      local on_attach = function(client, bufnr)
+        -- completion.on_attach(client, bufnr)
+
+        -- Keybindings for LSPs
+        vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
+        vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+      end
+
+      require 'pylance'
+      lspconfig.pylance.setup{
+        on_attach = on_attach,
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              completeFunctionParens = true,
+              extraPaths={'env'},
             }
           }
         }
-	end
-   }
+      }
+      end
+  }
 
    -- broken
    -- use {
@@ -330,8 +359,8 @@ end)
 
 --rg
 if fn.executable("rg") then
-    o.grepprg="rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
-    o.grepformat='%f:%l:%c:%m,%f:%l:%m'
+  o.grepprg="rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
+  o.grepformat='%f:%l:%c:%m,%f:%l:%m'
 end
 
 -- fdfind 
