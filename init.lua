@@ -271,6 +271,21 @@ require('packer').startup(function()
   }
 
   use {
+   'nvim-treesitter/nvim-treesitter-refactor',
+   opt=true,
+   wants = 'nvim-treesitter',
+   config = function() 
+    require'nvim-treesitter.configs'.setup {
+      refactor = {
+       highlight_current_scope = { enable = true },
+       highlight_definitions = { enable = true },
+      },
+    }
+   end,
+   event = 'BufReadPre'
+  }
+
+  use {
       'kuator/some-python-plugin.nvim',
   }
 
@@ -368,6 +383,7 @@ end
 o.errorformat = o.errorformat .. ',%f'
 
 o.clipboard = 'unnamedplus'
+o.updatetime=100
 
 g.mapleader = ' '
 
@@ -431,6 +447,7 @@ o.relativenumber = true
 o.wrap = false
 
 
+
 o.expandtab = true
 bo.expandtab = true
 o.shiftwidth = 2
@@ -444,6 +461,7 @@ bo.autoindent = true
 o.splitbelow = true
 o.splitright = true
 o.signcolumn = 'yes'
+
 
 vim.api.nvim_set_keymap('n', 'csfs', ':cs f s ', {noremap=true})
 vim.cmd [[set cscopequickfix=s-,c-,d-,i-,t-,e-]]
