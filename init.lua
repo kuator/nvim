@@ -72,6 +72,16 @@ require('packer').startup(function()
   };
 
   use {
+    'leafOfTree/vim-vue-plugin';
+    ft = 'vue';
+  };
+  
+  use {
+    'MaxMEllon/vim-jsx-pretty';
+    ft = {'javascript', 'javascriptreact'};
+  };
+
+  use {
     'inkarkat/vim-ReplaceWithRegister';
     opt = true;
     keys = {{'n'; 'gr'}; {'x'; 'gr'}; };
@@ -231,11 +241,12 @@ require('packer').startup(function()
       local finders = require('telescope.finders')
       local pickers = require('telescope.pickers')
       local sorters = require('telescope.sorters')
+      local telescope_config = require("telescope.config").values
 
       local bookmarks = function(opts)
         pickers.new(opts, {
           prompt_title = "Bookmarks",
-          sorter = sorters.fuzzy_with_index_bias(),
+          sorter = telescope_config.generic_sorter(opts),
           finder = finders.new_table {
             results = {
               "~/.config/nvim",
@@ -484,3 +495,11 @@ vim.cmd [[set cscopequickfix=s-,c-,d-,i-,t-,e-]]
 -- vim.cmd[[autocmd BufReadPost *  let nmb = 69]]
 
 -- vim.cmd[[colorscheme apprentice]]
+
+
+vim.cmd[[tnoremap <a-h> <C-\><C-n><C-w>h]]
+vim.cmd[[tnoremap <a-j> <C-\><C-n><C-w>j]]
+vim.cmd[[tnoremap <a-k> <C-\><C-n><C-w>k]]
+vim.cmd[[tnoremap <a-l> <C-\><C-n><C-w>l]]
+vim.cmd[[tnoremap <esc> <C-\><C-n>]]
+vim.cmd('autocmd BufWinEnter,WinEnter term://* startinsert')
