@@ -106,20 +106,26 @@ require('packer').startup(function()
 
   use {'wellle/targets.vim'};
 
-  -- use {'Th3Whit3Wolf/space-nvim',
-  --   config = function()
-  --     vim.g.space_nvim_transparent_bg = true
-  --     
-  --     vim.cmd[[colorscheme space-nvim]] 
-  --   end
-  -- };
-  
-  use {'folke/tokyonight.nvim',
+  use {'liuchengxu/space-vim-dark',
     config = function()
-      vim.g.tokyonight_transparent = true
-      vim.cmd[[colorscheme tokyonight]]
+      -- vim.g.space_nvim_transparent_bg = true
+      vim.cmd('colorscheme space-vim-dark')
+      vim.cmd('hi Normal     ctermbg=NONE guibg=NONE')
+      vim.cmd('hi LineNr     ctermbg=NONE guibg=NONE')
+      vim.cmd('hi SignColumn ctermbg=NONE guibg=NONE')
+      vim.cmd('hi CursorLineNr ctermbg=NONE guibg=NONE')
+      vim.cmd('hi LineNr guifg=white guibg=NONE ctermfg=white ctermbg=NONE')
+      vim.cmd('hi Comment cterm=italic gui=italic')
     end
   };
+  
+  -- use {'folke/tokyonight.nvim',
+  --   config = function()
+  --     vim.g.tokyonight_transparent = true
+  --     vim.g.tokyonight_style = "night"
+  --     vim.cmd[[colorscheme tokyonight]]
+  --   end
+  -- };
    
 
   use {'kana/vim-textobj-user', opt=true};
@@ -234,6 +240,7 @@ require('packer').startup(function()
               "~/.config/emacs",
               "~/Documents/programming/treesitter-unit/lua/treesitter-unit",
               "~/Documents/payda/paydabackend/",
+              "~/Documents/payda/payda-front/",
             },
           },
         }):find()
@@ -244,7 +251,8 @@ require('packer').startup(function()
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('frecency')
 
-      vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
+      -- vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
+      vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({find_command = {"fdfind", "--no-ignore-vcs", "--hidden", "--ignore-file", vim.fn.expand("~/.config/.ignore")}}))<cr>]], { noremap = true, silent = true })
       vim.cmd [[nnoremap <leader>tb <cmd>Telescope bookmarks<cr>]]
       vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
       -- vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
@@ -275,6 +283,8 @@ require('packer').startup(function()
    opt=true,
    wants = 'nvim-treesitter',
    config = function() 
+    -- vim.cmd('hi TSDefinitionUsage cterm=underline gui=underline')
+    -- vim.cmd('hi TSDefinition cterm=underline gui=underline')
     require'nvim-treesitter.configs'.setup {
       refactor = {
        highlight_current_scope = { enable = true },
@@ -300,7 +310,7 @@ require('packer').startup(function()
         space_char_blankline = " ",
         show_current_context = true,
         -- char = "|",
-        buftype_exclude = {"terminal"}
+        buftype_exclude = {"terminal"},
       }
     end,
     opt=true,
@@ -343,9 +353,9 @@ require('packer').startup(function()
         settings = {
           python = {
             analysis = {
-              typeCheckingMode = "basic",
+              typeCheckingMode = "off",
               completeFunctionParens = true,
-              extraPaths={'env'},
+              -- extraPaths={'env'},
             }
           }
         }
