@@ -1,0 +1,636 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.034  000.034: --- NVIM STARTING ---
+000.941  000.907: locale set
+001.489  000.548: inits 1
+001.523  000.034: window checked
+009.228  007.705: parsing arguments
+009.530  000.302: expanding arguments
+009.566  000.036: inits 2
+010.414  000.848: init highlight
+010.425  000.011: init default mappings
+010.428  000.003: waiting for UI
+011.625  001.198: done waiting for UI
+011.659  000.033: initialized screen early for UI
+016.837  005.000  005.000: sourcing /home/evakuator/.config/nvim/init.lua
+016.880  000.221: sourcing vimrc file(s)
+027.815  010.840  010.840: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+028.421  000.071  000.071: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+029.339  000.070  000.070: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+030.072  000.127  000.127: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+030.192  000.347  000.219: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+031.478  000.021  000.021: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+031.516  000.015  000.015: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+031.771  000.230  000.230: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+031.813  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+031.854  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+031.900  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+032.122  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+032.132  000.208  000.194: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+032.289  000.137  000.137: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+032.362  000.038  000.038: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+032.416  000.024  000.024: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+032.499  000.024  000.024: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+032.588  000.034  000.034: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+032.652  000.035  000.035: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+045.873  004.501  004.501: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+073.083  040.329  035.829: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+074.337  004.971: loading plugins
+085.784  000.056  000.056: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+086.589  010.920  010.864: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+087.361  000.304  000.304: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+088.796  000.673  000.673: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+089.222  002.989: loading packages
+089.739  000.517: loading after plugins
+089.765  000.026: inits 3
+094.629  004.864: reading ShaDa
+095.368  000.739: opening buffers
+095.378  000.010: BufEnter autocommands
+095.382  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.026  000.026: --- NVIM STARTING ---
+001.154  001.128: locale set
+002.720  001.566: inits 1
+002.785  000.065: window checked
+013.884  011.098: parsing arguments
+014.314  000.430: expanding arguments
+014.361  000.047: inits 2
+015.354  000.993: init highlight
+015.370  000.016: init default mappings
+015.372  000.002: waiting for UI
+017.898  002.526: done waiting for UI
+017.948  000.049: initialized screen early for UI
+023.639  005.481  005.481: sourcing /home/evakuator/.config/nvim/init.lua
+023.662  000.234: sourcing vimrc file(s)
+034.786  011.047  011.047: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+035.453  000.085  000.085: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+036.164  000.054  000.054: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+036.854  000.134  000.134: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+036.978  000.356  000.221: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+038.304  000.023  000.023: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+038.344  000.016  000.016: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+038.602  000.237  000.237: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+038.670  000.021  000.021: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+038.710  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+038.762  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+038.990  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+039.000  000.217  000.203: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+039.160  000.140  000.140: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+039.235  000.040  000.040: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+039.294  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+039.343  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+039.397  000.029  000.029: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+039.451  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+052.910  005.280  005.280: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+081.756  042.204  036.925: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+082.390  004.145: loading plugins
+090.712  000.032  000.032: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+091.205  008.227  008.195: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+091.518  000.127  000.127: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+092.175  000.359  000.359: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+092.563  001.459: loading packages
+093.059  000.497: loading after plugins
+093.084  000.025: inits 3
+097.926  004.842: reading ShaDa
+098.552  000.626: opening buffers
+098.562  000.010: BufEnter autocommands
+098.566  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.018  000.018: --- NVIM STARTING ---
+000.854  000.835: locale set
+001.758  000.904: inits 1
+001.807  000.050: window checked
+010.362  008.555: parsing arguments
+010.780  000.418: expanding arguments
+010.838  000.058: inits 2
+012.213  001.375: init highlight
+012.234  000.021: init default mappings
+012.238  000.004: waiting for UI
+014.262  002.024: done waiting for UI
+014.363  000.102: initialized screen early for UI
+023.672  008.977  008.977: sourcing /home/evakuator/.config/nvim/init.lua
+023.698  000.358: sourcing vimrc file(s)
+034.437  010.629  010.629: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+035.036  000.062  000.062: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+035.581  000.055  000.055: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+036.318  000.156  000.156: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+036.464  000.408  000.252: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+037.896  000.030  000.030: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+037.947  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+038.259  000.290  000.290: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+038.364  000.041  000.041: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+038.425  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+038.506  000.046  000.046: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+038.876  000.021  000.021: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+038.893  000.354  000.333: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+039.202  000.278  000.278: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+039.349  000.076  000.076: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+039.446  000.035  000.035: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+039.501  000.020  000.020: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+039.564  000.036  000.036: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+039.621  000.029  000.029: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+052.913  004.822  004.822: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+084.457  044.693  039.870: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+085.395  004.564: loading plugins
+096.856  000.040  000.040: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+097.429  010.864  010.823: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+097.814  000.148  000.148: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+098.659  000.481  000.481: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+099.169  002.281: loading packages
+099.845  000.676: loading after plugins
+099.876  000.031: inits 3
+105.073  005.197: reading ShaDa
+105.821  000.748: opening buffers
+105.831  000.010: BufEnter autocommands
+105.835  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.027  000.027: --- NVIM STARTING ---
+001.148  001.121: locale set
+002.393  001.245: inits 1
+002.444  000.051: window checked
+012.729  010.285: parsing arguments
+013.024  000.295: expanding arguments
+013.065  000.041: inits 2
+013.964  000.899: init highlight
+013.983  000.018: init default mappings
+013.985  000.002: waiting for UI
+016.177  002.192: done waiting for UI
+016.222  000.045: initialized screen early for UI
+028.176  011.610  011.610: sourcing /home/evakuator/.config/nvim/init.lua
+028.212  000.380: sourcing vimrc file(s)
+038.837  010.503  010.503: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+039.350  000.050  000.050: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+039.855  000.043  000.043: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+040.486  000.122  000.122: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+040.602  000.331  000.209: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+041.879  000.021  000.021: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+041.917  000.015  000.015: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+042.048  000.111  000.111: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+042.091  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+042.128  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+042.183  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+042.403  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+042.412  000.208  000.194: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+042.568  000.136  000.136: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+042.639  000.038  000.038: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+042.695  000.025  000.025: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+042.742  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+042.827  000.038  000.038: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+042.889  000.035  000.035: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+056.698  004.720  004.720: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+080.961  037.948  033.229: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+081.387  003.592: loading plugins
+087.968  000.037  000.037: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+088.547  006.756  006.719: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+088.934  000.145  000.145: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+089.666  000.430  000.430: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+090.083  001.366: loading packages
+090.602  000.519: loading after plugins
+090.628  000.026: inits 3
+095.687  005.058: reading ShaDa
+096.412  000.725: opening buffers
+096.421  000.010: BufEnter autocommands
+096.425  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.021  000.021: --- NVIM STARTING ---
+001.688  001.667: locale set
+003.429  001.741: inits 1
+003.516  000.088: window checked
+010.075  006.559: parsing arguments
+010.364  000.289: expanding arguments
+010.400  000.036: inits 2
+011.306  000.906: init highlight
+011.318  000.012: init default mappings
+011.320  000.002: waiting for UI
+012.400  001.080: done waiting for UI
+012.436  000.036: initialized screen early for UI
+017.635  005.018  005.018: sourcing /home/evakuator/.config/nvim/init.lua
+017.656  000.202: sourcing vimrc file(s)
+031.229  013.496  013.496: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+031.813  000.055  000.055: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+032.337  000.045  000.045: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+032.993  000.118  000.118: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+033.113  000.331  000.213: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+034.408  000.021  000.021: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+034.446  000.015  000.015: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+034.581  000.111  000.111: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+034.623  000.019  000.019: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+034.665  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+034.711  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+034.932  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+034.942  000.207  000.194: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+035.100  000.138  000.138: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+035.173  000.038  000.038: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+035.228  000.025  000.025: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+035.274  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+035.326  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+035.378  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+049.354  004.920  004.920: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+080.235  044.757  039.837: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+081.424  004.396: loading plugins
+091.535  000.034  000.034: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+092.282  010.065  010.031: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+092.629  000.122  000.122: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+093.262  000.352  000.352: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+093.662  001.699: loading packages
+094.154  000.492: loading after plugins
+094.177  000.024: inits 3
+099.018  004.841: reading ShaDa
+099.877  000.859: opening buffers
+099.891  000.014: BufEnter autocommands
+099.897  000.006: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+000.387  000.378: locale set
+000.821  000.434: inits 1
+000.847  000.026: window checked
+005.008  004.161: parsing arguments
+005.231  000.223: expanding arguments
+005.258  000.027: inits 2
+005.995  000.736: init highlight
+006.002  000.007: init default mappings
+006.003  000.001: waiting for UI
+007.086  001.083: done waiting for UI
+007.128  000.041: initialized screen early for UI
+014.944  007.627  007.627: sourcing /home/evakuator/.config/nvim/init.lua
+014.982  000.227: sourcing vimrc file(s)
+027.272  012.098  012.098: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+027.852  000.058  000.058: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+028.402  000.048  000.048: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+029.042  000.124  000.124: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+029.162  000.337  000.213: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+030.482  000.023  000.023: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+030.521  000.016  000.016: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+030.693  000.151  000.151: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+030.738  000.019  000.019: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+030.777  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+030.827  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+031.056  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+031.066  000.210  000.196: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+031.222  000.136  000.136: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+031.294  000.040  000.040: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+031.352  000.025  000.025: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+031.399  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+031.452  000.029  000.029: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+031.507  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+048.947  005.538  005.538: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+075.902  044.296  038.758: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+076.638  004.082: loading plugins
+084.660  000.043  000.043: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+085.326  008.257  008.214: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+085.969  000.248  000.248: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+087.435  000.797  000.797: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+088.342  002.402: loading packages
+089.544  001.202: loading after plugins
+089.601  000.057: inits 3
+096.664  007.063: reading ShaDa
+097.638  000.974: opening buffers
+097.662  000.023: BufEnter autocommands
+097.668  000.007: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.034  000.034: --- NVIM STARTING ---
+001.718  001.683: locale set
+003.450  001.732: inits 1
+003.549  000.099: window checked
+009.688  006.139: parsing arguments
+009.931  000.244: expanding arguments
+009.967  000.036: inits 2
+010.676  000.708: init highlight
+010.684  000.009: init default mappings
+010.686  000.002: waiting for UI
+012.070  001.384: done waiting for UI
+012.103  000.034: initialized screen early for UI
+017.624  005.339  005.339: sourcing /home/evakuator/.config/nvim/init.lua
+017.658  000.216: sourcing vimrc file(s)
+033.778  015.972  015.972: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+034.419  000.062  000.062: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+035.040  000.052  000.052: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+035.757  000.142  000.142: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+035.883  000.371  000.229: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+037.278  000.024  000.024: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+037.321  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+037.580  000.237  000.237: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+037.629  000.021  000.021: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+037.677  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+037.727  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+037.952  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+037.962  000.214  000.200: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+038.118  000.136  000.136: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+038.191  000.039  000.039: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+038.248  000.025  000.025: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+038.295  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+038.348  000.029  000.029: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+038.401  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+051.545  004.926  004.926: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+078.214  039.714  034.788: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+078.968  004.310: loading plugins
+090.744  000.056  000.056: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+091.513  011.410  011.354: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+092.070  000.210  000.210: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+092.915  000.350  000.350: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+093.333  002.394: loading packages
+093.838  000.506: loading after plugins
+093.864  000.026: inits 3
+099.302  005.437: reading ShaDa
+100.192  000.890: opening buffers
+100.202  000.010: BufEnter autocommands
+100.215  000.013: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.027  000.027: --- NVIM STARTING ---
+001.159  001.133: locale set
+002.374  001.215: inits 1
+002.523  000.149: window checked
+008.652  006.129: parsing arguments
+008.948  000.296: expanding arguments
+008.991  000.043: inits 2
+010.076  001.085: init highlight
+010.087  000.011: init default mappings
+010.089  000.003: waiting for UI
+011.751  001.662: done waiting for UI
+011.800  000.048: initialized screen early for UI
+020.459  008.428  008.428: sourcing /home/evakuator/.config/nvim/init.lua
+020.485  000.258: sourcing vimrc file(s)
+033.095  012.519  012.519: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+033.622  000.052  000.052: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+034.232  000.054  000.054: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+035.082  000.197  000.197: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+035.326  000.583  000.386: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+036.942  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+036.986  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+037.264  000.253  000.253: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+037.311  000.020  000.020: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+037.357  000.019  000.019: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+037.407  000.029  000.029: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+037.652  000.015  000.015: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+037.663  000.230  000.215: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+037.834  000.149  000.149: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+037.919  000.042  000.042: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+037.978  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+038.027  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+038.084  000.030  000.030: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+038.140  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+052.124  005.158  005.158: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+082.396  044.149  038.991: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+083.227  004.494: loading plugins
+091.843  000.030  000.030: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+092.335  008.376  008.346: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+092.651  000.123  000.123: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+093.329  000.378  000.378: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+093.741  001.638: loading packages
+094.262  000.521: loading after plugins
+094.322  000.059: inits 3
+099.582  005.260: reading ShaDa
+100.339  000.756: opening buffers
+100.349  000.010: BufEnter autocommands
+100.353  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.010  000.010: --- NVIM STARTING ---
+000.415  000.405: locale set
+000.815  000.400: inits 1
+000.839  000.024: window checked
+005.011  004.172: parsing arguments
+005.231  000.220: expanding arguments
+005.262  000.031: inits 2
+006.062  000.799: init highlight
+006.070  000.008: init default mappings
+006.071  000.001: waiting for UI
+008.020  001.949: done waiting for UI
+008.052  000.033: initialized screen early for UI
+013.677  005.448  005.448: sourcing /home/evakuator/.config/nvim/init.lua
+013.699  000.199: sourcing vimrc file(s)
+024.326  010.553  010.553: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+024.899  000.057  000.057: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+025.438  000.047  000.047: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+026.125  000.135  000.135: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+026.251  000.362  000.227: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+027.643  000.024  000.024: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+027.685  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+027.944  000.237  000.237: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+027.990  000.020  000.020: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+028.039  000.019  000.019: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+028.090  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+028.325  000.015  000.015: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+028.335  000.220  000.205: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+028.503  000.147  000.147: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+028.581  000.041  000.041: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+028.641  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+028.692  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+028.748  000.030  000.030: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+028.804  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+042.109  005.071  005.071: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+071.190  042.279  037.208: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+072.380  004.527: loading plugins
+082.395  000.034  000.034: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+082.966  009.222  009.189: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+083.289  000.126  000.126: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+083.955  000.366  000.366: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+084.369  002.274: loading packages
+084.893  000.524: loading after plugins
+084.919  000.026: inits 3
+090.045  005.126: reading ShaDa
+090.737  000.692: opening buffers
+090.747  000.010: BufEnter autocommands
+090.752  000.005: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.011  000.011: --- NVIM STARTING ---
+000.539  000.528: locale set
+001.133  000.594: inits 1
+001.160  000.027: window checked
+009.034  007.874: parsing arguments
+009.373  000.338: expanding arguments
+009.414  000.042: inits 2
+010.483  001.069: init highlight
+010.500  000.017: init default mappings
+010.503  000.003: waiting for UI
+011.789  001.286: done waiting for UI
+011.841  000.052: initialized screen early for UI
+020.807  008.558  008.558: sourcing /home/evakuator/.config/nvim/init.lua
+020.839  000.439: sourcing vimrc file(s)
+031.392  010.412  010.412: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+031.907  000.051  000.051: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+032.389  000.042  000.042: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+033.048  000.131  000.131: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+033.165  000.356  000.225: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+034.449  000.021  000.021: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+034.487  000.015  000.015: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+034.632  000.125  000.125: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+034.677  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+034.715  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+034.764  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+035.015  000.014  000.014: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+035.025  000.220  000.206: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+035.182  000.137  000.137: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+035.255  000.039  000.039: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+035.311  000.025  000.025: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+035.358  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+035.411  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+035.463  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+050.412  005.512  005.512: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+077.686  042.121  036.609: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+078.372  003.836: loading plugins
+088.339  000.051  000.051: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+089.014  009.943  009.892: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+089.529  000.196  000.196: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+090.635  000.624  000.624: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+091.362  002.227: loading packages
+092.240  000.878: loading after plugins
+092.289  000.049: inits 3
+098.362  006.074: reading ShaDa
+099.414  001.052: opening buffers
+099.424  000.010: BufEnter autocommands
+099.430  000.006: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.023  000.023: --- NVIM STARTING ---
+001.040  001.016: locale set
+002.140  001.101: inits 1
+002.200  000.060: window checked
+011.573  009.373: parsing arguments
+011.822  000.249: expanding arguments
+011.856  000.034: inits 2
+012.553  000.697: init highlight
+012.561  000.008: init default mappings
+012.563  000.002: waiting for UI
+013.666  001.103: done waiting for UI
+013.699  000.034: initialized screen early for UI
+019.524  005.644  005.644: sourcing /home/evakuator/.config/nvim/init.lua
+019.546  000.202: sourcing vimrc file(s)
+030.858  011.236  011.236: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+031.414  000.055  000.055: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+031.899  000.044  000.044: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+032.526  000.119  000.119: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+032.654  000.340  000.221: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+033.965  000.022  000.022: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+034.003  000.015  000.015: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+034.315  000.289  000.289: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+034.370  000.023  000.023: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+034.417  000.020  000.020: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+034.469  000.030  000.030: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+034.727  000.015  000.015: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+034.739  000.242  000.227: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+034.975  000.214  000.214: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+035.062  000.045  000.045: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+035.122  000.027  000.027: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+035.207  000.052  000.052: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+035.275  000.036  000.036: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+035.333  000.029  000.029: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+048.724  004.747  004.747: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+071.950  036.497  031.750: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+072.577  003.814: loading plugins
+082.641  000.072  000.072: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+083.588  010.412  010.340: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+083.979  000.155  000.155: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+084.710  000.400  000.400: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+085.127  001.584: loading packages
+085.658  000.531: loading after plugins
+085.684  000.026: inits 3
+091.290  005.605: reading ShaDa
+092.014  000.724: opening buffers
+092.023  000.009: BufEnter autocommands
+092.027  000.004: editing files in windows
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.028  000.028: --- NVIM STARTING ---
+001.243  001.215: locale set
+002.084  000.840: inits 1
+002.114  000.030: window checked
+007.741  005.627: parsing arguments
+008.001  000.260: expanding arguments
+008.036  000.034: inits 2
+008.902  000.866: init highlight
+008.910  000.009: init default mappings
+008.912  000.001: waiting for UI
+010.272  001.360: done waiting for UI
+010.310  000.038: initialized screen early for UI
+016.441  005.917  005.917: sourcing /home/evakuator/.config/nvim/init.lua
+016.460  000.233: sourcing vimrc file(s)
+027.760  011.230  011.230: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/filetype.vim
+028.314  000.055  000.055: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/ftplugin.vim
+028.835  000.045  000.045: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/indent.vim
+029.524  000.138  000.138: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/synload.vim
+029.651  000.370  000.232: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/syntax/syntax.vim
+031.027  000.023  000.023: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/gzip.vim
+031.068  000.017  000.017: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/health.vim
+031.329  000.236  000.236: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/man.vim
+031.376  000.020  000.020: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchit.vim
+031.421  000.019  000.019: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/matchparen.vim
+031.471  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/netrwPlugin.vim
+031.714  000.015  000.015: sourcing /home/evakuator/.local/share/nvim/rplugin.vim
+031.725  000.229  000.214: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/rplugin.vim
+031.895  000.149  000.149: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/shada.vim
+031.972  000.041  000.041: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/spellfile.vim
+032.032  000.026  000.026: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tarPlugin.vim
+032.081  000.018  000.018: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tohtml.vim
+032.138  000.030  000.030: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/tutor.vim
+032.193  000.028  000.028: sourcing /home/evakuator/Documents/neovim/build/share/nvim/runtime/plugin/zipPlugin.vim
+045.707  005.325  005.325: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/tokyonight.nvim/colors/tokyonight.vim
+071.852  039.552  034.227: sourcing /home/evakuator/.config/nvim/plugin/packer_compiled.lua
+072.309  003.732: loading plugins
+079.573  000.059  000.059: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+080.293  007.561  007.502: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+080.645  000.132  000.132: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+081.319  000.373  000.373: sourcing /home/evakuator/.local/share/nvim/site/pack/packer/start/targets.vim/plugin/targets.vim
+081.739  001.364: loading packages
+082.265  000.526: loading after plugins
+082.293  000.028: inits 3
+087.403  005.110: reading ShaDa
+088.318  000.916: opening buffers
+088.328  000.010: BufEnter autocommands
+088.333  000.004: editing files in windows
