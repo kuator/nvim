@@ -230,10 +230,12 @@ require('packer').startup(function()
 
       local finders = require('telescope.finders')
       local pickers = require('telescope.pickers')
+      local sorters = require('telescope.sorters')
 
       local bookmarks = function(opts)
         pickers.new(opts, {
           prompt_title = "Bookmarks",
+          sorter = sorters.fuzzy_with_index_bias(),
           finder = finders.new_table {
             results = {
               "~/.config/nvim",
@@ -243,6 +245,9 @@ require('packer').startup(function()
               "~/Documents/payda/payda-front/",
             },
           },
+          attach_mappings = function(_, map)
+            return true
+          end
         }):find()
       end
 
@@ -278,45 +283,45 @@ require('packer').startup(function()
     end
   }
 
-  use {
-   'nvim-treesitter/nvim-treesitter-refactor',
-   opt=true,
-   wants = 'nvim-treesitter',
-   config = function() 
-    -- vim.cmd('hi TSDefinitionUsage cterm=underline gui=underline')
-    -- vim.cmd('hi TSDefinition cterm=underline gui=underline')
-    require'nvim-treesitter.configs'.setup {
-      refactor = {
-       highlight_current_scope = { enable = true },
-       highlight_definitions = { enable = true },
-      },
-    }
-   end,
-   event = 'BufReadPre'
-  }
+  -- use {
+  --  'nvim-treesitter/nvim-treesitter-refactor',
+  --  opt=true,
+  --  wants = 'nvim-treesitter',
+  --  config = function() 
+  --   -- vim.cmd('hi TSDefinitionUsage cterm=underline gui=underline')
+  --   -- vim.cmd('hi TSDefinition cterm=underline gui=underline')
+  --   require'nvim-treesitter.configs'.setup {
+  --     refactor = {
+  --      highlight_current_scope = { enable = true },
+  --      highlight_definitions = { enable = true },
+  --     },
+  --   }
+  --  end,
+  --  event = 'BufReadPre'
+  -- }
 
   use {
       'kuator/some-python-plugin.nvim',
   }
 
-  use { "lukas-reineke/indent-blankline.nvim" ,
-    config = function() 
-      vim.opt.listchars = {
-        space = "⋅",
-        eol = "↴",
-      }
-
-      require("indent_blankline").setup {
-        space_char_blankline = " ",
-        show_current_context = true,
-        -- char = "|",
-        buftype_exclude = {"terminal"},
-      }
-    end,
-    opt=true,
-    event='BufReadPost',
-    wants = 'nvim-treesitter'
-  }
+  -- use { "lukas-reineke/indent-blankline.nvim" ,
+  --   config = function() 
+  --     vim.opt.listchars = {
+  --       space = "⋅",
+  --       eol = "↴",
+  --     }
+  --
+  --     require("indent_blankline").setup {
+  --       space_char_blankline = " ",
+  --       show_current_context = true,
+  --       -- char = "|",
+  --       buftype_exclude = {"terminal"},
+  --     }
+  --   end,
+  --   opt=true,
+  --   event='BufReadPost',
+  --   wants = 'nvim-treesitter'
+  -- }
 
   use {
     'neovim/nvim-lspconfig',
