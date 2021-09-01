@@ -436,6 +436,10 @@ if fn.isdirectory(o.undodir) == 0 then fn.mkdir(o.undodir, 'p') end
 -- interactive substitute
 o.inccommand = 'split'
 
+
+-- hidden buffers
+o.hidden = true
+
 vim.api.nvim_set_keymap('n', '<a-c>', ':', {noremap=true})
 vim.api.nvim_set_keymap('v', '<a-c>', ':', {noremap=true})
 vim.api.nvim_set_keymap('i', 'kj', '<esc>', { noremap = true, silent = true })
@@ -502,4 +506,12 @@ vim.cmd[[tnoremap <a-j> <C-\><C-n><C-w>j]]
 vim.cmd[[tnoremap <a-k> <C-\><C-n><C-w>k]]
 vim.cmd[[tnoremap <a-l> <C-\><C-n><C-w>l]]
 vim.cmd[[tnoremap <esc> <C-\><C-n>]]
+vim.cmd[[tnoremap kj <C-\><C-n>]]
 vim.cmd('autocmd BufWinEnter,WinEnter term://* startinsert')
+vim.cmd('autocmd TermOpen * setlocal nonumber norelativenumber | startinsert')
+-- vim.cmd('au BufEnter * if &buftype == "terminal" | :startinsert | endif')
+
+vim.cmd[[nnoremap <a-h> <C-\><C-n><C-w>h]]
+vim.cmd[[nnoremap <a-j> <C-\><C-n><C-w>j]]
+vim.cmd[[nnoremap <a-k> <C-\><C-n><C-w>k]]
+vim.cmd[[nnoremap <a-l> <C-\><C-n><C-w>l]]
