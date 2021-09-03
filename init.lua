@@ -66,6 +66,12 @@ require('packer').startup(function()
   };
 
   use {
+    'dhruvasagar/vim-zoom';
+    opt = true;
+    keys = {{'n'; '<c-w>m'}};
+  };
+
+  use {
     'tpope/vim-surround';
     opt = true;
     keys = {{'n'; 'ys'}; {'x'; 'S'}; {'n'; 'cs'}; };
@@ -353,6 +359,7 @@ require('packer').startup(function()
         vim.api.nvim_set_keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
         vim.api.nvim_set_keymap("n", "<leader>gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
         vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
+        -- vim.api.nvim_set_keymap("n", "<leader>gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
         vim.api.nvim_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
         vim.api.nvim_set_keymap("n", "<leader>gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
         vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
@@ -455,12 +462,12 @@ vim.api.nvim_set_keymap('n', 'cd', ':lcd %:p:h<bar>pwd<cr>', {noremap=true, sile
 vim.api.nvim_set_keymap('n', 'cu', ':lcd ..<bar>pwd<cr>', {noremap=true, silent=true})
 
 -- https://vi.stackexchange.com/a/2682
-vim.cmd([[nnoremap <A-j> :m .+1<CR>==]])
-vim.cmd([[nnoremap <A-k> :m .-2<CR>==]])
-vim.cmd([[inoremap <A-j> <Esc>:m .+1<CR>==gi]])
-vim.cmd([[inoremap <A-k> <Esc>:m .-2<CR>==gi]])
-vim.cmd([[vnoremap <A-j> :m '>+1<CR>gv=gv]])
-vim.cmd([[vnoremap <A-k> :m '<-2<CR>gv=gv]])
+vim.cmd([[nnoremap <a-j> :m .+1<CR>==]])
+vim.cmd([[nnoremap <a-k> :m .-2<CR>==]])
+vim.cmd([[inoremap <a-j> <Esc>:m .+1<CR>==gi]])
+vim.cmd([[inoremap <a-k> <Esc>:m .-2<CR>==gi]])
+vim.cmd([[xnoremap <a-j> :m '>+1<CR>gv=gv]])
+vim.cmd([[xnoremap <a-k> :m '<-2<CR>gv=gv]])
 
 
 -- https://oroques.dev/notes/neovim-init/
@@ -496,22 +503,8 @@ o.signcolumn = 'yes'
 vim.api.nvim_set_keymap('n', 'csfs', ':cs f s ', {noremap=true})
 vim.cmd [[set cscopequickfix=s-,c-,d-,i-,t-,e-]]
 
--- vim.cmd[[autocmd BufReadPost *  let nmb = 69]]
-
--- vim.cmd[[colorscheme apprentice]]
-
-
-vim.cmd[[tnoremap <a-h> <C-\><C-n><C-w>h]]
-vim.cmd[[tnoremap <a-j> <C-\><C-n><C-w>j]]
-vim.cmd[[tnoremap <a-k> <C-\><C-n><C-w>k]]
-vim.cmd[[tnoremap <a-l> <C-\><C-n><C-w>l]]
 vim.cmd[[tnoremap <esc> <C-\><C-n>]]
+
 vim.cmd[[tnoremap kj <C-\><C-n>]]
 vim.cmd('autocmd BufWinEnter,WinEnter term://* startinsert')
 vim.cmd('autocmd TermOpen * setlocal nonumber norelativenumber | startinsert')
--- vim.cmd('au BufEnter * if &buftype == "terminal" | :startinsert | endif')
-
-vim.cmd[[nnoremap <a-h> <C-\><C-n><C-w>h]]
-vim.cmd[[nnoremap <a-j> <C-\><C-n><C-w>j]]
-vim.cmd[[nnoremap <a-k> <C-\><C-n><C-w>k]]
-vim.cmd[[nnoremap <a-l> <C-\><C-n><C-w>l]]
