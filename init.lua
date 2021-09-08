@@ -93,15 +93,6 @@ require('packer').startup(function()
     keys = {{'n'; 'gr'}; {'x'; 'gr'}; };
   };
 
-  -- use {
-  --   "hrsh7th/nvim-cmp",
-  --   opt=true,
-  --   event = 'InsertEnter',
-  --   requires = {
-  --     "hrsh7th/cmp-buffer",
-  --   }
-  -- }
-
   use {'nvim-lua/plenary.nvim', opt=true};
 
   use {
@@ -178,7 +169,7 @@ require('packer').startup(function()
   use { 
     'tpope/vim-rsi',
     opt=true ,
-    event = 'InsertEnter *' 
+    event = 'InsertEnter' 
   };
 
   use { 
@@ -319,6 +310,17 @@ require('packer').startup(function()
 
   use {
       'kuator/some-python-plugin.nvim',
+  }
+
+  use { "hrsh7th/cmp-buffer", opt=true }
+
+  use {
+    "hrsh7th/nvim-cmp",
+    opt = true,
+    event = 'InsertEnter',
+    wants = {
+      "hrsh7th/cmp-buffer"
+    }
   }
 
   -- use { "lukas-reineke/indent-blankline.nvim" ,
