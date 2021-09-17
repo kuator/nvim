@@ -30,6 +30,8 @@ end
 
 disable_distribution_plugins()
 
+o.termguicolors = true
+
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
@@ -217,7 +219,8 @@ require('packer').startup(function()
       {'n'; '<leader>tf'};
       {'n'; '<leader>tb'};
       {'n'; '<leader>tg'};
-      {'n'; '<leader>tr'};
+      {'n'; '<leader>tt'};
+      {'n'; '<leader>tp'};
     };
     cmd = {
       'Telescope'
@@ -257,8 +260,164 @@ require('packer').startup(function()
             return true
           end
         }):find()
-      end
 
+      end
+      ---------------------
+      local filter = vim.tbl_filter
+      local make_entry = require "telescope.make_entry"
+      local previewers = require "telescope.previewers"
+      local conf = require("telescope.config").values
+      local action_set = require "telescope.actions.set"
+      require('telescope.builtin').buffers = function(opts)
+        local bufnrs = filter(function(b)
+          if 1 ~= vim.fn.buflisted(b) then
+            return false
+          end
+          -- only hide unloaded buffers if opts.show_all_buffers is false, keep them listed if true or nil
+          if opts.show_all_buffers == false and not vim.api.nvim_buf_is_loaded(b) then
+            return false
+          end
+          if opts.ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
+            return false
+          end
+          if opts.only_cwd and not string.find(vim.api.nvim_buf_get_name(b), vim.loop.cwd(), 1, true) then
+            return false
+          end
+          return true
+        end, vim.api.nvim_list_bufs())
+        if not next(bufnrs) then
+          return
+        end
+        if opts.sort_mru then
+          table.sort(bufnrs, function(a, b)
+            return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
+          end)
+        end
+
+        local buffers = {}
+        local default_selection_idx = 1
+        for _, bufnr in ipairs(bufnrs) do
+          local flag = bufnr == vim.fn.bufnr "" and "%" or (bufnr == vim.fn.bufnr "#" and "#" or " ")
+
+          if opts.sort_lastused and not opts.ignore_current_buffer and flag == "#" then
+            default_selection_idx = 2
+          end
+
+          local buf_info = vim.fn.getbufinfo(bufnr)[1]
+
+          local cloned_buf_info = vim.deepcopy(buf_info)
+          if cloned_buf_info.variables.term_title then
+            cloned_buf_info.name = cloned_buf_info.variables.term_title
+          end
+
+          local element = {
+            bufnr = bufnr,
+            flag = flag,
+            info = cloned_buf_info,
+          }
+
+          if opts.sort_lastused and (flag == "#" or flag == "%") then
+            local idx = ((buffers[1] ~= nil and buffers[1].flag == "%") and 2 or 1)
+            table.insert(buffers, idx, element)
+          else
+            table.insert(buffers, element)
+          end
+        end
+
+        if not opts.bufnr_width then
+          local max_bufnr = math.max(unpack(bufnrs))
+          opts.bufnr_width = #tostring(max_bufnr)
+        end
+
+        pickers.new(opts, {
+          prompt_title = "Buffers",
+          finder = finders.new_table {
+            results = buffers,
+            entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts),
+          },
+          previewer = previewers.buffers.new(opts),
+          sorter = conf.generic_sorter(opts),
+          default_selection_index = default_selection_idx,
+          attach_mappings = function(_, _)
+            action_set.select:enhance {
+              post = function()
+                local entry = action_state.get_selected_entry()
+                vim.api.nvim_win_set_cursor(0, { entry.lnum, entry.col or 0 })
+              end,
+            }
+            return true
+          end,
+        }):find()
+      end
+      --------------------
+      require('telescope.builtin').terminals = function(opts)
+        local bufnrs = filter(function(b)
+          if 1 ~= vim.fn.buflisted(b) then
+              return false
+          end
+          if not opts.show_all_buffers and not vim.api.nvim_buf_is_loaded(b) then
+            return false
+          end
+          if opts.ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
+            return false
+          end
+          return true
+        end, vim.api.nvim_list_bufs())
+        if not next(bufnrs) then return end
+      
+        local t_bufnrs = filter(function(b)
+            return vim.fn.getbufinfo(b)[1].variables.term_title ~= nil
+        end, bufnrs)
+        if not next(t_bufnrs) then return end
+      
+        local buffers = {}
+        local default_selection_idx = 1
+        for _, bufnr in ipairs(t_bufnrs) do
+          local flag = bufnr == vim.fn.bufnr('') and '%' or (bufnr == vim.fn.bufnr('#') and '#' or ' ')
+      
+          if opts.sort_lastused and not opts.ignore_current_buffer and flag == "#" then
+            default_selection_idx = 2
+          end
+
+          local buf_info = vim.fn.getbufinfo(bufnr)[1]
+
+          local cloned_buf_info = vim.deepcopy(buf_info)
+          if cloned_buf_info.variables.term_title then
+            cloned_buf_info.name = cloned_buf_info.variables.term_title
+          end
+      
+          local element = {
+            bufnr = bufnr,
+            flag = flag,
+            info = cloned_buf_info,
+          }
+      
+          if opts.sort_lastused and (flag == "#" or flag == "%") then
+            local idx = ((buffers[1] ~= nil and buffers[1].flag == "%") and 2 or 1)
+            table.insert(buffers, idx, element)
+          else
+            table.insert(buffers, element)
+          end
+        end
+      
+        if not opts.bufnr_width then
+          local max_bufnr = math.max(unpack(bufnrs))
+          opts.bufnr_width = #tostring(max_bufnr)
+        end
+      
+        pickers.new(opts, {
+          prompt_title = 'Terminals',
+          finder    = finders.new_table {
+            results = buffers,
+            entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts)
+          },
+          -- previewer = conf.grep_previewer(opts),
+          previewer = previewers.buffers.new(opts),
+          sorter = conf.generic_sorter(opts),
+          default_selection_index = default_selection_idx,
+        }):find()
+      end
+      ---------------------
 
       require('telescope.builtin').bookmarks = bookmarks
       require('telescope').load_extension('fzf')
@@ -270,6 +429,9 @@ require('packer').startup(function()
       vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
       -- vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
       vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
+      vim.cmd [[nnoremap <leader>tt <cmd>Telescope terminals<cr>]]
+      vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
+      vim.cmd [[nnoremap <leader>tp <cmd>Telescope bookmarks<cr>]]
     end;
   }
 
@@ -508,5 +670,10 @@ vim.cmd [[set cscopequickfix=s-,c-,d-,i-,t-,e-]]
 vim.cmd[[tnoremap <esc> <C-\><C-n>]]
 
 vim.cmd[[tnoremap kj <C-\><C-n>]]
-vim.cmd('autocmd BufWinEnter,WinEnter term://* startinsert')
-vim.cmd('autocmd TermOpen * setlocal nonumber norelativenumber | startinsert')
+
+-- vim.cmd('autocmd BufWinEnter,WinEnter term://* startinsert')
+-- vim.cmd('autocmd TermOpen * setlocal nonumber norelativenumber | startinsert')
+
+vim.cmd([[command! -nargs=1 RenameTerminalBuffer :lua vim.b.term_title = <q-args> .. ' (' .. vim.fn.bufname('%') .. ')']])
+-- vim.cmd([[nmap <leader>tr :RenameTerminalBuffer<space>]])
+vim.api.nvim_set_keymap('n', 'rt', ':RenameTerminalBuffer<space>',{noremap=false})
