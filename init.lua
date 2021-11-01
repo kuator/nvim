@@ -28,6 +28,9 @@ local disable_distribution_plugins = function()
   vim.g.loaded_netrwFileHandlers = 1
 end
 
+-- Do not source the default filetype.vim
+vim.g.did_load_filetypes = 1
+
 disable_distribution_plugins()
 
 o.termguicolors = true
@@ -53,6 +56,8 @@ local use = require('packer').use
 require('packer').startup(function()
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
+  --
+  use "nathom/filetype.nvim"
   
   use {'lewis6991/impatient.nvim',
     rocks = 'mpack',
@@ -474,16 +479,22 @@ require('packer').startup(function()
       'kuator/some-python-plugin.nvim',
   }
 
-  use { "hrsh7th/cmp-buffer", opt=true }
+  -- use { "hrsh7th/cmp-buffer", opt=true }
 
-  use {
-    "hrsh7th/nvim-cmp",
-    opt = true,
-    event = 'InsertEnter',
-    wants = {
-      "hrsh7th/cmp-buffer"
-    }
-  }
+  -- use {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter", -- for lazyload
+  --   requires = {
+  --     { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
+  --     { "f3fora/cmp-spell", after = "nvim-cmp" },
+  --     { "hrsh7th/cmp-path", after = "nvim-cmp" },
+  --     { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+  --     { "hrsh7th/cmp-calc", after = "nvim-cmp" },
+  --   },
+  --   config = function()
+  --     -- your config
+  --   end,
+  -- }
 
   -- use { "lukas-reineke/indent-blankline.nvim" ,
   --   config = function() 
@@ -551,21 +562,21 @@ require('packer').startup(function()
   }
 
    -- broken
-   -- use {
-   --   'David-Kunz/treesitter-unit', wants = {'nvim-treesitter'} ,
-   --   keys = {
-   --     {'o'; 'iu'};
-   --     {'o'; 'au'};
-   --   };
-   --   opt=true,
-   --   config = function() 
-   --     vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {noremap=true})
-   --     vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', {noremap=true})
-   --     vim.api.nvim_set_keymap('o', 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>', {noremap=true})
-   --     vim.api.nvim_set_keymap('o', 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', {noremap=true})
-   --     -- require"treesitter-unit".enable_highlighting('CursorLine')
-   --   end
-   -- }
+   use {
+     'David-Kunz/treesitter-unit', wants = {'nvim-treesitter'} ,
+     keys = {
+       {'o'; 'iu'};
+       {'o'; 'au'};
+     };
+     opt=true,
+     config = function() 
+       vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {noremap=true})
+       vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', {noremap=true})
+       vim.api.nvim_set_keymap('o', 'iu', ':<c-u>lua require"treesitter-unit".select()<CR>', {noremap=true})
+       vim.api.nvim_set_keymap('o', 'au', ':<c-u>lua require"treesitter-unit".select(true)<CR>', {noremap=true})
+       -- require"treesitter-unit".enable_highlighting('CursorLine')
+     end
+   }
 end)
 
 
