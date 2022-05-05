@@ -52,8 +52,7 @@ vim.api.nvim_exec(
   false
 )
 
-local use = require('packer').use
-require('packer').startup(function()
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
   --
