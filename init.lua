@@ -42,18 +42,10 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-vim.api.nvim_exec(
-  [[
-    augroup Packer
-      autocmd!
-      autocmd BufWritePost init.lua PackerCompile
-    augroup end
-  ]],
-  false
-)
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
 
-local use = require('packer').use
-require('packer').startup(function()
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   -- use 'ludovicchabant/vim-gutentags'
   --
@@ -143,6 +135,15 @@ require('packer').startup(function()
    
 
   use {'kana/vim-textobj-user', opt=true};
+  -- https://github.com/jedrzejboczar/toggletasks.nvim
+
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  --   config=function() 
+  --     require'lualine'.setup()
+  --   end
+  -- }
 
 
   use {
@@ -181,6 +182,10 @@ require('packer').startup(function()
 
   use { 
      'romainl/Apprentice',
+  };
+
+  use { 
+     'seandewar/bad-apple.nvim',
   };
 
   use {
@@ -480,6 +485,110 @@ require('packer').startup(function()
   }
 
   -- use { "hrsh7th/cmp-buffer", opt=true }
+  
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use {'L3MON4D3/LuaSnip', config = function()
+    local function prequire(...)
+    local status, lib = pcall(require, ...)
+    if (status) then return lib end
+        return nil
+    end
+
+    local luasnip = prequire('luasnip')
+    local cmp = prequire("cmp")
+
+    local t = function(str)
+        return vim.api.nvim_replace_termcodes(str, true, true, true)
+    end
+
+    local check_back_space = function()
+        local col = vim.fn.col('.') - 1
+        if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+            return true
+        else
+            return false
+        end
+    end
+
+    _G.tab_complete = function()
+        if cmp and cmp.visible() then
+            cmp.select_next_item()
+        elseif luasnip and luasnip.expand_or_jumpable() then
+            return t("<Plug>luasnip-expand-or-jump")
+        elseif check_back_space() then
+            return t "<Tab>"
+        else
+            cmp.complete()
+        end
+        return ""
+    end
+    _G.s_tab_complete = function()
+        if cmp and cmp.visible() then
+            cmp.select_prev_item()
+        elseif luasnip and luasnip.jumpable(-1) then
+            return t("<Plug>luasnip-jump-prev")
+        else
+            return t "<S-Tab>"
+        end
+        return ""
+    end
+
+    vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+    vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+    vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+    vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+    vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
+    vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+  end
+  }
+  use 'saadparwaiz1/cmp_luasnip' 
+  vim.cmd[[set completeopt=menu,menuone,noselect]]
+  use {'hrsh7th/nvim-cmp', config = function ()
+
+  local cmp = require'cmp'
+    cmp.setup({
+      snippet = {
+        -- REQUIRED - you must specify a snippet engine
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+          -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+          -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        end,
+      },
+      window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      }),
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' }, -- For luasnip users.
+        -- { name = 'ultisnips' }, -- For ultisnips users.
+        -- { name = 'snippy' }, -- For snippy users.
+      }, {
+        { name = 'buffer' },
+      })
+    })
+
+    -- Set configuration for specific filetype.
+    cmp.setup.filetype('gitcommit', {
+      sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+      }, {
+        { name = 'buffer' },
+      })
+    })
+
+  end}
 
   -- use {
   --   "hrsh7th/nvim-cmp",
@@ -558,6 +667,16 @@ require('packer').startup(function()
           }
         }
       }
+
+      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      lspconfig.tsserver.setup{
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+           completions = {completeFunctionCalls = true},
+        }
+      }
+
       end
   }
 
