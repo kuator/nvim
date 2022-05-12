@@ -42,8 +42,8 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
+-- local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+-- vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
@@ -135,6 +135,22 @@ require('packer').startup(function(use)
    
 
   use {'kana/vim-textobj-user', opt=true};
+
+  use {
+    'AckslD/nvim-trevJ.lua',
+    config = 'require("trevj").setup()',  -- optional call for configurating non-default filetypes etc
+
+    -- uncomment if you want to lazy load
+    module = 'trevj',
+
+    -- an example for configuring a keybind, can also be done by filetype
+    setup = function()
+      vim.keymap.set('n', '<leader>j', function()
+        require('trevj').format_at_cursor()
+      end)
+    end,
+  }
+
   -- https://github.com/jedrzejboczar/toggletasks.nvim
 
   -- use {
