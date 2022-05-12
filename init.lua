@@ -482,6 +482,7 @@ require('packer').startup(function(use)
 
   use {
       'kuator/some-python-plugin.nvim',
+      run = './install.sh',
   }
 
   -- use { "hrsh7th/cmp-buffer", opt=true }
