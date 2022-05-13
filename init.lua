@@ -52,7 +52,7 @@ require('packer').startup(function(use)
   use "nathom/filetype.nvim"
   
   use {'lewis6991/impatient.nvim',
-    rocks = 'mpack',
+    -- rocks = 'mpack',
     config = function()
       require('impatient')
     end
@@ -150,6 +150,8 @@ require('packer').startup(function(use)
       end)
     end,
   }
+
+  use {'noib3/nvim-compleet', opt=true};
 
   -- https://github.com/jedrzejboczar/toggletasks.nvim
 
