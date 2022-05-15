@@ -138,6 +138,7 @@ require('packer').startup(function(use)
 
   use {
     'AckslD/nvim-trevJ.lua',
+    opt=true,
     config = 'require("trevj").setup()',  -- optional call for configurating non-default filetypes etc
 
     -- uncomment if you want to lazy load
@@ -204,6 +205,7 @@ require('packer').startup(function(use)
 
   use { 
      'seandewar/bad-apple.nvim',
+     opt=true
   };
 
   use {
@@ -266,200 +268,10 @@ require('packer').startup(function(use)
         }
       }
 
-      local finders = require('telescope.finders')
-      local pickers = require('telescope.pickers')
-      local sorters = require('telescope.sorters')
-      local telescope_config = require("telescope.config").values
-
-      local bookmarks = function(opts)
-        pickers.new(opts, {
-          prompt_title = "Bookmarks",
-          sorter = telescope_config.generic_sorter(opts),
-          finder = finders.new_table {
-            results = {
-              "~/.config/nvim",
-              "~/.config/emacs",
-              "~/Documents/programming/treesitter-unit/lua/treesitter-unit",
-              "~/Documents/payda/paydabackend/",
-              "~/Documents/payda/payda-front/",
-            },
-          },
-          attach_mappings = function(_, map)
-            return true
-          end
-        }):find()
-
-      end
-      ---------------------
-      local filter = vim.tbl_filter
-      local make_entry = require "telescope.make_entry"
-      local previewers = require "telescope.previewers"
-      local conf = require("telescope.config").values
-      local action_set = require "telescope.actions.set"
-      require('telescope.builtin').buffers = function(opts)
-        local bufnrs = filter(function(b)
-          if 1 ~= vim.fn.buflisted(b) then
-            return false
-          end
-          -- only hide unloaded buffers if opts.show_all_buffers is false, keep them listed if true or nil
-          if opts.show_all_buffers == false and not vim.api.nvim_buf_is_loaded(b) then
-            return false
-          end
-          if opts.ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
-            return false
-          end
-          if opts.only_cwd and not string.find(vim.api.nvim_buf_get_name(b), vim.loop.cwd(), 1, true) then
-            return false
-          end
-          return true
-        end, vim.api.nvim_list_bufs())
-        if not next(bufnrs) then
-          return
-        end
-        if opts.sort_mru then
-          table.sort(bufnrs, function(a, b)
-            return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
-          end)
-        end
-
-        local buffers = {}
-        local default_selection_idx = 1
-        for _, bufnr in ipairs(bufnrs) do
-          local flag = bufnr == vim.fn.bufnr "" and "%" or (bufnr == vim.fn.bufnr "#" and "#" or " ")
-
-          if opts.sort_lastused and not opts.ignore_current_buffer and flag == "#" then
-            default_selection_idx = 2
-          end
-
-          local buf_info = vim.fn.getbufinfo(bufnr)[1]
-
-          local cloned_buf_info = vim.deepcopy(buf_info)
-          if cloned_buf_info.variables.term_title then
-            cloned_buf_info.name = cloned_buf_info.variables.term_title
-          end
-
-          local element = {
-            bufnr = bufnr,
-            flag = flag,
-            info = cloned_buf_info,
-          }
-
-          if opts.sort_lastused and (flag == "#" or flag == "%") then
-            local idx = ((buffers[1] ~= nil and buffers[1].flag == "%") and 2 or 1)
-            table.insert(buffers, idx, element)
-          else
-            table.insert(buffers, element)
-          end
-        end
-
-        if not opts.bufnr_width then
-          local max_bufnr = math.max(unpack(bufnrs))
-          opts.bufnr_width = #tostring(max_bufnr)
-        end
-
-        pickers.new(opts, {
-          prompt_title = "Buffers",
-          finder = finders.new_table {
-            results = buffers,
-            entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts),
-          },
-          previewer = previewers.buffers.new(opts),
-          sorter = conf.generic_sorter(opts),
-          default_selection_index = default_selection_idx,
-          attach_mappings = function(_, _)
-            action_set.select:enhance {
-              post = function()
-                local entry = action_state.get_selected_entry()
-                vim.api.nvim_win_set_cursor(0, { entry.lnum, entry.col or 0 })
-              end,
-            }
-            return true
-          end,
-        }):find()
-      end
-      --------------------
-      require('telescope.builtin').terminals = function(opts)
-        local bufnrs = filter(function(b)
-          if 1 ~= vim.fn.buflisted(b) then
-              return false
-          end
-          if not opts.show_all_buffers and not vim.api.nvim_buf_is_loaded(b) then
-            return false
-          end
-          if opts.ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
-            return false
-          end
-          return true
-        end, vim.api.nvim_list_bufs())
-        if not next(bufnrs) then return end
-      
-        local t_bufnrs = filter(function(b)
-            return vim.fn.getbufinfo(b)[1].variables.term_title ~= nil
-        end, bufnrs)
-        if not next(t_bufnrs) then return end
-      
-        local buffers = {}
-        local default_selection_idx = 1
-        for _, bufnr in ipairs(t_bufnrs) do
-          local flag = bufnr == vim.fn.bufnr('') and '%' or (bufnr == vim.fn.bufnr('#') and '#' or ' ')
-      
-          if opts.sort_lastused and not opts.ignore_current_buffer and flag == "#" then
-            default_selection_idx = 2
-          end
-
-          local buf_info = vim.fn.getbufinfo(bufnr)[1]
-
-          local cloned_buf_info = vim.deepcopy(buf_info)
-          if cloned_buf_info.variables.term_title then
-            cloned_buf_info.name = cloned_buf_info.variables.term_title
-          end
-      
-          local element = {
-            bufnr = bufnr,
-            flag = flag,
-            info = cloned_buf_info,
-          }
-      
-          if opts.sort_lastused and (flag == "#" or flag == "%") then
-            local idx = ((buffers[1] ~= nil and buffers[1].flag == "%") and 2 or 1)
-            table.insert(buffers, idx, element)
-          else
-            table.insert(buffers, element)
-          end
-        end
-      
-        if not opts.bufnr_width then
-          local max_bufnr = math.max(unpack(bufnrs))
-          opts.bufnr_width = #tostring(max_bufnr)
-        end
-      
-        pickers.new(opts, {
-          prompt_title = 'Terminals',
-          finder    = finders.new_table {
-            results = buffers,
-            entry_maker = opts.entry_maker or make_entry.gen_from_buffer(opts)
-          },
-          -- previewer = conf.grep_previewer(opts),
-          previewer = previewers.buffers.new(opts),
-          sorter = conf.generic_sorter(opts),
-          default_selection_index = default_selection_idx,
-        }):find()
-      end
-      ---------------------
-
-      require('telescope.builtin').bookmarks = bookmarks
-      require('telescope').load_extension('fzf')
-      require('telescope').load_extension('frecency')
-
       -- vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
       vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({find_command = {"fdfind", "--no-ignore-vcs", "--hidden", "--ignore-file", vim.fn.expand("~/.config/.ignore")}}))<cr>]], { noremap = true, silent = true })
-      vim.cmd [[nnoremap <leader>tb <cmd>Telescope bookmarks<cr>]]
       vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
-      -- vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
-      vim.cmd [[nnoremap <leader>th <cmd>Telescope help_tags<cr>]]
-      vim.cmd [[nnoremap <leader>tt <cmd>Telescope terminals<cr>]]
       vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
-      vim.cmd [[nnoremap <leader>tp <cmd>Telescope bookmarks<cr>]]
     end;
   }
 
@@ -481,166 +293,11 @@ require('packer').startup(function(use)
     end
   }
 
-  -- use {
-  --  'nvim-treesitter/nvim-treesitter-refactor',
-  --  opt=true,
-  --  wants = 'nvim-treesitter',
-  --  config = function() 
-  --   -- vim.cmd('hi TSDefinitionUsage cterm=underline gui=underline')
-  --   -- vim.cmd('hi TSDefinition cterm=underline gui=underline')
-  --   require'nvim-treesitter.configs'.setup {
-  --     refactor = {
-  --      highlight_current_scope = { enable = true },
-  --      highlight_definitions = { enable = true },
-  --     },
-  --   }
-  --  end,
-  --  event = 'BufReadPre'
-  -- }
-
   use {
       'kuator/some-python-plugin.nvim',
   }
 
   -- use { "hrsh7th/cmp-buffer", opt=true }
-  
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use {'L3MON4D3/LuaSnip', config = function()
-    local function prequire(...)
-    local status, lib = pcall(require, ...)
-    if (status) then return lib end
-        return nil
-    end
-
-    local luasnip = prequire('luasnip')
-    local cmp = prequire("cmp")
-
-    local t = function(str)
-        return vim.api.nvim_replace_termcodes(str, true, true, true)
-    end
-
-    local check_back_space = function()
-        local col = vim.fn.col('.') - 1
-        if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-            return true
-        else
-            return false
-        end
-    end
-
-    _G.tab_complete = function()
-        if cmp and cmp.visible() then
-            cmp.select_next_item()
-        elseif luasnip and luasnip.expand_or_jumpable() then
-            return t("<Plug>luasnip-expand-or-jump")
-        elseif check_back_space() then
-            return t "<Tab>"
-        else
-            cmp.complete()
-        end
-        return ""
-    end
-    _G.s_tab_complete = function()
-        if cmp and cmp.visible() then
-            cmp.select_prev_item()
-        elseif luasnip and luasnip.jumpable(-1) then
-            return t("<Plug>luasnip-jump-prev")
-        else
-            return t "<S-Tab>"
-        end
-        return ""
-    end
-
-    vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-    vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-    vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
-  end
-  }
-  use 'saadparwaiz1/cmp_luasnip' 
-  vim.cmd[[set completeopt=menu,menuone,noselect]]
-  use {'hrsh7th/nvim-cmp', config = function ()
-
-  local cmp = require'cmp'
-    cmp.setup({
-      snippet = {
-        -- REQUIRED - you must specify a snippet engine
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-          -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        end,
-      },
-      window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
-      },
-      mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-      }),
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-      }, {
-        { name = 'buffer' },
-      })
-    })
-
-    -- Set configuration for specific filetype.
-    cmp.setup.filetype('gitcommit', {
-      sources = cmp.config.sources({
-        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-      }, {
-        { name = 'buffer' },
-      })
-    })
-
-  end}
-
-  -- use {
-  --   "hrsh7th/nvim-cmp",
-  --   event = "InsertEnter", -- for lazyload
-  --   requires = {
-  --     { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
-  --     { "f3fora/cmp-spell", after = "nvim-cmp" },
-  --     { "hrsh7th/cmp-path", after = "nvim-cmp" },
-  --     { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-  --     { "hrsh7th/cmp-calc", after = "nvim-cmp" },
-  --   },
-  --   config = function()
-  --     -- your config
-  --   end,
-  -- }
-
-  -- use { "lukas-reineke/indent-blankline.nvim" ,
-  --   config = function() 
-  --     vim.opt.listchars = {
-  --       space = "⋅",
-  --       eol = "↴",
-  --     }
-  --
-  --     require("indent_blankline").setup {
-  --       space_char_blankline = " ",
-  --       show_current_context = true,
-  --       -- char = "|",
-  --       buftype_exclude = {"terminal"},
-  --     }
-  --   end,
-  --   opt=true,
-  --   event='BufReadPost',
-  --   wants = 'nvim-treesitter'
-  -- }
 
   use {
     'neovim/nvim-lspconfig',
@@ -686,7 +343,7 @@ require('packer').startup(function(use)
         }
       }
 
-      local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+      -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
       lspconfig.tsserver.setup{
         on_attach = on_attach,
         capabilities = capabilities,
