@@ -297,6 +297,11 @@ require('packer').startup(function(use)
       'kuator/some-python-plugin.nvim',
   }
 
+  use {
+      'simrat39/symbols-outline.nvim',
+      opt=true
+  }
+
   -- use { "hrsh7th/cmp-buffer", opt=true }
 
   use {
@@ -452,7 +457,7 @@ o.number = true
 o.relativenumber = true
 o.wrap = false
 
-
+vim.cmd('filetype plugin on')
 
 o.expandtab = true
 bo.expandtab = true
@@ -482,3 +487,4 @@ vim.cmd[[tnoremap kj <C-\><C-n>]]
 vim.cmd([[command! -nargs=1 RenameTerminalBuffer :lua vim.b.term_title = <q-args> .. ' (' .. vim.fn.bufname('%') .. ')']])
 -- vim.cmd([[nmap <leader>tr :RenameTerminalBuffer<space>]])
 vim.api.nvim_set_keymap('n', 'rt', ':RenameTerminalBuffer<space>',{noremap=false})
+
