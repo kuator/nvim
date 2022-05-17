@@ -41,7 +41,7 @@ local is_bootstrap = false
 
 if not vim.loop.fs_stat(vim.fn.glob(install_path)) then
   is_bootstrap = true
-  os.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  os.execute('git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
 require('packer').startup(function(use)
