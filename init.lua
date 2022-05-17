@@ -6,6 +6,7 @@ local cmd = vim.cmd
 local exec = vim.api.nvim_exec
 local fn = vim.fn
 local api = vim.api
+local uv = vim.loop
 
 local disable_distribution_plugins = function()
   vim.g.loaded_gzip              = 1
@@ -33,17 +34,15 @@ vim.g.did_load_filetypes = 1
 
 disable_distribution_plugins()
 
-o.termguicolors = true
-
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-end
+local is_bootstrap = false
 
--- local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
--- vim.api.nvim_create_autocmd('BufWritePost', { command = 'source <afile> | PackerCompile', group = packer_group, pattern = 'init.lua' })
+if not vim.loop.fs_stat(vim.fn.glob(install_path)) then
+  is_bootstrap = true
+  os.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+end
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
@@ -76,10 +75,10 @@ require('packer').startup(function(use)
     keys = {{'n'; 'ys'}; {'x'; 'S'}; {'n'; 'cs'}; };
   };
 
-  use {
-    'leafOfTree/vim-vue-plugin';
-    ft = 'vue';
-  };
+  -- use {
+  --   'leafOfTree/vim-vue-plugin';
+  --   ft = 'vue';
+  -- };
   
   use {
     'MaxMEllon/vim-jsx-pretty';
@@ -93,16 +92,6 @@ require('packer').startup(function(use)
   };
 
   use {'nvim-lua/plenary.nvim', opt=true};
-
-  use {
-    'tjdevries/complextras.nvim',
-    opt = true;
-    wants = 'plenary.nvim';
-    keys = {{'i'; '<c-x><c-w>'}};
-    config=function() 
-      vim.cmd[[inoremap <c-x><c-w> <c-r>=luaeval("require('complextras').complete_line_from_cwd()")<CR>]]
-    end
-  };
 
   use {
     'tpope/vim-unimpaired';
@@ -125,15 +114,6 @@ require('packer').startup(function(use)
     end
   };
   
-  -- use {'folke/tokyonight.nvim',
-  --   config = function()
-  --     vim.g.tokyonight_transparent = true
-  --     vim.g.tokyonight_style = "night"
-  --     vim.cmd[[colorscheme tokyonight]]
-  --   end
-  -- };
-   
-
   use {'kana/vim-textobj-user', opt=true};
 
   use {
@@ -197,10 +177,6 @@ require('packer').startup(function(use)
     'tpope/vim-rsi',
     opt=true ,
     event = 'InsertEnter' 
-  };
-
-  use { 
-     'romainl/Apprentice',
   };
 
   use { 
@@ -302,13 +278,10 @@ require('packer').startup(function(use)
       opt=true
   }
 
-  -- use { "hrsh7th/cmp-buffer", opt=true }
-
   use {
     'neovim/nvim-lspconfig',
     requires = 'some-python-plugin.nvim',
     config = function ()
-      local uv = vim.loop
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       local lspconfig = require('lspconfig')
       local configs = require'lspconfig/configs'
@@ -376,7 +349,21 @@ require('packer').startup(function(use)
        -- require"treesitter-unit".enable_highlighting('CursorLine')
      end
    }
+
+   if is_bootstrap then
+     require('packer').sync()
+   end
+
 end)
+
+if is_bootstrap then
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
+  return
+end
 
 
 --rg
@@ -384,6 +371,8 @@ if fn.executable("rg") then
   o.grepprg="rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
   o.grepformat='%f:%l:%c:%m,%f:%l:%m'
 end
+
+o.termguicolors = true
 
 -- fdfind 
 -- location list needs this to work with fdfind
@@ -402,17 +391,16 @@ o.smartcase = true
 
 
 o.swapfile = true
-o.directory = fn.expand(fn.stdpath('data') .. '/swap//')
 o.backup = true
 o.backupcopy = 'yes'
-o.backupdir = fn.expand(fn.stdpath('data') .. '/backup//')
 o.undofile = true
-o.undodir = fn.expand(fn.stdpath('data') .. '/undo//')
 
-
-if fn.isdirectory(o.directory) == 0 then fn.mkdir(o.directory, 'p') end
-if fn.isdirectory(o.backupdir) == 0 then fn.mkdir(o.backupdir, 'p') end
-if fn.isdirectory(o.undodir) == 0 then fn.mkdir(o.undodir, 'p') end
+folders = { directory = 'swap', backupdir = 'backup', undodir= 'undo'}
+for option, folder in pairs(folders) do
+  local path = fn.expand(fn.stdpath('data') .. '/' .. folder .. '//')
+  o[option] = path
+  if not uv.fs_stat(path) then uv.fs_mkdir(path, 493) end
+end
 
 -- interactive substitute
 o.inccommand = 'split'
@@ -487,4 +475,3 @@ vim.cmd[[tnoremap kj <C-\><C-n>]]
 vim.cmd([[command! -nargs=1 RenameTerminalBuffer :lua vim.b.term_title = <q-args> .. ' (' .. vim.fn.bufname('%') .. ')']])
 -- vim.cmd([[nmap <leader>tr :RenameTerminalBuffer<space>]])
 vim.api.nvim_set_keymap('n', 'rt', ':RenameTerminalBuffer<space>',{noremap=false})
-
