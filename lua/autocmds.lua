@@ -30,3 +30,8 @@ vim.api.nvim_create_autocmd('QuickFixCmdPost', {
   command = 'lwindow',
   pattern = 'l*',
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  command = 'set fo-=c fo-=r fo-=o',
+  pattern = '*',
+})

@@ -60,7 +60,7 @@ local globals = {
   loaded_netrwFileHandlers = 1,
   -- Do not source the default filetype.vim
   did_load_filetypes       = 1,
-  mapleader = ' '
+  mapleader                = ' '
 }
 
 for k, v in pairs(globals) do
@@ -77,12 +77,13 @@ end
 
 -- fdfind 
 -- location list needs this to work with fdfind
-vim.opt.errorformat:append ",%f"
+-- vim.opt.errorformat doens't work
+vim.opt.errorformat = vim.o.errorformat .. ',%f'
 
 vim.cmd('filetype plugin on')
 
 vim.opt.shortmess:append('c')
 
-vim.opt.formatoptions:remove('c')
-vim.opt.formatoptions:remove('r')
-vim.opt.formatoptions:remove('o')
+-- vim.opt.formatoptions:remove('c')
+-- vim.opt.formatoptions:remove('r')
+-- vim.opt.formatoptions:remove('o')

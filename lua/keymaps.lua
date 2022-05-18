@@ -7,7 +7,7 @@ vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**/*'<cr>]])
 
 vim.keymap.set('n', '<leader>lg', ':silent lgrep<space>')
-vim.keymap.set('n', '<leader>lf', [[:silent lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file ~/.config/.ignore -g "*"')<left><left><left><left>]], {silent=true})
+vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file ~/.config/.ignore -g "*"')<left><left><left><left>]] )
 vim.keymap.set('n', '<leader>lt', ':ltag <space>/', {silent=true})
 vim.keymap.set('n', '<leader>cc', ':cclose<bar>lclose<cr>', { silent = true})
 vim.keymap.set('n', 'cd', ':lcd %:p:h<bar>pwd<cr>')
