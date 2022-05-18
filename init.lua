@@ -73,7 +73,6 @@ require('packer').startup(function(use)
 
   use {'liuchengxu/space-vim-dark',
     config = function()
-      -- vim.g.space_nvim_transparent_bg = true
       vim.cmd('colorscheme space-vim-dark')
       vim.cmd('hi Normal     ctermbg=NONE guibg=NONE')
       vim.cmd('hi LineNr     ctermbg=NONE guibg=NONE')
