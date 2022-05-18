@@ -22,7 +22,6 @@ require('packer').startup(function(use)
   use "nathom/filetype.nvim"
   
   use {'lewis6991/impatient.nvim',
-    -- rocks = 'mpack',
     config = function()
       require('impatient')
     end
@@ -46,10 +45,10 @@ require('packer').startup(function(use)
     keys = {{'n'; 'ys'}; {'x'; 'S'}; {'n'; 'cs'}; };
   };
 
-  -- use {
-  --   'leafOfTree/vim-vue-plugin';
-  --   ft = 'vue';
-  -- };
+  use {
+    'leafOfTree/vim-vue-plugin';
+    ft = 'vue';
+  };
   
   use {
     'MaxMEllon/vim-jsx-pretty';
