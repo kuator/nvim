@@ -1,5 +1,5 @@
 -- rg
-if fn.executable("rg") then
+if vim.fn.executable("rg") then
   vim.opt.grepprg="rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
   vim.opt.grepformat = {
     '%f:%l:%c:%m', '%f:%l:%m'
@@ -70,7 +70,7 @@ end
 -- create backup folders
 folders = { directory = 'swap', backupdir = 'backup', undodir= 'undo'}
 for option, folder in pairs(folders) do
-  local path = fn.expand(fn.stdpath('data') .. '/' .. folder .. '//')
+  local path = vim.fn.expand(vim.fn.stdpath('data') .. '/' .. folder .. '//')
   vim.o[option] = path
   if not vim.loop.fs_stat(path) then vim.loop.fs_mkdir(path, 493) end
 end

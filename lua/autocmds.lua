@@ -22,11 +22,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- https://www.reddit.com/r/vim/comments/bmh977/automatically_open_quickfix_window_after/
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
-  cmd = 'cwindow',
+  command = 'cwindow',
   pattern = '[^l]*',
 })
 
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
-  cmd = 'lwindow',
+  command = 'lwindow',
   pattern = 'l*',
 })
