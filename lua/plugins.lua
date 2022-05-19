@@ -13,13 +13,13 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
 
-  -- use 'ludovicchabant/vim-gutentags'
+  use(require'plugins.vim-gutentags')
 
   use "nathom/filetype.nvim"
-  
+
   use {'lewis6991/impatient.nvim',
     config = function()
-      require('plugins.impatient')
+      require('impatient')
     end
   }
 
@@ -38,7 +38,7 @@ require('packer').startup(function(use)
   use {
     'tpope/vim-surround';
     opt = true;
-    keys = {{'n'; 'ys'}; {'x'; 'S'}; {'n'; 'cs'}; };
+              keys = {{'n'; 'ys'}; {'x'; 'S'}; {'n'; 'cs'}; };
   };
 
   use {
@@ -132,6 +132,13 @@ require('packer').startup(function(use)
   use(require'plugins.gitsigns')
 
   use(require'plugins.nvim-treesitter')
+
+  use "jose-elias-alvarez/null-ls.nvim"
+
+  use "williamboman/nvim-lsp-installer"
+
+  use(require'plugins.lsp')
+
 
   use {
       'kuator/some-python-plugin.nvim',

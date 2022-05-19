@@ -7,9 +7,9 @@ if vim.fn.executable("rg") then
 end
 
 local options = {
-  clipboard       = "unnamedplus", 
+  clipboard       = "unnamedplus",
   updatetime      = 100,
-  incsearch       = true, 
+  incsearch       = true,
   hlsearch        = true,
   ignorecase      = true,
   smartcase       = true,
@@ -68,14 +68,14 @@ for k, v in pairs(globals) do
 end
 
 -- create backup folders
-folders = { directory = 'swap', backupdir = 'backup', undodir= 'undo'}
+local folders = { directory = 'swap', backupdir = 'backup', undodir= 'undo'}
 for option, folder in pairs(folders) do
   local path = vim.fn.expand(vim.fn.stdpath('data') .. '/' .. folder .. '//')
   vim.o[option] = path
   if not vim.loop.fs_stat(path) then vim.loop.fs_mkdir(path, 493) end
 end
 
--- fdfind 
+-- fdfind
 -- location list needs this to work with fdfind
 -- vim.opt.errorformat doens't work
 vim.opt.errorformat = vim.o.errorformat .. ',%f'
