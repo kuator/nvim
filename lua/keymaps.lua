@@ -1,15 +1,15 @@
 vim.keymap.set('n', '<a-c>', ':')
 vim.keymap.set('v', '<a-c>', ':')
 vim.keymap.set('i', 'kj', '<esc>')
-vim.keymap.set('n', '<c-l>', '<c-l>:nohls<cr>', { silent=true })
+vim.keymap.set('n', '<c-l>', '<c-l>:nohls<cr>', { silent = true })
 
 vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**/*'<cr>]])
 
 vim.keymap.set('n', '<leader>lg', ':silent lgrep<space>')
-vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file ~/.config/.ignore -g "*"')<left><left><left><left>]] )
-vim.keymap.set('n', '<leader>lt', ':ltag <space>/', {silent=true})
-vim.keymap.set('n', '<leader>cc', ':cclose<bar>lclose<cr>', { silent = true})
+vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file ~/.config/.ignore -g "*"')<left><left><left><left>]])
+vim.keymap.set('n', '<leader>lt', ':ltag <space>/', { silent = true })
+vim.keymap.set('n', '<leader>cc', ':cclose<bar>lclose<cr>', { silent = true })
 vim.keymap.set('n', 'cd', ':lcd %:p:h<bar>pwd<cr>')
 vim.keymap.set('n', 'cu', ':lcd ..<bar>pwd<cr>')
 
@@ -26,4 +26,4 @@ vim.keymap.set('t', 'kj', [[<C-\><C-n>]])
 
 -- cscope
 vim.keymap.set('n', 'csfs', ':cs f s ')
-vim.opt.cscopequickfix = {"s-", "c-", "d-", "i-", "t-", "e-"}
+vim.opt.cscopequickfix = { "s-", "c-", "d-", "i-", "t-", "e-" }

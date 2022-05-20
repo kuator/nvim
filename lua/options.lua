@@ -1,36 +1,36 @@
 -- rg
 if vim.fn.executable("rg") then
-  vim.opt.grepprg="rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
+  vim.opt.grepprg = "rg --vimgrep --no-heading --hidden --smart-case --no-ignore-vcs --ignore-file ~/.config/.ignore"
   vim.opt.grepformat = {
     '%f:%l:%c:%m', '%f:%l:%m'
   }
 end
 
 local options = {
-  clipboard       = "unnamedplus",
-  updatetime      = 100,
-  incsearch       = true,
-  hlsearch        = true,
-  ignorecase      = true,
-  smartcase       = true,
-  swapfile        = true,
-  backup          = true,
-  backupcopy      = 'yes',
-  undofile        = true,
-  inccommand      = 'split',
-  hidden          = true,
-  termguicolors   = true,
-  number          = true,
-  relativenumber  = true,
-  wrap            = false,
-  expandtab       = true,
-  shiftwidth      = 2,
+  clipboard      = "unnamedplus",
+  updatetime     = 100,
+  incsearch      = true,
+  hlsearch       = true,
+  ignorecase     = true,
+  smartcase      = true,
+  swapfile       = true,
+  backup         = true,
+  backupcopy     = 'yes',
+  undofile       = true,
+  inccommand     = 'split',
+  hidden         = true,
+  termguicolors  = true,
+  number         = true,
+  relativenumber = true,
+  wrap           = false,
+  expandtab      = true,
+  shiftwidth     = 2,
   -- when 'sts' is negative, the value of 'shiftwidth' is used.,
-  softtabstop     = -1,
-  autoindent      = true,
-  splitbelow      = true,
-  splitright      = true,
-  signcolumn      = 'yes',
+  softtabstop    = -1,
+  autoindent     = true,
+  splitbelow     = true,
+  splitright     = true,
+  signcolumn     = 'yes',
 }
 
 
@@ -68,7 +68,7 @@ for k, v in pairs(globals) do
 end
 
 -- create backup folders
-local folders = { directory = 'swap', backupdir = 'backup', undodir= 'undo'}
+local folders = { directory = 'swap', backupdir = 'backup', undodir = 'undo' }
 for option, folder in pairs(folders) do
   local path = vim.fn.expand(vim.fn.stdpath('data') .. '/' .. folder .. '//')
   vim.o[option] = path
