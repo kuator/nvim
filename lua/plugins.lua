@@ -70,7 +70,7 @@ require('packer').startup(function(use)
 
   use { 'kana/vim-textobj-user', opt = true };
 
-  use(require 'plugins.nvim-trevj')
+  -- use(require 'plugins.nvim-trevj')
 
   use { 'noib3/nvim-compleet', opt = true };
 
@@ -130,7 +130,6 @@ require('packer').startup(function(use)
 
   use(require 'plugins.gitsigns')
 
-  use(require 'plugins.nvim-treesitter')
 
   use "jose-elias-alvarez/null-ls.nvim"
 
@@ -147,6 +146,8 @@ require('packer').startup(function(use)
     'simrat39/symbols-outline.nvim',
     opt = true
   }
+
+  use(require 'plugins.nvim-treesitter')
 
   -- broken
   use(require 'plugins.treesitter-unit')

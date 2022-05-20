@@ -63,6 +63,6 @@ return {
 
 
     -- custom
-    vim.g.gutentags_modules = { 'ctags', 'cscope', 'pycscope' }
+    vim.g.gutentags_modules = { 'ctags', 'cscope' }
   end
 }

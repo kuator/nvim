@@ -1,7 +1,7 @@
 return {
     'AckslD/nvim-trevJ.lua',
     opt=true,
-    config = 'require("trevj").setup()',  -- optional call for configurating non-default filetypes etc
+    config = require("trevj").setup,  -- optional call for configurating non-default filetypes etc
 
     -- uncomment if you want to lazy load
     module = 'trevj',
