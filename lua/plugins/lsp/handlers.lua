@@ -16,7 +16,7 @@ local M = {}
 --   end
 -- end
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymaps(client, bufnr)
   -- Keybindings for LSPs
   vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
@@ -32,13 +32,20 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
   -- vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+
+  -- https://github.com/MurdeRM3L0DY/dotfiles/blob/b756d26a39351366ab30086440e1fbe8655efc39/roles/nvim/files/lua/plugins/null-ls/config.lua
+  if client.supports_method 'textDocument/formatting' then
+    vim.keymap.set('n', '<leader>F', function()
+      vim.lsp.buf.format { buffer = bufnr }
+    end, { buffer = bufnr })
+  end
 end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.resolved_capabilities.document_formatting = false
   end
-  lsp_keymaps(bufnr)
+  lsp_keymaps(client, bufnr)
   -- lsp_highlight_document(client)
 end
 
