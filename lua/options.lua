@@ -8,7 +8,7 @@ end
 
 local options = {
   clipboard      = "unnamedplus",
-  updatetime     = 100,
+  updatetime     = 250,
   incsearch      = true,
   hlsearch       = true,
   ignorecase     = true,
@@ -86,6 +86,3 @@ vim.opt.shortmess:append('c')
 
 vim.opt.completeopt:remove('preview')
 
--- vim.opt.formatoptions:remove('c')
--- vim.opt.formatoptions:remove('r')
--- vim.opt.formatoptions:remove('o')
