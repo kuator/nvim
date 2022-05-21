@@ -14,6 +14,8 @@ return {
         ["ic"] = "@class.inner",
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
+        ["am"] = "@call.outer",
+        ["im"] = "@call.inner",
       },
     },
   },

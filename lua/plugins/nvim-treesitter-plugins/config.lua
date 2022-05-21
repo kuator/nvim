@@ -1,5 +1,4 @@
 -- plugins/nvim-treesitter-plugins.
-
 local folderOfThisFile = (...):match("(.-)[^%.]+$")
 
 local modules = require(folderOfThisFile .. 'modules')

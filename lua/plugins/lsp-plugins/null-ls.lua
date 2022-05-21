@@ -12,7 +12,7 @@ return {
     local diagnostics = null_ls.builtins.diagnostics
 
     null_ls.setup({
-      debug = true,
+      debug = false,
       sources = {
         -- formatting.stylua.with({ extra_args = { "--indent_type", "Spaces", "indent_width", "2" } }),
         diagnostics.flake8

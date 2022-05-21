@@ -14,4 +14,22 @@ return {
     wants = 'vim-textobj-user';
     keys = { { 'o'; 'iv' }; { 'o'; 'av' }; { 'x'; 'iv' }; { 'x'; 'av' }; };
   };
+  {
+    'https://github.com/AndrewRadev/dsf.vim',
+    opt = true,
+    keys = { { 'n'; 'ds' }; { 'n'; 'csf' }}
+  },
+  {
+    'AckslD/nvim-trevJ.lua',
+    config = 'require("trevj").setup()',
+    -- optional call for configurating non-default filetypes etc
+    -- uncomment if you want to lazy load
+    module = 'trevj',
+    -- an example for configuring a keybind, can also be done by filetype
+    setup = function()
+      vim.keymap.set('n', '<leader>j', function()
+        require('trevj').format_at_cursor()
+      end)
+    end,
+  }
 }
