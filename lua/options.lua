@@ -31,7 +31,8 @@ local options = {
   splitbelow     = true,
   splitright     = true,
   signcolumn     = 'yes',
-  completeopt    = 'menuone,noselect'
+  completeopt    = 'menuone,noselect',
+  laststatus     = 3
 }
 
 

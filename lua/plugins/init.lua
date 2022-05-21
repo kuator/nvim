@@ -38,6 +38,22 @@ require('packer').startup(function(use)
   use(require 'plugins.stuffs')
 
   use {
+    "b0o/incline.nvim",
+    config = function ()
+      require('incline').setup({
+        render = function(props)
+          local bufname = vim.api.nvim_buf_get_name(props.buf)
+          if bufname == "" then
+            return "[No name]"
+          else
+            return vim.fn.fnamemodify(bufname, ":.")
+          end
+        end,
+      })
+    end
+  }
+
+  use {
     'lukas-reineke/indent-blankline.nvim',
     opt = true,
     event = "BufReadPre",
