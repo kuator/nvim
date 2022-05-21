@@ -29,11 +29,26 @@ require('packer').startup(function(use)
   use(require 'plugins.telescope')
   use(require('plugins.text-objects-operators'))
   use(require 'plugins.gitsigns')
-  use(require('plugins.nvim-treesitter-plugins').plugins)
+  use(require('plugins.nvim-treesitter-plugins'))
+  -- use(require 'plugins.skkeleton')
   use(require 'plugins.lsp-plugins')
-  use(require 'plugins.skkeleton')
+  use(require 'plugins.cmp-and-luasnip')
   -- broken
   use(require 'plugins.treesitter-unit')
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    opt = true,
+    event = "BufReadPre",
+    config = function ()
+      require('indent_blankline').setup {
+        char = '┊',
+        show_trailing_blankline_indent = false,
+      }
+    end
+  }
+
+  -- use(require 'plugins.treesitter-unit')
 
   if bootstrap then
     require("packer").sync()

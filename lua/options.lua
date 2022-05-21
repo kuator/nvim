@@ -31,6 +31,7 @@ local options = {
   splitbelow     = true,
   splitright     = true,
   signcolumn     = 'yes',
+  completeopt    = 'menuone,noselect'
 }
 
 
@@ -83,6 +84,3 @@ vim.opt.errorformat = vim.o.errorformat .. ',%f'
 vim.cmd('filetype plugin on')
 
 vim.opt.shortmess:append('c')
-
-vim.opt.completeopt:remove('preview')
-

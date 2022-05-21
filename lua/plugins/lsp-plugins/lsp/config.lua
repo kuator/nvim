@@ -1,11 +1,12 @@
 local servers = { "pylance", "sumneko_lua", "tsserver" }
 local ensure_installed = vim.tbl_filter(function(d) return d ~= "pylance" end, servers)
 
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.setup {
-  ensure_installed = ensure_installed
-}
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if status_ok then
+  lsp_installer.setup {
+    ensure_installed = ensure_installed
+  }
+end
 
 -- https://stackoverflow.com/questions/9145432/load-lua-files-by-relative-path
 -- "plugins.lsp-plugins.lsp"

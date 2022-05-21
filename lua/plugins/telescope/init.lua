@@ -5,8 +5,7 @@ return {
       "nvim-telescope/telescope-frecency.nvim",
       opt = true,
       wants = { "sql.nvim" }
-    }
-  },
+    },
   {
       'nvim-telescope/telescope.nvim',
       wants = {
@@ -16,17 +15,26 @@ return {
       },
       opt=true,
       keys = {
-        {'n'; '<leader>tf'};
-        {'n'; '<leader>tb'};
-        {'n'; '<leader>tg'};
-        {'n'; '<leader>tt'};
-        {'n'; '<leader>tp'};
+        {'n'; '<leader>sf'};
+        {'n'; '<leader>sb'};
+        {'n'; '<leader>sg'};
+        {'n'; '<leader>st'};
+        {'n'; '<leader>sp'};
       };
       cmd = {
         'Telescope'
       };
-      config=function() 
+
+      config=function()
         require('telescope').setup {
+          defaults = {
+            mappings = {
+              i = {
+                ["<C-u>"] = false,
+                ["<C-d>"] = false
+              },
+            },
+          },
           extensions = {
             fzf = {
               fuzzy = true,                    -- false will only do exact matching
@@ -38,9 +46,25 @@ return {
           }
         }
 
-        -- vim.cmd [[nnoremap <leader>tf <cmd>Telescope find_files<cr>]]
-        vim.api.nvim_set_keymap('n', '<leader>tf', [[<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({find_command = {"fdfind", "--no-ignore-vcs", "--hidden", "--ignore-file", vim.fn.expand("~/.config/.ignore")}}))<cr>]], { noremap = true, silent = true })
-        vim.cmd [[nnoremap <leader>tg <cmd>Telescope live_grep<cr>]]
-        vim.cmd [[nnoremap <leader>tb <cmd>Telescope buffers<cr>]]
+        local function custom_find()
+          require'telescope.builtin'.find_files(
+            require('telescope.themes').get_dropdown({
+                find_command = {
+                  "fdfind",
+                  "--no-ignore-vcs",
+                  "--hidden",
+                  "--ignore-file",
+                  vim.fn.expand("~/.config/.ignore")
+                }
+              }
+            )
+          )
+        end
+
+        vim.keymap.set('n', '<leader>sf', custom_find, { silent = true })
+        vim.keymap.set('n', '<leader>sd', require('telescope.builtin').grep_string)
+        vim.keymap.set('n', '<leader>sp', require('telescope.builtin').live_grep)
+        vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
       end;
-    }
+  }
+}
