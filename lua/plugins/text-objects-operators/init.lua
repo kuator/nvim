@@ -17,7 +17,7 @@ return {
   {
     'https://github.com/AndrewRadev/dsf.vim',
     opt = true,
-    keys = { { 'n'; 'ds' }; { 'n'; 'csf' }}
+    keys = { { 'n'; 'dsf' }; {'n'; 'dsnf' }; { 'n'; 'csf' }; { 'n'; 'csnf' }}
   },
   {
     'AckslD/nvim-trevJ.lua',

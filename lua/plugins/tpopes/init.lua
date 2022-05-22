@@ -7,7 +7,7 @@ return {
   {
     'tpope/vim-surround';
     opt = true;
-    keys = { { 'n'; 'ys' }; { 'x'; 'S' }; { 'n'; 'cs' }; };
+    keys = { { 'n'; 'ys' }; { 'x'; 'S' }; { 'n'; 'cs' }; { 'n'; 'ds' }; };
   },
   {
     'tpope/vim-unimpaired';
