@@ -11,7 +11,6 @@ end
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
-
   use {
     'lewis6991/impatient.nvim',
     config = function()
@@ -38,7 +37,6 @@ require('packer').startup(function(use)
   use(require 'plugins.treesitter-unit')
   use(require 'plugins.ui')
   use(require 'plugins.stuffs')
-  -- use(require 'plugins.treesitter-unit')
 
   if bootstrap then
     require("packer").sync()
