@@ -31,3 +31,7 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = '*',
 })
 
+vim.api.nvim_create_autocmd('TermOpen', {
+  command = 'setlocal nonumber norelativenumber | setlocal signcolumn=no ',
+  pattern = '*',
+})
