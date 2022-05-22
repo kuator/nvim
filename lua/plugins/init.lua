@@ -15,7 +15,8 @@ require('packer').startup(function(use)
   use {
     'lewis6991/impatient.nvim',
     config = function()
-      require('impatient')
+      local impatient = require('impatient')
+      impatient.enable_profile()
     end
   }
 
@@ -25,7 +26,7 @@ require('packer').startup(function(use)
   use(require 'plugins.tpopes')
   use(require 'plugins.space-vim-dark');
   -- https://github.com/jedrzejboczar/toggletasks.nvim
-  use(require 'plugins.emmet-vim')
+  -- use(require 'plugins.emmet-vim')
   use(require 'plugins.telescope')
   use(require('plugins.text-objects-operators'))
   use(require 'plugins.gitsigns')

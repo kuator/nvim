@@ -32,7 +32,9 @@ local options = {
   splitright     = true,
   signcolumn     = 'yes',
   completeopt    = 'menuone,noselect',
-  laststatus     = 3
+  laststatus     = 3,
+  scrolloff      = 5,
+  sidescrolloff  = 5,
 }
 
 
