@@ -27,7 +27,7 @@ return {
     };
 
     config=function ()
-      require('plugins.telescope.telescope-config');
+      require('plugins.nvim-telescope.telescope-config');
     end
   }
 }

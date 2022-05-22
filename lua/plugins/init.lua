@@ -26,7 +26,7 @@ require('packer').startup(function(use)
   use(require 'plugins.space-vim-dark');
   -- https://github.com/jedrzejboczar/toggletasks.nvim
   -- use(require 'plugins.emmet-vim')
-  use(require 'plugins.telescope')
+  use(require 'plugins.nvim-telescope')
   use(require('plugins.text-objects-operators'))
   use(require 'plugins.gitsigns')
   use(require('plugins.nvim-treesitter-plugins'))
