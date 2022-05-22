@@ -11,30 +11,23 @@ end
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
-  use {
-    'lewis6991/impatient.nvim',
-    config = function()
-      local impatient = require('impatient')
-      impatient.enable_profile()
-    end
-  }
+  use(require('plugins.impatient'))
 
   use "nathom/filetype.nvim"
   use { 'nvim-lua/plenary.nvim', opt = true };
   use(require 'plugins.vim-gutentags')
   use(require 'plugins.tpopes')
-  use(require 'plugins.space-vim-dark');
+  -- use(require 'plugins.space-vim-dark');
+  use(require('plugins.darkplus-nvim'))
   -- https://github.com/jedrzejboczar/toggletasks.nvim
   -- use(require 'plugins.emmet-vim')
   use(require 'plugins.nvim-telescope')
   use(require('plugins.text-objects-operators'))
   use(require 'plugins.gitsigns')
   use(require('plugins.nvim-treesitter-plugins'))
-  -- use(require 'plugins.skkeleton')
   use(require 'plugins.lsp-plugins')
   use(require 'plugins.cmp-and-friends')
-  -- broken
-  use(require 'plugins.treesitter-unit')
+  use(require 'plugins.treesitter-unit') -- broken
   use(require 'plugins.ui')
   use(require 'plugins.stuffs')
 
