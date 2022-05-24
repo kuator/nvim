@@ -37,6 +37,8 @@ local options = {
   sidescrolloff  = 5,
   wildignorecase = true,
   wildoptions    = 'pum',
+  title          = true,
+  titlestring    = 'VS⠀Code',
 }
 
 
