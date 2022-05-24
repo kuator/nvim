@@ -34,10 +34,12 @@ return function()
     },
     mapping = cmp.mapping.preset.insert(mappings),
     sources = {
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-      { name = 'skkeleton' },
-      },
+      { name = "nvim_lsp", max_item_count = 20, priority_weight = 100},
+      { name = 'luasnip', priority_weight = 120 },
+      { name = "buffer", max_item_count = 5, priority_weight = 80},
+      { name = "path", max_item_count = 5, priority_weight = 100},
+      { name = 'skkeleton'},
+    },
     view = {
       entries = 'native'
     }

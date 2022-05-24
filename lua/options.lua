@@ -35,6 +35,8 @@ local options = {
   laststatus     = 3,
   scrolloff      = 5,
   sidescrolloff  = 5,
+  wildignorecase = true,
+  wildoptions    = 'pum',
 }
 
 

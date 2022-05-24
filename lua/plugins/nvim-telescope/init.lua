@@ -1,6 +1,13 @@
 return {
   { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt = true },
   { 'tami5/sql.nvim', opt = true },
+  -- {
+  --   'tknightz/telescope-termfinder.nvim',
+  --   config = function ()
+  --     require('telescope').load_extension("termfinder")
+  --   end,
+  --   opt = true,
+  -- },
   {
     "nvim-telescope/telescope-frecency.nvim",
     opt = true,
@@ -12,6 +19,7 @@ return {
       'plenary.nvim',
       'telescope-fzf-native.nvim',
       'telescope-frecency.nvim',
+      -- 'telescope-termfinder.nvim',
     },
     opt=true,
     keys = {
