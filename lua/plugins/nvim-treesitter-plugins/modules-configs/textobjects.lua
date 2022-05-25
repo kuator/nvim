@@ -10,8 +10,8 @@ return {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["ac"] = "@conditional.outer",
+        ["ic"] = "@conditional.inner",
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
       },

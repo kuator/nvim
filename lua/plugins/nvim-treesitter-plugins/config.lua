@@ -4,7 +4,7 @@ local folderOfThisFile = (...):match("(.-)[^%.]+$")
 local modules = require(folderOfThisFile .. 'modules')
 
 local config = {
-  ensure_installed = { "python", "lua"},
+  ensure_installed = { "python", "lua", "bash"},
   highlight = { enable = true },
 }
 

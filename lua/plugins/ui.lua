@@ -1,5 +1,6 @@
 return {
-  require('plugins.lualine'),
+  require('plugins.lualine.init'),
+  -- 'sindrets/diffview.nvim',
   {
     "b0o/incline.nvim",
     config = function ()
@@ -26,9 +27,9 @@ return {
       -- vim.opt.listchars:append("space:⋅")
 
       require("indent_blankline").setup {
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = true,
+        -- space_char_blankline = " ",
+        -- show_current_context = true,
+        -- show_current_context_start = true,
       }
     end
   }

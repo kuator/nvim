@@ -1,10 +1,9 @@
 return {
   'David-Kunz/treesitter-unit', wants = {'nvim-treesitter'} ,
-  keys = {
-    {'o'; 'iu'};
-    {'o'; 'au'};
-  };
-  opt=true,
+  -- keys = {
+  --   {'o'; 'iu'};
+  --   {'o'; 'au'};
+  -- };
   config = function()
     vim.api.nvim_set_keymap('x', 'iu', ':lua require"treesitter-unit".select()<CR>', {noremap=true})
     vim.api.nvim_set_keymap('x', 'au', ':lua require"treesitter-unit".select(true)<CR>', {noremap=true})

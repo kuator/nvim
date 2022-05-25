@@ -11,14 +11,26 @@ end
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
+
+
   use(require('plugins.impatient'))
 
   use "nathom/filetype.nvim"
   use { 'nvim-lua/plenary.nvim', opt = true };
   use(require 'plugins.vim-gutentags')
   use(require 'plugins.tpopes')
-  -- use(require 'plugins.space-vim-dark');
+
+  -- use {
+  --   'Mofiqul/vscode.nvim',
+  --   config = function ()
+  --     vim.g.vscode_style = "dark"
+  --     vim.cmd[[colorscheme vscode]]
+  --     vim.cmd[[hi CursorLine cterm=underline guibg=#333333]]
+  --   end
+  -- }
+
   use(require('plugins.darkplus-nvim'))
+
   -- https://github.com/jedrzejboczar/toggletasks.nvim
   -- use(require 'plugins.emmet-vim')
   use(require 'plugins.nvim-telescope')
