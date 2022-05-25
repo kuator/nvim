@@ -32,7 +32,6 @@ require('telescope').load_extension('fzf')
 require('telescope').load_extension('frecency')
 
 vim.keymap.set('n', '<leader>sf', require('plugins.nvim-telescope.telescope-custom-pickers.custom-find'))
--- vim.keymap.set('n', '<leader>st', require('plugins.nvim-telescope.telescope-custom-pickers.terminals'))
 vim.keymap.set('n', '<leader>st', require('plugins.nvim-telescope.telescope-custom-pickers.terminals'))
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').grep_string)
 vim.keymap.set('n', '<leader>so', require('telescope.builtin').live_grep)
