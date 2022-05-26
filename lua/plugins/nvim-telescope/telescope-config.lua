@@ -30,12 +30,14 @@ require('telescope').setup {
 require('telescope.builtin').locations = require('plugins.nvim-telescope.telescope-custom-pickers.locations')
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('frecency')
+require("telescope").load_extension "file_browser"
 
 vim.keymap.set('n', '<leader>sf', require('plugins.nvim-telescope.telescope-custom-pickers.custom-find'))
 vim.keymap.set('n', '<leader>st', require('plugins.nvim-telescope.telescope-custom-pickers.terminals'))
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').grep_string)
 vim.keymap.set('n', '<leader>so', require('telescope.builtin').live_grep)
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').oldfiles)
-vim.keymap.set('n', '<leader><leader>', require('telescope').extensions.frecency.frecency)
 vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
 vim.keymap.set('n', '<leader>sl', require('telescope.builtin').locations)
+vim.keymap.set('n', '<leader><leader>', require('telescope').extensions.frecency.frecency)
+vim.keymap.set("n", "<leader>se", require "telescope".extensions.file_browser.file_browser)
