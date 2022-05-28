@@ -3,6 +3,7 @@ return {
   -- 'sindrets/diffview.nvim',
   {
     "b0o/incline.nvim",
+    opt = true,
     config = function ()
       require('incline').setup({
         render = function(props)
@@ -32,5 +33,28 @@ return {
         -- show_current_context_start = true,
       }
     end
-  }
+  },
+  {
+    'j-hui/fidget.nvim',
+    config = function ()
+      require"fidget".setup{}
+    end
+  },
+  -- {
+  --   "SmiteshP/nvim-gps",
+  --   config = function ()
+  --     require("nvim-gps").setup()
+  --     _G.gps_location = function()
+  --       local gps = require "nvim-gps"
+  --       return gps.is_available() and gps.get_location() or ""
+  --     end
+  --     vim.opt.winbar:append " "
+  --     vim.opt.winbar:append "%{%v:lua.gps_location()%}"
+  --   end
+  -- }
+
+  -- https://github.com/nvim-neo-tree/neo-tree.nvim
+  -- https://github.com/stevearc/aerial.nvim
+  -- https://github.com/rockyzhang24/dotfiles/blob/master/.config/nvim/lua/winbar.lua
+  -- https://github.com/nvim-neo-tree/neo-tree.nvim
 }

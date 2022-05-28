@@ -31,4 +31,8 @@ return {
   --     vim.keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
   --   end
   -- };
+
+  -- TODO: Investigate
+  -- https://github.com/rlane/pounce.nvim
+  -- https://github.com/mg979/vim-visual-multi
 }

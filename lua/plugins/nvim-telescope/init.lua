@@ -32,6 +32,7 @@ return {
       {'n'; '<leader>st'};
       {'n'; '<leader>sp'};
       {'n'; '<leader>sl'};
+      {'n'; '<leader>sh'};
       {'n'; '<leader><leader>'};
     };
     cmd = {

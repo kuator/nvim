@@ -59,6 +59,23 @@ return {
       padding = 0,
     }
 
+    local filename = {
+       'filename',
+       file_status = true,      -- Displays file status (readonly status, modified status)
+       path = 1,                -- 0: Just the filename
+                                -- 1: Relative path
+                                -- 2: Absolute path
+                                -- 3: Absolute path, with tilde as the home directory
+
+       shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
+                                -- for other components. (terrible name, any suggestions?)
+       symbols = {
+         modified = '[+]',      -- Text to show when the file is modified.
+         readonly = '[-]',      -- Text to show when the file is non-modifiable or readonly.
+         unnamed = '[No Name]', -- Text to show for unnamed buffers.
+       }
+     }
+
     -- cool function for progress
     local progress = function()
       local current_line = vim.fn.line(".")
@@ -86,7 +103,7 @@ return {
       },
       sections = {
         lualine_a = { branch, diagnostics },
-        lualine_b = { mode, buffers },
+        lualine_b = { mode, filename },
         lualine_c = {},
         -- lualine_x = { "encoding", "fileformat", "filetype" },
         lualine_x = { diff, spaces, "encoding", filetype },

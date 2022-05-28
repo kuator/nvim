@@ -39,6 +39,7 @@ local options = {
   wildoptions    = 'pum',
   title          = true,
   titlestring    = 'VS⠀Code',
+  winbar         = [[%m %f]],
 }
 
 
@@ -57,7 +58,7 @@ local globals = {
   loaded_getscriptPlugin   = 1,
   loaded_vimball           = 1,
   loaded_vimballPlugin     = 1,
-  loaded_matchit           = 1,
+  loaded_matchit           = 0,
   loaded_matchparen        = 1,
   loaded_2html_plugin      = 1,
   loaded_logiPat           = 1,
