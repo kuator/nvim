@@ -27,9 +27,11 @@ return function()
   }
 
   cmp.setup {
+    preselect = cmp.PreselectMode.None,
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
+        preselect = cmp.PreselectMode.None
       end,
     },
     mapping = cmp.mapping.preset.insert(mappings),

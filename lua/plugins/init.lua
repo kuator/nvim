@@ -20,16 +20,16 @@ require('packer').startup(function(use)
   use(require 'plugins.vim-gutentags')
   use(require 'plugins.tpopes')
 
-  -- use {
-  --   'Mofiqul/vscode.nvim',
-  --   config = function ()
-  --     vim.g.vscode_style = "dark"
-  --     vim.cmd[[colorscheme vscode]]
-  --     vim.cmd[[hi CursorLine cterm=underline guibg=#333333]]
-  --   end
-  -- }
+  use {
+    'Mofiqul/vscode.nvim',
+    config = function ()
+      vim.g.vscode_style = "dark"
+      vim.cmd[[colorscheme vscode]]
+      vim.cmd[[hi CursorLine cterm=underline guibg=#333333]]
+    end
+  }
 
-  use(require('plugins.darkplus-nvim'))
+  -- use(require('plugins.darkplus-nvim'))
 
   -- https://github.com/jedrzejboczar/toggletasks.nvim
   -- use(require 'plugins.emmet-vim')

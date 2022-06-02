@@ -8,6 +8,7 @@ local servers = {
   "cssls",
   "awk_ls",
   "clangd",
+  "gopls",
 }
 local ensure_installed = vim.tbl_filter(function(d) return d ~= "pylance" end, servers)
 
