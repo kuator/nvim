@@ -21,17 +21,12 @@ local function lsp_keymaps(client, bufnr)
   if client.supports_method 'textDocument/formatting' then
     vim.keymap.set('n', '<leader>F', function()
       vim.lsp.buf.format({
-        filter = function(clients)
-          -- filter out clients that you don't want to use
-          return vim.tbl_filter(function(client)
-            return client.name ~= "tsserver"
-          end, clients)
-        end,
+        filter = function(client) return client.name ~= "tsserver" end,
         bufnr = bufnr,
-      }
-    )
-    end, { buffer = bufnr })
-    end
+      })
+    end,
+      { buffer = bufnr })
+  end
 end
 
 M.on_attach = function(client, bufnr)
@@ -88,7 +83,7 @@ M.on_attach = function(client, bufnr)
         TypeParameter = ""
       },
     }
-  )
+    )
   end
 
   local status_ok, aerial = pcall(require, "aerial")
@@ -103,7 +98,7 @@ M.capabilities = capabilities
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if status_ok then
-   M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+  M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
 return M

@@ -27,13 +27,13 @@ return {
     keys = {
       {'n'; '<leader>se'};
       {'n'; '<leader>sf'};
-      {'n'; '<leader>sb'};
       {'n'; '<leader>sg'};
       {'n'; '<leader>st'};
-      {'n'; '<leader>sp'};
       {'n'; '<leader>sl'};
       {'n'; '<leader>sh'};
-      {'n'; '<leader><leader>'};
+      -- {'n'; '<leader>sp'};
+      -- {'n'; '<leader>sb'};
+      -- {'n'; '<leader><leader>'};
     };
     cmd = {
       'Telescope'
