@@ -27,6 +27,13 @@ local function lsp_keymaps(client, bufnr)
     end,
       { buffer = bufnr })
   end
+
+  -- if client.supports_method 'textDocument/rangeFormatting' then
+  -- vim.keymap.set("v", "<leader>F", function()
+  --   vim.lsp.buf.range_formatting()
+  -- end)
+  -- end
+
 end
 
 M.on_attach = function(client, bufnr)

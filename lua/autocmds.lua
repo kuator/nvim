@@ -35,3 +35,8 @@ vim.api.nvim_create_autocmd('TermOpen', {
   command = 'setlocal nonumber norelativenumber | setlocal signcolumn=no ',
   pattern = '*',
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  command = 'set bufhidden=delete',
+  pattern = 'gitcommit,gitrebase,gitconfig',
+})
