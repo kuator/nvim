@@ -10,15 +10,16 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       {
         "L3MON4D3/LuaSnip",
-        wants = { "friendly-snippets", "vim-snippets" },
+        wants = { "friendly-snippets" },
+        -- wants = { "friendly-snippets", "vim-snippets" },
         requires = {
           "rafamadriz/friendly-snippets",
-          "honza/vim-snippets",
+          -- "honza/vim-snippets",
         },
         opt = true,
         config = function ()
-          require("luasnip.loaders.from_vscode").lazy_load()
-          require("luasnip.loaders.from_snipmate").lazy_load()
+          require("luasnip.loaders.from_vscode").lazy_load({ paths = './snippets'})
+          -- require("luasnip.loaders.from_snipmate").lazy_load()
         end
       }
     },

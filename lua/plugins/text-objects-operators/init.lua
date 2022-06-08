@@ -20,6 +20,11 @@ return {
     keys = { { 'n'; 'dsf' }; {'n'; 'dsnf' }; { 'n'; 'csf' }; { 'n'; 'csnf' }}
   },
   {
+    'tommcdo/vim-lion',
+    opt = true,
+    keys = { { 'n'; 'gl' }; { 'n'; 'gL' }; };
+  },
+  {
     'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
     -- optional call for configurating non-default filetypes etc

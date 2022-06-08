@@ -1,0 +1,10 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "go",
+        "path": "snippets.code-snippets"
+      }
+    ]
+  }
+}
