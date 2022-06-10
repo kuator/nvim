@@ -4,11 +4,14 @@
     "body": ["${1:varName} := ${2:value}"]
   },
 
-  "variable": {
-    "prefix": "var",
+  "variable1": {
+    "prefix": "v",
     "body": ["var ${1:varName} = ${2:value}"]
   },
-
+  "variable2": {
+    "prefix": "vt",
+    "body": ["var ${1:varName} ${2:varType} = ${3:value}"]
+  },
   "Case default": {
     "prefix": "def",
     "body": ["default:"]
