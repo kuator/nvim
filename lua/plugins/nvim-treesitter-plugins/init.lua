@@ -9,7 +9,7 @@ local modules = require(folderOfThisFile .. 'modules')
 local plugins = {}
 
 for i,v in pairs(modules) do
-  table.insert(plugins, i)
+  table.insert(plugins, v)
 end
 
 local treesitter = {

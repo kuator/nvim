@@ -9,7 +9,7 @@ local config = {
 }
 
 for i, v in pairs(modules) do
-  config = vim.tbl_deep_extend("force", config, require(folderOfThisFile .. "modules-configs." .. v))
+  config = vim.tbl_deep_extend("force", config, require(folderOfThisFile .. "modules-configs." .. i))
 end
 
 require'nvim-treesitter.configs'.setup(config)
