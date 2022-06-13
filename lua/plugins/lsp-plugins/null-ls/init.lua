@@ -13,7 +13,7 @@ return {
 
     null_ls.setup({
       debug = false,
-      debounce = 150,
+      debounce = 1000,
       sources = {
         require("plugins.lsp-plugins.null-ls.sources.darker").with({
           extra_args = { "--isort" },

@@ -41,6 +41,13 @@ return {
     end
   },
   -- {
+  --   "braxtons12/blame_line.nvim",
+  --   config = function()
+  --     require("blame_line").setup {
+  --     }
+  --   end
+  -- }
+  -- {
   --   "SmiteshP/nvim-gps",
   --   config = function ()
   --     require("nvim-gps").setup()
