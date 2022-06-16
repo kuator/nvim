@@ -1,3 +1,4 @@
+vim.keymap.set('n', 'q;', 'q:')
 vim.keymap.set('n', '<a-c>', ':')
 vim.keymap.set('v', '<a-c>', ':')
 vim.keymap.set('i', 'kj', '<esc>')
@@ -10,8 +11,8 @@ vim.keymap.set('n', '<leader>lg', ':silent lgrep<space>')
 vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file ~/.config/.ignore -g "*"')<left><left><left><left>]])
 vim.keymap.set('n', '<leader>lt', ':ltag <space>/')
 vim.keymap.set('n', '<leader>cc', ':cclose<bar>lclose<cr>', { silent = true })
-vim.keymap.set('n', 'cd', ':lcd %:p:h<bar>pwd<cr>')
-vim.keymap.set('n', 'cu', ':lcd ..<bar>pwd<cr>')
+vim.keymap.set('n', 'cd', ':silent lcd %:p:h<bar>pwd<cr>', { silent = true })
+vim.keymap.set('n', 'cu', ':silent lcd ..<bar>pwd<cr>', { silent = true })
 
 -- https://vi.stackexchange.com/a/2682
 vim.keymap.set('n', '<a-j>', [[:m .+1<CR>==]])

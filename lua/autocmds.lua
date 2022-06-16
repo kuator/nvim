@@ -40,3 +40,9 @@ vim.api.nvim_create_autocmd('FileType', {
   command = 'set bufhidden=delete',
   pattern = 'gitcommit,gitrebase,gitconfig',
 })
+
+
+vim.api.nvim_create_autocmd('CmdwinEnter', {
+  command = 'nnoremap <buffer> <c-g> <c-w>q',
+  pattern = '*',
+})

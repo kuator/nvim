@@ -22,10 +22,10 @@ require('packer').startup(function(use)
 
   use {
     'Mofiqul/vscode.nvim',
-    config = function ()
+    config = function()
       vim.g.vscode_style = "dark"
-      vim.cmd[[colorscheme vscode]]
-      vim.cmd[[hi CursorLine cterm=underline guibg=#333333]]
+      vim.cmd [[colorscheme vscode]]
+      vim.cmd [[hi CursorLine cterm=underline guibg=#333333]]
     end
   }
 
