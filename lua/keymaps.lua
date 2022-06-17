@@ -23,7 +23,17 @@ vim.keymap.set('x', '<a-j>', [[:m '>+1<CR>gv=gv]])
 vim.keymap.set('x', '<a-k>', [[:m '<-2<CR>gv=gv]])
 
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
-vim.keymap.set('t', 'kj', [[<C-\><C-n>]])
+-- vim.keymap.set('t', 'kj', [[<C-\><C-n>]])
+
+-- vim.cmd[[tnoremap <a-h> <C-\><C-n><C-w>h]]
+-- vim.cmd[[tnoremap <a-j> <C-\><C-n><C-w>j]]
+-- vim.cmd[[tnoremap <a-k> <C-\><C-n><C-w>k]]
+-- vim.cmd[[tnoremap <a-l> <C-\><C-n><C-w>l]]
+
+-- vim.cmd[[nnoremap <a-h> <C-\><C-n><C-w>h]]
+-- vim.cmd[[nnoremap <a-j> <C-\><C-n><C-w>j]]
+-- vim.cmd[[nnoremap <a-k> <C-\><C-n><C-w>k]]
+-- vim.cmd[[nnoremap <a-l> <C-\><C-n><C-w>l]]
 
 -- cscope
 vim.keymap.set('n', 'scs', ':cs f s ')
