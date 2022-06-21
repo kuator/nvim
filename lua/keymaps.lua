@@ -23,6 +23,7 @@ vim.keymap.set('x', '<a-j>', [[:m '>+1<CR>gv=gv]])
 vim.keymap.set('x', '<a-k>', [[:m '<-2<CR>gv=gv]])
 
 vim.keymap.set('t', '<esc>', [[<C-\><C-n>]])
+vim.keymap.set('t', '<c-q>', [[<C-\><C-n>]])
 -- vim.keymap.set('t', 'kj', [[<C-\><C-n>]])
 
 -- vim.cmd[[tnoremap <a-h> <C-\><C-n><C-w>h]]
