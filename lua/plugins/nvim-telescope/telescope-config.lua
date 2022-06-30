@@ -1,3 +1,5 @@
+local actions = require("telescope.actions")
+
 local extensions = {
   fzf = {
     fuzzy = true, -- false will only do exact matching
@@ -14,6 +16,7 @@ local defaults = {
       ["<C-u>"] = false,
       ["<C-d>"] = false,
       ["<C-h>"] = false,
+      ["<C-[>"] = actions.close
     },
   },
 }
