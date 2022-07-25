@@ -25,6 +25,11 @@ return {
     keys = { { 'n'; 'gl' }; { 'n'; 'gL' }; };
   },
   {
+    'https://github.com/ralismark/opsort.vim',
+    opt = true,
+    keys = { { 'n'; 'gs' }; { 'x'; 'gs' }; };
+  },
+  {
     'AckslD/nvim-trevJ.lua',
     config = 'require("trevj").setup()',
     -- optional call for configurating non-default filetypes etc

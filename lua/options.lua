@@ -23,6 +23,7 @@ local options = {
   number         = true,
   relativenumber = true,
   wrap           = false,
+  shada          = "'100",
   expandtab      = true,
   shiftwidth     = 2,
   -- when 'sts' is negative, the value of 'shiftwidth' is used.,
@@ -40,6 +41,7 @@ local options = {
   title          = true,
   titlestring    = 'VS⠀Code',
   winbar         = [[%m %f]],
+  mouse          = '',
 }
 
 

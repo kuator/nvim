@@ -22,6 +22,7 @@ return {
     opt = true;
     keys = { { 'n'; '<c-w>m' } };
   };
+  'godlygeek/tabular'
   -- {
   --   'numToStr/FTerm.nvim';
   --   opt = true;
