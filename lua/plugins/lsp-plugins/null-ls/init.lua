@@ -15,9 +15,9 @@ return {
       debug = false,
       debounce = 1000,
       sources = {
-        require("plugins.lsp-plugins.null-ls.sources.darker").with({
-          extra_args = { "--isort" },
-        }),
+        -- require("plugins.lsp-plugins.null-ls.sources.darker").with({
+        --   extra_args = { "--isort" },
+        -- }),
         formatting.stylua.with({ extra_args = { "--indent_type", "Spaces", "indent_width", "2" } }),
         diagnostics.flake8,
       },
