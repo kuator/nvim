@@ -8,7 +8,7 @@ end
 
 local options = {
   clipboard      = "unnamedplus",
-  updatetime     = 250,
+  updatetime     = 100,
   incsearch      = true,
   hlsearch       = true,
   ignorecase     = true,
