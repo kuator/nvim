@@ -4,7 +4,7 @@ return {
     event = "InsertEnter",
     opt = true,
     config = require('plugins.cmp-and-friends.config'),
-    wants = { "LuaSnip", branch='parse_from_ast' },
+    wants = { "LuaSnip" },
     requires = {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
