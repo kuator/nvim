@@ -82,6 +82,6 @@ return {
 
 
     -- custom
-    vim.g.gutentags_modules = { 'ctags', 'cscope' }
+    vim.g.gutentags_modules = { 'ctags' }
   end
 }

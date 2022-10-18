@@ -39,7 +39,7 @@ vim.keymap.set('t', '<c-q>', [[<C-\><C-n>]])
 -- cscope
 vim.keymap.set('n', 'scs', ':cs f s ')
 
-vim.opt.cscopequickfix = { "s-", "c-", "d-", "i-", "t-", "e-" }
+-- vim.opt.cscopequickfix = { "s-", "c-", "d-", "i-", "t-", "e-" }
 
 vim.keymap.set('n', 's', '<nop>')
 
