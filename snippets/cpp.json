@@ -254,7 +254,7 @@
   "Function template": {
     "prefix": "fun",
     "body": [
-      "${1:void} ${2:name} (${3:void})",
+      "${1:void} ${2:name}(${3:void})",
       "{",
       "\t$4",
       "\treturn ;",
