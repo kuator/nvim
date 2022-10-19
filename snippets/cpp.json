@@ -250,5 +250,17 @@
       "}"
     ],
     "description": "A standard main function for a C++ program"
+  },
+  "Function template": {
+    "prefix": "fun",
+    "body": [
+      "int main (int argc, char *argv[])",
+      "{",
+      "\t$1",
+      "\treturn 0;",
+      "${2:second placeholder ${1:first placeholder}}",
+      "}"
+    ],
+    "description": "A standard main function for a C++ program"
   }
 }
