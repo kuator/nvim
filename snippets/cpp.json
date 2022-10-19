@@ -254,11 +254,10 @@
   "Function template": {
     "prefix": "fun",
     "body": [
-      "int main (int argc, char *argv[])",
+      "${1:void} ${2:name} (${3:void})",
       "{",
-      "\t$1",
-      "\treturn 0;",
-      "${2:second placeholder ${1:first placeholder}}",
+      "\t$4",
+      "\treturn ;",
       "}"
     ],
     "description": "A standard main function for a C++ program"
