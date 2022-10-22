@@ -144,6 +144,11 @@
     "body": ["println!(\"${1}\");"],
     "description": "println!(…);"
   },
+  "pv": {
+    "prefix": "pv",
+    "body": ["println!(\"{}\", $1);"],
+    "description": "println!(\"{}\",…);"
+  },
   "stringify": {
     "prefix": "stringify",
     "body": ["stringify!(${1})"],
