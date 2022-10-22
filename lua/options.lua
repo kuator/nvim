@@ -70,7 +70,6 @@ local globals = {
   loaded_netrwSettings     = 1,
   loaded_netrwFileHandlers = 1,
   -- Do not source the default filetype.vim
-  did_load_filetypes       = 1,
   mapleader                = ' '
 }
 

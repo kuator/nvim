@@ -15,7 +15,7 @@ require('packer').startup(function(use)
 
   use(require('plugins.impatient'))
 
-  use "nathom/filetype.nvim"
+  -- use "nathom/filetype.nvim"
   use { 'nvim-lua/plenary.nvim', opt = true };
   use(require 'plugins.vim-gutentags')
   use(require 'plugins.tpopes')
