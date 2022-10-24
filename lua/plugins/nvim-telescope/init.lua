@@ -1,6 +1,7 @@
 return {
   { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt = true },
   { 'nvim-telescope/telescope-file-browser.nvim', opt = true },
+  { 'LukasPietzschmann/telescope-tabs', opt = true },
   { 'tami5/sql.nvim', opt = true },
   -- {
   --   'tknightz/telescope-termfinder.nvim',
@@ -21,6 +22,7 @@ return {
       'telescope-fzf-native.nvim',
       'telescope-frecency.nvim',
       'telescope-file-browser.nvim',
+      'telescope-tabs',
       -- 'telescope-termfinder.nvim',
     },
     opt=true,
@@ -31,6 +33,7 @@ return {
       {'n'; '<leader>st'};
       {'n'; '<leader>sl'};
       {'n'; '<leader>sh'};
+      {'n'; '<leader>sy'};
       -- {'n'; '<leader>sp'};
       -- {'n'; '<leader>sb'};
       -- {'n'; '<leader><leader>'};

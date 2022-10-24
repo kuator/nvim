@@ -146,9 +146,10 @@
   },
   "pv": {
     "prefix": "pv",
-    "body": ["println!(\"{}\", $1);"],
-    "description": "println!(\"{}\",…);"
+    "body": ["eprintln!(\"${1} = {:?}\", ${1});$2"],
+    "description": ["eprintln!(\"${1} = {:?}\", ${1});$2"]
   },
+  
   "stringify": {
     "prefix": "stringify",
     "body": ["stringify!(${1})"],

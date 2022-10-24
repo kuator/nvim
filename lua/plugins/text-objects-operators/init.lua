@@ -41,5 +41,6 @@ return {
         require('trevj').format_at_cursor()
       end)
     end,
-  }
+  },
+  'tommcdo/vim-exchange'
 }
