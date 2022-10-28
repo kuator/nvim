@@ -41,12 +41,12 @@
   },
   "PlusSign": {
     "prefix": "pl",
-    "body": "+ ",
+    "body": "+",
     "description": "Lorem Ipsum Paragraph"
   },
   "MinusSign": {
     "prefix": "mi",
-    "body": "- ",
+    "body": "-",
     "description": "Lorem Ipsum Paragraph"
   },
   "QuotesBraces": {
