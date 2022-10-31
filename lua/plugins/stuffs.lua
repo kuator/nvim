@@ -23,6 +23,7 @@ return {
     keys = { { 'n'; '<c-w>m' } };
   };
   'godlygeek/tabular',
+  'junkblocker/git-time-lapse',
   {
       "ThePrimeagen/refactoring.nvim",
       requires = {
@@ -45,15 +46,6 @@ return {
         vim.api.nvim_set_keymap("n", "<leader>ri", [[ <Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]], {noremap = true, silent = true, expr = false})
       end
   }
-  -- {
-  --   'numToStr/FTerm.nvim';
-  --   opt = true;
-  --   keys = { { 'n'; '<a-i>' }; { 't'; '<a-i>' }  };
-  --   config = function ()
-  --     vim.keymap.set('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
-  --     vim.keymap.set('t', '<A-i>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-  --   end
-  -- };
 
   -- TODO: Investigate
   -- https://github.com/rlane/pounce.nvim
