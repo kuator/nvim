@@ -2,6 +2,7 @@
 local M = {}
 local te_buf = nil
 local te_win_id = nil
+local last_win_id = nil
 
 local v = vim
 local fun = v.fn
@@ -10,6 +11,7 @@ local gotoid = fun.win_gotoid
 local getid = fun.win_getid
 
 local function openTerminal()
+  last_win_id = getid()
   if fun.bufexists(te_buf) ~= 1 then
     cmd("au TermOpen * setlocal nonumber norelativenumber signcolumn=no")
     cmd("sp | winc J | res 10 | te")
@@ -25,6 +27,7 @@ end
 local function hideTerminal()
   if gotoid(te_win_id) == 1 then
     cmd("hide")
+    gotoid(last_win_id)
   end
 end
 
