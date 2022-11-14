@@ -4,6 +4,7 @@ require "options"
 require "keymaps"
 require "plugins"
 require "autocmds"
+require "custom-stuff"
 
 require "neovim-remote"
 

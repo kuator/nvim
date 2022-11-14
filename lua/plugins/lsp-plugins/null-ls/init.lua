@@ -20,7 +20,9 @@ return {
         --   extra_args = { "--isort" },
         -- }),
         formatting.stylua.with({ extra_args = { "--indent_type", "Spaces", "indent_width", "2" } }),
-        diagnostics.flake8,
+        -- diagnostics.flake8,
+        diagnostics.ruff,
+        formatting.autopep8,
       },
     })
   end,

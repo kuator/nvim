@@ -30,7 +30,7 @@ local lspconfig = require("lspconfig")
 for _, server in pairs(servers) do
   local handlers = require(folderOfThisFile .. "handlers")
   local opts = {
-    on_attach = handlers.on_attach,
+    -- on_attach = handlers.on_attach,
     capabilities = handlers.capabilities,
   }
   local has_custom_opts, server_custom_opts = pcall(require, folderOfThisFile .. "settings." .. server)

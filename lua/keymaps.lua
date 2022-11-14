@@ -46,3 +46,6 @@ vim.keymap.set('n', 's', '<nop>')
 vim.keymap.set('s', '<c-h>', '<c-h>i')
 
 vim.cmd.abb('ar', '->')
+
+vim.keymap.set('n', '<a-t>', require('custom-stuff').ToggleTerminal)
+vim.keymap.set('t', '<a-t>', require('custom-stuff').ToggleTerminal)
