@@ -30,6 +30,9 @@ local tmp = {
   },
 }
 
+-- https://github.com/Wansmer/treesj
+-- https://github.com/Wansmer/sibling-swap.nvim
+
 for _, v in pairs(tmp) do
   table.insert(plugins, v)
 end
