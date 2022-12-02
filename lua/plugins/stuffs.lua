@@ -9,6 +9,7 @@ return {
     cmd = {'BadApple'}
   };
   { 'noib3/nvim-compleet', opt = true };
+  { 'https://github.com/Eandrju/cellular-automaton.nvim', opt = true, cmd = {'CellularAutomaton'} };
   {
     'leafOfTree/vim-vue-plugin';
     ft = 'vue';
