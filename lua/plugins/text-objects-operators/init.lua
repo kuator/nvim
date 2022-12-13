@@ -29,17 +29,27 @@ return {
     opt = true,
     keys = { { 'n'; 'gs' }; { 'x'; 'gs' }; };
   },
+  -- {
+  --   'AckslD/nvim-trevJ.lua',
+  --   config = 'require("trevj").setup()',
+  --   -- optional call for configurating non-default filetypes etc
+  --   -- uncomment if you want to lazy load
+  --   module = 'trevj',
+  --   -- an example for configuring a keybind, can also be done by filetype
+  --   setup = function()
+  --     vim.keymap.set('n', '<leader>j', function()
+  --       require('trevj').format_at_cursor()
+  --     end)
+  --   end,
+  -- },
   {
-    'AckslD/nvim-trevJ.lua',
-    config = 'require("trevj").setup()',
-    -- optional call for configurating non-default filetypes etc
-    -- uncomment if you want to lazy load
-    module = 'trevj',
-    -- an example for configuring a keybind, can also be done by filetype
-    setup = function()
-      vim.keymap.set('n', '<leader>j', function()
-        require('trevj').format_at_cursor()
-      end)
+    'Wansmer/treesj',
+    config = function()
+      require('treesj').setup({
+        --[[ your config ]]
+        use_default_keymaps = false,
+      })
+      vim.keymap.set('n', '<leader>j', "<cmd>TSJToggle<cr>")
     end,
   },
   'tommcdo/vim-exchange'
