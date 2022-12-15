@@ -3,11 +3,11 @@ return {
     'simrat39/symbols-outline.nvim',
     opt = true
   };
-  {
-    'seandewar/bad-apple.nvim',
-    opt = true,
-    cmd = {'BadApple'}
-  };
+  -- {
+  --   'seandewar/bad-apple.nvim',
+  --   opt = true,
+  --   cmd = {'BadApple'}
+  -- };
   { 'noib3/nvim-compleet', opt = true };
   { 'https://github.com/Eandrju/cellular-automaton.nvim', opt = true, cmd = {'CellularAutomaton'} };
   {
