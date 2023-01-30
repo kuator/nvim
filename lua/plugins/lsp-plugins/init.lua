@@ -1,5 +1,6 @@
 return {
   'kuator/some-python-plugin.nvim',
+  'mfussenegger/nvim-jdtls',
   "williamboman/mason-lspconfig.nvim",
   require "plugins.lsp-plugins.null-ls",
   require "plugins.lsp-plugins.lspkind",
