@@ -1,7 +1,7 @@
 local servers = {
   "pylance",
   "sumneko_lua",
-  "tsserver",
+  -- "tsserver",
   "emmet_ls",
   "bashls",
   "html",
@@ -9,6 +9,7 @@ local servers = {
   "awk_ls",
   "clangd",
   "gopls",
+  "vtsls",
 }
 
 local ensure_installed = vim.tbl_filter(function(d) return d ~= "pylance" end, servers)
