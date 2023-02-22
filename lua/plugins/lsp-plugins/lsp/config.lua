@@ -1,6 +1,6 @@
 local servers = {
   "pylance",
-  "sumneko_lua",
+  "lua_ls",
   -- "tsserver",
   "emmet_ls",
   "bashls",

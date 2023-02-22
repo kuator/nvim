@@ -27,8 +27,9 @@ return {
   'junkblocker/git-time-lapse',
   {
       "ThePrimeagen/refactoring.nvim",
+      after = "plenary.nvim",
       requires = {
-          {"nvim-lua/plenary.nvim"},
+          {"plenary.nvim"},
           {"nvim-treesitter/nvim-treesitter"}
       },
       config = function ()
