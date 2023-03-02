@@ -1,23 +1,8 @@
 return {
   require('plugins.lualine.init'),
   -- 'sindrets/diffview.nvim',
-  {
-    "b0o/incline.nvim",
-    opt = true,
-    config = function ()
-      require('incline').setup({
-        render = function(props)
-          local bufname = vim.api.nvim_buf_get_name(props.buf)
-          if bufname == "" then
-            return "[No name]"
-          else
-            return vim.fn.fnamemodify(bufname, ":.")
-          end
-        end,
-      })
-    end
-  },
   require('plugins.alpha'),
+  require('plugins.neo_tree'),
   {
     'lukas-reineke/indent-blankline.nvim',
     opt = true,
