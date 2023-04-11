@@ -35,6 +35,9 @@ return function()
 
   cmp.setup {
     preselect = cmp.PreselectMode.None,
+    confirmation = {
+      default_behavior = cmp.ConfirmBehavior.Replace,
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
