@@ -2,7 +2,7 @@ return {
   require('plugins.lualine.init'),
   -- 'sindrets/diffview.nvim',
   require('plugins.alpha'),
-  require('plugins.neo_tree'),
+  -- require('plugins.neo_tree'),
   {
     'lukas-reineke/indent-blankline.nvim',
     opt = true,
