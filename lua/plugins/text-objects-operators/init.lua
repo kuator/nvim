@@ -29,13 +29,13 @@ return {
     opt = true,
     keys = { { 'n'; 'gs' }; { 'x'; 'gs' }; };
   },
-  {
-    'ckolkey/ts-node-action',
-     config = function() -- Optional
-         require("ts-node-action").setup({})
-         vim.keymap.set({ "n" }, "<leader>j", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
-     end
-  },
+  -- {
+  --   'ckolkey/ts-node-action',
+  --    config = function() -- Optional
+  --        require("ts-node-action").setup({})
+  --        vim.keymap.set({ "n" }, "<leader>j", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+  --    end
+  -- },
   -- {
   --   'AckslD/nvim-trevJ.lua',
   --   config = 'require("trevj").setup()',
@@ -49,15 +49,15 @@ return {
   --     end)
   --   end,
   -- },
-  --{
-  --  'Wansmer/treesj',
-  --  config = function()
-  --    require('treesj').setup({
-  --      --[[ your config ]]
-  --      use_default_keymaps = false,
-  --    })
-  --    vim.keymap.set('n', '<leader>j', "<cmd>TSJToggle<cr>")
-  --  end,
-  --},
+  {
+    'Wansmer/treesj',
+    config = function()
+      require('treesj').setup({
+        --[[ your config ]]
+        use_default_keymaps = false,
+      })
+      vim.keymap.set('n', '<leader>j', "<cmd>TSJToggle<cr>")
+    end,
+  },
   'tommcdo/vim-exchange'
 }

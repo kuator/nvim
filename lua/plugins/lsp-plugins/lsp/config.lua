@@ -14,12 +14,14 @@ local servers = {
 
 local ensure_installed = vim.tbl_filter(function(d) return d ~= "pylance" end, servers)
 
-local status_ok, lsp_installer = pcall(require, "mason-lspconfig")
+local masonlspconfig_status_ok, lsp_installer = pcall(require, "mason-lspconfig")
+local mason_status_ok, mason = pcall(require, "mason")
 
-if status_ok then
-  lsp_installer.setup {
-    ensure_installed = ensure_installed
-  }
+if masonlspconfig_status_ok then
+  if mason_status_ok then
+    require("mason").setup()
+    lsp_installer.setup { ensure_installed = ensure_installed }
+  end
 end
 
 -- https://stackoverflow.com/questions/9145432/load-lua-files-by-relative-path
