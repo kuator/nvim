@@ -4,6 +4,11 @@
     "body": ["public static void main(String[] args) {", "\t$0", "}"],
     "description": "Public static main method"
   },
+  "psvm": {
+    "prefix": "psvm",
+    "body": ["public static void main(String[] args) {", "\t$0", "}"],
+    "description": "Public static main method"
+  },
   "fun": {
     "prefix": "fun",
     "body": ["${1:public} ${2:int} ${3:myFunc}(${4:arg}) {", "\t$5", "}"],
