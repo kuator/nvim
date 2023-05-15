@@ -1,3 +1,4 @@
+vim.g.mapleader = ' '
 vim.keymap.set('n', 'q;', 'q:')
 vim.keymap.set('n', '<a-c>', ':')
 vim.keymap.set('v', '<a-c>', ':')
@@ -49,5 +50,3 @@ vim.keymap.set('c', '<c-s>', '<c-a>')
 
 vim.cmd.abb('ar', '->')
 
-vim.keymap.set('n', '<a-t>', require('custom-stuff').ToggleTerminal)
-vim.keymap.set('t', '<a-t>', require('custom-stuff').ToggleTerminal)

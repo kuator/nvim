@@ -1,3 +1,4 @@
+math.randomseed(os.time())
 local if_nil = vim.F.if_nil
 
 local arts = {
