@@ -1,14 +1,12 @@
 return {
   "L3MON4D3/LuaSnip",
-  -- wants = { "friendly-snippets" },
-  -- wants = { "vim-snippets" },
-  -- requires = {
-  -- "rafamadriz/friendly-snippets",
+  wants = { "friendly-snippets" },
+  requires = {
+  "rafamadriz/friendly-snippets",
   -- "honza/vim-snippets",
-  -- },
+  },
   opt = true,
   config = function()
-    -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/friendly-snippets" } })
     local luasnip = require 'luasnip'
     local node_util = require("luasnip.nodes.util")
     luasnip.config.setup {
@@ -68,10 +66,8 @@ return {
     }
 
     require("luasnip").config.setup({store_selection_keys="<c-k>"})
-
+    require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { '~/.config/nvim/snippets/vscode' } })
-    require("luasnip.loaders.from_lua").lazy_load({ paths = { '~/.config/nvim/snippets/luasnip' } })
-    -- require("luasnip.loaders.from_snipmate").lazy_load()
-    -- require("luasnip.loaders.from_vscode").lazy_load()
+    -- require("luasnip.loaders.from_lua").lazy_load({ paths = { '~/.config/nvim/snippets/luasnip' } })
   end
 }
