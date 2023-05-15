@@ -12,10 +12,8 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
 
-
-  use(require('plugins.impatient'))
-
   -- use { 'nvim-lua/plenary.nvim', opt = true };
+
   use { 'nvim-lua/plenary.nvim' };
   use(require 'plugins.vim-gutentags')
   use(require 'plugins.tpopes')
