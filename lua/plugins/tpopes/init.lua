@@ -1,27 +1,27 @@
 return {
   {
     'tpope/vim-commentary';
-    opt = true;
-    keys = { { 'x'; 'gc' }; { 'n'; 'gc' } };
+    lazy = true;
+    keys = { { mode='x'; 'gc' }; { mode='n'; 'gc' } };
   },
   {
     'tpope/vim-surround';
-    opt = true;
-    keys = { { 'n'; 'ys' }; { 'x'; 'S' }; { 'n'; 'cs' }; { 'n'; 'ds' }; };
+    lazy = true;
+    keys = { { mode='n'; 'ys' }; { mode='x'; 'S' }; { mode='n'; 'cs' }; { mode='n'; 'ds' }; };
   },
   {
     'tpope/vim-unimpaired';
-    opt = true;
-    keys = { { 'n'; '[p' }; { 'n'; ']p' }; { 'n'; '[l' }; { 'n'; ']l' }; }
+    lazy = true;
+    keys = { { mode='n'; '[p' }; { mode='n'; ']p' }; { mode='n'; '[l' }; { mode='n'; ']l' }; }
   },
   {
     'tpope/vim-repeat';
-    opt = true;
-    keys = { { 'n'; '.' } };
+    lazy = true;
+    keys = { { mode='n'; '.' } };
   },
   {
     'tpope/vim-rsi',
-    opt = true,
+    lazy = true,
     event = 'InsertEnter'
   }
 }

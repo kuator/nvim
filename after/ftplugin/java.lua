@@ -1,3 +1,9 @@
+local status_ok, jdtls = pcall(require, "jdtls")
+
+if not status_ok then
+  return
+end
+
 local capabilities = require('plugins.lsp-plugins.lsp.handlers').capabilities
 
 local config = {
@@ -13,8 +19,5 @@ local config = {
     }
 }
 
-local status_ok, jdtls = pcall(require, "jdtls")
-if not status_ok then
-  jdtls.start_or_attach(config)
-  return
-end
+
+jdtls.start_or_attach(config)

@@ -48,15 +48,15 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
 })
 
 local lspattach = vim.api.nvim_create_augroup("LspAttach", { clear = true })
-local on_attach = require('plugins.lsp-plugins.lsp.handlers').on_attach
+-- local on_attach = require('plugins.lsp-plugins.lsp.handlers').on_attach
 
 
-vim.api.nvim_create_autocmd({ "LspAttach" }, {
-    group = lspattach,
-    callback = function(args)
-        local bufnr = args.buf
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        -- client.server_capabilities.semanticTokensProvider = nil
-        on_attach(client, bufnr)
-    end
-})
+-- vim.api.nvim_create_autocmd({ "LspAttach" }, {
+--     group = lspattach,
+--     callback = function(args)
+--         local bufnr = args.buf
+--         local client = vim.lsp.get_client_by_id(args.data.client_id)
+--         -- client.server_capabilities.semanticTokensProvider = nil
+--         on_attach(client, bufnr)
+--     end
+-- })
