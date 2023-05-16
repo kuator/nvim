@@ -11,22 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- use { 'nvim-lua/plenary.nvim' };
--- use(require 'plugins.vim-gutentags')
--- use(require 'plugins.tpopes')
-
--- use(require('plugins.darkplus-nvim'))
--- use(require 'plugins.gitsigns')
-
--- use(require 'plugins.nvim-telescope')
--- use(require 'plugins.mason-nvim')
--- use(require('plugins.text-objects-operators'))
 -- use(require 'plugins.vim-signify')
--- use(require('plugins.nvim-treesitter-plugins'))
--- use(require 'plugins.lsp-plugins')
--- use(require 'plugins.cmp-and-friends')
--- use(require 'plugins.treesitter-unit') -- broken
--- use(require 'plugins.ui')
--- use(require 'plugins.stuffs')
+-- TODO: https://github.com/renerocksai/telekasten.nvim
+-- TODO: https://github.com/mfussenegger/nvim-dap/pulls
+-- TODO: https://github.com/nvim-neotest/neotest
+-- TODO: https://github.com/stevearc/overseer.nvim
+-- TODO: winbar
+-- TODO: https://github.com/ray-x/go.nvim
 
 require("lazy").setup("plugins")
