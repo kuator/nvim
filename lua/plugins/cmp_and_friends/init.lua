@@ -41,10 +41,12 @@ local function config()
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body)
-        preselect = cmp.PreselectMode.None
       end,
     },
     mapping = cmp.mapping.preset.insert(mappings),
+    enabled = function()
+      return vim.fn.getcmdwintype() == ''
+    end,
     sources = {
       { name = "nvim_lsp", max_item_count = 20, priority_weight = 100},
       { name = 'luasnip', priority_weight = 120 },
@@ -68,6 +70,7 @@ return {
       "LuaSnip",
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
     },
   },
 }
