@@ -4,12 +4,12 @@ if not status_ok then
   return
 end
 
-local capabilities = require('plugins.lsp-plugins.lsp.handlers').capabilities
+local utils = require('utils')
 
 local config = {
     cmd = { vim.fn.stdpath("data") .. '/mason/bin/jdtls' },
     root_dir = vim.fs.dirname(vim.fs.find({'.gradlew', '.git', 'mvnw'}, { upward = true })[1]),
-    capabilities = capabilities,
+    capabilities = utils.capabilities,
     settings = {
       java = {
         completion = {
