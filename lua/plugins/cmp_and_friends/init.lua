@@ -45,7 +45,10 @@ local function config()
     },
     mapping = cmp.mapping.preset.insert(mappings),
     enabled = function()
-      return vim.fn.getcmdwintype() == ''
+      local disabled = false
+      disabled = disabled or vim.fn.getcmdwintype() ~= ''
+      disabled = disabled or vim.bo.buftype == 'prompt'
+      return not disabled
     end,
     sources = {
       { name = "nvim_lsp", max_item_count = 20, priority_weight = 100},

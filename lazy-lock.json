@@ -6,7 +6,6 @@
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "0e6b2ed705ddcff9738ec4ea838141654f12eeef" },
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
-  "cscope_maps.nvim": { "branch": "main", "commit": "bbe1907c3015504bd4b8ccd1598455eb097a71cf" },
   "dsf.vim": { "branch": "master", "commit": "e3f3d21ea1bf68cac49acb0555bf47eb2408d10b" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "friendly-snippets": { "branch": "main", "commit": "1d0dac346de7c6895ac72528df3276386c6b149b" },
