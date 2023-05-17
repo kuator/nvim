@@ -65,3 +65,9 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
         on_attach(client, bufnr)
     end
 })
+
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--     callback = function(args)
+--         vim.bo[args.buf].formatexpr = nil
+--     end,
+-- })

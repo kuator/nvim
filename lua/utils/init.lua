@@ -8,6 +8,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>ge", vim.lsp.buf.declaration, options)
   vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, options)
   vim.keymap.set('n', '<space>gf', function() vim.lsp.buf.format { async = false } end, options)
+  vim.keymap.set('v', '<space>gf', function() vim.lsp.buf.format { async = false } end, options)
   vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, options)
   -- vim.keymap.set("n", "<leader>gk",  vim.lsp.buf.signature_help, options)
   vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, options)
@@ -29,6 +30,7 @@ local function on_attach(client, bufnr)
         vim.lsp.buf.format({
           filter = function(client_) return client_.name ~= "tsserver" end,
           bufnr = bufnr,
+          timeout_ms = 2000
         })
       end,
       { buffer = bufnr }
