@@ -1,5 +1,6 @@
 local modules = {
   textobjects = "nvim-treesitter/nvim-treesitter-textobjects",
+  refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
   -- matchup = {
   --   "andymass/vim-matchup" ,
@@ -16,6 +17,8 @@ local configs = {
     select = {
       enable = true,
 
+      include_surrounding_whitespace = true,
+
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
 
@@ -29,7 +32,16 @@ local configs = {
         ["iC"] = "@class.inner",
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
+        -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
       },
+    },
+  },
+  refactor = {
+    highlight_current_scope = { enable = false },
+    highlight_definitions = {
+      enable = true,
+      -- Set to false if you have an `updatetime` of ~100.
+      clear_on_cursor_move = true,
     },
   },
 }
