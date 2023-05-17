@@ -1,6 +1,6 @@
 local modules = {
   textobjects = "nvim-treesitter/nvim-treesitter-textobjects",
-  refactor = "nvim-treesitter/nvim-treesitter-refactor",
+  -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
   -- matchup = {
   --   "andymass/vim-matchup" ,
@@ -36,14 +36,14 @@ local configs = {
       },
     },
   },
-  refactor = {
-    highlight_current_scope = { enable = false },
-    highlight_definitions = {
-      enable = true,
-      -- Set to false if you have an `updatetime` of ~100.
-      clear_on_cursor_move = true,
-    },
-  },
+  -- refactor = {
+  --   highlight_current_scope = { enable = false },
+  --   highlight_definitions = {
+  --     enable = true,
+  --     -- Set to false if you have an `updatetime` of ~100.
+  --     clear_on_cursor_move = true,
+  --   },
+  -- },
 }
 
 local dependencies = {}
