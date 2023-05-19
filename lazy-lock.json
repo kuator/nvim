@@ -13,7 +13,7 @@
   "git-time-lapse": { "branch": "master", "commit": "3b6f38ec13af04a29e822efda15c36b69f6972ff" },
   "gitsigns.nvim": { "branch": "main", "commit": "c18b7ca0b5b50596722f3a1572eb9b8eb520c0f1" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
-  "lazy.nvim": { "branch": "main", "commit": "6d4135d83d00f83a797dfe0f93a8d3fce08e6a2f" },
+  "lazy.nvim": { "branch": "main", "commit": "91564cb0a6d038d7e0eeaf68d505ed2627de625b" },
   "lualine.nvim": { "branch": "master", "commit": "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "90a8bbf106b85b76951a34c542058ffa807de2b1" },
   "mason.nvim": { "branch": "main", "commit": "08b2fd308e0107eab9f0b59d570b69089fd0b522" },

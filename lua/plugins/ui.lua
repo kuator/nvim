@@ -3,7 +3,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     dependencies = { 'plenary.nvim' },
-    event = 'BufRead',
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require 'gitsigns'.setup {
         debug_mode = true
@@ -14,7 +14,7 @@ return {
   {
     'lukas-reineke/indent-blankline.nvim',
     opt = true,
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       vim.opt.list = true
       vim.opt.listchars:append("eol:↴")
@@ -32,9 +32,33 @@ return {
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
-      require("which-key").setup({ })
+      require("which-key").setup({})
     end,
   },
+  -- {
+  --   "luukvbaal/statuscol.nvim",
+  --   config = function()
+  --     -- local builtin = require("statuscol.builtin")
+  --     require("statuscol").setup({
+  --       -- configuration goes here, for example:
+  --       -- relculright = true,
+  --       -- segments = {
+  --       --   { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+  --       --   {
+  --       --     sign = { name = { "Diagnostic" }, maxwidth = 2, auto = true },
+  --       --     click = "v:lua.ScSa"
+  --       --   },
+  --       --   { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
+  --       --   {
+  --       --     sign = { name = { ".*" }, maxwidth = 2, colwidth = 1, auto = true, wrap = true },
+  --       --     click = "v:lua.ScSa"
+  --       --   },
+  --       -- }
+  --     })
+  --   end,
+  --   event = { "BufReadPre", "BufNewFile" },
+  -- },
+
   -- {
   --   "braxtons12/blame_line.nvim",
   --   config = function()
