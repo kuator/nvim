@@ -94,7 +94,7 @@ local function config()
       settings = {
         python = {
           analysis = {
-            typeCheckingMode = "off",
+            typeCheckingMode = "basic",
             completeFunctionParens = true,
           }
         }
