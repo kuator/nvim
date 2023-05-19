@@ -1,12 +1,12 @@
 return {
   "simrat39/rust-tools.nvim",
   ft = 'rust',
+  dependencies = { "nvim-lspconfig" },
   config = function ()
     local opts = {
       -- rust-tools options
       tools = {
         autoSetHints = true,
-        hover_with_actions = true,
         inlay_hints = {
           show_parameter_hints = true,
           parameter_hints_prefix = "",

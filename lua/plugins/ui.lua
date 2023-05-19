@@ -27,6 +27,14 @@ return {
       }
     end
   },
+  {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup({ })
+    end,
+  },
   -- {
   --   "braxtons12/blame_line.nvim",
   --   config = function()

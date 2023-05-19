@@ -33,7 +33,10 @@ return {
     keys = { { mode = 'n', '<c-w>m' } },
   },
   'godlygeek/tabular',
-  'RRethy/vim-illuminate',
+  {
+    'RRethy/vim-illuminate',
+    event = { "BufReadPre", "BufNewFile" },
+  },
   'junkblocker/git-time-lapse',
 
   -- TODO: Investigate

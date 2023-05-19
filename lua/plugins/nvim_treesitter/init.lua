@@ -1,5 +1,5 @@
 local modules = {
-  textobjects = "nvim-treesitter/nvim-treesitter-textobjects",
+  textobjects = {"nvim-treesitter/nvim-treesitter-textobjects"},
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
   -- matchup = {
@@ -66,7 +66,8 @@ return {
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require'nvim-treesitter.configs'.setup(config)
-    end
+    end,
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = dependencies
   },
-  unpack(dependencies)
 }
