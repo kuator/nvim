@@ -53,12 +53,11 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 local lspattach = vim.api.nvim_create_augroup("LspAttach", { clear = true })
-local on_attach = require('utils').on_attach
-
 
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
     group = lspattach,
     callback = function(args)
+        local on_attach = require('utils').on_attach
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         -- client.server_capabilities.semanticTokensProvider = nil
