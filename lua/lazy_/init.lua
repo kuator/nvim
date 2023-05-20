@@ -11,12 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- use(require 'plugins.vim-signify')
 -- TODO: https://github.com/renerocksai/telekasten.nvim
 -- TODO: https://github.com/mfussenegger/nvim-dap/pulls
 -- TODO: https://github.com/nvim-neotest/neotest
 -- TODO: https://github.com/stevearc/overseer.nvim
 -- TODO: winbar
 -- TODO: https://github.com/ray-x/go.nvim
+-- TODO: neo-tree.lua
 
 require("lazy").setup("plugins")
