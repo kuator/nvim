@@ -13,7 +13,6 @@ return {
   -- require('plugins.neo_tree'),
   {
     'lukas-reineke/indent-blankline.nvim',
-    opt = true,
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       vim.opt.list = true

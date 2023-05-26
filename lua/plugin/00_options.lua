@@ -41,7 +41,7 @@ local options = {
   title          = true,
   titlestring    = 'VS⠀Code',
   winbar         = [[%m %f]],
-  mouse          = '',
+  mouse          = 'nvi',
 }
 
 

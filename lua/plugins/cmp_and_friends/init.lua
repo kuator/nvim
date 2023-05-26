@@ -67,7 +67,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    opt = true,
     config = config,
     dependencies = {
       "LuaSnip",

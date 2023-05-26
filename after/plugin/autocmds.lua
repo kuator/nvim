@@ -67,6 +67,6 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --     callback = function(args)
---         vim.bo[args.buf].formatexpr = nil
+--         vim.bo[args.buf].formatexpr = "v:lua.vim.lsp.formatexpr(#{timeout_ms:5000})"
 --     end,
 -- })

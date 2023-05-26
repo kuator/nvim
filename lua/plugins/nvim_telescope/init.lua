@@ -23,7 +23,7 @@ return {
       'telescope-file-browser.nvim',
       -- 'telescope-termfinder.nvim',
     },
-    opt=true,
+    lazy=true,
     keys = {
       {mode='n'; '<leader>se'};
       {mode='n'; '<leader>sf'};
