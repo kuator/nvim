@@ -49,7 +49,12 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
 
 vim.api.nvim_create_autocmd('FileType', {
   command = 'nnoremap <esc> <c-w>q',
-  pattern = 'lazy',
+  pattern = 'lazy,neotest-summary',
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  command = 'nnoremap q <c-w>q',
+  pattern = 'lazy,neotest-summary',
 })
 
 local lspattach = vim.api.nvim_create_augroup("LspAttach", { clear = true })
