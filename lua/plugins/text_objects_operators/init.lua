@@ -82,7 +82,7 @@ return {
   },
   {
     "andymass/vim-matchup",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     init = function()
       vim.g.matchup_surround_enabled = 1
       vim.g.matchup_matchparen_nomode = "i"
