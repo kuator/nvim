@@ -1,5 +1,6 @@
 local modules = {
   textobjects = {"nvim-treesitter/nvim-treesitter-textobjects"},
+  context_commentstring = {"JoosepAlviste/nvim-ts-context-commentstring"},
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
   -- matchup = {
@@ -26,16 +27,19 @@ local configs = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["ac"] = "@conditional.outer",
-        ["ic"] = "@conditional.inner",
         ["aC"] = "@class.outer",
         ["iC"] = "@class.inner",
-        ["al"] = "@loop.outer",
-        ["il"] = "@loop.inner",
+        -- ["ac"] = "@conditional.outer",
+        -- ["ic"] = "@conditional.inner",
+        -- ["al"] = "@loop.outer",
+        -- ["il"] = "@loop.inner",
         -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
       },
     },
   },
+  context_commentstring = {
+    enable = true
+  }
   -- refactor = {
   --   highlight_current_scope = { enable = false },
   --   highlight_definitions = {

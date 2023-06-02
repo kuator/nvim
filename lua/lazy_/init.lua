@@ -18,5 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- TODO: winbar
 -- TODO: https://github.com/ray-x/go.nvim
 -- TODO: neo-tree.lua
+-- TODO: glts/vim-textobj-comment
+-- TODO: onsails/lspkind.nvim
 
 require("lazy").setup("plugins")

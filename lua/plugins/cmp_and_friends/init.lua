@@ -33,7 +33,7 @@ local function config()
     end, { 'i', 's' }),
   }
 
-  cmp.setup {
+  local cmp_config = {
     preselect = cmp.PreselectMode.None,
     confirmation = {
       default_behavior = cmp.ConfirmBehavior.Replace,
@@ -59,8 +59,26 @@ local function config()
     },
     view = {
       entries = 'native'
-    }
+    },
   }
+
+  local ok, lspkind = pcall(require, 'lspkind')
+  if ok then
+    cmp_config['formatting'] = {
+        format = lspkind.cmp_format({
+          mode = 'symbol', -- show only symbol annotations
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+          before = function (entry, vim_item)
+            return vim_item
+          end
+        })
+      }
+  end
+
+  print(vim.inspect(cmp_config))
+
+  cmp.setup(cmp_config)
 end
 
 return {
@@ -73,6 +91,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
+      "onsails/lspkind.nvim",
     },
   },
 }

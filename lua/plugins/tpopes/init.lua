@@ -1,8 +1,8 @@
 return {
-  {
-    'tpope/vim-commentary';
-    keys = { { mode='x'; 'gc' }; { mode='n'; 'gc' } };
-  },
+  -- {
+  --   'tpope/vim-commentary';
+    -- keys = { { mode='x'; 'gc' }; { mode='n'; 'gc' } };
+  -- },
   {
     'tpope/vim-surround';
     keys = { { mode='n'; 'ys' }; { mode='x'; 'S' }; { mode='n'; 'cs' }; { mode='n'; 'ds' }; };
