@@ -6,7 +6,7 @@
   },
   "fun": {
     "prefix": "fun",
-    "body": ["${1:public} ${2:int} ${3:myFunc}(${4:arg}) {", "\t$5", "}"],
+    "body": ["${1:public} ${2:void} ${3:myFunc}(${4:arg}) {", "\t$5", "}"],
     "description": "Function"
   }
 }

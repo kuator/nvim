@@ -1,6 +1,7 @@
 local modules = {
   textobjects = {"nvim-treesitter/nvim-treesitter-textobjects"},
   context_commentstring = {"JoosepAlviste/nvim-ts-context-commentstring"},
+  rainbow = {"HiPhish/nvim-ts-rainbow2"},
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
   -- matchup = {
@@ -38,6 +39,9 @@ local configs = {
     },
   },
   context_commentstring = {
+    enable = true
+  },
+  rainbow = {
     enable = true
   }
   -- refactor = {
