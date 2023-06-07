@@ -57,10 +57,12 @@ return {
     config = function ()
       require("mason-nvim-dap").setup({
         ensure_installed = { "python" },
-        automatic_setup = false,
+        automatic_installation = true,
+        -- automatic_setup = false,
+        handlers = {}, -- sets up dap in the predefined manner
       })
-      require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
-      require('dap-python').test_runner = 'pytest'
+      -- require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
+      -- require('dap-python').test_runner = 'pytest'
       vim.cmd[[nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>]]
       vim.cmd[[nnoremap <silent> <leader>df :lua require('dap-python').test_class()<CR>]]
       vim.cmd[[vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>]]
