@@ -5,6 +5,7 @@ return {
   config = function()
     local luasnip = require 'luasnip'
     local node_util = require("luasnip.nodes.util")
+    -- https://github.com/L3MON4D3/LuaSnip/wiki/Nice-Configs#imitate-vscodes-behaviour-for-nested-placeholders
     luasnip.config.setup {
       parser_nested_assembler = function(_, snippet)
         local select = function(snip, no_move)
@@ -63,6 +64,8 @@ return {
 
     require("luasnip").config.setup({store_selection_keys="<c-k>"})
     require("luasnip.loaders.from_vscode").lazy_load()
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/vscode' } })
+    -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/vscode' } })
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { './snippets/vscode' } })
+    require("luasnip.loaders.from_lua").lazy_load({paths = "./snippets/luasnip"})
   end
 }
