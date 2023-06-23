@@ -37,6 +37,15 @@ local configs = {
         -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
       },
     },
+    swap = {
+      enable = true,
+      swap_next = {
+        ["<alt-l>"] = "@parameter.inner",
+      },
+      swap_previous = {
+        ["<alt-h>"] = "@parameter.inner",
+      },
+  },
   },
   context_commentstring = {
     enable = true

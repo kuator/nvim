@@ -64,8 +64,8 @@ return {
 
     require("luasnip").config.setup({store_selection_keys="<c-k>"})
     require("luasnip.loaders.from_vscode").lazy_load()
-    -- require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/vscode' } })
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = { './snippets/vscode' } })
-    require("luasnip.loaders.from_lua").lazy_load({paths = "./snippets/luasnip"})
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/vscode' } })
+    -- require("luasnip.loaders.from_vscode").lazy_load({ paths = './snippets/vscode' })
+    require("luasnip.loaders.from_lua").lazy_load({paths = { vim.fn.stdpath("config") .. '/snippets/luasnip' }})
   end
 }
