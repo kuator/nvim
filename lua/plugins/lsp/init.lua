@@ -10,6 +10,15 @@ local function set_mason_lsp(servers)
   end
 end
 
+local function setup_typescript()
+  require("typescript-tools").setup {
+    settings = {
+      -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
+      complete_function_calls = true,
+    },
+  }
+end
+
 local function setup_lsps(servers, settings)
   local lspconfig = require("lspconfig")
   local configs = require("lspconfig.configs")
@@ -30,6 +39,8 @@ local function setup_lsps(servers, settings)
     end
     lspconfig[k].setup(opts)
   end
+
+  setup_typescript()
 end
 
 local function config()
@@ -48,7 +59,7 @@ local function config()
     "awk_ls",
     "clangd",
     "gopls",
-    "vtsls",
+    -- "vtsls",
   }
 
   local settings = {
@@ -131,8 +142,9 @@ end
 
 return {
   'kuator/some-python-plugin.nvim',
-  'yioneko/nvim-vtsls',
+  -- 'yioneko/nvim-vtsls',
   'mfussenegger/nvim-jdtls',
+  'pmizio/typescript-tools.nvim',
   -- require "plugins.lsp-plugins.null-ls",
   -- require "plugins.lsp-plugins.lspkind",
   -- require "plugins.lsp-plugins.aerial",
