@@ -18,5 +18,9 @@ return {
   {
     'tpope/vim-rsi',
     event = 'InsertEnter'
+  },
+  {
+    'tpope/vim-abolish',
+    event = 'InsertEnter'
   }
 }
