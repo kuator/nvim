@@ -1,6 +1,7 @@
 return {
   "L3MON4D3/LuaSnip",
-  dependencies = "rafamadriz/friendly-snippets",
+  -- dependencies = "rafamadriz/friendly-snippets",
+  dependencies = {"rafamadriz/friendly-snippets", "ults-io/vscode-react-javascript-snippets" },
   lazy = true,
   config = function()
     local luasnip = require 'luasnip'

@@ -47,6 +47,7 @@ local function config()
       -- formatting.pyink,
       pyink,
       formatting.jq,
+      formatting.prettierd,
     },
   })
 
