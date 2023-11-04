@@ -73,6 +73,7 @@
   "vim-textobj-line": { "branch": "master", "commit": "1a6780d29adcf7e464e8ddbcd0be0a9df1a37339" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-textobj-variable-segment": { "branch": "main", "commit": "51c323dca5c44f7a8e5a689b9156ef818d02188e" },
+  "vim-textobj-xmlattr": { "branch": "master", "commit": "694a297f1d75fd527e87da9769f3c6519a87ebb1" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "vim-vue-plugin": { "branch": "master", "commit": "04c3fb20ed5096a983f71af204afba07cdfa6d6f" },
   "vim-zoom": { "branch": "master", "commit": "01c737005312c09e0449d6518decf8cedfee32c7" },

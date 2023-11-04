@@ -80,6 +80,12 @@ return {
     lazy = true,
     keys = { { mode = 'n', 'gs' }, { mode = 'x', 'gs' }, },
   },
+  {
+    'https://github.com/whatyouhide/vim-textobj-xmlattr',
+    lazy = true,
+    dependencies = 'vim-textobj-user',
+    keys = { { mode = 'o', 'ax' }, { mode = 'o', 'ix' } }
+  },
 
   -- {
   --   "andymass/vim-matchup",
