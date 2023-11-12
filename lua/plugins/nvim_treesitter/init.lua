@@ -2,6 +2,8 @@ local modules = {
   textobjects = {"nvim-treesitter/nvim-treesitter-textobjects"},
   context_commentstring = {"JoosepAlviste/nvim-ts-context-commentstring"},
   rainbow = {"HiPhish/nvim-ts-rainbow2"},
+  autotag = {"windwp/nvim-ts-autotag"},
+
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
   -- matchup = {
@@ -52,6 +54,9 @@ local configs = {
   },
   rainbow = {
     enable = true
+  },
+  autotag = {
+    enable = true,
   }
   -- refactor = {
   --   highlight_current_scope = { enable = false },
