@@ -57,6 +57,7 @@ local configs = {
   },
   autotag = {
     enable = true,
+    enable_close_on_slash = false,
   }
   -- refactor = {
   --   highlight_current_scope = { enable = false },
@@ -76,7 +77,10 @@ end
 
 local config = {
   ensure_installed = { "python", "lua", "bash", "cpp"},
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = true,
+  },
 }
 
 for i, _ in pairs(modules) do
