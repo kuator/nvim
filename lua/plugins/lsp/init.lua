@@ -48,7 +48,6 @@ local function config()
     "pylance",
     "lua_ls",
     "emmet_language_server",
-
     -- "emmet_ls",
 
     -- tsserver = {
@@ -66,6 +65,22 @@ local function config()
   }
 
   local settings = {
+    emmet_language_server = {
+       filetypes = {
+         "css",
+         "eruby",
+         "html",
+         "javascript",
+         "javascriptreact",
+         "less",
+         "sass",
+         "scss",
+         "svelte",
+         "pug",
+         "typescriptreact",
+         "vue",
+       },
+    },
     gopls = {
       -- for postfix snippets and analyzers
       settings = {

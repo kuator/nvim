@@ -62,6 +62,44 @@ local function config()
     },
   }
 
+  -- https://github.com/axelvc/dots/blob/10fc0493ac90c9c8515800a3128038f049dfcde0/nvim/lua/plugins/lsp/servers/emmet.lua#L29
+
+  local cmp_kinds = require("cmp.types").lsp.CompletionItemKind
+  local is_emmet_snippet = function(entry)
+    return cmp_kinds[entry:get_kind()] == "Text"
+      and entry.source:get_debug_name() == "nvim_lsp:emmet_language_server"
+  end
+
+  local emmet_in_jsx_only = function(entry, _)
+    print(is_emmet_snippet(entry))
+    if is_emmet_snippet(entry) then
+      local node = vim.treesitter.get_node()
+      return node and node:type() == "jsx_element" or false
+    end
+    return true
+  end
+
+  local JS_CONFIG = {
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp', entry_filter = emmet_in_jsx_only},
+    { name = 'nvim_lsp_signature_help' },
+    }, {
+      { name = 'treesitter' },
+      { name = 'path' },
+      { name = 'buffer', keyword_length = 3 },
+    }, {
+      { name = 'calc' },
+      { name = 'emoji' },
+    })
+  }
+
+  cmp.setup.filetype('javascript', JS_CONFIG)
+  cmp.setup.filetype('javascriptreact', JS_CONFIG)
+
+  cmp.setup.filetype('typescript', JS_CONFIG)
+  cmp.setup.filetype('typescriptreact', JS_CONFIG)
+
+
   local ok, lspkind = pcall(require, 'lspkind')
   if ok then
     cmp_config['formatting'] = {
