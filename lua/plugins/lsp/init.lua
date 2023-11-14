@@ -47,7 +47,10 @@ local function config()
   local servers = {
     "pylance",
     "lua_ls",
-    "emmet_ls",
+    "emmet_language_server",
+
+    -- "emmet_ls",
+
     -- tsserver = {
     --   settings = {
     --     completions = {completeFunctionCalls = true},
@@ -160,7 +163,6 @@ return {
       },
       {
         'j-hui/fidget.nvim',
-        branch = 'legacy',
         config = function()
           require "fidget".setup {}
         end

@@ -38,6 +38,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
   'junkblocker/git-time-lapse',
+  { "carbon-steel/detour.nvim",
+      config = function ()
+         vim.keymap.set('n', '<c-w><enter>', ":Detour<cr>")
+     end
+  },
 
   -- TODO: Investigate
   -- https://github.com/rlane/pounce.nvim
