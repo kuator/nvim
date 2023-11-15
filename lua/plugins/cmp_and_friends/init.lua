@@ -82,6 +82,7 @@ local function config()
   local JS_CONFIG = {
     sources = cmp.config.sources({
       { name = 'nvim_lsp', entry_filter = emmet_in_jsx_only},
+      { name = 'luasnip', priority_weight = 120 },
     { name = 'nvim_lsp_signature_help' },
     }, {
       { name = 'treesitter' },
