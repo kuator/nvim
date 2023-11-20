@@ -48,6 +48,7 @@ local function config()
     "pylance",
     "lua_ls",
     "emmet_language_server",
+    "ruby_ls",
     -- "emmet_ls",
 
     -- tsserver = {
@@ -61,6 +62,7 @@ local function config()
     "awk_ls",
     "clangd",
     "gopls",
+    "csharp_ls",
     -- "vtsls",
   }
 
@@ -167,6 +169,21 @@ return {
   -- require "plugins.lsp-plugins.lspkind",
   -- require "plugins.lsp-plugins.aerial",
   -- require "plugins.lsp-plugins.rust-tools-nvim",
+
+
+  -- {
+  --   'jmederosalvarado/roslyn.nvim',
+  --   config = function ()
+  --     local utils = require('utils')
+  --     require("roslyn").setup(
+  --     {
+  --       capabilities = utils.capabilities,
+  --       on_attach = utils.on_attach,
+  --     }
+  --     )
+  --   end
+  -- },
+
   {
     'neovim/nvim-lspconfig',
     config = config,
@@ -183,17 +200,12 @@ return {
         end
       },
       {
-        "utilyre/barbecue.nvim",
-        name = "barbecue",
-        version = "*",
+        'Bekaboo/dropbar.nvim',
+        -- optional, but required for fuzzy finder support
         dependencies = {
-          "SmiteshP/nvim-navic",
-          "nvim-tree/nvim-web-devicons", -- optional dependency
-        },
-        config = function()
-          require("barbecue").setup()
-        end,
-      },
+          'nvim-telescope/telescope-fzf-native.nvim'
+        }
+      }
     },
   }
 }

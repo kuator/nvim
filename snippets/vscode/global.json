@@ -1,0 +1,8 @@
+{
+  "curl": {
+    "prefix": "curl",
+    "body": ["curl \\", "\t-H 'Content-Type: application/json' \\", "\t--data-raw '", "\t{",  "\t\t\"${1:title}\":${2:\"${3:foo}\"}", "\t}' \\", "\t-X POST \\", "\thttp://${5:localhost:8000}/"],
+    "description": "curl"
+  }
+}
+

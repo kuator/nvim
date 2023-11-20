@@ -1,8 +1,8 @@
 local modules = {
-  textobjects = {"nvim-treesitter/nvim-treesitter-textobjects"},
-  context_commentstring = {"JoosepAlviste/nvim-ts-context-commentstring"},
-  rainbow = {"HiPhish/nvim-ts-rainbow2"},
-  autotag = {"windwp/nvim-ts-autotag"},
+  textobjects = { "nvim-treesitter/nvim-treesitter-textobjects" },
+  autotag = { "windwp/nvim-ts-autotag" },
+
+  -- rainbow = {"HiPhish/nvim-ts-rainbow2"},
 
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
@@ -47,11 +47,11 @@ local configs = {
       swap_previous = {
         ["<a-h>"] = { query = { "@parameter.inner", "@function.outer" } },
       },
+    },
   },
-  },
-  context_commentstring = {
-    enable = true
-  },
+  -- context_commentstring = {
+  --   enable = true
+  -- },
   rainbow = {
     enable = true
   },
@@ -71,12 +71,32 @@ local configs = {
 
 local dependencies = {}
 
+local context_commentstring = {
+  "JoosepAlviste/nvim-ts-context-commentstring",
+  config = function()
+    vim.g.skip_ts_context_commentstring_module = true
+  end
+}
+
+local treesitter_context = {
+  "nvim-treesitter/nvim-treesitter-context",
+  config = function()
+    -- require('treesitter-context').setup()
+    vim.keymap.set("n", "[c", function()
+      require("treesitter-context").go_to_context()
+    end, { silent = true })
+  end
+}
+
+table.insert(dependencies, context_commentstring)
+table.insert(dependencies, treesitter_context)
+
 for _, v in pairs(modules) do
   table.insert(dependencies, v)
 end
 
 local config = {
-  ensure_installed = { "python", "lua", "bash", "cpp"},
+  ensure_installed = { "python", "lua", "bash", "cpp" },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = true,
@@ -91,7 +111,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      require'nvim-treesitter.configs'.setup(config)
+      require 'nvim-treesitter.configs'.setup(config)
     end,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = dependencies

@@ -1,7 +1,6 @@
 return {
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', lazy = true },
   { 'nvim-telescope/telescope-file-browser.nvim', lazy = true },
-  { 'tami5/sql.nvim', lazy = true },
   -- {
   --   'tknightz/telescope-termfinder.nvim',
   --   config = function ()
@@ -9,10 +8,10 @@ return {
   --   end,
   --   lazy = true,
   -- },
+  { 'tami5/sql.nvim', lazy = true },
   {
     "nvim-telescope/telescope-frecency.nvim",
     lazy = true,
-    dependencies = { "sql.nvim" }
   },
   {
     'nvim-telescope/telescope.nvim',
@@ -71,7 +70,7 @@ return {
 
       require('telescope.builtin').locations = require('plugins.nvim_telescope.telescope_custom_pickers.locations')
       require('telescope').load_extension('fzf')
-      require('telescope').load_extension('frecency')
+      -- require('telescope').load_extension('frecency')
       require("telescope").load_extension "file_browser"
 
       vim.keymap.set('n', '<leader>sf', require('plugins.nvim_telescope.telescope_custom_pickers.custom_find'))
@@ -81,7 +80,7 @@ return {
       -- vim.keymap.set('n', '<leader>sh', require('telescope.builtin').oldfiles)
       -- vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
       vim.keymap.set('n', '<leader>sl', require('telescope.builtin').locations)
-      vim.keymap.set('n', '<leader>sh', require('telescope').extensions.frecency.frecency)
+      -- vim.keymap.set('n', '<leader>sh', require('telescope').extensions.frecency.frecency)
       vim.keymap.set("n", "<leader>se", require "telescope".extensions.file_browser.file_browser)
     end
   }
