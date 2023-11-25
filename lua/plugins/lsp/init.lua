@@ -161,10 +161,9 @@ end
 
 
 return {
-  'kuator/some-python-plugin.nvim',
+  
   -- 'yioneko/nvim-vtsls',
   'mfussenegger/nvim-jdtls',
-  'pmizio/typescript-tools.nvim',
   -- require "plugins.lsp-plugins.null-ls",
   -- require "plugins.lsp-plugins.lspkind",
   -- require "plugins.lsp-plugins.aerial",
@@ -189,6 +188,8 @@ return {
     config = config,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      'kuator/some-python-plugin.nvim',
+      'pmizio/typescript-tools.nvim',
       {
         "williamboman/mason-lspconfig.nvim",
         dependencies = "mason.nvim"

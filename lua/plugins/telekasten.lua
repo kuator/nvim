@@ -4,6 +4,15 @@ return {
     'nvim-telescope/telescope.nvim',
     'mickael-menu/zk-nvim'
   },
+  keys = {
+    { "n"; "<leader>tf" },
+    { "n"; "<leader>ts" },
+    { "n"; "<leader>tg" },
+    { "n"; "<leader>tl" },
+    { "n"; "<leader>tn" },
+    { "n"; "<leader>tc" },
+    { "n"; "<leader>tb" },
+  },
   config = function ()
     require('telekasten').setup({
       home = vim.fn.expand("~/zettelkasten"), -- Put the name of your notes directory here
@@ -12,6 +21,7 @@ return {
     vim.keymap.set("n", "<leader>tp", "<cmd>Telekasten panel<CR>")
 
     -- Most used functions
+
     vim.keymap.set("n", "<leader>tf", "<cmd>Telekasten find_notes<CR>")
     vim.keymap.set("n", "<leader>ts", "<cmd>Telekasten search_notes<CR>")
     vim.keymap.set("n", "<leader>tg", "<cmd>Telekasten goto_today<CR>")
@@ -19,6 +29,7 @@ return {
     vim.keymap.set("n", "<leader>tn", "<cmd>Telekasten new_note<CR>")
     vim.keymap.set("n", "<leader>tc", "<cmd>Telekasten show_calendar<CR>")
     vim.keymap.set("n", "<leader>tb", "<cmd>Telekasten show_backlinks<CR>")
+
     -- vim.keymap.set("n", "<leader>zI", "<cmd>Telekasten insert_img_link<CR>")
 
     -- Call insert link automatically when we start typing a link
