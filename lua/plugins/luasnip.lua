@@ -1,7 +1,11 @@
 return {
   "L3MON4D3/LuaSnip",
   -- dependencies = "rafamadriz/friendly-snippets",
-  dependencies = { "rafamadriz/friendly-snippets", "ults-io/vscode-react-javascript-snippets" },
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    "ults-io/vscode-react-javascript-snippets",
+    "filwaline/vscode-postfix-python",
+  },
   build = "make install_jsregexp",
   lazy = true,
   config = function()

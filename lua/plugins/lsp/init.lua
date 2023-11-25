@@ -1,5 +1,7 @@
 local function set_mason_lsp(servers)
-  local ensure_installed = vim.tbl_filter(function(d) return d ~= "pylance" end, servers)
+  -- local ensure_installed = vim.tbl_filter(function(d) return d ~= "pylance" end, servers)
+  -- ensure_installed = vim.tbl_filter(function(d) return d ~= "go" end, ensure_installed)
+  local ensure_installed = servers
 
   local mason_lspconfig_status_ok, lsp_installer = pcall(require, "mason-lspconfig")
   local mason_status_ok, mason = pcall(require, "mason")
@@ -31,8 +33,11 @@ local function setup_lsps(servers, settings)
     if k == 'vtsls' then
       configs.vtsls = require("vtsls").lspconfig
     end
-    if k == 'pylance' then
-      require 'pylance'
+    -- if k == 'pylance' then
+    --   require 'pylance'
+    -- end
+    if k == 'go' then
+      require("go").setup()
     end
     if settings[k] ~= nil then
       opts = vim.tbl_deep_extend("force", settings[k], opts)
@@ -40,12 +45,17 @@ local function setup_lsps(servers, settings)
     lspconfig[k].setup(opts)
   end
 
+  require("go").setup()
+
+  require 'pylance'
+
   setup_typescript()
 end
 
 local function config()
   local servers = {
-    "pylance",
+    -- "pylance",
+    -- "go",
     "lua_ls",
     "emmet_language_server",
     "ruby_ls",
@@ -191,6 +201,19 @@ return {
       'kuator/some-python-plugin.nvim',
       'pmizio/typescript-tools.nvim',
       {
+        "ray-x/go.nvim",
+        dependencies = {  -- optional packages
+          "ray-x/guihua.lua",
+          "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+          require("go").setup()
+        end,
+        -- event = {"CmdlineEnter"},
+        ft = {"go", 'gomod'},
+        build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+      },
+      {
         "williamboman/mason-lspconfig.nvim",
         dependencies = "mason.nvim"
       },
@@ -206,7 +229,7 @@ return {
         dependencies = {
           'nvim-telescope/telescope-fzf-native.nvim'
         }
-      }
+      },
     },
   }
 }
