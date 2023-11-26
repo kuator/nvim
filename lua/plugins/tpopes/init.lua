@@ -14,7 +14,11 @@ return {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     keys = { { mode = 'n', 'ys' }, { mode = 'x', 'S' }, { mode = 'n', 'cs' }, { mode = 'n', 'ds' }, },
     config = function()
-      require "nvim-surround".setup {}
+      require("nvim-surround").setup ({
+        surrounds = {
+          q = { add = { '"', '"' } }
+        }
+      })
     end
   },
 

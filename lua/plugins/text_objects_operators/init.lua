@@ -40,7 +40,7 @@ local comment_nvim = {
     "nvim-treesitter/nvim-treesitter"
   },
   keys = { { mode = 'x', 'gc' }, { mode = 'n', 'gc' } },
-}
+  }
 
 return {
   comment_nvim,
