@@ -39,7 +39,7 @@ end
 
 local function efm_ls_config()
   local eslint = require("efmls-configs.linters.eslint")
-  local prettier = require("efmls-configs.formatters.prettier")
+  local prettier_d = require("efmls-configs.formatters.prettier_d")
   local stylua = require("efmls-configs.formatters.stylua")
   local fs = require("efmls-configs.fs")
 
@@ -53,12 +53,21 @@ local function efm_ls_config()
   stylua["command"] = command
 
   local ruff = require("efmls-configs.linters.ruff")
+
+  formatter = "black"
+
   local black = require("efmls-configs.formatters.black")
+  command = string.format('%s --no-color -q ${--line-ranges=charStart-charEnd} -', fs.executable(formatter))
+  black['command'] = command
+  print(command)
+  black['formatCanRange'] = true
+
   local languages = {
-    typescript = { eslint, prettier },
-    javascript = { eslint, prettier },
+    typescript = { eslint, prettier_d },
+    javascript = { eslint, prettier_d },
     lua = { stylua },
-    python = { ruff, black },
+    html = { prettier_d },
+    python = { black },
   }
 
   mason_tool_installer()

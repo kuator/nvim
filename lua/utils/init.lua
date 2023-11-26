@@ -1,14 +1,17 @@
 local M = {}
 
 local function on_attach(client, bufnr)
-
   -- Keybindings for LSPs
   local options = { noremap = true, silent = true }
   vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, options)
   vim.keymap.set("n", "<leader>ge", vim.lsp.buf.declaration, options)
   vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, options)
-  vim.keymap.set('n', '<space>gf', function() vim.lsp.buf.format { async = false } end, options)
-  vim.keymap.set('v', '<space>gf', function() vim.lsp.buf.format { async = false } end, options)
+  vim.keymap.set("n", "<space>gf", function()
+    vim.lsp.buf.format({ async = false })
+  end, options)
+  vim.keymap.set("v", "<space>gf", function()
+    vim.lsp.buf.format({ async = false })
+  end, options)
   vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, options)
   -- vim.keymap.set("n", "<leader>gk",  vim.lsp.buf.signature_help, options)
   vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, options)
@@ -22,19 +25,25 @@ local function on_attach(client, bufnr)
   -- vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
 
   -- https://github.com/MurdeRM3L0DY/dotfiles/blob/b756d26a39351366ab30086440e1fbe8655efc39/roles/nvim/files/lua/plugins/null-ls/config.lua
-  if client.supports_method 'textDocument/formatting' then
-    vim.keymap.set(
-      'n',
-      '<leader>F',
-      function()
-        vim.lsp.buf.format({
-          filter = function(client_) return client_.name ~= "tsserver" end,
-          bufnr = bufnr,
-          timeout_ms = 2000
-        })
-      end,
-      { buffer = bufnr }
-    )
+
+  -- local function format_servers(server)
+  --   local servers_to_ignore = { "ruff", "tsserver" }
+  --
+  --   if servers_to_ignore[server] then
+  --     return false
+  --   else
+  --     return true
+  --   end
+  -- end
+
+  if client.supports_method("textDocument/formatting") then
+    vim.keymap.set("n", "<leader>F", function()
+      vim.lsp.buf.format({
+        filter = function(client_) return client_.name ~= "tsserver" end,
+        bufnr = bufnr,
+        timeout_ms = 2000,
+      })
+    end, { buffer = bufnr })
   end
 
   -- if client.supports_method 'textDocument/rangeFormatting' then
@@ -42,7 +51,6 @@ local function on_attach(client, bufnr)
   --   vim.lsp.buf.range_formatting()
   -- end)
   -- end
-
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
