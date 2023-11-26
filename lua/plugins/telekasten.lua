@@ -5,13 +5,13 @@ return {
     'mickael-menu/zk-nvim'
   },
   keys = {
-    { "n"; "<leader>tf" },
-    { "n"; "<leader>ts" },
-    { "n"; "<leader>tg" },
-    { "n"; "<leader>tl" },
-    { "n"; "<leader>tn" },
-    { "n"; "<leader>tc" },
-    { "n"; "<leader>tb" },
+    { mode="n"; "<leader>tf" },
+    { mode="n"; "<leader>ts" },
+    { mode="n"; "<leader>tg" },
+    { mode="n"; "<leader>tl" },
+    { mode="n"; "<leader>tn" },
+    { mode="n"; "<leader>tc" },
+    { mode="n"; "<leader>tb" },
   },
   config = function ()
     require('telekasten').setup({

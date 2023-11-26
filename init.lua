@@ -1,2 +1,3 @@
-require('plugin/00_options')
-require('lazy_')
+require("plugin/00_options")
+
+require("lazy_")

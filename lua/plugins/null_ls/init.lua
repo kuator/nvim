@@ -64,12 +64,12 @@ local function config()
 end
 
 return {
-  "jose-elias-alvarez/null-ls.nvim",
-  event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    'plenary.nvim',
-    "mason.nvim",
-    "jay-babu/mason-null-ls.nvim",
-  },
-  config = config,
+  -- "jose-elias-alvarez/null-ls.nvim",
+  -- event = { "BufReadPre", "BufNewFile" },
+  -- dependencies = {
+  --   'plenary.nvim',
+  --   "mason.nvim",
+  --   "jay-babu/mason-null-ls.nvim",
+  -- },
+  -- config = config,
 }
