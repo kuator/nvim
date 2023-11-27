@@ -26,20 +26,20 @@ local function on_attach(client, bufnr)
 
   -- https://github.com/MurdeRM3L0DY/dotfiles/blob/b756d26a39351366ab30086440e1fbe8655efc39/roles/nvim/files/lua/plugins/null-ls/config.lua
 
-  -- local function format_servers(server)
-  --   local servers_to_ignore = { "ruff", "tsserver" }
-  --
-  --   if servers_to_ignore[server] then
-  --     return false
-  --   else
-  --     return true
-  --   end
-  -- end
+  local function format_servers(server)
+    local servers_to_ignore = { "ruff", "tsserver", "lua_ls" }
+
+    if servers_to_ignore[server] then
+      return false
+    else
+      return true
+    end
+  end
 
   if client.supports_method("textDocument/formatting") then
     vim.keymap.set("n", "<leader>F", function()
       vim.lsp.buf.format({
-        filter = function(client_) return client_.name ~= "tsserver" end,
+        filter = function(client_) return format_servers(client_.name) end ,
         bufnr = bufnr,
         timeout_ms = 2000,
       })

@@ -37,37 +37,56 @@ local function setup_typescript()
   })
 end
 
-local function efm_ls_config()
-  local eslint = require("efmls-configs.linters.eslint")
-  local prettier_d = require("efmls-configs.formatters.prettier_d")
-  local stylua = require("efmls-configs.formatters.stylua")
-  local fs = require("efmls-configs.fs")
+local function efm_black()
+  local fs = require('efmls-configs.fs')
 
-  local formatter = "stylua"
+  local formatter = 'black'
 
   local command = string.format(
-    "%s  --indent-type Spaces --indent-width 2 --color Never ${--range-start:charStart} ${--range-end:charEnd} -",
+    "%s --no-color -q $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --line-ranges=$(($1+1))-$(($3+1))') -",
     fs.executable(formatter)
   )
 
-  stylua["command"] = command
+  return {
+    formatCanRange = true,
+    formatCommand = command,
+    formatStdin = true,
+  }
+end
 
+
+local function efm_stylua()
+  local fs = require('efmls-configs.fs')
+
+  local formatter = 'stylua'
+
+
+  local command = string.format(
+    "%s --indent-type Spaces --indent-width 2 --color Never ${--range-start:charStart} ${--range-end:charEnd} -",
+    fs.executable(formatter)
+  )
+
+  return {
+    formatCanRange = true,
+    formatCommand = command,
+    formatStdin = true,
+  }
+end
+
+
+local function efm_ls_config()
+  local eslint = require("efmls-configs.linters.eslint")
+  local prettier_d = require("efmls-configs.formatters.prettier_d")
   local ruff = require("efmls-configs.linters.ruff")
 
-  formatter = "black"
-
-  local black = require("efmls-configs.formatters.black")
-  command = string.format('%s --no-color -q ${--line-ranges=charStart-charEnd} -', fs.executable(formatter))
-  black['command'] = command
-  print(command)
-  black['formatCanRange'] = true
+  -- latexindent $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --lines $(($1+1))-$(($3+1))')
 
   local languages = {
     typescript = { eslint, prettier_d },
     javascript = { eslint, prettier_d },
-    lua = { stylua },
+    lua = { efm_stylua() },
     html = { prettier_d },
-    python = { black },
+    python = { efm_black(), ruff },
   }
 
   mason_tool_installer()
