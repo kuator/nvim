@@ -42,10 +42,10 @@ local configs = {
     swap = {
       enable = true,
       swap_next = {
-        ["<a-l>"] = { query = { "@parameter.inner", "@function.outer" } },
+        ["<a-l>"] = { query = {  "@parameter.inner", '@statement.outer', "@function.outer", } },
       },
       swap_previous = {
-        ["<a-h>"] = { query = { "@parameter.inner", "@function.outer" } },
+        ["<a-h>"] = { query = {  "@parameter.inner", '@statement.outer', "@function.outer",} },
       },
     },
   },
