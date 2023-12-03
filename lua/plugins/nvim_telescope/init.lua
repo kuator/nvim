@@ -69,6 +69,14 @@ return {
         extensions = extensions
       }
 
+      local status_ok, persisted = pcall(require, "persisted")
+
+      if status_ok then
+        require("telescope").load_extension("persisted")
+      end
+
+       
+
       require('telescope.builtin').locations = require('plugins.nvim_telescope.telescope_custom_pickers.locations')
       require('telescope').load_extension('fzf')
       -- require('telescope').load_extension('frecency')
