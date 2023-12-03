@@ -8,5 +8,15 @@
     "prefix": "fun",
     "body": ["${1:public} ${2:void} ${3:myFunc}(${4:arg}) {", "\t$5", "}"],
     "description": "Function"
+  },
+  "gtrange": {
+    "prefix": "gtrange",
+    "body": ["${1:value} > ${2:0} && ${1:value} < ${3:100}"],
+    "description": "range"
+  },
+  "gterange": {
+    "prefix": "gterange",
+    "body": ["${1:value} >= ${2:0} && ${1:value} <= ${3:100}"],
+    "description": "range"
   }
 }

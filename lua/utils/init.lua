@@ -27,7 +27,7 @@ local function on_attach(client, bufnr)
   -- https://github.com/MurdeRM3L0DY/dotfiles/blob/b756d26a39351366ab30086440e1fbe8655efc39/roles/nvim/files/lua/plugins/null-ls/config.lua
 
   local function format_servers(server)
-    local servers_to_ignore = { "ruff", "tsserver", "lua_ls" }
+    local servers_to_ignore = { "ruff", "tsserver", "lua_ls", "jdtls" }
 
     if servers_to_ignore[server] then
       return false
@@ -65,5 +65,7 @@ M.on_attach = function(client, bufnr)
 end
 
 M.capabilities = capabilities
+
+
 
 return M

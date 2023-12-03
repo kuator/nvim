@@ -2,6 +2,8 @@ local modules = {
   textobjects = { "nvim-treesitter/nvim-treesitter-textobjects" },
   autotag = { "windwp/nvim-ts-autotag" },
 
+  -- textsubjects = { "RRethy/nvim-treesitter-textsubjects" },
+
   -- rainbow = {"HiPhish/nvim-ts-rainbow2"},
 
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
@@ -17,6 +19,15 @@ local modules = {
 }
 
 local configs = {
+  textsubjects = {
+      enable = true,
+      prev_selection = ',', -- (Optional) keymap to select the previous selection
+      keymaps = {
+          ['.'] = 'textsubjects-smart',
+          [';'] = 'textsubjects-container-outer',
+          ['i;'] = { 'textsubjects-container-inner', desc = "Select inside containers (classes, functions, etc.)" },
+      },
+  },
   textobjects = {
     select = {
       enable = true,
@@ -82,14 +93,32 @@ local treesitter_context = {
   "nvim-treesitter/nvim-treesitter-context",
   config = function()
     -- require('treesitter-context').setup()
-    vim.keymap.set("n", "[c", function()
-      require("treesitter-context").go_to_context()
-    end, { silent = true })
+
+    -- vim.keymap.set("n", "[c", function()
+    --   require("treesitter-context").go_to_context()
+    -- end, { silent = true })
+
+  end
+}
+
+
+local rainbow_delimiters = {
+  "hiphish/rainbow-delimiters.nvim",
+  config = function()
+  end
+}
+
+local neogen = {
+  "danymat/neogen",
+  config = function()
+    require('neogen').setup({ snippet_engine = "luasnip" })
   end
 }
 
 table.insert(dependencies, context_commentstring)
 table.insert(dependencies, treesitter_context)
+table.insert(dependencies, rainbow_delimiters)
+table.insert(dependencies, neogen)
 
 for _, v in pairs(modules) do
   table.insert(dependencies, v)

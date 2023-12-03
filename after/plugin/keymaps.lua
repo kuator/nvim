@@ -48,5 +48,5 @@ vim.keymap.set('s', '<c-h>', '<c-h>i')
 
 vim.keymap.set('c', '<c-s>', '<c-a>')
 
-vim.cmd.abb('ar', '->')
+-- vim.cmd.abb('ar', '->')
 

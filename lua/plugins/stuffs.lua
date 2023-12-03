@@ -33,10 +33,10 @@ return {
     keys = { { mode = 'n', '<c-w>m' } },
   },
   'godlygeek/tabular',
-  {
-    'RRethy/vim-illuminate',
-    event = { "BufReadPre", "BufNewFile" },
-  },
+  -- {
+  --   'RRethy/vim-illuminate',
+  --   event = { "BufReadPre", "BufNewFile" },
+  -- },
   'junkblocker/git-time-lapse',
   { "carbon-steel/detour.nvim",
       config = function ()

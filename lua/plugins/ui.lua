@@ -34,6 +34,10 @@ return {
       require("which-key").setup({})
     end,
   },
+  {
+    'sindrets/diffview.nvim',
+    cmd = 'DiffviewOpen'
+  }
   -- {
   --   "luukvbaal/statuscol.nvim",
   --   config = function()

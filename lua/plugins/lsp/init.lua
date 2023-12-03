@@ -15,11 +15,12 @@ end
 local function mason_tool_installer()
   require("mason-tool-installer").setup({
     ensure_installed = {
-      "ruff",
+      "black",
       "jq",
       "prettierd",
-      "black",
+      "ruff",
       "stylua",
+      "google-java-format",
     },
 
     run_on_start = true,
@@ -55,6 +56,14 @@ local function efm_black()
 end
 
 
+local function efm_checkstyle()
+  return {
+    lintCommand = [[checkstyle -c=/google_checks.xml ${INPUT}]],
+    lintFormats = { "[WARN] %f:%l:%c: %m" },
+    lintIgnoreExitCode = true,
+  }
+end
+
 local function efm_stylua()
   local fs = require('efmls-configs.fs')
 
@@ -78,6 +87,7 @@ local function efm_ls_config()
   local eslint = require("efmls-configs.linters.eslint")
   local prettier_d = require("efmls-configs.formatters.prettier_d")
   local ruff = require("efmls-configs.linters.ruff")
+  local google_java_format = require("efmls-configs.formatters.google_java_format")
 
   -- latexindent $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --lines $(($1+1))-$(($3+1))')
 
@@ -87,6 +97,7 @@ local function efm_ls_config()
     lua = { efm_stylua() },
     html = { prettier_d },
     python = { efm_black(), ruff },
+    java = { efm_checkstyle(), google_java_format },
   }
 
   mason_tool_installer()
@@ -99,6 +110,8 @@ local function efm_ls_config()
   local efmls_config = {
     filetypes = vim.tbl_keys(languages),
     settings = {
+      lintDebounce = "1s",
+      formatDebounce = "1000ms",
       rootMarkers = { ".git/" },
       languages = languages,
     },

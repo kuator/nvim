@@ -86,6 +86,12 @@ return {
     dependencies = 'vim-textobj-user',
     keys = { { mode = 'o', 'ax' }, { mode = 'o', 'ix' } }
   },
+  {
+      'https://github.com/christoomey/vim-sort-motion',
+      lazy = true,
+      dependencies = 'vim-textobj-user',
+      keys = { { mode = 'n', 'gs' } }
+    }
 
   -- {
   --   "andymass/vim-matchup",

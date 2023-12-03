@@ -16,7 +16,15 @@ return {
     config = function()
       require("nvim-surround").setup ({
         surrounds = {
-          q = { add = { '"', '"' } }
+          q = { add = { '"', '"' } },
+          c = {
+            add = { "{", "}" },
+            find = function()
+              local config = require("nvim-surround.config")
+              return config.get_selection({ motion = "a}" })
+            end,
+            delete = "^(.)().-(.)()$",
+          }
         }
       })
     end
