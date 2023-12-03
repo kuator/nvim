@@ -1,6 +1,7 @@
 return {
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', lazy = true },
   { 'nvim-telescope/telescope-file-browser.nvim', lazy = true },
+  { 'piersolenski/telescope-import.nvim', lazy = true },
   -- {
   --   'tknightz/telescope-termfinder.nvim',
   --   config = function ()
@@ -73,6 +74,8 @@ return {
       -- require('telescope').load_extension('frecency')
       require("telescope").load_extension "file_browser"
 
+      require("telescope").load_extension("import")
+
       vim.keymap.set('n', '<leader>sf', require('plugins.nvim_telescope.telescope_custom_pickers.custom_find'))
       vim.keymap.set('n', '<leader>st', require('plugins.nvim_telescope.telescope_custom_pickers.terminals'))
       -- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').grep_string)
@@ -82,6 +85,9 @@ return {
       vim.keymap.set('n', '<leader>sl', require('telescope.builtin').locations)
       -- vim.keymap.set('n', '<leader>sh', require('telescope').extensions.frecency.frecency)
       vim.keymap.set("n", "<leader>se", require "telescope".extensions.file_browser.file_browser)
+
+      -- vim.keymap.set('n', '<leader>ss', ':Telescope<space>')
+
     end
   }
 }

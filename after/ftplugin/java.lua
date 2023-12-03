@@ -4,6 +4,9 @@ if not status_ok then
   return
 end
 
+-- TODO https://github.com/mfussenegger/nvim-jdtls/discussions/187
+-- TODO https://github.com/eclipse-jdtls/eclipse.jdt.ls/issues/1746
+
 local utils = require('utils')
 
 local config = {
