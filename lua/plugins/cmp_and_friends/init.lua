@@ -53,8 +53,9 @@ local function config()
     sources = {
       { name = "nvim_lsp", max_item_count = 20, priority_weight = 100},
       { name = 'luasnip', priority_weight = 120 },
-      { name = "buffer", max_item_count = 5, priority_weight = 80},
-      { name = "path", max_item_count = 5, priority_weight = 100},
+      { name = "buffer", max_item_count = 2, priority_weight = 80},
+      { name = "rg", max_item_count = 8, priority_weight = 80, option = { additional_arguments = "--smart-case" }},
+      { name = "path", max_item_count = 2, priority_weight = 100},
       { name = 'skkeleton'},
     },
     view = {
@@ -130,6 +131,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
+      "lukas-reineke/cmp-rg",
       "onsails/lspkind.nvim",
     },
   },

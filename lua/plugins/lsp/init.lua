@@ -39,9 +39,9 @@ local function setup_typescript()
 end
 
 local function efm_black()
-  local fs = require('efmls-configs.fs')
+  local fs = require("efmls-configs.fs")
 
-  local formatter = 'black'
+  local formatter = "black"
 
   local command = string.format(
     "%s --no-color -q $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --line-ranges=$(($1+1))-$(($3+1))') -",
@@ -55,7 +55,6 @@ local function efm_black()
   }
 end
 
-
 local function efm_checkstyle()
   return {
     lintCommand = [[checkstyle -c=/google_checks.xml ${INPUT}]],
@@ -65,10 +64,9 @@ local function efm_checkstyle()
 end
 
 local function efm_stylua()
-  local fs = require('efmls-configs.fs')
+  local fs = require("efmls-configs.fs")
 
-  local formatter = 'stylua'
-
+  local formatter = "stylua"
 
   local command = string.format(
     "%s --indent-type Spaces --indent-width 2 --color Never ${--range-start:charStart} ${--range-end:charEnd} -",
@@ -81,7 +79,6 @@ local function efm_stylua()
     formatStdin = true,
   }
 end
-
 
 local function efm_ls_config()
   local eslint = require("efmls-configs.linters.eslint")
@@ -171,6 +168,8 @@ local function config()
     "clangd",
     "gopls",
     "csharp_ls",
+    "jsonls",
+    "yamlls",
     -- "vtsls",
   }
 
@@ -190,6 +189,20 @@ local function config()
         "pug",
         "typescriptreact",
         "vue",
+      },
+    },
+    yaml = {
+      settings = {
+        yaml = {
+          schemaStore = {
+            -- You must disable built-in schemaStore support if you want to use
+            -- this plugin and its advanced options like `ignore`.
+            enable = false,
+            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+            url = "",
+          },
+          schemas = require("schemastore").yaml.schemas(),
+        },
       },
     },
     gopls = {
@@ -224,6 +237,14 @@ local function config()
               [vim.fn.stdpath("config") .. "/lua"] = true,
             },
           },
+        },
+      },
+    },
+    jsonls = {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
         },
       },
     },
@@ -295,6 +316,7 @@ return {
     dependencies = {
       "kuator/some-python-plugin.nvim",
       "pmizio/typescript-tools.nvim",
+      "b0o/SchemaStore.nvim",
       {
         "ray-x/go.nvim",
         dependencies = { -- optional packages

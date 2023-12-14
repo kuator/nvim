@@ -9,10 +9,32 @@ return {
     end,
     keys = { { mode='n'; '<leader>j' }}
   },
+
   {
-    'simrat39/symbols-outline.nvim',
-    lazy = true
+    "hedyhli/outline.nvim",
+    config = function()
+      -- Example mapping to toggle outline
+
+      require("outline").setup {}
+    end,
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
   },
+  {
+    'stevearc/aerial.nvim',
+    -- Optional dependencies
+    lazy = true,
+    config = function ()
+      require('aerial').setup({})
+    end,
+    cmd = {'AerialToggle', 'AerialNext', 'AerialPrev'}
+  },
+
+  -- {
+  --   'simrat39/symbols-outline.nvim',
+  --   lazy = true
+  -- },
+
   -- {
   --   'seandewar/bad-apple.nvim',
   --   lazy = true,
@@ -33,10 +55,14 @@ return {
     keys = { { mode = 'n', '<c-w>m' } },
   },
   'godlygeek/tabular',
-  -- {
-  --   'RRethy/vim-illuminate',
-  --   event = { "BufReadPre", "BufNewFile" },
-  -- },
+  {
+    'RRethy/vim-illuminate',
+    event = { "BufReadPre", "BufNewFile" },
+  },
+  {
+    'andymass/vim-matchup',
+    event = { "BufReadPre", "BufNewFile" },
+  },
   'junkblocker/git-time-lapse',
   { "carbon-steel/detour.nvim",
       config = function ()

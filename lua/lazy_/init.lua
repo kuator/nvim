@@ -20,5 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 -- TODO: neo-tree.lua
 -- TODO: glts/vim-textobj-comment
 -- TODO: onsails/lspkind.nvim
+-- TODO: https://github.com/luukvbaal/statuscol.nvim
+-- TODO: https://github.com/kevinhwang91/nvim-ufo
+-- TODO: https://github.com/mrcjkb/rustaceanvim
 
 require("lazy").setup("plugins")

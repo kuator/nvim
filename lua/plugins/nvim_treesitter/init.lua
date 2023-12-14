@@ -8,31 +8,34 @@ local modules = {
 
   -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
 
-  -- matchup = {
-  --   "andymass/vim-matchup" ,
-  --   config = function()
-  --     vim.g.matchup_matchparen_offscreen = { method = 'popup' }
-  --   end
-  -- },
+  matchup = {
+    "andymass/vim-matchup" ,
+    setup = function()
+      vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+    end
+  },
 
   -- node_movement = 'theHamsta/crazy-node-movement'
 }
 
 local configs = {
   textsubjects = {
-      enable = true,
-      prev_selection = ',', -- (Optional) keymap to select the previous selection
-      keymaps = {
-          ['.'] = 'textsubjects-smart',
-          [';'] = 'textsubjects-container-outer',
-          ['i;'] = { 'textsubjects-container-inner', desc = "Select inside containers (classes, functions, etc.)" },
-      },
+    enable = true,
+    prev_selection = ",", -- (Optional) keymap to select the previous selection
+    keymaps = {
+      ["."] = "textsubjects-smart",
+      [";"] = "textsubjects-container-outer",
+      ["i;"] = { "textsubjects-container-inner", desc = "Select inside containers (classes, functions, etc.)" },
+    },
+  },
+  matchup = {
+    enable = true,
   },
   textobjects = {
     select = {
       enable = true,
 
-      include_surrounding_whitespace = true,
+      include_surrounding_whitespace = false,
 
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
@@ -43,20 +46,28 @@ local configs = {
         ["if"] = "@function.inner",
         ["aC"] = "@class.outer",
         ["iC"] = "@class.inner",
+        ['as'] = { query = '@scope', query_group = 'locals', desc = 'Select language scope' },
+        ['is'] = { query = '@scope', query_group = 'locals', desc = 'Select language scope' },
         -- ["ac"] = "@conditional.outer",
         -- ["ic"] = "@conditional.inner",
         -- ["al"] = "@loop.outer",
         -- ["il"] = "@loop.inner",
         -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+        -- json
+      },
+      selection_modes = {
+        ["@parameter.outer"] = "v", -- charwise
+        ["@function.outer"] = "V",  -- linewise
+        ["@class.outer"] = "<c-v>", -- blockwise
       },
     },
     swap = {
       enable = true,
       swap_next = {
-        ["<a-l>"] = { query = {  "@parameter.inner", '@statement.outer', "@function.outer", } },
+        ["<a-l>"] = { query = { "@parameter.inner", "@statement.outer", "@function.outer" } },
       },
       swap_previous = {
-        ["<a-h>"] = { query = {  "@parameter.inner", '@statement.outer', "@function.outer",} },
+        ["<a-h>"] = { query = { "@parameter.inner", "@statement.outer", "@function.outer" } },
       },
     },
   },
@@ -64,12 +75,12 @@ local configs = {
   --   enable = true
   -- },
   rainbow = {
-    enable = true
+    enable = true,
   },
   autotag = {
     enable = true,
     enable_close_on_slash = false,
-  }
+  },
   -- refactor = {
   --   highlight_current_scope = { enable = false },
   --   highlight_definitions = {
@@ -86,7 +97,7 @@ local context_commentstring = {
   "JoosepAlviste/nvim-ts-context-commentstring",
   config = function()
     vim.g.skip_ts_context_commentstring_module = true
-  end
+  end,
 }
 
 local treesitter_context = {
@@ -97,22 +108,19 @@ local treesitter_context = {
     -- vim.keymap.set("n", "[c", function()
     --   require("treesitter-context").go_to_context()
     -- end, { silent = true })
-
-  end
+  end,
 }
-
 
 local rainbow_delimiters = {
   "hiphish/rainbow-delimiters.nvim",
-  config = function()
-  end
+  config = function() end,
 }
 
 local neogen = {
   "danymat/neogen",
   config = function()
-    require('neogen').setup({ snippet_engine = "luasnip" })
-  end
+    require("neogen").setup({ snippet_engine = "luasnip" })
+  end,
 }
 
 table.insert(dependencies, context_commentstring)
@@ -138,11 +146,11 @@ end
 
 return {
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     config = function()
-      require 'nvim-treesitter.configs'.setup(config)
+      require("nvim-treesitter.configs").setup(config)
     end,
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = dependencies
+    dependencies = dependencies,
   },
 }
