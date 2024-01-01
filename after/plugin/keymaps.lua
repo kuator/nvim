@@ -50,3 +50,6 @@ vim.keymap.set('c', '<c-s>', '<c-a>')
 
 -- vim.cmd.abb('ar', '->')
 
+vim.keymap.set('n', 'gu', 'g~')
+vim.keymap.set('v', 'gu', 'g~')
+

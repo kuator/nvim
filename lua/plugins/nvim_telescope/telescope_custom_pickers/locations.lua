@@ -12,7 +12,7 @@ return function(opts)
         "~/.config/nvim",
         "~/dotfiles",
         "~/.config/zsh",
-        "~/dev/payda/paydabackend",
+        -- "~/dev/payda/paydabackend",
       },
     },
     attach_mappings = function(_, map)

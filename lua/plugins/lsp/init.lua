@@ -153,6 +153,7 @@ local function config()
     "efm",
     "lua_ls",
     "emmet_language_server",
+    "dockerls",
     -- "emmet_ls",
 
     -- tsserver = {
@@ -166,6 +167,7 @@ local function config()
     "awk_ls",
     "jsonls",
     "yamlls",
+    "nginx_language_server",
     -- "clangd",
     -- "gopls",
     -- "csharp_ls",

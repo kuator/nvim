@@ -17,6 +17,7 @@ return {
       require("nvim-surround").setup ({
         surrounds = {
           q = { add = { '"', '"' } },
+          ['.'] = { add = { '<', '>' } },
           c = {
             add = { "{", "}" },
             find = function()

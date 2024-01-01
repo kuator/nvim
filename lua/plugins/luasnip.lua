@@ -103,13 +103,14 @@ return {
     require('luasnip').filetype_extend('python', { 'django', 'django-rest', 'pydoc' })
 
     -- require("luasnip.loaders.from_vscode").lazy_load({ paths = './snippets/vscode' })
-    require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/vscode' } })
-    require("luasnip.loaders.from_lua").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/luasnip' } })
 
     vim.tbl_map(
       function(type) require("luasnip.loaders.from_" .. type).lazy_load() end,
-      { "vscode", "snipmate", "lua" }
+      { "lua", "snipmate", "vscode" }
     )
+    
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/vscode' } })
+    require("luasnip.loaders.from_lua").lazy_load({ paths = { vim.fn.stdpath("config") .. '/snippets/luasnip' } })
 
 
   end

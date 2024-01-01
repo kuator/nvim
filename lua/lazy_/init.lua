@@ -23,5 +23,13 @@ vim.opt.rtp:prepend(lazypath)
 -- TODO: https://github.com/luukvbaal/statuscol.nvim
 -- TODO: https://github.com/kevinhwang91/nvim-ufo
 -- TODO: https://github.com/mrcjkb/rustaceanvim
+-- TODO: https://github.com/LintaoAmons/scratch.nvim
 
-require("lazy").setup("plugins")
+require("lazy").setup(
+  "plugins", {
+    change_detection = {
+        enabled = false,
+        notify = false, -- get a notification when changes are found
+    }
+  }
+)
