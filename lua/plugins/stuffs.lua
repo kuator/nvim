@@ -1,13 +1,13 @@
 return {
   {
-    'Wansmer/treesj',
+    "Wansmer/treesj",
     config = function()
-      require('treesj').setup({
+      require("treesj").setup({
         use_default_keymaps = false,
       })
-      vim.keymap.set('n', '<leader>j', "<cmd>TSJToggle<cr>")
+      vim.keymap.set("n", "<leader>j", "<cmd>TSJToggle<cr>")
     end,
-    keys = { { mode='n'; '<leader>j' }}
+    keys = { { mode = "n", "<leader>j" } },
   },
 
   {
@@ -15,19 +15,19 @@ return {
     config = function()
       -- Example mapping to toggle outline
 
-      require("outline").setup {}
+      require("outline").setup({})
     end,
     lazy = true,
     cmd = { "Outline", "OutlineOpen" },
   },
   {
-    'stevearc/aerial.nvim',
+    "stevearc/aerial.nvim",
     -- Optional dependencies
     lazy = true,
-    config = function ()
-      require('aerial').setup({})
+    config = function()
+      require("aerial").setup({})
     end,
-    cmd = {'AerialToggle', 'AerialNext', 'AerialPrev'}
+    cmd = { "AerialToggle", "AerialNext", "AerialPrev" },
   },
 
   -- {
@@ -40,34 +40,46 @@ return {
   --   lazy = true,
   --   cmd = {'BadApple'}
   -- };
-  { 'https://github.com/Eandrju/cellular-automaton.nvim', lazy = true, cmd = { 'CellularAutomaton' } },
+  { "https://github.com/Eandrju/cellular-automaton.nvim", lazy = true, cmd = { "CellularAutomaton" } },
   {
-    'leafOfTree/vim-vue-plugin',
-    ft = 'vue',
+    "leafOfTree/vim-vue-plugin",
+    ft = "vue",
   },
   {
-    'MaxMEllon/vim-jsx-pretty',
-    ft = { 'javascript', 'javascriptreact' },
+    "MaxMEllon/vim-jsx-pretty",
+    ft = { "javascript", "javascriptreact" },
   },
   {
-    'dhruvasagar/vim-zoom',
+    "dhruvasagar/vim-zoom",
     lazy = true,
-    keys = { { mode = 'n', '<c-w>m' } },
+    keys = { { mode = "n", "<c-w>m" } },
   },
-  'godlygeek/tabular',
+  "godlygeek/tabular",
   {
-    'RRethy/vim-illuminate',
+    "RRethy/vim-illuminate",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require('illuminate').configure({
+        delay= 200
+      })
+
+      vim.api.nvim_set_hl(0, "IlluminatedWord", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+      vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
+
+    end,
+  },
+  {
+    "andymass/vim-matchup",
     event = { "BufReadPre", "BufNewFile" },
   },
+  "junkblocker/git-time-lapse",
   {
-    'andymass/vim-matchup',
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  'junkblocker/git-time-lapse',
-  { "carbon-steel/detour.nvim",
-      config = function ()
-         vim.keymap.set('n', '<c-w><enter>', ":Detour<cr>")
-     end
+    "carbon-steel/detour.nvim",
+    config = function()
+      vim.keymap.set("n", "<c-w><enter>", ":Detour<cr>")
+    end,
   },
 
   -- TODO: Investigate

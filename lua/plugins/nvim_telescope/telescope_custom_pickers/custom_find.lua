@@ -6,7 +6,7 @@ return function()
         "--no-ignore-vcs",
         "--hidden",
         "--ignore-file",
-        vim.fn.expand("~/.config/.ignore")
+        vim.fs.joinpath(vim.env.XDG_CONFIG_HOME, '.ignore')
       }
     }
     )

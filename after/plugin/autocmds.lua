@@ -85,3 +85,9 @@ vim.api.nvim_create_autocmd('User', {
     end)
   end,
 })
+
+
+vim.api.nvim_create_autocmd({'BufWritePre', 'FileWritePre'}, {
+  pattern = '*',
+  command = [[if @% !~# '\(://\)' | call mkdir(expand('<afile>:p:h'), 'p') | endif]]
+})

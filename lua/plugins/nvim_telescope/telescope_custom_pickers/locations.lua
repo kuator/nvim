@@ -12,7 +12,7 @@ return function(opts)
         "~/.config/nvim",
         "~/dotfiles",
         "~/.config/zsh",
-        -- "~/dev/payda/paydabackend",
+        "~/dev/personal/algorithms-and-stuff/coursera/electric_boogalo_algorithms",
       },
     },
     attach_mappings = function(_, map)

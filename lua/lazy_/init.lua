@@ -24,6 +24,7 @@ vim.opt.rtp:prepend(lazypath)
 -- TODO: https://github.com/kevinhwang91/nvim-ufo
 -- TODO: https://github.com/mrcjkb/rustaceanvim
 -- TODO: https://github.com/LintaoAmons/scratch.nvim
+-- TODO: https://github.com/kndndrj/nvim-dbee
 
 require("lazy").setup(
   "plugins", {

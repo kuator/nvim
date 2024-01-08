@@ -41,7 +41,10 @@ local darkplus = {
 
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true },
+  dependencies = {
+    {'nvim-tree/nvim-web-devicons'},
+    {'archibate/lualine-time'},
+  },
   config=function()
     local status_ok, lualine = pcall(require, "lualine")
     if not status_ok then
@@ -147,7 +150,7 @@ return {
         lualine_b = { mode, filename },
         lualine_c = {},
         -- lualine_x = { "encoding", "fileformat", "filetype" },
-        lualine_x = { diff, spaces, "encoding", filetype },
+        lualine_x = { diff, spaces, "encoding", filetype, 'ctime' },
         lualine_y = { location },
         lualine_z = { progress },
       },

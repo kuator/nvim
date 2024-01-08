@@ -3,6 +3,10 @@ local function set_mason_lsp(servers)
     return d ~= "pylance"
   end, servers)
 
+  ensure_installed = vim.tbl_filter(function(d)
+    return d ~= "nginx_language_server"
+  end, ensure_installed)
+
   local mason_lspconfig_status_ok, lsp_installer = pcall(require, "mason-lspconfig")
   local mason_status_ok, mason = pcall(require, "mason")
 
@@ -21,6 +25,7 @@ local function mason_tool_installer()
       "ruff",
       "stylua",
       "google-java-format",
+      "checkstyle",
     },
 
     run_on_start = true,
@@ -150,6 +155,7 @@ end
 local function config()
   local servers = {
     "pylance",
+    -- "pylsp",
     "efm",
     "lua_ls",
     "emmet_language_server",
@@ -206,6 +212,27 @@ local function config()
           schemas = require("schemastore").yaml.schemas(),
         },
       },
+    },
+    pylsp = {
+      settings = {
+        pylsp = {
+          plugins = {
+            flake8 = {
+              enabled = true
+            },
+            jedi_completion = {
+              enabled = true,
+              fuzzy = true
+            },
+            jedi_definition = {
+              enabled = true
+            },
+            rope_autoimport = {
+              enabled = true
+            }
+          }
+        }
+      }
     },
     gopls = {
       -- for postfix snippets and analyzers
