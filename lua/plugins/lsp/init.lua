@@ -1,11 +1,9 @@
 local function set_mason_lsp(servers)
+  local has_value = require('utils').has_value
   local ensure_installed = vim.tbl_filter(function(d)
-    return d ~= "pylance"
+    local to_exclude = {"pylance", "csharp_ls", "nginx_language_server"}
+    return not has_value(to_exclude, d)
   end, servers)
-
-  ensure_installed = vim.tbl_filter(function(d)
-    return d ~= "nginx_language_server"
-  end, ensure_installed)
 
   local mason_lspconfig_status_ok, lsp_installer = pcall(require, "mason-lspconfig")
   local mason_status_ok, mason = pcall(require, "mason")
@@ -174,6 +172,7 @@ local function config()
     "jsonls",
     "yamlls",
     "nginx_language_server",
+    "omnisharp",
     -- "clangd",
     -- "gopls",
     -- "csharp_ls",
@@ -279,6 +278,9 @@ local function config()
     },
     emmet_ls = {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+    },
+    omnisharp = {
+      cmd = { vim.fn.stdpath("data") .. '/mason/bin/omnisharp' },
     },
     pylance = {
       settings = {

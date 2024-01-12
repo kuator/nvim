@@ -63,8 +63,41 @@ local function config()
     },
   }
 
-  -- https://github.com/axelvc/dots/blob/10fc0493ac90c9c8515800a3128038f049dfcde0/nvim/lua/plugins/lsp/servers/emmet.lua#L29
+  local has_handlers, handlers = pcall(require, 'nvim-autopairs.completion.handlers')
+  local has_autopairs, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 
+  if has_autopairs then
+    cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done({
+      filetypes = {
+        -- "*" is a alias to all filetypes
+        ['cs'] = {
+          ["("] = {
+            kind = {
+              cmp.lsp.CompletionItemKind.Function,
+              cmp.lsp.CompletionItemKind.Method,
+              cmp.lsp.CompletionItemKind.Class,
+            },
+            handler = handlers['*']
+          }
+        },
+        ['python'] = {
+          ["("] = {
+            kind = {
+              cmp.lsp.CompletionItemKind.Class,
+            },
+            handler = handlers.python
+          }
+        },
+      }
+    })
+    )
+  end
+
+
+
+  -- https://github.com/axelvc/dots/blob/10fc0493ac90c9c8515800a3128038f049dfcde0/nvim/lua/plugins/lsp/servers/emmet.lua#L29
   local cmp_kinds = require("cmp.types").lsp.CompletionItemKind
   local is_emmet_snippet = function(entry)
     return cmp_kinds[entry:get_kind()] == "Text"
@@ -95,11 +128,11 @@ local function config()
     })
   }
 
-  cmp.setup.filetype('javascript', JS_CONFIG)
-  cmp.setup.filetype('javascriptreact', JS_CONFIG)
+cmp.setup.filetype('javascript', JS_CONFIG)
+cmp.setup.filetype('javascriptreact', JS_CONFIG)
 
-  cmp.setup.filetype('typescript', JS_CONFIG)
-  cmp.setup.filetype('typescriptreact', JS_CONFIG)
+cmp.setup.filetype('typescript', JS_CONFIG)
+cmp.setup.filetype('typescriptreact', JS_CONFIG)
 
 
   local ok, lspkind = pcall(require, 'lspkind')
@@ -110,6 +143,21 @@ local function config()
           maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
           ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
           before = function (entry, vim_item)
+            -- Get the full snippet (and only keep first line)
+            local types = require("cmp.types")
+
+            -- csharp class parentheses completion
+            if vim.bo.filetype == 'cs' and (entry:get_kind() == types.lsp.CompletionItemKind.Function or entry:get_kind() == types.lsp.CompletionItemKind.Method or entry:get_kind() == types.lsp.CompletionItemKind.Class) then
+              local word = entry:get_insert_text()
+              vim_item.abbr = word .. '~'
+            end
+
+            -- python class parentheses completion
+            if vim.bo.filetype == 'python' and entry:get_kind() == types.lsp.CompletionItemKind.Class then
+              local word = entry:get_insert_text()
+              vim_item.abbr = word .. '~'
+            end
+
             return vim_item
           end
         })
@@ -133,6 +181,13 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "lukas-reineke/cmp-rg",
       "onsails/lspkind.nvim",
+      {
+        "windwp/nvim-autopairs",
+        config = function ()
+          require('nvim-autopairs').setup({
+          })
+        end
+      },
     },
   },
 }

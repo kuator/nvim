@@ -39,7 +39,9 @@ local function on_attach(client, bufnr)
   if client.supports_method("textDocument/formatting") then
     vim.keymap.set("n", "<leader>F", function()
       vim.lsp.buf.format({
-        filter = function(client_) return format_servers(client_.name) end ,
+        filter = function(client_)
+          return format_servers(client_.name)
+        end,
         bufnr = bufnr,
         timeout_ms = 2000,
       })
@@ -53,19 +55,32 @@ local function on_attach(client, bufnr)
   -- end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if status_ok then
-  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+local function get_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  if status_ok then
+    capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+  end
+  return capabilities
+end
+
+local function has_value(tab, val)
+  for index, value in ipairs(tab) do
+    if value == val then
+      return true
+    end
+  end
+
+  return false
 end
 
 M.on_attach = function(client, bufnr)
   on_attach(client, bufnr)
 end
 
-M.capabilities = capabilities
+M.capabilities = get_capabilities()
 
-
+M.has_value = has_value
 
 return M
