@@ -13,6 +13,7 @@ return function(opts)
         "~/dotfiles",
         "~/.config/zsh",
         "~/dev/personal/algorithms-and-stuff/coursera/electric_boogalo_algorithms",
+        vim.env.ZK_NOTEBOOK_DIR,
       },
     },
     attach_mappings = function(_, map)

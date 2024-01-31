@@ -75,6 +75,15 @@ local function has_value(tab, val)
   return false
 end
 
+local del_autopairs_keymaps = function()
+  local status, autopairs_keymaps = pcall(vim.api.nvim_buf_get_var, 0, "autopairs_keymaps")
+  if status and autopairs_keymaps and #autopairs_keymaps > 0 then
+    for _, key in pairs(autopairs_keymaps) do
+      pcall(vim.api.nvim_buf_del_keymap, 0, "i", key)
+    end
+  end
+end
+
 M.on_attach = function(client, bufnr)
   on_attach(client, bufnr)
 end
@@ -82,5 +91,8 @@ end
 M.capabilities = get_capabilities()
 
 M.has_value = has_value
+
+M.del_autopairs_keymaps = del_autopairs_keymaps
+
 
 return M

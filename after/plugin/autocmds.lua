@@ -1,3 +1,19 @@
+vim.cmd('autocmd! nvim_terminal TermClose')
+
+vim.api.nvim_create_autocmd('TermClose',{callback=function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local window = vim.api.nvim_get_current_win()
+  local tab = vim.api.nvim_get_current_tabpage()
+  local windows = vim.api.nvim_tabpage_list_wins(tab)
+  if #windows > 1 then
+    vim.api.nvim_win_close(window, true)
+  else
+    vim.api.nvim_command('vnew')
+    vim.api.nvim_win_close(window, true)
+  end
+  vim.api.nvim_buf_delete(bufnr,{})
+end})
+
 -- Highlight on yank
 -- https://oroques.dev/notes/neovim-init/
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -35,6 +51,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
   command = 'setlocal nonumber norelativenumber | setlocal signcolumn=no ',
   pattern = '*',
 })
+
 
 vim.api.nvim_create_autocmd('FileType', {
   command = 'set bufhidden=delete',

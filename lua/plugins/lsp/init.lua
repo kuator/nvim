@@ -83,6 +83,39 @@ local function efm_stylua()
   }
 end
 
+local function efm_google_java_format()
+  local fs = require('efmls-configs.fs')
+
+  local formatter = 'google-java-format'
+
+
+  local command = fs.executable("google-java-format")
+      .. " $(echo -n ${--useless:rowStart} ${--useless:rowEnd}"
+      .. " | xargs -n4 -r sh -c 'echo"
+      .. " --skip-sorting-imports" -- Do not fix the import order.
+      .. " --skip-removing-unused-imports" -- Do not remove unused imports.
+      .. " --skip-reflowing-long-strings" -- Do not reflow string literals that exceed the column limit.
+      .. " --skip-javadoc-formatting" -- Do not reformat javadoc.
+      .. " --lines $(($1+1)):$(($3+1))'" -- Line range(s) to format, like 5:10 (1-based; default is all).
+      .. ") -"
+
+  local is_windows = vim.fn.has('win32') == 1
+  if is_windows then
+    command = string.format('%s -', fs.executable(formatter))
+  end
+
+  return {
+    formatCanRange = not is_windows,
+    formatCommand = command,
+    formatStdin = true,
+    rootMarkers = {
+        ".project",
+        "classpath",
+        "pom.xml",
+    },
+  }
+  end
+
 local function efm_ls_config()
   local eslint = require("efmls-configs.linters.eslint")
   local prettier_d = require("efmls-configs.formatters.prettier_d")
@@ -97,7 +130,7 @@ local function efm_ls_config()
     lua = { efm_stylua() },
     html = { prettier_d },
     python = { efm_black(), ruff },
-    java = { efm_checkstyle(), google_java_format },
+    java = { efm_checkstyle(), efm_google_java_format() },
   }
 
   mason_tool_installer()
@@ -322,6 +355,10 @@ return {
 
   -- 'yioneko/nvim-vtsls',
   "mfussenegger/nvim-jdtls",
+  {
+    'mrcjkb/rustaceanvim',
+    ft = { 'rust' },
+  },
   -- require "plugins.lsp-plugins.null-ls",
   -- require "plugins.lsp-plugins.lspkind",
   -- require "plugins.lsp-plugins.aerial",

@@ -92,7 +92,8 @@ return {
       -- vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
       vim.keymap.set('n', '<leader>sl', require('telescope.builtin').locations)
 
-      vim.keymap.set('n', '<leader>sr', require('telescope').extensions.frecency.frecency)
+      -- vim.keymap.set('n', '<leader>sr', require('telescope').extensions.frecency.frecency)
+      vim.keymap.set('n', '<leader>sr', require('telescope.builtin').oldfiles)
 
       vim.keymap.set("n", "<leader>se", require "telescope".extensions.file_browser.file_browser)
 

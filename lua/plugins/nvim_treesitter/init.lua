@@ -4,10 +4,6 @@ local modules = {
 
   -- textsubjects = { "RRethy/nvim-treesitter-textsubjects" },
 
-  -- rainbow = {"HiPhish/nvim-ts-rainbow2"},
-
-  -- refactor = "nvim-treesitter/nvim-treesitter-refactor",
-
   matchup = {
     "andymass/vim-matchup" ,
     setup = function()
@@ -15,7 +11,6 @@ local modules = {
     end
   },
 
-  -- node_movement = 'theHamsta/crazy-node-movement'
 }
 
 local configs = {
@@ -77,10 +72,12 @@ local configs = {
   rainbow = {
     enable = true,
   },
+
   autotag = {
     enable = true,
-    enable_close_on_slash = false,
+    enable_close_on_slash = true,
   },
+
   -- refactor = {
   --   highlight_current_scope = { enable = false },
   --   highlight_definitions = {
@@ -113,7 +110,6 @@ local treesitter_context = {
 
 local rainbow_delimiters = {
   "hiphish/rainbow-delimiters.nvim",
-  config = function() end,
 }
 
 local neogen = {

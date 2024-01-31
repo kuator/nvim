@@ -15,6 +15,51 @@ vim.keymap.set('n', '<leader>cc', ':cclose<bar>lclose<cr>', { silent = true })
 vim.keymap.set('n', 'cd', ':silent lcd %:p:h<bar>pwd<cr>', { silent = true })
 vim.keymap.set('n', 'cu', ':silent lcd ..<bar>pwd<cr>', { silent = true })
 
+vim.keymap.set('n', '<c-t>t', ':silent tabnew <cr>', { silent = true })
+-- vim.keymap.set('n', '<c-t><c-t>', ':vsplit | term <cr>', { silent = true })
+vim.keymap.set('n', '<c-t>v', ':vsplit | term <cr>', { silent = true })
+vim.keymap.set('n', '<c-t>s', ':split | term <cr>', { silent = true })
+vim.keymap.set('n', '<c-t>q', ':tabclose <cr>', { silent = true })
+vim.keymap.set('n', '<c-t>w', ':tabclose <cr>', { silent = true })
+vim.keymap.set('n', '<leader>gg', ':qa<cr>')
+
+vim.keymap.set("n", "<c-w><c-t>", function()
+    local window = vim.api.nvim_get_current_win()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local tab = vim.api.nvim_get_current_tabpage()
+    local tabnumber = vim.api.nvim_tabpage_get_number(tab)
+    local windows = vim.api.nvim_tabpage_list_wins(tab)
+    local vnew = ''
+    if #windows > 1 then
+      vnew = ''
+    else
+      vnew = 'vnew'
+    end
+    print(vim.inspect(windows))
+    print(window)
+    print(vnew)
+    local command = ":" .. "<c-u>" .. vim.v.count .. 'tabnext | vert sbuffer' .. bufnr .. ' | ' .. tab .. "tabnext | silent " .. vnew .. " | lua vim.api.nvim_win_close(" .. window .. ", true)<cr>"
+    return command
+end, { expr = true })
+
+vim.keymap.set("n", "<c-w>q", function()
+    local window = vim.api.nvim_get_current_win()
+    local tab = vim.api.nvim_get_current_tabpage()
+    local windows = vim.api.nvim_tabpage_list_wins(tab)
+    if #windows > 1 then
+      vim.api.nvim_win_close(window, true)
+    else
+      vim.api.nvim_command('vnew')
+      vim.api.nvim_win_close(window, true)
+    end
+end)
+
+
+vim.keymap.set('n', '<c-t>1', '1gt', { silent = true })
+vim.keymap.set('n', '<c-t>2', '2gt', { silent = true })
+vim.keymap.set('n', '<c-t>3', '3gt', { silent = true })
+vim.keymap.set('n', '<c-t>4', '4gt', { silent = true })
+
 -- https://vi.stackexchange.com/a/2682
 vim.keymap.set('n', '<a-j>', [[:m .+1<CR>==]])
 vim.keymap.set('n', '<a-k>', [[:m .-2<CR>==]])

@@ -44,11 +44,11 @@ local comment_nvim = {
 
 return {
   comment_nvim,
-  {
-    'inkarkat/vim-ReplaceWithRegister',
-    lazy = true,
-    keys = { { mode = 'n', 'gr' }, { mode = 'x', 'gr' }, },
-  },
+  -- {
+  --   'inkarkat/vim-ReplaceWithRegister',
+  --   lazy = true,
+  --   keys = { { mode = 'n', 'gr' }, { mode = 'x', 'gr' }, },
+  -- },
   { 'wellle/targets.vim' },
   { 'kana/vim-textobj-user', lazy = true },
   textobject_line,
