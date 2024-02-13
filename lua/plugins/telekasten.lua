@@ -35,7 +35,15 @@ return {
 
 
     local function telekasten_grep()
-      require('telescope.builtin').live_grep { search_dirs = { vim.env.ZK_NOTEBOOK_DIR }, cwd =  vim.env.ZK_NOTEBOOK_DIR, prompt_title = "Search in notes" }
+      require('telescope.builtin').grep_string {
+        path_display='tail',
+        only_sort_text = true,
+        word_match = "-w",
+        search = '',
+        search_dirs = { vim.env.ZK_NOTEBOOK_DIR },
+        cwd =  vim.env.ZK_NOTEBOOK_DIR,
+        prompt_title = "Search in notes",
+      }
     end
 
     local function telekasten_find_notes ()

@@ -75,7 +75,15 @@ return {
         require("telescope").load_extension("persisted")
       end
 
-       
+      local function grep_string()
+        require('telescope.builtin').grep_string({
+          path_display = { 'smart' },
+          only_sort_text = true,
+          word_match = "-w",
+          search = '',
+          debounce = 100
+        })
+      end
 
       require('telescope.builtin').locations = require('plugins.nvim_telescope.telescope_custom_pickers.locations')
       require('telescope').load_extension('fzf')
@@ -87,7 +95,7 @@ return {
       vim.keymap.set('n', '<leader>sf', require('plugins.nvim_telescope.telescope_custom_pickers.custom_find'))
       vim.keymap.set('n', '<leader>st', require('plugins.nvim_telescope.telescope_custom_pickers.terminals'))
       -- vim.keymap.set('n', '<leader>sd', require('telescope.builtin').grep_string)
-      vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep)
+      vim.keymap.set('n', '<leader>sg', grep_string)
       -- vim.keymap.set('n', '<leader>sh', require('telescope.builtin').oldfiles)
       -- vim.keymap.set('n', '<leader>sb', require('telescope.builtin').current_buffer_fuzzy_find)
       vim.keymap.set('n', '<leader>sl', require('telescope.builtin').locations)
