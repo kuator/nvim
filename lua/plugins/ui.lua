@@ -4,6 +4,7 @@ return {
     'lewis6991/gitsigns.nvim',
     dependencies = { 'plenary.nvim' },
     event = { "BufReadPre", "BufNewFile" },
+    -- cond = false,
     config = function()
       require 'gitsigns'.setup {
         debug_mode = true

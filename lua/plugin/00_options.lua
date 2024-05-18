@@ -65,12 +65,12 @@ local globals = {
   loaded_2html_plugin      = 1,
   loaded_logiPat           = 1,
   loaded_rrhelper          = 1,
-  loaded_netrw             = 1,
-  loaded_netrwPlugin       = 1,
-  loaded_netrwSettings     = 1,
-  loaded_netrwFileHandlers = 1,
-  -- Do not source the default filetype.vim
-  mapleader                = ' '
+  -- loaded_netrw             = 1,
+  -- loaded_netrwPlugin       = 1,
+  -- loaded_netrwSettings     = 1,
+  -- loaded_netrwFileHandlers = 1,
+  mapleader                = ' ',
+  netrw_liststyle                = 3
 }
 
 for k, v in pairs(globals) do

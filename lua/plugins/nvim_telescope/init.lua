@@ -21,6 +21,7 @@ return {
       'telescope-fzf-native.nvim',
       'telescope-frecency.nvim',
       'telescope-file-browser.nvim',
+      'telescope-import.nvim'
       -- 'telescope-termfinder.nvim',
     },
     lazy=true,
@@ -88,8 +89,7 @@ return {
       require('telescope.builtin').locations = require('plugins.nvim_telescope.telescope_custom_pickers.locations')
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('frecency')
-      require("telescope").load_extension "file_browser"
-
+      require("telescope").load_extension("file_browser")
       require("telescope").load_extension("import")
 
       vim.keymap.set('n', '<leader>sf', require('plugins.nvim_telescope.telescope_custom_pickers.custom_find'))

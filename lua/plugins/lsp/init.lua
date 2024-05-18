@@ -188,6 +188,7 @@ local function config()
     "pylance",
     -- "pylsp",
     "efm",
+    -- "basedpyright",
     "lua_ls",
     "emmet_language_server",
     "dockerls",
@@ -207,7 +208,7 @@ local function config()
     "nginx_language_server",
     "omnisharp",
     -- "clangd",
-    -- "gopls",
+    "gopls",
     -- "csharp_ls",
     -- "ruby_ls",
     -- "vtsls",
@@ -229,6 +230,23 @@ local function config()
         "pug",
         "typescriptreact",
         "vue",
+      },
+    },
+    basedpyright = {
+      skip_install = true,
+      settings = {
+        verboseOutput = false,
+        autoImportCompletion = true,
+        basedpyright = {
+          disableOrganizeImports = true,
+          analysis = {
+            typeCheckingMode = "standard",
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            diagnosticMode = "openFilesOnly",
+            indexing = true,
+          },
+        },
       },
     },
     yaml = {
@@ -321,6 +339,7 @@ local function config()
           analysis = {
             typeCheckingMode = "basic",
             completeFunctionParens = true,
+            indexing = true,
           },
         },
       },

@@ -1,0 +1,3 @@
+return {
+  'wookayin/vim-autoimport'
+}
