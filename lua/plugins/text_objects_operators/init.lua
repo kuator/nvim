@@ -66,12 +66,12 @@ return {
     dependencies = "vim-textobj-user",
     keys = { { mode = "o", "iv" }, { mode = "o", "av" }, { mode = "x", "iv" }, { mode = "x", "av" } },
   },
-  {
-    "glts/vim-textobj-comment",
-    lazy = true,
-    dependencies = "vim-textobj-user",
-    keys = { { mode = "o", "ic" }, { mode = "o", "ac" }, { mode = "x", "ic" }, { mode = "x", "ac" } },
-  },
+  -- {
+  --   "glts/vim-textobj-comment",
+  --   lazy = true,
+  --   dependencies = "vim-textobj-user",
+  --   keys = { { mode = "o", "ic" }, { mode = "o", "ac" }, { mode = "x", "ic" }, { mode = "x", "ac" } },
+  -- },
   {
     "https://github.com/AndrewRadev/dsf.vim",
     lazy = true,

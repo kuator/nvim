@@ -58,10 +58,21 @@ end
 local function get_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-  if status_ok then
+
+  local cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  if cmp_ok then
     capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
   end
+  
+  -- local ufo_ok, ufo = pcall(require, "ufo")
+  --
+  -- if ufo_ok then
+  --   capabilities.textDocument.foldingRange = {
+  --     dynamicRegistration = false,
+  --     lineFoldingOnly = true
+  --   }
+  -- end
+
   return capabilities
 end
 
