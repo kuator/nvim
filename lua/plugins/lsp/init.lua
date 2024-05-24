@@ -119,7 +119,7 @@ local function efm_google_java_format()
 local function efm_ls_config()
   local eslint = require("efmls-configs.linters.eslint")
   local prettier_d = require("efmls-configs.formatters.prettier_d")
-  local ruff = require("efmls-configs.linters.ruff")
+  -- local ruff = require("efmls-configs.linters.ruff")
   local google_java_format = require("efmls-configs.formatters.google_java_format")
 
   -- latexindent $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --lines $(($1+1))-$(($3+1))')
@@ -129,7 +129,7 @@ local function efm_ls_config()
     javascript = { eslint, prettier_d },
     lua = { efm_stylua() },
     html = { prettier_d },
-    python = { efm_black(), ruff },
+    python = { efm_black() },
     java = { efm_checkstyle(), efm_google_java_format() },
   }
 
@@ -185,13 +185,14 @@ end
 
 local function config()
   local servers = {
-    "pylance",
+    -- "pylance",
     -- "pylsp",
     "efm",
-    -- "basedpyright",
+    "basedpyright",
     "lua_ls",
     "emmet_language_server",
     "dockerls",
+    "ruff",
     -- "emmet_ls",
 
     -- tsserver = {
@@ -240,7 +241,7 @@ local function config()
         basedpyright = {
           disableOrganizeImports = true,
           analysis = {
-            typeCheckingMode = "standard",
+            typeCheckingMode = "off",
             autoSearchPaths = true,
             useLibraryCodeForTypes = true,
             diagnosticMode = "openFilesOnly",

@@ -53,6 +53,12 @@ local function on_attach(client, bufnr)
   --   vim.lsp.buf.range_formatting()
   -- end)
   -- end
+
+  if client.name == 'ruff' then
+    -- Disable hover in favor of Pyright
+    client.server_capabilities.hoverProvider = false
+  end
+
 end
 
 local function get_capabilities()

@@ -41,7 +41,12 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
         'mfussenegger/nvim-dap-python',
         { "williamboman/mason.nvim" },
-        { "rcarriga/nvim-dap-ui" },
+        {
+          "rcarriga/nvim-dap-ui",
+          dependencies = {
+             "nvim-neotest/nvim-nio"
+          },
+        },
         { "nvim-treesitter/nvim-treesitter" },
         { "nvim-telescope/telescope-dap.nvim" },
         {
