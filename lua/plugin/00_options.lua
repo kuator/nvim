@@ -31,7 +31,7 @@ local options = {
   autoindent     = true,
   splitbelow     = true,
   splitright     = true,
-  signcolumn     = 'yes',
+  signcolumn     = "yes",
   completeopt    = 'menuone,noselect',
   laststatus     = 3,
   scrolloff      = 5,
@@ -40,7 +40,7 @@ local options = {
   wildoptions    = 'pum',
   title          = true,
   titlestring    = 'VS⠀Code',
-  winbar         = [[%m %f]],
+  -- winbar         = [[%m %f]],
   mouse          = 'nvi',
 }
 

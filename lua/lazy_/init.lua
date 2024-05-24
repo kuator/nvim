@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 -- TODO: https://github.com/mfussenegger/nvim-dap/pulls
 -- TODO: https://github.com/nvim-neotest/neotest
 -- TODO: https://github.com/stevearc/overseer.nvim
--- TODO: winbar
 -- TODO: https://github.com/ray-x/go.nvim
 -- TODO: neo-tree.lua
 -- TODO: glts/vim-textobj-comment
