@@ -158,6 +158,20 @@ local function config()
       return
     end
 
+    -- if
+    --     vim.bo.filetype == "python"
+    --     and (
+    --       entry:get_kind() == types.lsp.CompletionItemKind.Function
+    --       or entry:get_kind() == types.lsp.CompletionItemKind.Method
+    --       or entry:get_kind() == types.lsp.CompletionItemKind.Class
+    --     )
+    -- then
+    --   local ls = require('luasnip')
+    --   ls.snip_expand(ls.s("trig", { ls.t"(", ls.i(1, ""), ls.t")" }) )
+    --
+    --   return
+    -- end
+
   end
 
   if has_autopairs then
@@ -234,8 +248,6 @@ local function config()
             return vim_item
           end
 
-          
-
           if
               vim.bo.filetype == "cs"
               and (
@@ -253,12 +265,18 @@ local function config()
             vim_item.abbr = word .. '<>'.. "~"
           end
 
-
           -- python class parentheses completion
-          if vim.bo.filetype == "python" and entry:get_kind() == types.lsp.CompletionItemKind.Class then
-            local word = entry:get_insert_text()
-            vim_item.abbr = word .. "~"
-          end
+          -- if
+          --   vim.bo.filetype == "python"
+          --   and (
+          --     entry:get_kind() == types.lsp.CompletionItemKind.Function
+          --     or entry:get_kind() == types.lsp.CompletionItemKind.Method
+          --     or entry:get_kind() == types.lsp.CompletionItemKind.Class
+          --   )
+          -- then
+          --   local word = entry:get_insert_text()
+          --   vim_item.abbr = word .. "~"
+          -- end
 
 
           return vim_item

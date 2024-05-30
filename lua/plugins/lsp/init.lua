@@ -185,14 +185,15 @@ end
 
 local function config()
   local servers = {
-    -- "pylance",
+    "pylance",
     -- "pylsp",
+    -- "pyre",
     "efm",
-    "basedpyright",
+    "ruff",
+    -- "basedpyright",
     "lua_ls",
     "emmet_language_server",
     "dockerls",
-    "ruff",
     -- "emmet_ls",
 
     -- tsserver = {
