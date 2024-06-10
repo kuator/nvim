@@ -186,6 +186,7 @@ end
 local function config()
   local servers = {
     "pylance",
+    "ocamllsp",
     -- "pylsp",
     -- "pyre",
     "efm",

@@ -1,4 +1,13 @@
 if vim.g.vscode then
+    vim.cmd[[nnoremap <C-w><C-j> <nop>]]
+    vim.cmd[[xnoremap <C-w><C-j> <nop>]]
+    vim.cmd[[nnoremap <C-w><C-k> <nop>]]
+    vim.cmd[[xnoremap <C-w><C-k> <nop>]]
+    vim.cmd[[nnoremap <C-w><C-h> <nop>]]
+    vim.cmd[[xnoremap <C-w><C-h> <nop>]]
+    vim.cmd[[nnoremap <C-w><C-l> <nop>]]
+    vim.cmd[[xnoremap <C-w><C-l> <nop>]]
+
     vim.cmd[[
       " window navigation
       nnoremap <C-w><c-j> <Cmd>call VSCodeNotify('workbench.action.navigateDown')<CR>
@@ -10,6 +19,7 @@ if vim.g.vscode then
       nnoremap <C-w><c-l> <Cmd>call VSCodeNotify('workbench.action.navigateRight')<CR>
       xnoremap <C-w><c-l> <Cmd>call VSCodeNotify('workbench.action.navigateRight')<CR>
     ]]
+    
 else
     -- ordinary Neovim
 end

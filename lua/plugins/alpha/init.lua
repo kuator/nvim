@@ -245,5 +245,6 @@ return {
     -- config['layout'][2] = default_header
 
     require'alpha'.setup(config)
-  end
+  end,
+  cond = not vim.g.vscode,
 }
