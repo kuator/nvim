@@ -70,7 +70,7 @@ local globals = {
   -- loaded_netrwSettings     = 1,
   -- loaded_netrwFileHandlers = 1,
   mapleader                = ' ',
-  netrw_liststyle                = 3
+  netrw_liststyle          = 0
 }
 
 for k, v in pairs(globals) do
