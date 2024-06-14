@@ -180,7 +180,7 @@ local function setup_lsps(servers, settings)
 
   require("go").setup()
 
-  setup_typescript()
+  -- setup_typescript()
 end
 
 local function config()
@@ -214,7 +214,7 @@ local function config()
     "gopls",
     -- "csharp_ls",
     -- "ruby_ls",
-    -- "vtsls",
+    "vtsls",
   }
 
   local settings = {
@@ -375,7 +375,7 @@ end
 
 return {
 
-  -- 'yioneko/nvim-vtsls',
+  'yioneko/nvim-vtsls',
   "mfussenegger/nvim-jdtls",
   {
     'mrcjkb/rustaceanvim',
@@ -405,7 +405,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "kuator/some-python-plugin.nvim",
-      "pmizio/typescript-tools.nvim",
+      -- "pmizio/typescript-tools.nvim",
       "b0o/SchemaStore.nvim",
       {
         "ray-x/go.nvim",
