@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
         local on_attach = require('utils').on_attach
         local bufnr = args.buf
         local client = vim.lsp.get_client_by_id(args.data.client_id)
-        -- client.server_capabilities.semanticTokensProvider = nil
+        client.server_capabilities.semanticTokensProvider = nil
         on_attach(client, bufnr)
     end
 })
