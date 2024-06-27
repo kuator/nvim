@@ -1,5 +1,6 @@
 return {
   'ludovicchabant/vim-gutentags',
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     -- https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
     vim.g.gutentags_ctags_exclude = {
@@ -71,7 +72,8 @@ return {
 
     vim.g.gutentags_add_default_project_roots = false
     vim.g.gutentags_project_root = { 'package.json', '.git' }
-    vim.g.gutentags_cache_dir = vim.fn.stdpath("data") .. '/ctags'
+    vim.g.gutentags_cache_dir = vim.fn.stdpath("cache")
+
     vim.g.gutentags_generate_on_new = true
     vim.g.gutentags_generate_on_missing = true
     vim.g.gutentags_generate_on_write = true
@@ -80,8 +82,11 @@ return {
     vim.cmd([[command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')]])
     vim.g.gutentags_ctags_extra_args = { '--tag-relative=yes', '--fields=+ailmnS', }
 
+    vim.g.gutentags_file_list_command = "fd -e c -e h"
+    vim.g.gutentags_cscope_build_inverted_index_maps = 1
+
 
     -- custom
-    vim.g.gutentags_modules = { 'ctags' }
+    vim.g.gutentags_modules = { 'ctags', 'cscope_maps' }
   end
 }
