@@ -46,8 +46,8 @@ local textobjects = {
     end)
 
     local swap = require("nvim-treesitter-textobjects.swap")
-    vim.keymap.set("n", "<a-l>", swap.swap_next({ "@parameter.inner", "@statement.outer", "@function.outer" }))
-    vim.keymap.set("n", "<a-h>", swap.swap_previous({ "@parameter.inner", "@statement.outer", "@function.outer" }))
+    -- vim.keymap.set("n", "<a-l>", swap.swap_next({ "@parameter.inner", "@statement.outer", "@function.outer" }))
+    -- vim.keymap.set("n", "<a-h>", swap.swap_previous({ "@parameter.inner", "@statement.outer", "@function.outer" }))
 
   end,
 }

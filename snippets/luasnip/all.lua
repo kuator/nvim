@@ -22,9 +22,6 @@ return {
   }),
   postfix(".bb", {
     f(function(_, parent)
-      -- print('----------')
-      -- print(vim.inspect(parent.snippet.env))
-      -- print('----------')
       if parent.snippet.env.POSTFIX_MATCH then
         return (parent.snippet.env.POSTFIX_MATCH)
       else
@@ -36,9 +33,6 @@ return {
   }),
   postfix(".tt", {
     f(function(_, parent)
-      -- print('----------')
-      -- print(vim.inspect(parent.snippet.env))
-      -- print('----------')
       if parent.snippet.env.POSTFIX_MATCH then
         return (parent.snippet.env.POSTFIX_MATCH)
       else

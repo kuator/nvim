@@ -7,6 +7,10 @@ vim.keymap.set('n', '<c-l>', '<c-l>:nohls<cr>', { silent = true })
 
 vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**/*'<cr>]])
+vim.cmd([[unmap gra]])
+vim.cmd([[unmap gri]])
+vim.cmd([[unmap grr]])
+vim.cmd([[unmap grn]])
 
 vim.keymap.set('n', '<leader>lg', ':silent lgrep<space>')
 vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file ~/.config/.ignore -g "*"')<left><left><left><left>]])
@@ -35,9 +39,6 @@ vim.keymap.set('n', '<leader>gg', ':qa<cr>')
 --     else
 --       vnew = 'vnew'
 --     end
---     print(vim.inspect(windows))
---     print(window)
---     print(vnew)
 --     local command = ":" .. "<c-u>" .. vim.v.count .. 'tabnext | vert sbuffer' .. bufnr .. ' | ' .. tab .. "tabnext | silent " .. vnew .. " | lua vim.api.nvim_win_close(" .. window .. ", true)<cr>"
 --     return command
 -- end, { expr = true })

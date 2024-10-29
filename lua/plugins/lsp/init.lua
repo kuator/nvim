@@ -203,18 +203,20 @@ local function config()
     --   }
     -- },
     "bashls",
+    "lemminx",
     "html",
     "cssls",
     "awk_ls",
     "jsonls",
     "yamlls",
     "nginx_language_server",
-    "omnisharp",
+    -- "omnisharp",
     -- "clangd",
     "gopls",
-    -- "csharp_ls",
+    "csharp_ls",
     -- "ruby_ls",
     "vtsls",
+    "marksman",
   }
 
   local settings = {

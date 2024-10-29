@@ -63,6 +63,7 @@ local function config()
       { name = "path",     max_item_count = 2, priority_weight = 100 },
       { name = "skkeleton" },
     },
+
     view = {
       entries = "native",
     },
@@ -124,13 +125,6 @@ local function config()
       return
     end
 
-    print('--------------')
-    print(entry:get_kind())
-    print(item.type)
-    print(item.label)
-    print(vim.bo.filetype)
-    print(entry:get_kind() == types.lsp.CompletionItemKind.Class)
-    print('--------------')
 
     if item.label:find('<>') and vim.bo.filetype == "cs" and entry:get_kind() == types.lsp.CompletionItemKind.Class then
       local ls = require('luasnip')
@@ -242,7 +236,6 @@ local function config()
 
           local item = entry:get_completion_item()
 
-          print(entry:get_kind() .. " " .. entry:get_insert_text() .. " " .. item.label)
 
           if not has_autopairs then
             return vim_item
@@ -303,6 +296,24 @@ return {
       "lukas-reineke/cmp-rg",
       "onsails/lspkind.nvim",
       "windwp/nvim-autopairs",
+      {
+          'vim-skk/skkeleton',
+
+          -- https://zenn.dev/glaucus03/scraps/252a1ffece4954
+          -- https://blog.atusy.net/2024/06/21/skkeleton-affix/
+          dependencies ={ 'vim-denops/denops.vim', 'rinx/cmp-skkeleton' },
+          config = function ()
+            vim.fn['skkeleton#config']({
+              globalDictionaries = {
+                vim.fn.expand('/usr/share/skk/SKK-JISYO.L'),
+              },
+              eggLikeNewline = true,
+              keepState = true,
+              userDictionary = vim.fs.joinpath(vim.env.XDG_CONFIG_HOME, 'skkeleton'),
+            })
+            vim.cmd[[imap <silent> <c-s> <Plug>(skkeleton-toggle)]]
+          end
+      }
       -- {
       --   'windwp/nvim-ts-autotag',
       --   config = function ()
@@ -312,3 +323,5 @@ return {
     },
   },
 }
+
+

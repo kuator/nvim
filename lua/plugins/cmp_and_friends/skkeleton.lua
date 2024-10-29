@@ -4,7 +4,7 @@ return {
     opt = true,
     keys = { { 'i'; '<c-s>' } };
     requires ={ 'vim-denops/denops.vim', 'rinx/cmp-skkeleton'},
-    wants = {'denops.vim', 'cmp-skkeleton'},
+    dependencies = {'denops.vim', 'cmp-skkeleton'},
     config = function ()
       vim.cmd[[imap <silent> <c-s> <Plug>(skkeleton-toggle)]]
     end

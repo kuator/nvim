@@ -114,6 +114,7 @@ return {
 
     require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fs.joinpath(vim.fn.stdpath("config") , 'snippets/vscode' )}})
     require("luasnip.loaders.from_lua").lazy_load({ paths = { vim.fs.joinpath(vim.fn.stdpath("config") , 'snippets/luasnip' )} })
+    require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fs.joinpath(vim.fn.stdpath("config") , 'snippets/snipmate' )} })
 
   end
 }

@@ -20,7 +20,7 @@ return {
       vim.o.timeoutlen = 300
       require("which-key").setup({})
     end,
-    cond = not vim.g.vscode,
+    cond = false
   },
   {
     'sindrets/diffview.nvim',

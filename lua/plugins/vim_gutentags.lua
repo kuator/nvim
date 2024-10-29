@@ -1,7 +1,24 @@
 return {
   'ludovicchabant/vim-gutentags',
   event = { "BufReadPre", "BufNewFile" },
-  config = function()
+  dependencies = {
+    {
+      "dhananjaylatkar/cscope_maps.nvim",
+      dependencies = {
+        "folke/which-key.nvim",
+        "telescope.nvim",
+      },
+      config = function()
+        require("cscope_maps").setup({
+          disable_maps = true,
+          cscope = {
+            use_telescope = true,
+          },
+        })
+      end,
+    },
+  },
+  init = function()
     -- https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
     vim.g.gutentags_ctags_exclude = {
       '*.git',
@@ -33,6 +50,8 @@ return {
       '*.zip',
       '*.pyc',
       '*.class',
+      '*.ass',
+      '*.srt',
       '*.sln',
       '*.Master',
       '*.csproj',
@@ -85,8 +104,7 @@ return {
     vim.g.gutentags_file_list_command = "fd -e c -e h"
     vim.g.gutentags_cscope_build_inverted_index_maps = 1
 
-
     -- custom
-    vim.g.gutentags_modules = { 'ctags', 'cscope_maps' }
+    vim.g.gutentags_modules = { 'cscope_maps', 'ctags'}
   end
 }

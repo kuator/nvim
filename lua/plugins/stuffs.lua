@@ -71,6 +71,7 @@ return {
   },
   {
     "andymass/vim-matchup",
+    cond = true,
     event = { "BufReadPre", "BufNewFile" },
   },
   "junkblocker/git-time-lapse",
