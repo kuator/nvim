@@ -23,7 +23,12 @@ local textobjects = {
   "nvim-treesitter/nvim-treesitter-textobjects",
   branch = "main",
   config = function()
-    require("nvim-treesitter-textobjects").setup()
+    require("nvim-treesitter-textobjects").setup({
+      select = {
+        include_surrounding_whitespace = true,
+        lookahead = true,
+      },
+    })
 
     local select_textobject = require("nvim-treesitter-textobjects.select").select_textobject
     -- keymaps
@@ -48,7 +53,6 @@ local textobjects = {
     local swap = require("nvim-treesitter-textobjects.swap")
     -- vim.keymap.set("n", "<a-l>", swap.swap_next({ "@parameter.inner", "@statement.outer", "@function.outer" }))
     -- vim.keymap.set("n", "<a-h>", swap.swap_previous({ "@parameter.inner", "@statement.outer", "@function.outer" }))
-
   end,
 }
 

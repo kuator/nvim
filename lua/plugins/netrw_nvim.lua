@@ -12,5 +12,5 @@ return {
       use_devicons = true, -- Uses nvim-web-devicons if true, otherwise use the file icon specified above
     })
   end,
-  -- dependencies = {'https://github.com/tpope/vim-vinegar'}
+  dependencies = {'https://github.com/tpope/vim-vinegar'}
 }
