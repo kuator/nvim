@@ -117,20 +117,26 @@ local function efm_google_java_format()
   end
 
 local function efm_ls_config()
-  local eslint = require("efmls-configs.linters.eslint")
+  local eslint_d = require("efmls-configs.linters.eslint_d")
+  local sqlfluff_linter = require("efmls-configs.linters.sqlfluff")
+  local sqlfluff_formatter = require("efmls-configs.formatters.sqlfluff")
   local prettier_d = require("efmls-configs.formatters.prettier_d")
+  local mypy = require("efmls-configs.linters.mypy")
   -- local ruff = require("efmls-configs.linters.ruff")
   local google_java_format = require("efmls-configs.formatters.google_java_format")
 
   -- latexindent $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --lines $(($1+1))-$(($3+1))')
 
   local languages = {
-    typescript = { eslint, prettier_d },
-    javascript = { eslint, prettier_d },
+    typescript = { eslint_d, prettier_d },
+    typescriptreact = { eslint_d, prettier_d },
+    javascript = { eslint_d, prettier_d },
+    javascriptreact = { eslint_d, prettier_d },
     lua = { efm_stylua() },
     html = { prettier_d },
-    python = { efm_black() },
+    python = { efm_black(), mypy },
     java = { efm_checkstyle(), efm_google_java_format() },
+    sql = { sqlfluff_formatter, sqlfluff_linter },
   }
 
   mason_tool_installer()
@@ -335,9 +341,9 @@ local function config()
     emmet_ls = {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
     },
-    omnisharp = {
-      cmd = { vim.fn.stdpath("data") .. '/mason/bin/omnisharp' },
-    },
+    -- omnisharp = {
+    --   cmd = { vim.fn.stdpath("data") .. '/mason/bin/omnisharp' },
+    -- },
     pylance = {
       settings = {
         python = {

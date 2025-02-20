@@ -285,7 +285,7 @@ end
 
 return {
   {
-    "hrsh7th/nvim-cmp",
+    "iguanacucumber/magazine.nvim",
     event = "InsertEnter",
     config = config,
     dependencies = {

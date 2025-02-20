@@ -66,6 +66,7 @@ local neogen = {
   end,
 }
 
+
 local dependencies = {
   rainbow_delimiters,
   neogen,

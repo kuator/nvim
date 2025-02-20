@@ -33,6 +33,7 @@ return {
       {mode='n'; '<leader>sl'};
       {mode='n'; '<leader>sh'};
       {mode='n'; '<leader>sy'};
+      {mode='n'; '<leader>sr'};
       -- {mode='n'; '<leader>sp'};
       -- {mode='n'; '<leader>sb'};
       -- {mode='n'; '<leader><leader>'};
