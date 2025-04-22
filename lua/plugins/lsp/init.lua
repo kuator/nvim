@@ -1,7 +1,7 @@
-local function set_mason_lsp(servers)
-  local has_value = require('utils').has_value
+local function install_mason_lsp_servers(servers)
+  local has_value = require("utils").has_value
   local ensure_installed = vim.tbl_filter(function(d)
-    local to_exclude = {"pylance", "csharp_ls", "nginx_language_server"}
+    local to_exclude = { "pylance", "csharp_ls", "nginx_language_server" }
     return not has_value(to_exclude, d)
   end, servers)
 
@@ -9,158 +9,8 @@ local function set_mason_lsp(servers)
   local mason_status_ok, mason = pcall(require, "mason")
 
   if mason_lspconfig_status_ok and mason_status_ok then
-    -- require("mason").setup()
     lsp_installer.setup({ ensure_installed = ensure_installed })
   end
-end
-
-local function mason_tool_installer()
-  require("mason-tool-installer").setup({
-    ensure_installed = {
-      "black",
-      "jq",
-      "prettierd",
-      "ruff",
-      "stylua",
-      "google-java-format",
-      "checkstyle",
-    },
-
-    run_on_start = true,
-  })
-  require("mason-tool-installer").run_on_start()
-end
-
-local function setup_typescript()
-  require("typescript-tools").setup({
-
-    settings = {
-      -- mirror of VSCode's `typescript.suggest.completeFunctionCalls`
-      complete_function_calls = true,
-    },
-  })
-end
-
-local function efm_black()
-  local fs = require("efmls-configs.fs")
-
-  local formatter = "black"
-
-  local command = string.format(
-    "%s --no-color -q $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --line-ranges=$(($1+1))-$(($3+1))') -",
-    fs.executable(formatter)
-  )
-
-  return {
-    formatCanRange = true,
-    formatCommand = command,
-    formatStdin = true,
-  }
-end
-
-local function efm_checkstyle()
-  return {
-    lintCommand = [[checkstyle -c=/google_checks.xml ${INPUT}]],
-    lintFormats = { "[WARN] %f:%l:%c: %m" },
-    lintIgnoreExitCode = true,
-  }
-end
-
-local function efm_stylua()
-  local fs = require("efmls-configs.fs")
-
-  local formatter = "stylua"
-
-  local command = string.format(
-    "%s --indent-type Spaces --indent-width 2 --color Never ${--range-start:charStart} ${--range-end:charEnd} -",
-    fs.executable(formatter)
-  )
-
-  return {
-    formatCanRange = true,
-    formatCommand = command,
-    formatStdin = true,
-  }
-end
-
-local function efm_google_java_format()
-  local fs = require('efmls-configs.fs')
-
-  local formatter = 'google-java-format'
-
-
-  local command = fs.executable("google-java-format")
-      .. " $(echo -n ${--useless:rowStart} ${--useless:rowEnd}"
-      .. " | xargs -n4 -r sh -c 'echo"
-      .. " --skip-sorting-imports" -- Do not fix the import order.
-      .. " --skip-removing-unused-imports" -- Do not remove unused imports.
-      .. " --skip-reflowing-long-strings" -- Do not reflow string literals that exceed the column limit.
-      .. " --skip-javadoc-formatting" -- Do not reformat javadoc.
-      .. " --lines $(($1+1)):$(($3+1))'" -- Line range(s) to format, like 5:10 (1-based; default is all).
-      .. ") -"
-
-  local is_windows = vim.fn.has('win32') == 1
-  if is_windows then
-    command = string.format('%s -', fs.executable(formatter))
-  end
-
-  return {
-    formatCanRange = not is_windows,
-    formatCommand = command,
-    formatStdin = true,
-    rootMarkers = {
-        ".project",
-        "classpath",
-        "pom.xml",
-    },
-  }
-  end
-
-local function efm_ls_config()
-  local eslint_d = require("efmls-configs.linters.eslint_d")
-  local sqlfluff_linter = require("efmls-configs.linters.sqlfluff")
-  local sqlfluff_formatter = require("efmls-configs.formatters.sqlfluff")
-  local prettier_d = require("efmls-configs.formatters.prettier_d")
-  local mypy = require("efmls-configs.linters.mypy")
-  -- local ruff = require("efmls-configs.linters.ruff")
-  local google_java_format = require("efmls-configs.formatters.google_java_format")
-
-  -- latexindent $(echo ${--useless:rowStart} ${--useless:rowEnd} | xargs -n4 -r sh -c 'echo --lines $(($1+1))-$(($3+1))')
-
-  local languages = {
-    typescript = { eslint_d, prettier_d },
-    typescriptreact = { eslint_d, prettier_d },
-    javascript = { eslint_d, prettier_d },
-    javascriptreact = { eslint_d, prettier_d },
-    lua = { efm_stylua() },
-    html = { prettier_d },
-    python = { efm_black(), mypy },
-    java = { efm_checkstyle(), efm_google_java_format() },
-    sql = { sqlfluff_formatter, sqlfluff_linter },
-  }
-
-  mason_tool_installer()
-
-  -- Or use the defaults provided by this plugin
-  -- check doc/SUPPORTED_LIST.md for the supported languages
-  --
-  -- local languages = require('efmls-configs.defaults').languages()
-
-  local efmls_config = {
-    filetypes = vim.tbl_keys(languages),
-    settings = {
-      lintDebounce = "1s",
-      formatDebounce = "1000ms",
-      rootMarkers = { ".git/" },
-      languages = languages,
-    },
-    init_options = {
-      documentFormatting = true,
-      documentRangeFormatting = true,
-    },
-  }
-
-  return efmls_config
 end
 
 local function setup_lsps(servers, settings)
@@ -184,30 +34,16 @@ local function setup_lsps(servers, settings)
     lspconfig[k].setup(opts)
   end
 
-  require("go").setup()
 
-  -- setup_typescript()
 end
 
 local function config()
   local servers = {
     "pylance",
-    -- "ocamllsp",
-    -- "pylsp",
-    -- "pyre",
-    "efm",
     "ruff",
-    -- "basedpyright",
     "lua_ls",
     "emmet_language_server",
     "dockerls",
-    -- "emmet_ls",
-
-    -- tsserver = {
-    --   settings = {
-    --     completions = {completeFunctionCalls = true},
-    --   }
-    -- },
     "bashls",
     "lemminx",
     "html",
@@ -216,17 +52,13 @@ local function config()
     "jsonls",
     "yamlls",
     "nginx_language_server",
-    -- "omnisharp",
-    -- "clangd",
     "gopls",
     "csharp_ls",
-    -- "ruby_ls",
     "vtsls",
     "marksman",
   }
 
   local settings = {
-    efm = efm_ls_config(),
     emmet_language_server = {
       filetypes = {
         "css",
@@ -243,23 +75,6 @@ local function config()
         "vue",
       },
     },
-    basedpyright = {
-      skip_install = true,
-      settings = {
-        verboseOutput = false,
-        autoImportCompletion = true,
-        basedpyright = {
-          disableOrganizeImports = true,
-          analysis = {
-            typeCheckingMode = "off",
-            autoSearchPaths = true,
-            useLibraryCodeForTypes = true,
-            diagnosticMode = "openFilesOnly",
-            indexing = true,
-          },
-        },
-      },
-    },
     yaml = {
       settings = {
         yaml = {
@@ -274,26 +89,11 @@ local function config()
         },
       },
     },
-    pylsp = {
-      settings = {
-        pylsp = {
-          plugins = {
-            flake8 = {
-              enabled = true
-            },
-            jedi_completion = {
-              enabled = true,
-              fuzzy = true
-            },
-            jedi_definition = {
-              enabled = true
-            },
-            rope_autoimport = {
-              enabled = true
-            }
-          }
-        }
-      }
+    ruff = {
+      init_options = {
+        documentFormatting = true,
+        documentRangeFormatting = true,
+      },
     },
     gopls = {
       -- for postfix snippets and analyzers
@@ -341,9 +141,6 @@ local function config()
     emmet_ls = {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
     },
-    -- omnisharp = {
-    --   cmd = { vim.fn.stdpath("data") .. '/mason/bin/omnisharp' },
-    -- },
     pylance = {
       settings = {
         python = {
@@ -377,43 +174,24 @@ local function config()
     },
   }
 
-  set_mason_lsp(servers)
+  install_mason_lsp_servers(servers)
   setup_lsps(servers, settings)
 end
 
 return {
 
-  'yioneko/nvim-vtsls',
+  "yioneko/nvim-vtsls",
   "mfussenegger/nvim-jdtls",
   {
-    'mrcjkb/rustaceanvim',
-    ft = { 'rust' },
+    "mrcjkb/rustaceanvim",
+    ft = { "rust" },
   },
-  -- require "plugins.lsp-plugins.null-ls",
-  -- require "plugins.lsp-plugins.lspkind",
-  -- require "plugins.lsp-plugins.aerial",
-  -- require "plugins.lsp-plugins.rust-tools-nvim",
-
-  -- {
-  --   'jmederosalvarado/roslyn.nvim',
-  --   config = function ()
-  --     local utils = require('utils')
-  --     require("roslyn").setup(
-  --     {
-  --       capabilities = utils.capabilities,
-  --       on_attach = utils.on_attach,
-  --     }
-  --     )
-  --   end
-  -- },
-
   {
     "neovim/nvim-lspconfig",
     config = config,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "kuator/some-python-plugin.nvim",
-      -- "pmizio/typescript-tools.nvim",
       "b0o/SchemaStore.nvim",
       {
         "ray-x/go.nvim",
@@ -424,7 +202,7 @@ return {
         config = function()
           require("go").setup()
         end,
-        -- event = {"CmdlineEnter"},
+        event = { "CmdlineEnter" },
         ft = { "go", "gomod" },
         build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
       },
@@ -439,10 +217,14 @@ return {
         end,
       },
       {
-        "creativenull/efmls-configs-nvim",
+        "someone-stole-my-name/yaml-companion.nvim",
         dependencies = {
-          "WhoIsSethDaniel/mason-tool-installer.nvim",
+          { "nvim-lua/plenary.nvim" },
+          { "nvim-telescope/telescope.nvim" },
         },
+        config = function()
+          require("telescope").load_extension("yaml_schema")
+        end,
       },
     },
   },

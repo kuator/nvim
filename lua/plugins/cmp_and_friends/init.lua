@@ -6,10 +6,6 @@ local function config()
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-Space>"] = cmp.mapping.complete(),
-    -- ['<CR>'] = cmp.mapping.confirm {
-    --   behavior = cmp.ConfirmBehavior.Replace,
-    --   select = true,
-    -- },
     ["<C-k>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(1) then
         luasnip.jump(1)
@@ -69,52 +65,8 @@ local function config()
     },
   }
 
-  local has_handlers, handlers = pcall(require, "nvim-autopairs.completion.handlers")
 
   local has_autopairs, npairs = pcall(require, "nvim-autopairs")
-
-  local _, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
-
-  -- local function on_confirm_done(evt)
-  --   local callback = cmp_autopairs.on_confirm_done({
-  --     filetypes = {
-  --       ["cs"] = {
-  --         ["("] = {
-  --           kind = {
-  --             cmp.lsp.CompletionItemKind.Function,
-  --             cmp.lsp.CompletionItemKind.Method,
-  --             cmp.lsp.CompletionItemKind.Class,
-  --           },
-  --           handler = function(char, item, bufnr, rules, _)
-  --             handlers["*"](char, item, bufnr, rules)
-  --           end,
-  --         },
-  --       },
-  --       ["python"] = {
-  --         ["("] = {
-  --           kind = {
-  --             cmp.lsp.CompletionItemKind.Class,
-  --           },
-  --           handler = function(char, item, bufnr, rules, _)
-  --             if item.data then
-  --               item.data.funcParensDisabled = falsecmpfriini
-  --             end
-  --             handlers["*"](char, item, bufnr, rules)
-  --           end,
-  --         },
-  --       },
-  --     },
-  --   })
-  --
-  --   local function custom_confirm()
-  --     require('nvim-autopairs').enable()
-  --     local result = callback(evt)
-  --     vim.defer_fn(function() require('nvim-autopairs').disable() end, 200)
-  --     return result
-  --   end
-  --
-  --   return custom_confirm()
-  -- end
 
   local function on_confirm_done(evt)
     local entry = evt.entry
@@ -152,20 +104,6 @@ local function config()
       return
     end
 
-    -- if
-    --     vim.bo.filetype == "python"
-    --     and (
-    --       entry:get_kind() == types.lsp.CompletionItemKind.Function
-    --       or entry:get_kind() == types.lsp.CompletionItemKind.Method
-    --       or entry:get_kind() == types.lsp.CompletionItemKind.Class
-    --     )
-    -- then
-    --   local ls = require('luasnip')
-    --   ls.snip_expand(ls.s("trig", { ls.t"(", ls.i(1, ""), ls.t")" }) )
-    --
-    --   return
-    -- end
-
   end
 
   if has_autopairs then
@@ -186,7 +124,6 @@ local function config()
   end
 
   local emmet_in_jsx_only = function(entry, _)
-    -- print(is_emmet_snippet(entry))
     if is_emmet_snippet(entry) then
       local node = vim.treesitter.get_node()
       return node and node:type() == "jsx_element" or false
@@ -313,13 +250,13 @@ return {
             })
             vim.cmd[[imap <silent> <c-s> <Plug>(skkeleton-toggle)]]
           end
+      },
+      {
+        'windwp/nvim-ts-autotag',
+        config = function ()
+           require('nvim-ts-autotag').setup()
+        end
       }
-      -- {
-      --   'windwp/nvim-ts-autotag',
-      --   config = function ()
-      --      require('nvim-ts-autotag').setup()
-      --   end
-      -- }
     },
   },
 }

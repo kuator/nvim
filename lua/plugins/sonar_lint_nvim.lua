@@ -19,7 +19,7 @@ return {
         -- Tested and working
         "python",
         "cpp",
-        "java",
+        -- "java",
       },
     })
   end,
