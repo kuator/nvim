@@ -36,7 +36,7 @@ local function on_attach(client, bufnr)
     end
   end
 
-  if client.supports_method("textDocument/formatting") then
+  if client:supports_method("textDocument/formatting") then
     vim.keymap.set("n", "<leader>F", function()
       vim.lsp.buf.format({
         filter = function(client_)
