@@ -10,7 +10,7 @@ return {
   -- },
 
   {
-    "kylechui/nvim-surround",
+    "https://github.com/kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     keys = { { mode = 'n', 'ys' }, { mode = 'x', 'S' }, { mode = 'n', 'cs' }, { mode = 'n', 'ds' }, },
     config = function()
@@ -32,19 +32,36 @@ return {
   },
 
   {
-    'tpope/vim-unimpaired',
+    'https://github.com/tpope/vim-unimpaired',
     keys = { { mode = 'n', '[p' }, { mode = 'n', ']p' }, { mode = 'n', '[l' }, { mode = 'n', ']l' }, }
   },
   {
-    'tpope/vim-repeat',
+    'https://github.com/tpope/vim-repeat',
     keys = { { mode = 'n', '.' } },
   },
   {
-    'tpope/vim-rsi',
+    'https://github.com/tpope/vim-rsi',
     event = {'InsertEnter', 'CmdLineEnter'}
   },
   {
-    'tpope/vim-abolish',
+    'https://github.com/tpope/vim-abolish',
     event = 'InsertEnter'
+  },
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod', lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true }, -- Optional
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
   }
 }

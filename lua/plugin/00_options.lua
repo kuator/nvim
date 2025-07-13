@@ -85,3 +85,5 @@ for option, folder in pairs(folders) do
 end
 
 vim.cmd('filetype plugin on')
+
+require('vim._extui').enable({})
