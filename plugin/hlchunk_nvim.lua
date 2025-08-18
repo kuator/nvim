@@ -1,0 +1,11 @@
+-- vim.pack.add({ "https://github.com/shellRaining/hlchunk.nvim" }, { load = true })
+-- require("hlchunk").setup({
+--   chunk = {
+--     enable = true,
+--     -- ...
+--   },
+--   indent = {
+--     enable = true,
+--     -- ...
+--   },
+-- })

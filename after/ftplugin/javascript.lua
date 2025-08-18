@@ -1,2 +1,0 @@
--- vim.bo.filetype='javascriptreact'
--- vim.bo.filetype='javascriptreact.javascript'

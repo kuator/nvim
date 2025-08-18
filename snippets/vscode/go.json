@@ -1,7 +1,0 @@
-{
-  "v": {
-    "prefix": "v",
-    "body": ["${1:name} := ${2:value}"],
-    "description": "Function"
-  }
-}
