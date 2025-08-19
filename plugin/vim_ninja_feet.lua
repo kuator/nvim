@@ -1,0 +1,1 @@
+-- vim.pack.add({ "https://github.com/tommcdo/vim-ninja-feet" }, { load = true })

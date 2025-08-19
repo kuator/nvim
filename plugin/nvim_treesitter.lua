@@ -41,22 +41,15 @@ local config = {
   },
 }
 
-
-local treesitter_context = { "http://github.com/nvim-treesitter/nvim-treesitter-context" }
-local textobjects = { "http://github.com/nvim-treesitter/nvim-treesitter-textobjects" }
-local rainbow_delimiters = { "http://github.com/hiphish/rainbow-delimiters.nvim" }
-local autotag = { "http://github.com/windwp/nvim-ts-autotag" }
-local neogen = { "http://github.com/danymat/neogen" }
-
-
-
-vim.pack.add({ "http://github.com/nvim-treesitter/nvim-treesitter" }, { load = true })
-vim.pack.add(treesitter_context, { load = true })
-vim.pack.add(textobjects, { load = true })
-vim.pack.add(rainbow_delimiters, { load = true })
-vim.pack.add(autotag, { load = true })
-vim.pack.add(neogen, { load = true })
-
+vim.pack.add({
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+  { src = "https://github.com/hiphish/rainbow-delimiters.nvim" },
+  { src = "https://github.com/windwp/nvim-ts-autotag" },
+  { src = "https://github.com/danymat/neogen" },
+  { src = "https://github.com/danymat/neogen" },
+}, { load = true })
 
 
 vim.g.matchup_surround_enabled = 1
@@ -72,11 +65,9 @@ require("nvim-treesitter.configs").setup(config)
 require("neogen").setup({ snippet_engine = "luasnip" })
 require('match-up').setup({})
 
-
 vim.pack.add({ 'https://github.com/David-Kunz/treesitter-unit' }, { load = true })
-
 local treesitter_unit = require("treesitter-unit")
-
+treesitter_unit.enable_highlighting('CursorLine')
 
 vim.keymap.set('x', 'iu', function()
   treesitter_unit.select()
@@ -93,4 +84,3 @@ end, { noremap = true })
 vim.keymap.set('o', 'au', function()
   treesitter_unit.select(true)
 end, { noremap = true })
-require "treesitter-unit".enable_highlighting('CursorLine')

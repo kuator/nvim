@@ -37,7 +37,7 @@ vim.keymap.set('n', 's', '<nop>')
 vim.keymap.set('s', '<c-h>', '<c-h>i')
 
 -- ctags
-vim.keymap.set('n', '<leader>lt', ':ltag <space>/')
+vim.keymap.set('n', '<leader>lt', ':ltag /')
 
 vim.keymap.set('n', '<a-c>', ':')
 vim.keymap.set('v', '<a-c>', ':')

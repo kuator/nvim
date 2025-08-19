@@ -32,4 +32,5 @@ require("ibl").setup({
     show_exact_scope = true,
     highlight = highlight,
   },
+  exclude = { filetypes = { "startify", "dashboard", "help", "NvimTree", "lazy", "mason" } },
 })

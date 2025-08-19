@@ -1,31 +1,33 @@
-vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" }, { load = true })
-vim.pack.add({ "https://github.com/mason-org/mason.nvim" }, { load = true })
-vim.pack.add({ "https://github.com/mason-org/mason-lspconfig.nvim" }, { load = true })
-vim.pack.add({ "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" }, { load = true })
+vim.pack.add({
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+  { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
+  { src = "https://github.com/jay-babu/mason-null-ls.nvim" },
+  { src = "https://github.com/nvimtools/none-ls-extras.nvim" },
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/nvimtools/none-ls.nvim" },
+}, { load = true })
 
-require("mason").setup()
-require("mason-lspconfig").setup({
-  automatic_enable = {
-    exclude = {
+local function configure_lsp()
+  require("mason").setup()
+  require("mason-lspconfig").setup({
+    automatic_enable = {
+      exclude = {
+        "jdtls",
+      },
+    },
+    ensure_installed = {
+      "basedpyright",
+      "ruff",
+      "emmylua_ls",
+      "postgres_lsp",
       "jdtls",
     },
-  },
-  ensure_installed = {
-    "basedpyright",
-    "ruff",
-    "emmylua_ls",
-    "postgres_lsp",
-    "jdtls",
-  },
-  -- "lua_ls",
-  -- "ty",
-})
-
-
-vim.pack.add({ "https://github.com/jay-babu/mason-null-ls.nvim" }, { load = true })
-vim.pack.add({ "https://github.com/nvimtools/none-ls-extras.nvim" }, { load = true })
-vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim" }, { load = true })
-vim.pack.add({ "https://github.com/nvimtools/none-ls.nvim" }, { load = true })
+    -- "lua_ls",
+    -- "ty",
+  })
+end
 
 local function configure_none_ls()
   local null_ls_status_ok, null_ls = pcall(require, "null-ls")
@@ -69,3 +71,4 @@ local function configure_none_ls()
 end
 
 configure_none_ls()
+configure_lsp()

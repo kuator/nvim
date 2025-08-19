@@ -1,5 +1,8 @@
-vim.pack.add({ { src = 'https://github.com/L3MON4D3/LuaSnip', build = 'make install_jsregexp' } }, { load = true })
-vim.pack.add({ 'https://github.com/rafamadriz/friendly-snippets' }, { load = true })
+vim.pack.add({
+  'https://github.com/rafamadriz/friendly-snippets',
+  { src = 'https://github.com/L3MON4D3/LuaSnip', build = 'make install_jsregexp' }
+}, { load = true })
+
 require('luasnip').filetype_extend('java', { "javadoc" })
 require('luasnip').filetype_extend('python', { 'django', 'django-rest', 'pydoc' })
 vim.tbl_map(
@@ -12,7 +15,7 @@ require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fs.joinpath(v
 
 local ls = require("luasnip")
 
-vim.keymap.set({ "i", "s" }, "<C-K>", function()
+vim.keymap.set({ "i", "s" }, "<C-L>", function()
   if ls.expand_or_jumpable()
   then
     ls.expand_or_jump()

@@ -1,0 +1,2 @@
+-- vim.pack.add({ "https://github.com/goolord/alpha-nvim" }, { load = true })
+-- require'alpha'.setup(require'alpha.themes.startify'.config)

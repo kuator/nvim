@@ -1,4 +1,6 @@
-vim.pack.add({ 'https://github.com/tpope/vim-unimpaired' }, { load = true })
-vim.pack.add({ 'https://github.com/tpope/vim-repeat' }, { load = true })
-vim.pack.add({ 'https://github.com/tpope/vim-rsi' }, { load = true })
--- vim.pack.add({ 'https://github.com/tpope/vim-abolish' }, { load = true })
+vim.pack.add({
+  { src = "https://github.com/tpope/vim-unimpaired" },
+  { src = "https://github.com/tpope/vim-repeat" },
+  { src = "https://github.com/tpope/vim-rsi" },
+  { src = "https://github.com/tpope/vim-obsession" },
+}, { load = true })
