@@ -1,0 +1,2 @@
+-- vim.pack.add({ "https://github.com/olimorris/codecompanion.nvim" }, { load = true })
+-- require("codecompanion").setup()
