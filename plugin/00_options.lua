@@ -68,3 +68,5 @@ vim.o.winborder = "rounded"
 
 -- External UI enable (plugin)
 require('vim._extui').enable({})
+
+vim.cmd[[set wildcharm=<TAB>]]

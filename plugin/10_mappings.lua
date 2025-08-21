@@ -50,3 +50,7 @@ vim.keymap.set('n', '<leader>cc', function()
   vim.cmd('cclose')
   vim.cmd('lclose')
 end, { desc = 'Close quickfix and location list', silent = true })
+
+-- dealing with buffers
+local wildcharm = vim.o.wildcharm
+vim.api.nvim_set_keymap("n", "gb", ":buffer " .. string.char(wildcharm), { noremap = true, silent = false })
