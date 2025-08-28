@@ -31,10 +31,8 @@ local function configure_lsp()
       "jsonls",
       "emmet_language_server",
       "cssls",
-      -- "css_variables",
-      -- "cssmodules-language-server",
+      -- "css_variables", "cssmodules-language-server", "lua_ls", "ty",
     },
-    -- "lua_ls", "ty",
   })
 end
 
