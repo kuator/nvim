@@ -1,12 +1,14 @@
 vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/mason-org/mason.nvim" },
+  { src = "https://github.com/yioneko/nvim-vtsls" },
+  { src = "https://github.com/mfussenegger/nvim-jdtls" },
   { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
   { src = "https://github.com/jay-babu/mason-null-ls.nvim" },
   { src = "https://github.com/nvimtools/none-ls-extras.nvim" },
   { src = "https://github.com/nvim-lua/plenary.nvim" },
   { src = "https://github.com/nvimtools/none-ls.nvim" },
+  { src = "https://github.com/b0o/SchemaStore.nvim" },
 }, { load = true })
 
 local function configure_lsp()
@@ -14,7 +16,7 @@ local function configure_lsp()
   require("mason-lspconfig").setup({
     automatic_enable = {
       exclude = {
-        "jdtls",
+        -- "jdtls", "vtsls", "vue_ls", "vtsls",
       },
     },
     ensure_installed = {
@@ -23,9 +25,16 @@ local function configure_lsp()
       "emmylua_ls",
       "postgres_lsp",
       "jdtls",
+      "vtsls",
+      "vue_ls",
+      "yamlls",
+      "jsonls",
+      "emmet_language_server",
+      "cssls",
+      -- "css_variables",
+      -- "cssmodules-language-server",
     },
-    -- "lua_ls",
-    -- "ty",
+    -- "lua_ls", "ty",
   })
 end
 
@@ -47,6 +56,7 @@ local function configure_none_ls()
       formatting.prettierd,
       formatting.google_java_format,
       formatting.black,
+      -- null_ls.builtins.completion.luasnip,
       null_ls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
       null_ls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
       diagnostics.mypy,

@@ -6,7 +6,10 @@ require("blink.cmp").setup({
   --   ["<C-j>"] = { "snippet_backward", "fallback" },
   --   ["<C-k>"] = { "snippet_forward", "fallback" },
   -- },
-  snippets = { preset = "luasnip" },
+  snippets = { 
+    preset = "luasnip" ,
+    -- ['<C-y>'] = { 'select_and_accept' }
+  },
   cmdline = { enabled = false },
   completion = {
     documentation = {
@@ -16,6 +19,7 @@ require("blink.cmp").setup({
         border = 'rounded',
       },
     },
+    accept = { auto_brackets = { enabled = true }, },
     -- list = { selection = { preselect = false, auto_insert = true } },
   },
 })

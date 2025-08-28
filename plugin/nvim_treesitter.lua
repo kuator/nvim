@@ -1,11 +1,22 @@
 local config = {
-  ensure_installed = { "python", "lua", "bash", "cpp" },
+  ensure_installed = {
+    "python",
+    "lua",
+    "bash",
+    "json",
+    'yaml',
+    'html',
+    'javascript',
+  },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = true,
   },
   matchup = {
     enable = true,
+  },
+  indent = {
+    enable = true
   },
   textobjects = {
     select = {

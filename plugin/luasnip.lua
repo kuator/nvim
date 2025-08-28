@@ -1,14 +1,17 @@
 vim.pack.add({
-  'https://github.com/rafamadriz/friendly-snippets',
+  -- 'https://github.com/rafamadriz/friendly-snippets',
+  'https://github.com/honza/vim-snippets',
   { src = 'https://github.com/L3MON4D3/LuaSnip', build = 'make install_jsregexp' }
 }, { load = true })
 
 require('luasnip').filetype_extend('java', { "javadoc" })
 require('luasnip').filetype_extend('python', { 'django', 'django-rest', 'pydoc' })
+
 vim.tbl_map(
   function(type) require("luasnip.loaders.from_" .. type).lazy_load() end,
   { "lua", "snipmate", "vscode" }
 )
+
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fs.joinpath(vim.fn.stdpath("config"), 'snippets/vscode') } })
 require("luasnip.loaders.from_lua").lazy_load({ paths = { vim.fs.joinpath(vim.fn.stdpath("config"), 'snippets/luasnip') } })
 require("luasnip.loaders.from_snipmate").lazy_load({ paths = { vim.fs.joinpath(vim.fn.stdpath("config"), 'snippets/snipmate') } })

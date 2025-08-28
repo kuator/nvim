@@ -1,0 +1,2 @@
+-- vim.pack.add({ { src = "https://github.com/brianaung/compl.nvim" } }, { load = true })
+-- require('compl').setup()

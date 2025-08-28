@@ -1,3 +1,8 @@
+if vim.g.vscode then
+  return
+end
+
+
 vim.pack.add({ "https://github.com/lukas-reineke/indent-blankline.nvim"}, {load=true})
 
 local highlight = {

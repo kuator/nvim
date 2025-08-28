@@ -2,11 +2,11 @@
 vim.o.clipboard = "unnamedplus"
 
 -- Search behavior
-vim.o.updatetime    = 300
-vim.o.incsearch     = true
-vim.o.hlsearch      = true
-vim.o.ignorecase    = true
-vim.o.smartcase     = true
+vim.o.updatetime   = 300
+vim.o.incsearch    = true
+vim.o.hlsearch     = true
+vim.o.ignorecase   = true
+vim.o.smartcase    = true
 
 -- File handling and backups
 vim.o.swapfile      = true
@@ -30,8 +30,8 @@ vim.o.signcolumn     = "yes"
 vim.o.scrolloff      = 5
 vim.o.sidescrolloff  = 5
 vim.o.laststatus     = 3
-vim.o.title          = true
 vim.o.titlestring    = 'VS⠀Code'  -- Note: The space after VS might be a special char
+vim.o.title          = true
 
 -- Editing behavior
 vim.o.expandtab      = true
@@ -66,7 +66,12 @@ vim.g.mapleader      = ' '
 
 vim.o.winborder = "rounded"
 
+vim.o.cmdheight = 1
+
 -- External UI enable (plugin)
-require('vim._extui').enable({})
+
+if not vim.g.vscode then
+  require('vim._extui').enable({})
+end
 
 vim.cmd[[set wildcharm=<TAB>]]

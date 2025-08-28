@@ -15,6 +15,5 @@
       "$XDG_DATA_HOME/nvim/site/pack/core/opt"   
     ],
     "ignoreGlobs": ["**/*_spec.lua"]
-                                          
   }
 }
