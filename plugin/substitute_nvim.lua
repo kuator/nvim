@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/gbprod/substitute.nvim" }, { load = true })
+vim.pack.add({ "https://github.com/gbprod/substitute.nvim" }, { load = true, confirm = false })
 
 local substitute = require("substitute")
 substitute.setup({ highlight_substituted_text = { timer = 150 } })

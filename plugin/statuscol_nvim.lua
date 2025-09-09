@@ -1,4 +1,7 @@
-vim.pack.add({ "https://github.com/luukvbaal/statuscol.nvim" }, { load = true })
+vim.pack.add(
+  { "https://github.com/luukvbaal/statuscol.nvim" },
+  { load = true, confirm = false }
+)
 
 -- local builtin = require("statuscol.builtin")
 -- require("statuscol").setup({

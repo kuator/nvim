@@ -1,4 +1,6 @@
-vim.pack.add({"https://github.com/RRethy/vim-illuminate"}, {load = true})
+vim.pack.add({
+  "https://github.com/RRethy/vim-illuminate",
+}, { load = true, confirm = false })
 
 require('illuminate').configure({
   delay= 200

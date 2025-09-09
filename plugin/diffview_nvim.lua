@@ -1,1 +1,1 @@
-vim.pack.add({ "https://github.com/sindrets/diffview.nvim" }, { load = true })
+vim.pack.add({ "https://github.com/sindrets/diffview.nvim" }, { load = true, confirm = false })

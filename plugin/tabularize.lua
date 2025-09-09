@@ -1,1 +1,1 @@
-vim.pack.add({ "https://github.com/godlygeek/tabular" }, { load = true })
+vim.pack.add({ "https://github.com/godlygeek/tabular" }, { load = true, confirm = false })

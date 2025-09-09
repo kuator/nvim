@@ -2,7 +2,7 @@ vim.pack.add({
   -- 'https://github.com/rafamadriz/friendly-snippets',
   'https://github.com/honza/vim-snippets',
   { src = 'https://github.com/L3MON4D3/LuaSnip', build = 'make install_jsregexp' }
-}, { load = true })
+}, { load = true, confirm = false })
 
 require('luasnip').filetype_extend('java', { "javadoc" })
 require('luasnip').filetype_extend('python', { 'django', 'django-rest', 'pydoc' })

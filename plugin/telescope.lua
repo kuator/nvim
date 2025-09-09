@@ -1,11 +1,11 @@
 vim.pack.add({
   { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { src = "https://github.com/tami5/sql.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-frecency.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
-  { src = "https://github.com/tknightz/telescope-termfinder.nvim" },
-  { src = "https://github.com/piersolenski/import.nvim" },
-}, { load = true })
+  "https://github.com/tami5/sql.nvim",
+  "https://github.com/nvim-telescope/telescope-frecency.nvim",
+  "https://github.com/nvim-telescope/telescope.nvim",
+  "https://github.com/tknightz/telescope-termfinder.nvim",
+  "https://github.com/piersolenski/import.nvim",
+}, { load = true, confirm = false })
 
 local configure_telescope = function()
   local actions = require("telescope.actions")

@@ -1,1 +1,1 @@
-vim.pack.add({"https://github.com/nvim-neotest/neotest"}, { load = true})
+vim.pack.add({"https://github.com/nvim-neotest/neotest"}, { load = true, confirm = false})

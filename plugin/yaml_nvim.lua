@@ -1,1 +1,1 @@
-vim.pack.add({ "https://github.com/cuducos/yaml.nvim" }, { load = true })
+vim.pack.add({ "https://github.com/cuducos/yaml.nvim" }, { load = true, confirm = false })

@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/Wansmer/treesj" }, { load = true })
+vim.pack.add({ "https://github.com/Wansmer/treesj" }, { load = true, confirm = false})
 
 require("treesj").setup({
   use_default_keymaps = false,

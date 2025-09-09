@@ -1,5 +1,7 @@
-vim.pack.add({ "https://github.com/prichrd/netrw.nvim", }, { load = true })
-vim.pack.add({ 'https://github.com/tpope/vim-vinegar' }, { load = true })
+vim.pack.add({
+  "https://github.com/prichrd/netrw.nvim",
+  "https://github.com/tpope/vim-vinegar",
+}, { load = true, confirm = false })
 
 
 require("netrw").setup({

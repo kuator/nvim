@@ -54,7 +54,7 @@ vim.g.gutentags_modules = { 'ctags', 'cscope_maps' }
 
 -- cscope_maps
 vim.g.gutentags_cscope_build_inverted_index_maps = 1
-vim.pack.add({ 'https://github.com/dhananjaylatkar/cscope_maps.nvim' }, { load = true })
+vim.pack.add({ 'https://github.com/dhananjaylatkar/cscope_maps.nvim' }, { load = true, confirm = false })
 require("cscope_maps").setup({ disable_maps = true })
 
-vim.pack.add({ 'https://github.com/ludovicchabant/vim-gutentags' }, { load = true })
+vim.pack.add({ 'https://github.com/ludovicchabant/vim-gutentags' }, { load = true, confirm = false })

@@ -53,14 +53,13 @@ local config = {
 }
 
 vim.pack.add({
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-context" },
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
-  { src = "https://github.com/hiphish/rainbow-delimiters.nvim" },
-  { src = "https://github.com/windwp/nvim-ts-autotag" },
-  { src = "https://github.com/danymat/neogen" },
-  { src = "https://github.com/danymat/neogen" },
-}, { load = true })
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  "https://github.com/hiphish/rainbow-delimiters.nvim",
+  "https://github.com/windwp/nvim-ts-autotag",
+  "https://github.com/danymat/neogen",
+}, { load = true, confirm = false })
 
 
 vim.g.matchup_surround_enabled = 1
@@ -69,14 +68,14 @@ vim.g.matchup_matchparen_deferred = 1
 vim.g.matchup_matchparen_deferred_show_delay = 400
 vim.g.matchup_matchparen_deferred_hide_delay = 400
 vim.g.matchup_matchparen_offscreen = { method = "popup" }
-vim.pack.add({ "https://github.com/andymass/vim-matchup" }, { load = true})
+vim.pack.add({ "https://github.com/andymass/vim-matchup" }, { load = true, confirm = true})
 
 
 require("nvim-treesitter.configs").setup(config)
 require("neogen").setup({ snippet_engine = "luasnip" })
 require('match-up').setup({})
 
-vim.pack.add({ 'https://github.com/David-Kunz/treesitter-unit' }, { load = true })
+vim.pack.add({ 'https://github.com/David-Kunz/treesitter-unit' }, { load = true, confirm = false })
 local treesitter_unit = require("treesitter-unit")
 treesitter_unit.enable_highlighting('CursorLine')
 

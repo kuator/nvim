@@ -1,5 +1,7 @@
-vim.pack.add({ "https://github.com/nvim-tree/nvim-web-devicons" }, { load = true })
-vim.pack.add({ "http://github.com/stevearc/oil.nvim" }, { load = true })
+vim.pack.add({
+  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/stevearc/oil.nvim",
+}, { load = true, confirm = false })
 
 require("oil").setup({
   default_file_explorer = false,

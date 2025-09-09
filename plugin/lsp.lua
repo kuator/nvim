@@ -1,15 +1,15 @@
 vim.pack.add({
-  { src = "https://github.com/neovim/nvim-lspconfig" },
-  { src = "https://github.com/mason-org/mason.nvim" },
-  { src = "https://github.com/yioneko/nvim-vtsls" },
-  { src = "https://github.com/mfussenegger/nvim-jdtls" },
-  { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-  { src = "https://github.com/jay-babu/mason-null-ls.nvim" },
-  { src = "https://github.com/nvimtools/none-ls-extras.nvim" },
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
-  { src = "https://github.com/nvimtools/none-ls.nvim" },
-  { src = "https://github.com/b0o/SchemaStore.nvim" },
-}, { load = true })
+  "https://github.com/neovim/nvim-lspconfig",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/yioneko/nvim-vtsls",
+  "https://github.com/mfussenegger/nvim-jdtls",
+  "https://github.com/mason-org/mason-lspconfig.nvim",
+  "https://github.com/jay-babu/mason-null-ls.nvim",
+  "https://github.com/nvimtools/none-ls-extras.nvim",
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/nvimtools/none-ls.nvim",
+  "https://github.com/b0o/SchemaStore.nvim",
+}, { load = true, confirm = false })
 
 local function configure_lsp()
   require("mason").setup()
@@ -20,7 +20,9 @@ local function configure_lsp()
       },
     },
     ensure_installed = {
-      "basedpyright",
+      -- "basedpyright",
+      "ty",
+      -- "pyrefly",
       "ruff",
       "emmylua_ls",
       "postgres_lsp",
@@ -31,9 +33,11 @@ local function configure_lsp()
       "jsonls",
       "emmet_language_server",
       "cssls",
+      "bashls",
       -- "css_variables", "cssmodules-language-server", "lua_ls", "ty",
     },
   })
+  -- vim.lsp.enable('zuban')
 end
 
 local function configure_none_ls()
@@ -57,7 +61,7 @@ local function configure_none_ls()
       -- null_ls.builtins.completion.luasnip,
       null_ls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
       null_ls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
-      diagnostics.mypy,
+      -- diagnostics.mypy,
       diagnostics.checkstyle.with({
         extra_args = { "-c", "/google_checks.xml" }, -- or "/sun_checks.xml" or path to self written rules
       }),

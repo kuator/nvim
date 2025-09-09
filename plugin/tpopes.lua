@@ -1,6 +1,6 @@
 vim.pack.add({
-  { src = "https://github.com/tpope/vim-unimpaired" },
-  { src = "https://github.com/tpope/vim-repeat" },
-  { src = "https://github.com/tpope/vim-rsi" },
-  { src = "https://github.com/tpope/vim-obsession" },
-}, { load = true })
+  "https://github.com/tpope/vim-unimpaired",
+  "https://github.com/tpope/vim-repeat",
+  "https://github.com/tpope/vim-rsi",
+  "https://github.com/tpope/vim-obsession",
+}, { load = true, confirm = false })

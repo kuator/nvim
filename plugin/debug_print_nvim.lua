@@ -1,5 +1,7 @@
-vim.pack.add({ "https://github.com/echasnovski/mini.hipatterns" }, { load = true })
-vim.pack.add({ "https://github.com/andrewferrier/debugprint.nvim" }, { load = true })
+vim.pack.add({
+  "https://github.com/echasnovski/mini.hipatterns",
+  "https://github.com/andrewferrier/debugprint.nvim",
+}, { load = true, confirm = false })
 
 local function configure()
   local config = {
