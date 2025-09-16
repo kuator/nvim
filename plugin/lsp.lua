@@ -20,8 +20,8 @@ local function configure_lsp()
       },
     },
     ensure_installed = {
-      -- "basedpyright",
-      "ty",
+      "basedpyright",
+      -- "ty",
       -- "pyrefly",
       "ruff",
       "emmylua_ls",
@@ -77,7 +77,13 @@ local function configure_none_ls()
   end
 
   null_mason_ls.setup({
-    ensure_installed = { "jq", "eslint_d" },
+    ensure_installed = {
+      "jq",
+      "eslint_d",
+      -- "checkstyle",
+      "sonarlint-language-server",
+      "google-java-format",
+    },
     automatic_installation = true,
   })
 end
