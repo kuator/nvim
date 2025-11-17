@@ -1,7 +1,4 @@
-vim.pack.add(
-  { "https://github.com/luukvbaal/statuscol.nvim" },
-  { load = true, confirm = false }
-)
+vim.pack.add({ "https://github.com/luukvbaal/statuscol.nvim" }, { load = true, confirm = false })
 
 -- local builtin = require("statuscol.builtin")
 -- require("statuscol").setup({
@@ -17,14 +14,12 @@ vim.pack.add(
 --   }
 -- })
 
-
-
 -- https://github.com/KirkEasterson/.dotfiles/blob/7d1a1112be3a75d0a53bbdbf64a0d889f762de0d/vim/.config/nvim/lua/kirk/plugins/ui/statuscol.lua
 local builtin = require("statuscol.builtin")
 require("statuscol").setup({
   setopt = true,
   relculright = true,
-  bt_ignore = { 'terminal' },
+  bt_ignore = { "terminal" },
   ft_ignore = {
     "NeogitStatus",
     "NvimTree",
@@ -78,16 +73,16 @@ require("statuscol").setup({
         auto = true,
       },
     },
-    { -- line numbers
-      text = { builtin.lnumfunc },
-      click = "v:lua.ScLa",
-    },
     { -- fold
       text = { " ", builtin.foldfunc },
       click = "v:lua.ScFa",
       sign = { foldclosed = true },
     },
-    { -- git signs
+    { -- line numbers
+      text = { builtin.lnumfunc },
+      click = "v:lua.ScLa",
+    },
+    {                       -- git signs
       hl = "GitSigns",
       sign = {
         namespace = { "gitsigns" },

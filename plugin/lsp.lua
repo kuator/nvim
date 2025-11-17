@@ -20,8 +20,8 @@ local function configure_lsp()
       },
     },
     ensure_installed = {
-      "basedpyright",
-      -- "ty",
+      -- "basedpyright",
+      "ty",
       -- "pyrefly",
       "ruff",
       "emmylua_ls",
@@ -80,7 +80,7 @@ local function configure_none_ls()
     ensure_installed = {
       "jq",
       "eslint_d",
-      -- "checkstyle",
+      "checkstyle",
       "sonarlint-language-server",
       "google-java-format",
     },

@@ -47,6 +47,7 @@ return {
   s({trig="not"}, { t("!=") }),
   s({trig="em"}, { t("!") }),
   s({trig="or"}, { t("||") }),
+  s({trig="pp"}, { t("||") }),
   s({trig="or1"}, { t("|") }),
   s({trig="and1"}, { t("&") }),
   s("bt", {
