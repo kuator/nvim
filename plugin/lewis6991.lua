@@ -8,6 +8,4 @@ vim.pack.add({
   "https://github.com/lewis6991/satellite.nvim",
 }, { load = true, confirm = false })
 
-require("gitsigns").setup({
-  debug_mode = true,
-})
+require("gitsigns").setup()

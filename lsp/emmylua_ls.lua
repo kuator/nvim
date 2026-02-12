@@ -23,4 +23,5 @@ local emmylua_ls = {
   },
 }
 
-vim.lsp.config('emmylua_ls', emmylua_ls)
+-- vim.lsp.config('emmylua_ls', emmylua_ls)
+return emmylua_ls

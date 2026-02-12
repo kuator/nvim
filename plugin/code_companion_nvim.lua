@@ -1,2 +1,43 @@
--- vim.pack.add({ "https://github.com/olimorris/codecompanion.nvim" }, { load = true })
--- require("codecompanion").setup()
+-- vim.pack.add({
+--   "https://github.com/nvim-lua/plenary.nvim",
+--   "https://github.com/olimorris/codecompanion.nvim",
+-- }, { load = true })
+--
+-- require("codecompanion").setup({
+--   opts = {
+--     log_level = "DEBUG", -- or "TRACE"
+--   },
+--   strategies = {
+--     chat = {
+--       adapter = "gpt-oss",
+--       keymaps = {
+--         clear = {
+--           modes = {
+--             n = "gX",
+--           },
+--           index = 6,
+--           callback = "keymaps.clear",
+--           description = "Clear Chat",
+--         },
+--       },
+--     },
+--   },
+--   adapters = {
+--     http = {
+--       ["gpt-oss"] = function()
+--         return require("codecompanion.adapters").extend("openai_compatible", {
+--           env = {
+--             url = "https://ray.qazcode.ai/oss20b/v1", -- optional: default value is ollama url http://127.0.0.1:11434
+--             chat_url = "/v1/chat/completions", -- optional: default value, override if different
+--             models_endpoint = "/v1/models", -- optional: attaches to the end of the URL to form the endpoint to retrieve models
+--           },
+--           schema = {
+--             model = {
+--               default = "openai/gpt-oss-20b", -- define llm model to be used
+--             },
+--           },
+--         })
+--       end,
+--     },
+--   },
+-- })

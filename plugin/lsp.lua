@@ -54,6 +54,7 @@ local function configure_none_ls()
   null_ls.setup({
     debug = false,
     debounce = 1000,
+    temp_dir = '/tmp',
     sources = {
       formatting.prettierd,
       formatting.google_java_format,
