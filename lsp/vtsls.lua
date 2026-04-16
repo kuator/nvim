@@ -47,5 +47,4 @@ local vtsls_config = {
   },
 }
 
--- vim.lsp.config('vtsls', vtsls_config)
 return vtsls_config

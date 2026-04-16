@@ -22,6 +22,7 @@ local function configure_lsp()
     ensure_installed = {
       -- "basedpyright",
       "ty",
+      "zk",
       -- "pyrefly",
       "ruff",
       "emmylua_ls",
@@ -58,7 +59,7 @@ local function configure_none_ls()
     sources = {
       formatting.prettierd,
       formatting.google_java_format,
-      formatting.black,
+      -- formatting.black,
       -- null_ls.builtins.completion.luasnip,
       null_ls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
       null_ls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
@@ -81,6 +82,7 @@ local function configure_none_ls()
     ensure_installed = {
       "jq",
       "eslint_d",
+      "prettierd",
       "checkstyle",
       "sonarlint-language-server",
       "google-java-format",

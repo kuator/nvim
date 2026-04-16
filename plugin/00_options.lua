@@ -47,7 +47,7 @@ vim.o.splitright     = true
 vim.o.completeopt    = 'menuone,noselect'
 vim.o.wildignorecase = true
 vim.o.wildoptions    = 'pum'
-vim.o.shortmess      = vim.o.shortmess .. 'c'
+vim.o.shortmess      = vim.o.shortmess .. 'c' .. 'I'
 
 -- Incremental command preview
 vim.o.inccommand     = 'split'
@@ -71,7 +71,7 @@ vim.o.cmdheight = 1
 -- External UI enable (plugin)
 
 if not vim.g.vscode then
-  require('vim._extui').enable({})
+  require('vim._core.ui2').enable({})
 end
 
 vim.cmd[[set wildcharm=<TAB>]]

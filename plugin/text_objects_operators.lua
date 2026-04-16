@@ -4,9 +4,26 @@ vim.pack.add({
   "https://github.com/kana/vim-textobj-entire",
   "https://github.com/kiyoon/treesitter-indent-object.nvim",
   "https://github.com/Julian/vim-textobj-variable-segment",
-  "https://github.com/AndrewRadev/dsf.vim",
-
   "https://github.com/tommcdo/vim-lion",
+}, { load = true, confirm = false })
+
+
+-- Disable default mappings
+vim.g.dsf_no_mappings = 1
+
+vim.pack.add({
+  "https://github.com/AndrewRadev/dsf.vim",
+}, { load = true, confirm = false })
+
+local opts = { noremap = true }
+
+vim.keymap.set("n", "dsf", "<Plug>DsfDelete", opts)
+vim.keymap.set("n", "csf", "<Plug>DsfChange", opts)
+vim.keymap.set("n", "dsnf", "<Plug>DsfNextDelete", opts)
+vim.keymap.set("n", "csnf", "<Plug>DsfNextChange", opts)
+
+
+vim.pack.add({
   "https://github.com/ralismark/opsort.vim",
 
   "https://github.com/whatyouhide/vim-textobj-xmlattr",

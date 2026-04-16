@@ -1,4 +1,4 @@
-vim.pack.add({ "https://github.com/kuator/treesitter-unit" }, { load = true, confirm = false })
+vim.pack.add({ "https://github.com/David-Kunz/treesitter-unit" }, { load = true, confirm = false })
 local treesitter_unit = require("treesitter-unit")
 treesitter_unit.enable_highlighting("CursorLine")
 

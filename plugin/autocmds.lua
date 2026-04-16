@@ -65,7 +65,8 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     -- vim.keymap.set("n", "<a-.>", vim.lsp.buf.code_action, options)
 
     local function format_servers(server)
-      local servers_to_ignore = { "ruff", "tsserver", "lua_ls", "jdtls", "vue_ls" }
+      -- local servers_to_ignore = { "ruff", "tsserver", "lua_ls", "jdtls", "vue_ls" }
+      local servers_to_ignore = { "tsserver", "lua_ls", "jdtls", "vue_ls" }
 
       if servers_to_ignore[server] then
         return false
@@ -82,6 +83,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
           end,
           bufnr = bufnr,
           timeout_ms = 2000,
+          async = false,
         })
       end, { buffer = bufnr })
     end
