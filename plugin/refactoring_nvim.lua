@@ -1,2 +1,4 @@
-vim.pack.add({ "https://github.com/ThePrimeagen/refactoring.nvim" }, { load = true, confirm = false })
-require('refactoring').setup()
+vim.pack.add({
+  "https://github.com/lewis6991/async.nvim",
+  "https://github.com/theprimeagen/refactoring.nvim",
+}, { load = true, confirm = false })

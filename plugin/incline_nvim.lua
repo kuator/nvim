@@ -26,7 +26,7 @@ require('incline').setup {
       ' ',
       { filename, gui = modified and 'bold,italic' or 'bold' },
       ' ',
-      guibg = '#44406e',
+      guibg = "#163f63",
     }
   end,
 }
