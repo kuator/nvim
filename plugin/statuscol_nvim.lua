@@ -1,42 +1,12 @@
 vim.pack.add({ "https://github.com/luukvbaal/statuscol.nvim" }, { load = true, confirm = false })
 
--- local builtin = require("statuscol.builtin")
--- require("statuscol").setup({
---   -- configuration goes here, for example:
---   relculright = true,
---   bt_ignore = { 'terminal' },
---   ft_ignore = { 'oil' },
---   segments = {
---     { sign = { namespace = { "diagnostic*" } } },
---     { text = { builtin.foldfunc }, click = "v:lua.ScFa" },
---     { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
---     { sign = { namespace = { "gitsigns" }, colwidth = 1, wrap = true }, click = "v:lua.ScSa" },
---   }
--- })
-
 -- https://github.com/KirkEasterson/.dotfiles/blob/7d1a1112be3a75d0a53bbdbf64a0d889f762de0d/vim/.config/nvim/lua/kirk/plugins/ui/statuscol.lua
 local builtin = require("statuscol.builtin")
 require("statuscol").setup({
   setopt = true,
   relculright = true,
   bt_ignore = { "terminal" },
-  ft_ignore = {
-    "NeogitStatus",
-    "NvimTree",
-    "alpha",
-    "dashboard",
-    "help",
-    "lazy",
-    "mason",
-    "null-ls-info",
-    "packer",
-    "scratch",
-    "startify",
-    "term",
-    "terminal",
-    "toggleterm",
-    "trouble",
-  },
+  ft_ignore = { "help", "mason", "netrw", "oil", "startify" },
   segments = {
     { -- marks
       sign = {

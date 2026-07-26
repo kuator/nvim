@@ -21,11 +21,10 @@ require("nvim-treesitter").install(parsers_to_install)
 
 require("neogen").setup({ snippet_engine = "luasnip" })
 
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = ensure_installed,
   callback = function()
     vim.treesitter.start()
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })

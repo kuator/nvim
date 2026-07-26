@@ -68,10 +68,8 @@ vim.o.winborder = "rounded"
 
 vim.o.cmdheight = 1
 
--- External UI enable (plugin)
-
 if not vim.g.vscode then
-  require('vim._core.ui2').enable({})
+  require("vim._core.ui2").enable({})
 end
 
 vim.cmd[[set wildcharm=<TAB>]]

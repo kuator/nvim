@@ -1,16 +1,20 @@
 local emmylua_ls = {
   cmd = { "emmylua_ls" },
   settings = {
-    Lua = {
+    emmylua = {
+      runtime = {
+        version = "LuaJIT",
+      },
       diagnostics = {
         disable = {
           "unnecessary-if", -- buggy rule
+          "undefined-field", -- false positives for Neovim's module fields
         },
+        globals = { "vim" },
       },
       completion = {
         enable = true,
-        -- callSnippet = true,
-        callSnippet = 'Replace',
+        callSnippet = true,
       },
       signature = {
         detailSignatureHelper = true,
@@ -18,6 +22,9 @@ local emmylua_ls = {
       strict = {
         requirePath = true,
         typeCall = true,
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
       },
     },
   },

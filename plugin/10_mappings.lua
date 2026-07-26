@@ -12,7 +12,7 @@ vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>
 vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**/*'<cr>]])
 
 -- use fdfind with grep
-vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file $XDG_CONFIG_HOME.ignore -g "*"')<left><left><left><left>]])
+vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file $XDG_CONFIG_HOME/.ignore -g "*"')<left><left><left><left>]])
 
 -- https://vi.stackexchange.com/a/2682
 vim.keymap.set('n', '<a-j>', [[:m .+1<CR>==]])
@@ -54,3 +54,64 @@ end, { desc = 'Close quickfix and location list', silent = true })
 -- dealing with buffers
 local wildcharm = vim.o.wildcharm
 vim.api.nvim_set_keymap("n", "gb", ":buffer " .. string.char(wildcharm), { noremap = true, silent = false })
+
+local function start_dev_terminals(namespace, chat_command)
+  local overseer = require("overseer")
+
+  local function run(name, command)
+    overseer.new_task({
+      name = name,
+      cmd = "zsh",
+      args = { "-ic", command },
+      strategy = "jobstart",
+      metadata = { devterminals = true },
+      components = {
+        "default",
+      },
+    }):start()
+  end
+
+  run("backend",
+    ('cd "$(zoxide query backend)" && workon && set -a && source .env && set +a && uvicorn %s.server:app --port 8100 --reload'):format(namespace)
+  )
+
+  run("mcp",
+    ('cd "$(zoxide query mcp)" && workon && set -a && source .env && set +a && python -m %s.src.server.app'):format(namespace)
+  )
+
+  run("client-service",
+    ('cd "$(zoxide query client_service)" && workon && set -a && source .env && set +a && uvicorn %s.src.main:app --host 0.0.0.0 --port 8000 --reload'):format(namespace)
+  )
+
+  run("chat",
+    'cd "$(zoxide query chat)" && ' .. chat_command
+  )
+
+  run("worker",
+    ('cd "$(zoxide query worker)" && workon && set -a && source .env && set +a && celery -A app.%s.main.celery_app worker --loglevel=info --concurrency=${CELERY_CONCURRENCY:-2} --max-tasks-per-child=1'):format(namespace)
+  )
+end
+
+vim.api.nvim_create_user_command("DevTerminalsInternal", function()
+  start_dev_terminals("internal", "npm run dev")
+end, {})
+
+vim.api.nvim_create_user_command("DevTerminalsExternal", function()
+  start_dev_terminals("external", "npm run dev:aks")
+end, {})
+
+vim.api.nvim_create_user_command("DevTerminalsStop", function()
+  local overseer = require("overseer")
+
+  local tasks = overseer.list_tasks({
+    filter = function(task)
+      return task.metadata.devterminals == true
+    end,
+  })
+
+  for _, task in ipairs(tasks) do
+    if task:stop() then
+      task:dispose(true)
+    end
+  end
+end, {})
