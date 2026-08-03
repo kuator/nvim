@@ -1,0 +1,1 @@
+require("match-up").setup({})

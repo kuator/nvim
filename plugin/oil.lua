@@ -1,9 +1,13 @@
 vim.pack.add({
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/stevearc/oil.nvim",
-}, { load = true, confirm = false })
+}, { load = false, confirm = false })
 
-require("oil").setup({
-  default_file_explorer = false,
-})
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+local packages = { "nvim-web-devicons", "oil.nvim" }
+local lazy = require("config.lazy")
+
+lazy.commands("Oil", packages, "config.oil")
+vim.keymap.set("n", "-", function()
+  lazy.load(packages, "config.oil")
+  vim.cmd("Oil")
+end, { desc = "Open parent directory" })

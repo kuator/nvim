@@ -8,15 +8,6 @@ require("statuscol").setup({
   bt_ignore = { "terminal" },
   ft_ignore = { "help", "mason", "netrw", "oil", "startify" },
   segments = {
-    { -- marks
-      sign = {
-        namespace = { "MarkSigns" },
-        name = { ".*" },
-        maxwidth = 2,
-        colwidth = 1,
-        auto = true,
-      },
-    },
     { -- diagnostics
       sign = {
         namespace = { "diagnostic" },

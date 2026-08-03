@@ -7,12 +7,12 @@
 -- end, { desc = "Redraw screen and clear search highlight", silent = true })
 
 -- list files in the current directory
-vim.cmd([[nnoremap <leader>ec  :edit <c-r>=fnameescape(expand('%:p:h')).'/*'<cr>]])
+vim.keymap.set('n', '<leader>ec', [[:edit <C-r>=fnameescape(expand('%:p:h')).'/*'<CR>]])
 -- list files in the neovim config
-vim.cmd([[nnoremap <leader>en  :edit <c-r>=stdpath('config').'/**/*'<cr>]])
+vim.keymap.set('n', '<leader>en', [[:edit <C-r>=fnameescape(stdpath('config')).'/**/*'<CR>]])
 
 -- use fdfind with grep
-vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs --ignore-file $XDG_CONFIG_HOME/.ignore -g "*"')<left><left><left><left>]])
+vim.keymap.set('n', '<leader>lf', [[:lexpr system('fdfind --hidden --no-ignore-vcs -g "*"')<left><left><left><left>]])
 
 -- https://vi.stackexchange.com/a/2682
 vim.keymap.set('n', '<a-j>', [[:m .+1<CR>==]])
@@ -56,6 +56,7 @@ local wildcharm = vim.o.wildcharm
 vim.api.nvim_set_keymap("n", "gb", ":buffer " .. string.char(wildcharm), { noremap = true, silent = false })
 
 local function start_dev_terminals(namespace, chat_command)
+  require("config.lazy").load({ "overseer.nvim" }, "config.overseer")
   local overseer = require("overseer")
 
   local function run(name, command)
@@ -101,6 +102,7 @@ vim.api.nvim_create_user_command("DevTerminalsExternal", function()
 end, {})
 
 vim.api.nvim_create_user_command("DevTerminalsStop", function()
+  require("config.lazy").load({ "overseer.nvim" }, "config.overseer")
   local overseer = require("overseer")
 
   local tasks = overseer.list_tasks({

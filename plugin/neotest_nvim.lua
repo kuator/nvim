@@ -1,10 +1,15 @@
+local packages = {
+  "nvim-nio",
+  "FixCursorHold.nvim",
+  "neotest",
+  "neotest-python",
+}
+
 vim.pack.add({
   "https://github.com/nvim-neotest/nvim-nio",
   "https://github.com/antoinemadec/FixCursorHold.nvim",
   "https://github.com/nvim-neotest/neotest",
   "https://github.com/nvim-neotest/neotest-python",
-}, { load = true, confirm = false })
+}, { load = false, confirm = false })
 
-require("neotest").setup({
-  adapters = { require("neotest-python") },
-})
+require("config.lazy").commands("Neotest", packages, "config.neotest")

@@ -54,10 +54,21 @@ vim.g.gutentags_modules = { 'ctags', 'cscope_maps' }
 
 -- cscope_maps
 vim.g.gutentags_cscope_build_inverted_index_maps = 1
-vim.pack.add({ 'https://github.com/dhananjaylatkar/cscope_maps.nvim' }, { load = true, confirm = false })
-require("cscope_maps").setup({
-  disable_maps = true,
-  cscope = { exec = 'gtags-cscope' },
-})
+local packages = { "cscope_maps.nvim", "vim-gutentags" }
 
-vim.pack.add({ 'https://github.com/ludovicchabant/vim-gutentags' }, { load = true, confirm = false })
+vim.pack.add({
+  "https://github.com/dhananjaylatkar/cscope_maps.nvim",
+  "https://github.com/ludovicchabant/vim-gutentags",
+}, { load = false, confirm = false })
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  once = true,
+  callback = function()
+    require("config.lazy").load(packages)
+    require("cscope_maps").setup({
+      disable_maps = true,
+      cscope = { exec = "gtags-cscope" },
+    })
+    vim.fn["gutentags#setup_gutentags"]()
+  end,
+})

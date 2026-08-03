@@ -1,31 +1,30 @@
+local packages = {
+  "nvim-lspconfig",
+  "mason.nvim",
+  "nvim-jdtls",
+  "mason-lspconfig.nvim",
+  "SchemaStore.nvim",
+}
+
 vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/mfussenegger/nvim-jdtls",
   "https://github.com/mason-org/mason-lspconfig.nvim",
   "https://github.com/b0o/SchemaStore.nvim",
-}, { load = true, confirm = false })
+}, { load = false, confirm = false })
 
-require("mason").setup()
-
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    -- "basedpyright",
-    "ty",
-    "zk",
-    -- "pyrefly",
-    "ruff",
-    "emmylua_ls",
-    "postgres_lsp",
-    "jdtls",
-    "tsgo",
-    "yamlls",
-    "jsonls",
-    "emmet_language_server",
-    "cssls",
-    -- "css_variables", "cssmodules-language-server", "ty",
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "css", "html", "java", "javascript", "javascriptreact", "json", "jsonc",
+    "less", "lua", "markdown", "python", "sass", "scss", "sh", "sql",
+    "typescript", "typescriptreact", "yaml", "yaml.docker-compose", "yaml.gitlab",
+    "yaml.helm-values", "zsh",
   },
+  once = true,
+  callback = function()
+    require("config.lazy").load(packages, "config.lsp")
+  end,
 })
 
-vim.lsp.config('shuck', {})
-vim.lsp.enable('shuck')
+require("config.lazy").commands("Mason*", packages, "config.lsp")

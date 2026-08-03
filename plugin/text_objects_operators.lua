@@ -1,57 +1,48 @@
+local packages = {
+  "vim-textobj-user",
+  "targets.vim",
+  "vim-textobj-entire",
+  "treesitter-indent-object.nvim",
+  "vim-textobj-variable-segment",
+  "dsf.vim",
+  "ts-comments.nvim",
+  "vim-textobj-line",
+}
+
+vim.g.dsf_no_mappings = 1
+
 vim.pack.add({
   "https://github.com/kana/vim-textobj-user",
   "https://github.com/wellle/targets.vim",
   "https://github.com/kana/vim-textobj-entire",
   "https://github.com/kiyoon/treesitter-indent-object.nvim",
   "https://github.com/Julian/vim-textobj-variable-segment",
-  "https://github.com/tommcdo/vim-lion",
-}, { load = true, confirm = false })
-
-
--- Disable default mappings
-vim.g.dsf_no_mappings = 1
-
-vim.pack.add({
   "https://github.com/AndrewRadev/dsf.vim",
-}, { load = true, confirm = false })
-
-local opts = { noremap = true }
-
-vim.keymap.set("n", "dsf", "<Plug>DsfDelete", opts)
-vim.keymap.set("n", "csf", "<Plug>DsfChange", opts)
-vim.keymap.set("n", "dsnf", "<Plug>DsfNextDelete", opts)
-vim.keymap.set("n", "csnf", "<Plug>DsfNextChange", opts)
-
-
-vim.pack.add({
-  "https://github.com/ralismark/opsort.vim",
-
-  "https://github.com/whatyouhide/vim-textobj-xmlattr",
-  "https://github.com/christoomey/vim-sort-motion",
-
   "https://github.com/folke/ts-comments.nvim",
   "https://github.com/kana/vim-textobj-line",
-  "https://github.com/johmsalas/text-case.nvim",
-}, { load = true, confirm = false })
+}, { load = false, confirm = false })
 
+local lazy = require("config.lazy")
+local function load()
+  lazy.load(packages, "config.text_objects_operators")
+end
 
--- Treesitter Indent Object Mappings
-local indent_obj = require'treesitter_indent_object.textobj'
+vim.api.nvim_create_autocmd("ModeChanged", {
+  pattern = { "*:no*", "*:v", "*:V", "*:\22" },
+  once = true,
+  callback = load,
+})
 
--- Select context-aware indent (outer)
-vim.keymap.set({'x', 'o'}, 'ai', indent_obj.select_indent_outer, { desc = "Select context-aware indent (outer)" })
+local mappings = {
+  dsf = "<Plug>DsfDelete",
+  csf = "<Plug>DsfChange",
+  dsnf = "<Plug>DsfNextDelete",
+  csnf = "<Plug>DsfNextChange",
+}
 
--- Select context-aware indent (outer, line-wise)
-vim.keymap.set({'x', 'o'}, 'aI', function()
-  indent_obj.select_indent_outer(true)
-end, { desc = "Select context-aware indent (outer, line-wise)" })
-
--- Select context-aware indent (inner, partial range)
-vim.keymap.set({'x', 'o'}, 'ii', indent_obj.select_indent_inner, { desc = "Select context-aware indent (inner, partial range)" })
-
--- Select context-aware indent (inner, entire range) in line-wise visual mode
-vim.keymap.set({'x', 'o'}, 'iI', function()
-  indent_obj.select_indent_inner(true, 'V')
-end, { desc = "Select context-aware indent (inner, entire range) in line-wise visual mode" })
-
-require('ts-comments').setup{}
+for lhs, rhs in pairs(mappings) do
+  vim.keymap.set({ "n", "x" }, lhs, function()
+    load()
+    return rhs
+  end, { expr = true, remap = true })
+end

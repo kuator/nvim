@@ -73,3 +73,4 @@ if not vim.g.vscode then
 end
 
 vim.cmd[[set wildcharm=<TAB>]]
+vim.loader.enable()

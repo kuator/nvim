@@ -1,3 +1,8 @@
+local pack_add = vim.pack.add
+vim.pack.add = function(specs, opts)
+  return pack_add(specs, vim.tbl_extend("force", opts or {}, { confirm = false }))
+end
+
 local build_commands = {
   ["telescope-fzf-native.nvim"] = { "make" },
   LuaSnip = { "make", "install_jsregexp" },

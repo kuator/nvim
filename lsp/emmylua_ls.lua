@@ -8,7 +8,6 @@ local emmylua_ls = {
       diagnostics = {
         disable = {
           "unnecessary-if", -- buggy rule
-          "undefined-field", -- false positives for Neovim's module fields
         },
         globals = { "vim" },
       },
@@ -24,7 +23,7 @@ local emmylua_ls = {
         typeCall = true,
       },
       workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
+        library = vim.api.nvim_get_runtime_file("lua", true),
       },
     },
   },

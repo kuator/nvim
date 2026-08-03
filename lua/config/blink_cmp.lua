@@ -1,8 +1,3 @@
-vim.pack.add({
-  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
-  "https://github.com/xzbdmw/colorful-menu.nvim",
-}, { load = true, confirm = false })
-
 require("colorful-menu").setup()
 
 require("blink.cmp").setup({
@@ -47,3 +42,7 @@ require("blink.cmp").setup({
   },
   fuzzy = { implementation = "prefer_rust_with_warning" },
 })
+
+if package.loaded["markview.state"] then
+  require("markview.integrations").setup()
+end

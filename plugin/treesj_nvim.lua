@@ -1,6 +1,10 @@
-vim.pack.add({ "https://github.com/Wansmer/treesj" }, { load = true, confirm = false})
+local lazy = require("config.lazy")
+local packages = { "treesj" }
 
-require("treesj").setup({
-  use_default_keymaps = false,
-})
-vim.keymap.set("n", "<leader>j", "<cmd>TSJToggle<cr>")
+vim.pack.add({ "https://github.com/Wansmer/treesj" }, { load = false, confirm = false })
+
+lazy.commands("TSJ*", packages, "config.treesj")
+vim.keymap.set("n", "<leader>j", function()
+  lazy.load(packages, "config.treesj")
+  vim.cmd.TSJToggle()
+end)
