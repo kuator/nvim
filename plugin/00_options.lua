@@ -72,5 +72,5 @@ if not vim.g.vscode then
   require("vim._core.ui2").enable({})
 end
 
-vim.cmd[[set wildcharm=<TAB>]]
+vim.o.wildcharm = vim.keycode("<Tab>"):byte()
 vim.loader.enable()

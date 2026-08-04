@@ -7,4 +7,4 @@ vim.pack.add({
 }, { load = true, confirm = false })
 vim.g.vscode_style = "dark"
 vim.cmd[[colorscheme vscode]]
-vim.cmd[[hi CursorLine cterm=underline guibg=#333333]]
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#333333", cterm = { underline = true } })

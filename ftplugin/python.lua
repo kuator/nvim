@@ -1,2 +1,2 @@
-vim.cmd[[setlocal foldmethod=indent]]
-vim.g.pyindent_open_paren = 'shiftwidth()'
+vim.opt_local.foldmethod = "indent"
+vim.g.python_indent = { open_paren = "shiftwidth()" }
