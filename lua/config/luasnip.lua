@@ -1,10 +1,13 @@
 require('luasnip').filetype_extend('java', { "javadoc" })
 require('luasnip').filetype_extend('python', { 'django', 'django-rest', 'pydoc' })
 
-vim.tbl_map(
-  function(type) require("luasnip.loaders.from_" .. type).lazy_load() end,
-  { "lua", "snipmate", "vscode" }
-)
+require("luasnip.loaders.from_lua").lazy_load({
+  paths = { vim.fn.stdpath("config") .. "/snippets/luasnip" },
+})
+
+vim.tbl_map(function(type)
+  require("luasnip.loaders.from_" .. type).lazy_load()
+end, { "snipmate", "vscode" })
 
 local ls = require("luasnip")
 

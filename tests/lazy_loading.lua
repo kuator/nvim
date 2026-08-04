@@ -68,6 +68,18 @@ local ok, error_message = pcall(function()
   vim.fn.delete(markdown_file)
 
   vim.cmd.enew()
+  vim.bo.filetype = "env"
+  vim.opt.virtualedit = "onemore"
+  local luasnip = require("luasnip")
+  for _, case in ipairs({ { "dc", "::" }, { "fa", "=>" } }) do
+    local trigger, expected = unpack(case)
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, { trigger })
+    vim.api.nvim_win_set_cursor(0, { 1, #trigger })
+    assert(luasnip.expand(), trigger .. " is unavailable in env files")
+    assert(vim.api.nvim_get_current_line() == expected, trigger .. " expanded incorrectly")
+  end
+
+  vim.cmd.enew()
   vim.api.nvim_buf_set_lines(0, 0, -1, false, { '{"one": 1, "two": 2}' })
   vim.bo.filetype = "json"
 
