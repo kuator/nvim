@@ -6,6 +6,7 @@ local cases = {
   { "TSLog", "nvim-treesitter" },
   { "ZkNotes", "zk" },
   { "Markview" },
+  { "CsvViewToggle", "csvview" },
 }
 
 local ok, error_message = pcall(function()
