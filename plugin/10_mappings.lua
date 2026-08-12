@@ -73,23 +73,23 @@ local function start_dev_terminals(namespace, chat_command)
   end
 
   run("backend",
-    ('cd "$(zoxide query backend)" && workon && set -a && source .env && set +a && uvicorn %s.server:app --port 8100 --reload'):format(namespace)
+    ('cd "$(zoxide query backend)" && mise exec -- uv run uvicorn %s.server:app --port 8100 --reload'):format(namespace)
   )
 
   run("mcp",
-    ('cd "$(zoxide query mcp)" && workon && set -a && source .env && set +a && python -m %s.src.server.app'):format(namespace)
+    ('cd "$(zoxide query mcp)" && mise exec -- uv run python -m %s.src.server.app'):format(namespace)
   )
 
   run("client-service",
-    ('cd "$(zoxide query client_service)" && workon && set -a && source .env && set +a && uvicorn %s.src.main:app --host 0.0.0.0 --port 8000 --reload'):format(namespace)
+    ('cd "$(zoxide query client_service)" && mise exec -- uv run uvicorn %s.src.main:app --host 0.0.0.0 --port 8000 --reload'):format(namespace)
+  )
+
+  run("worker",
+    ('cd "$(zoxide query worker)" && mise exec -- uv run celery -A app.%s.main.celery_app worker --loglevel=info --concurrency=${CELERY_CONCURRENCY:-2} --max-tasks-per-child=1'):format(namespace)
   )
 
   run("chat",
     'cd "$(zoxide query chat)" && ' .. chat_command
-  )
-
-  run("worker",
-    ('cd "$(zoxide query worker)" && workon && set -a && source .env && set +a && celery -A app.%s.main.celery_app worker --loglevel=info --concurrency=${CELERY_CONCURRENCY:-2} --max-tasks-per-child=1'):format(namespace)
   )
 end
 

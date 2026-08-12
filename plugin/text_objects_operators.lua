@@ -41,7 +41,7 @@ local mappings = {
 }
 
 for lhs, rhs in pairs(mappings) do
-  vim.keymap.set({ "n", "x" }, lhs, function()
+  vim.keymap.set("n", lhs, function()
     load()
     return rhs
   end, { expr = true, remap = true })

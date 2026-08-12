@@ -26,6 +26,18 @@ local ok, error_message = pcall(function()
   for _, module in ipairs(deferred_modules) do
     assert(package.loaded[module] == nil, module .. " loaded during startup")
   end
+  for _, command in ipairs({
+    "DiffviewOpen",
+    "DiffviewFileHistory",
+    "DiffviewClose",
+    "DiffviewFocusFiles",
+    "DiffviewToggleFiles",
+    "DiffviewRefresh",
+    "DiffviewLog",
+  }) do
+    assert(vim.fn.exists(":" .. command) == 2, command .. " is missing from command completion")
+    assert(vim.tbl_contains(vim.fn.getcompletion("Diffview", "command"), command), command .. " is not completed")
+  end
   assert(vim.g.loaded_targets == nil, "text objects loaded during startup")
   assert(vim.g.loaded_rsi == nil, "vim-rsi loaded during startup")
   assert(vim.g.loaded_characterize == nil, "vim-characterize loaded during startup")
