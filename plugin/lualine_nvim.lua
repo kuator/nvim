@@ -38,8 +38,19 @@ require("lualine").setup({
       { "branch", icon = "" },
       {
         "diagnostics",
-        colored = false,
-        symbols = { error = "× ", warn = "△ ", info = "○ ", hint = "◇ " },
+        colored = true,
+        diagnostics_color = {
+          error = { fg = "#FF5555", bg = "#007ACC", gui = "bold" },
+          warn  = { fg = "#FFD700", bg = "#007ACC", gui = "bold" },
+          info  = { fg = "#55FFFF", bg = "#007ACC", gui = "bold" },
+          hint  = { fg = "#ffffff", bg = "#007ACC", gui = "bold" },
+        },
+        symbols = {
+          error = " ",
+          warn  = " ",
+          info  = " ",
+          hint  = "󰌵 ",
+        },
       },
     },
     lualine_c = { "filename" },

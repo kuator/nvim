@@ -1,5 +1,6 @@
 local deferred_modules = {
   "blink.cmp",
+  "codecompanion",
   "dap-view",
   "diffview.bootstrap",
   "fidget",

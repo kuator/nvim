@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "css", "html", "java", "javascript", "javascriptreact", "json", "jsonc",
     "less", "lua", "markdown", "python", "sass", "scss", "sh", "sql",
     "typescript", "typescriptreact", "yaml", "yaml.docker-compose", "yaml.gitlab",
-    "yaml.helm-values", "zsh",
+    "yaml.helm-values", "zsh", "vim"
   },
   once = true,
   callback = function()

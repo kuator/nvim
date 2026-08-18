@@ -1,10 +1,17 @@
 require("mason").setup()
 
+vim.lsp.config("ty", {
+  flags = {
+    debounce_text_changes = 25,
+  },
+})
+
 require("mason-lspconfig").setup({
   automatic_enable = true,
   ensure_installed = {
     -- "basedpyright",
     "ty",
+    "vimls",
     "zk",
     -- "pyrefly",
     "ruff",

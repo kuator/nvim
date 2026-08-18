@@ -5,7 +5,21 @@ require("blink.cmp").setup({
     preset = "none",
     ["<C-n>"] = { "select_next", "fallback" },
     ["<C-p>"] = { "select_prev", "fallback" },
-    ["<C-y>"] = { "select_and_accept" },
+    ["<C-y>"] = {
+      function(cmp)
+        local accepted
+
+        if vim.bo.filetype == "python" then
+          accepted = require("config.python_call_args").accept(cmp)
+        else
+          accepted = cmp.accept()
+        end
+
+        -- Consume <C-y> while the menu is open even when nothing is selected.
+        return accepted or cmp.is_visible()
+      end,
+      "fallback",
+    },
   },
   snippets = {
     preset = "luasnip",
@@ -13,6 +27,15 @@ require("blink.cmp").setup({
   cmdline = { enabled = false },
   signature = { enabled = true },
   completion = {
+    trigger = {
+      show_in_snippet = false,
+    },
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = false,
+      },
+    },
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 0,
@@ -21,7 +44,6 @@ require("blink.cmp").setup({
       },
     },
     accept = { auto_brackets = { enabled = true } },
-    -- list = { selection = { preselect = false, auto_insert = true } },
     menu = {
       draw = {
         -- We don't need label_description now because label and label_description are already
