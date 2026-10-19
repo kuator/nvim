@@ -1,5 +1,4 @@
 local deferred_modules = {
-  "blink.cmp",
   "codecompanion",
   "dap-view",
   "diffview.bootstrap",
@@ -7,6 +6,8 @@ local deferred_modules = {
   "luasnip",
   "mason",
   "markview.state",
+  "minibuffer.builtin.files",
+  "minibuffer.builtin.oldfiles",
   "neotest",
   "null-ls",
   "nvim-treesitter",
@@ -14,7 +15,6 @@ local deferred_modules = {
   "oil",
   "origami",
   "overseer",
-  "telescope",
   "treesj",
   "treesitter-unit",
   "match-up",
@@ -23,6 +23,15 @@ local deferred_modules = {
 
 local ok, error_message = pcall(function()
   assert(vim.loader.enabled, "native Lua loader is disabled")
+  assert(package.loaded["config.native_completion"], "native completion config was not loaded")
+  assert(vim.o.autocomplete, "native autocomplete is disabled")
+  assert(package.loaded["minibuffer"], "minibuffer was not eagerly loaded")
+  assert(require("minibuffer.internal.state").initialized, "minibuffer was not initialized")
+  assert(require("minibuffer")._scheduled_fetch_callbacks, "minibuffer fast-event callback shim is missing")
+  assert(require("minibuffer")._normal_select_navigation, "minibuffer Normal-mode navigation is missing")
+  assert(require("minibuffer.config").cmd.autotrigger == false, "minibuffer command completion autotrigger is enabled")
+  assert(vim.ui.select == require("minibuffer.builtin.ui_select"), "vim.ui.select does not use minibuffer")
+  assert(vim.ui.input == require("minibuffer.builtin.ui_input"), "vim.ui.input does not use minibuffer")
 
   for _, module in ipairs(deferred_modules) do
     assert(package.loaded[module] == nil, module .. " loaded during startup")
@@ -72,12 +81,12 @@ local ok, error_message = pcall(function()
   vim.cmd.edit(vim.fn.fnameescape(markdown_file))
   assert(package.loaded["markview.state"], "Markview did not load for Markdown")
   assert(package.loaded["zk"], "zk did not load for Markdown")
-  assert(package.loaded["telescope"], "zk did not load its Telescope picker")
+  assert(package.loaded["telescope"] == nil, "zk loaded the removed Telescope picker")
 
   vim.api.nvim_exec_autocmds("InsertEnter")
-  assert(package.loaded["blink.cmp"], "blink.cmp did not load on InsertEnter")
+  assert(package.loaded["blink.cmp"] == nil, "blink.cmp loaded in the native profile")
+  assert(package.loaded["luasnip"], "LuaSnip did not load on InsertEnter")
   assert(vim.g.loaded_rsi == 1, "vim-rsi did not load on InsertEnter")
-  assert(vim.g.markview_blink_loaded == true, "Markview did not register with blink.cmp")
   vim.fn.delete(markdown_file)
 
   vim.cmd.enew()
@@ -114,11 +123,41 @@ local ok, error_message = pcall(function()
   assert(refactor_ok, "Refactor failed: " .. tostring(refactor_error))
   assert(vim.fn.exists(":Refactor") == 2, "Refactor command did not load")
 
-  local telescope_mapping = vim.fn.maparg("<leader>ff", "n", false, true)
-  assert(type(telescope_mapping.callback) == "function", "Telescope mapping has no lazy callback")
-  local telescope_ok, telescope_error = pcall(telescope_mapping.callback)
-  assert(telescope_ok, "Telescope mapping failed: " .. tostring(telescope_error))
-  assert(package.loaded["telescope"], "Telescope mapping did not load Telescope")
+  local find_mapping = vim.fn.maparg("<leader>ff", "n", false, true)
+  assert(find_mapping.rhs == ":find ", "native :find mapping is missing")
+  local search_mapping = vim.fn.maparg("<leader>sf", "n", false, true)
+  assert(type(search_mapping.callback) == "function", "search-files mapping does not use minibuffer")
+  local recent_mapping = vim.fn.maparg("<leader>sr", "n", false, true)
+  assert(type(recent_mapping.callback) == "function", "recent-files mapping does not use minibuffer")
+  assert(vim.fn.exists(":RecentFiles") == 2, "RecentFiles command is missing")
+  assert(vim.fn.exists(":ListEnvs") == 2, "ListEnvs command is missing")
+  local lgrep_mapping = vim.fn.maparg("<leader>lg", "n", false, true)
+  assert(lgrep_mapping.rhs == ":silent lgrep ", "lgrep mapping was replaced")
+  local matches = vim.o.findfunc("plugin/find.lua", true)
+  assert(vim.tbl_contains(matches, "plugin/find.lua"), "findfunc did not find plugin/find.lua")
+
+  local find_test_dir = vim.fn.tempname()
+  vim.fn.mkdir(vim.fs.joinpath(find_test_dir, "ignored"), "p")
+  vim.fn.writefile({ ".env", "ignored/" }, vim.fs.joinpath(find_test_dir, ".gitignore"))
+  vim.fn.writefile({ "SECRET=test", "unique_lgrep_token" }, vim.fs.joinpath(find_test_dir, ".env"))
+  vim.fn.writefile({ "ignored" }, vim.fs.joinpath(find_test_dir, "ignored", "file.txt"))
+  vim.fn.writefile({ "SECRET=test" }, vim.fs.joinpath(find_test_dir, "ignored", ".env.local"))
+  vim.fn.writefile({ "unique_lgrep_token" }, vim.fs.joinpath(find_test_dir, "visible.txt"))
+  assert(vim.system({ "git", "init", "-q", find_test_dir }):wait().code == 0, "Git test repository failed")
+  local old_cwd = vim.fn.getcwd()
+  vim.api.nvim_set_current_dir(find_test_dir)
+  local env_matches = vim.o.findfunc("env", true)
+  local ignored_matches = vim.o.findfunc("ignored/file", true)
+  vim.cmd("noautocmd silent lgrep unique_lgrep_token")
+  local lgrep_entries = vim.fn.getloclist(0)
+  vim.api.nvim_set_current_dir(old_cwd)
+  vim.fn.delete(find_test_dir, "rf")
+  assert(not vim.tbl_contains(env_matches, ".env"), "findfunc exposed Git-ignored .env")
+  assert(not vim.tbl_contains(ignored_matches, "ignored/file.txt"), "findfunc exposed unrelated ignored file")
+  assert(not vim.o.grepprg:find("no%-ignore%-vcs"), "lgrep ignores project .gitignore")
+  assert(vim.o.grepprg:find("/fd/ignore", 1, true), "lgrep uses the wrong global ignore file")
+  assert(#lgrep_entries == 1, "lgrep included a Git-ignored match")
+  assert(vim.fn.fnamemodify(vim.api.nvim_buf_get_name(lgrep_entries[1].bufnr), ":t") == "visible.txt")
 
   local oil_mapping = vim.fn.maparg("-", "n", false, true)
   assert(type(oil_mapping.callback) == "function", "Oil mapping has no lazy callback")

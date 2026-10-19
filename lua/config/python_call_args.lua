@@ -1,6 +1,8 @@
 local M = {}
 
 local callable_kinds = {
+  [vim.lsp.protocol.CompletionItemKind.Function] = true,
+  [vim.lsp.protocol.CompletionItemKind.Method] = true,
   [vim.lsp.protocol.CompletionItemKind.Class] = true,
   [vim.lsp.protocol.CompletionItemKind.Constructor] = true,
 }
@@ -209,24 +211,15 @@ local function request_signature(state)
 
         state.done = true
 
-        -- Remove Blink's closing ")".
+        -- Remove the completion item's closing ")" before inserting the
+        -- argument snippet.
         vim.api.nvim_set_current_line(
           line:sub(1, insert_col) .. line:sub(insert_col + 2)
         )
 
-        local function expand_snippet()
-          require("luasnip").lsp_expand(snippet, {
-            pos = { state.call.row - 1, insert_col },
-          })
-        end
-
-        local cmp = require("blink.cmp")
-
-        if cmp.is_visible() then
-          cmp.hide({ callback = expand_snippet })
-        else
-          expand_snippet()
-        end
+        require("luasnip").lsp_expand(snippet, {
+          pos = { state.call.row - 1, insert_col },
+        })
       end)
     end,
     state.bufnr
@@ -275,39 +268,30 @@ local function expand_call_args(call)
   end
 end
 
-function M.accept(cmp)
-  local item = cmp.get_selected_item()
-
-  if not item then
+function M.on_complete_done(item)
+  if type(item) ~= "table" then
     return
   end
 
   local add_brackets = callable_kinds[item.kind] == true
 
-  return cmp.accept({
-    callback = function()
-      vim.schedule(function()
-        if vim.bo.filetype ~= "python" then
-          return
-        end
+  vim.schedule(function()
+    if vim.bo.filetype ~= "python" then
+      return
+    end
 
-        local call = find_empty_call()
+    local call = find_empty_call()
 
-        if not call and add_brackets then
-          call = add_empty_call()
-        end
+    if not call and add_brackets then
+      call = add_empty_call()
+    end
 
-        if not call then
-          vim.notify(
-            "python_call_args: couldn't find () after completion"
-          )
-          return
-        end
+    if not call then
+      return
+    end
 
-        expand_call_args(call)
-      end)
-    end,
-  })
+    expand_call_args(call)
+  end)
 end
 
 return M

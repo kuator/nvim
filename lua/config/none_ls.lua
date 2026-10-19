@@ -8,15 +8,17 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
+local luasnip_completion = require("config.native_luasnip_completion").source()
+
 null_ls.setup({
   debug = false,
   debounce = 1000,
   temp_dir = '/tmp',
   sources = {
+    luasnip_completion,
     formatting.prettierd,
     formatting.google_java_format,
     -- formatting.black,
-    -- null_ls.builtins.completion.luasnip,
     null_ls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
     null_ls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }),
     -- diagnostics.mypy,

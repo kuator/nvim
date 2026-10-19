@@ -1,3 +1,7 @@
+if vim.g.vscode then
+  return
+end
+
 vim.pack.add({
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/nvim-tree/nvim-web-devicons",
@@ -25,7 +29,7 @@ local function lsp_status()
   return "LSP: " .. table.concat(names, ", ")
 end
 
-require("lualine").setup({
+require("minibuffer.integrations.lualine")({
   options = {
     component_separators = "",
     section_separators = "",

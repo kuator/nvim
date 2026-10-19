@@ -7,7 +7,12 @@ vim.lsp.config("ty", {
 })
 
 require("mason-lspconfig").setup({
-  automatic_enable = true,
+  -- Metals v2 and JDTLS must not attach to the same Java buffer. Keep JDTLS
+  -- as the default; NVIM_METALS_JAVA=1 switches Java to Metals in the
+  -- isolated native-completion profile.
+  automatic_enable = vim.env.NVIM_METALS_JAVA == "1"
+      and { exclude = { "jdtls" } }
+    or true,
   ensure_installed = {
     -- "basedpyright",
     "ty",
@@ -18,7 +23,7 @@ require("mason-lspconfig").setup({
     "emmylua_ls",
     "postgres_lsp",
     "jdtls",
-    "tsgo",
+    "tsc",
     "yamlls",
     "jsonls",
     "emmet_language_server",

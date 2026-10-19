@@ -1,5 +1,4 @@
 local cases = {
-  { "Telescope", "telescope" },
   { "Mason", "mason" },
   { "NoneLsInstall", "mason-null-ls" },
   { "NullLsInfo", "null-ls" },

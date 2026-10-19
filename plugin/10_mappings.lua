@@ -73,7 +73,7 @@ local function start_dev_terminals(namespace, chat_command)
   end
 
   run("backend",
-    ('cd "$(zoxide query backend)" && mise exec -- uv run uvicorn %s.server:app --port 8100 --reload'):format(namespace)
+    ('cd "$(zoxide query backend)" && mise exec -- uv run uvicorn %s.server:app --port 8100 --reload --reload-dir %s --reload-dir core'):format(namespace, namespace)
   )
 
   run("mcp",
@@ -81,7 +81,7 @@ local function start_dev_terminals(namespace, chat_command)
   )
 
   run("client-service",
-    ('cd "$(zoxide query client_service)" && mise exec -- uv run uvicorn %s.src.main:app --host 0.0.0.0 --port 8000 --reload'):format(namespace)
+    ('cd "$(zoxide query client_service)" && mise exec -- uv run uvicorn %s.src.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir %s --reload-dir core'):format(namespace, namespace)
   )
 
   run("worker",

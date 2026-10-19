@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     -- vim.keymap.set("n", "<a-.>", vim.lsp.buf.code_action, options)
 
     local function format_servers(server)
-      local servers_to_ignore = { "tsgo", "jdtls" }
+      local servers_to_ignore = { "tsc", "jdtls" }
       return not vim.list_contains(servers_to_ignore, server)
     end
 

@@ -13,12 +13,9 @@ vim.pack.add({
 }, { load = false, confirm = false })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "astro", "css", "graphql", "handlebars", "html", "htmlangular",
-    "java", "javascript", "javascriptreact", "json", "json5", "jsonc",
-    "less", "lua", "luau", "markdown", "markdown.mdx", "scss", "sql",
-    "svelte", "typescript", "typescriptreact", "vue", "yaml",
-  },
+  -- LuaSnip completion applies to every normal filetype, so none-ls must be
+  -- available even when no formatter or diagnostic source matches.
+  pattern = "*",
   once = true,
   callback = function(args)
     require("config.lazy").load(packages, "config.none_ls")

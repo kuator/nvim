@@ -69,7 +69,7 @@ vim.o.winborder = "rounded"
 vim.o.cmdheight = 1
 
 if not vim.g.vscode then
-  require("vim._core.ui2").enable({})
+  require("vim._core.ui2").enable({ enable = true, msg = { targets = "msg" } })
 end
 
 vim.o.wildcharm = vim.keycode("<Tab>"):byte()
